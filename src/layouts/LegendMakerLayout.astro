@@ -1,0 +1,166 @@
+---
+/**
+ * LegendMakerLayout.astro
+ * Shared layout for the Legend-Maker pages (/legend-maker and /legend-maker/scroll).
+ *
+ * Self-contained: pulls its own fonts (Newsreader + Instrument Sans) and its own
+ * stylesheet (../styles/legend-maker.css). Everything is scoped under `.lm-page`
+ * so it cannot bleed into the rest of 701am.com.
+ *
+ * If 701am.com already loads these fonts globally, the duplicate preconnect/link
+ * is harmless — browsers dedupe. If you want to remove them, see the FONTS block.
+ */
+
+import "../styles/legend-maker.css";
+
+interface Props {
+  title: string;
+  description: string;
+  canonical?: string;
+  ogImage?: string;
+  showProgress?: boolean;
+}
+
+const {
+  title,
+  description,
+  canonical,
+  ogImage = "/legend-maker/og.jpg",
+  showProgress = false,
+} = Astro.props;
+
+const url = canonical ?? new URL(Astro.url.pathname, "https://701am.com").toString();
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="generator" content={Astro.generator} />
+
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={url} />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={url} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:site_name" content="701am" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+
+    <!-- FONTS: Newsreader (display/serif) + Instrument Sans (UI/body sans) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,300;1,6..72,400&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap"
+    />
+  </head>
+  <body class="lm-body">
+    <div class="lm-page">
+      <!-- TOPBAR — keep this consistent with the rest of 701am if you want.
+           Otherwise this lightweight masthead works on its own. -->
+      <header class="lm-topbar">
+        <div class="lm-container">
+          <div class="lm-topbar__row">
+            <a href="/" class="lm-topbar__brand">
+              <b>701am</b>
+            </a>
+            <nav class="lm-topbar__nav" aria-label="Section">
+              <a href="/legend-maker">The Method</a>
+              <a href="/legend-maker/scroll">The Scroll</a>
+              <a href="/">701am.com</a>
+            </nav>
+            <span class="lm-topbar__meta">Vol. I · First Edition</span>
+          </div>
+        </div>
+      </header>
+
+      {showProgress && <div class="lm-progress" id="lm-progress"></div>}
+
+      <main>
+        <slot />
+      </main>
+
+      <!-- COLOPHON / FOOTER -->
+      <footer class="lm-colophon">
+        <div class="lm-container">
+          <div class="lm-colophon__grid">
+            <div>
+              <p class="lm-colophon__brand"><b>701am</b> — earned media, by the method.</p>
+              <p class="lm-colophon__tag">
+                The Legend-Maker Scroll is a field manual from the desk at 701am.
+                Free to read, free to share. Set in Newsreader and Instrument Sans.
+              </p>
+            </div>
+            <div>
+              <h5>The Scroll</h5>
+              <ul>
+                <li><a href="/legend-maker">Overview</a></li>
+                <li><a href="/legend-maker/scroll">Read the full scroll</a></li>
+                <li><a href="/legend-maker#capture">Get it by email</a></li>
+              </ul>
+            </div>
+            <div>
+              <h5>701am</h5>
+              <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/cronkite">Cronkite</a></li>
+                <li><a href="/contact">Contact the desk</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="lm-colophon__legal">
+            <span>© {new Date().getFullYear()} 701am · Published by PressTitan</span>
+            <span>Manila · Composed by the desk</span>
+          </div>
+        </div>
+      </footer>
+
+      <button class="lm-back" id="lm-back" aria-label="Back to top">↑</button>
+    </div>
+
+    {showProgress && (
+      <script is:inline>
+        // Reading progress bar + back-to-top
+        (function () {
+          const bar = document.getElementById("lm-progress");
+          const back = document.getElementById("lm-back");
+          function onScroll() {
+            const h = document.documentElement;
+            const scrolled = h.scrollTop / (h.scrollHeight - h.clientHeight);
+            if (bar) bar.style.width = (scrolled * 100) + "%";
+            if (back) back.classList.toggle("is-visible", h.scrollTop > 600);
+          }
+          window.addEventListener("scroll", onScroll, { passive: true });
+          if (back) back.addEventListener("click", function () {
+            window.scrollTo({ top: 0, behavior: "smooth" });
+          });
+        })();
+      </script>
+    )}
+    {!showProgress && (
+      <script is:inline>
+        (function () {
+          const back = document.getElementById("lm-back");
+          function onScroll() {
+            if (back) back.classList.toggle("is-visible", document.documentElement.scrollTop > 600);
+          }
+          window.addEventListener("scroll", onScroll, { passive: true });
+          if (back) back.addEventListener("click", function () {
+            window.scrollTo({ top: 0, behavior: "smooth" });
+          });
+        })();
+      </script>
+    )}
+  </body>
+</html>

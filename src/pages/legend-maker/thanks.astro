@@ -1,0 +1,53 @@
+---
+/**
+ * /legend-maker/thanks — Post-submit confirmation page.
+ * The form on /legend-maker posts here. If you wire up your email provider's
+ * webhook to actually deliver the scroll via email, this page just confirms it.
+ */
+
+import LegendMakerLayout from "../../layouts/LegendMakerLayout.astro";
+
+const title = "Thanks — The Legend-Maker Scroll is on its way | 701am";
+const description = "Your copy of the Legend-Maker Scroll is on its way to your inbox.";
+---
+
+<LegendMakerLayout title={title} description={description}>
+  <section class="lm-hero">
+    <div class="lm-container">
+      <div class="lm-hero__edition">
+        <span>Confirmed</span>
+        <span>701am.com / Legend-Maker</span>
+      </div>
+
+      <h1 class="lm-hero__title">
+        It's on the <em>way.</em>
+      </h1>
+
+      <p class="lm-hero__lede">
+        Check your inbox in the next few minutes. The scroll arrives from <em>the desk
+        at 701am</em> — if it's not there, look in your Promotions tab.
+      </p>
+
+      <div style="margin-top: 3rem; display: flex; gap: 1rem; flex-wrap: wrap;">
+        <a href="/legend-maker/scroll" class="lm-btn">Read it now on the web →</a>
+        <a href="/" class="lm-btn lm-btn--ghost">Back to 701am.com</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="lm-dek">
+    <div class="lm-container">
+      <div class="lm-dek__grid">
+        <div class="lm-dek__label">While you wait</div>
+        <div class="lm-dek__body">
+          <p>
+            The scroll is one document. We send it once, and that's it — no drip, no
+            funnel. If you want help running the method against your business, the desk
+            at 701am does this for a living. <a href="/contact">Find us here</a> when
+            you're ready.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+</LegendMakerLayout>
