@@ -2,6 +2,7 @@
 import '../styles/global.css';
 import Topbar from '../components/Topbar.astro';
 import Footer from '../components/Footer.astro';
+import SearchOverlay from '../components/SearchOverlay.astro';
 
 interface Props {
   title?: string;
@@ -12,7 +13,7 @@ interface Props {
 
 const {
   title = '701am — Earn what you cannot buy.',
-  description = 'The office of earned media. Book a sunrise call or read the scroll.',
+  description = 'The morning record. Book a sunrise call or read the scroll.',
   ogImage = '/og-image.png',
   noIndex = false,
 } = Astro.props;
@@ -29,7 +30,6 @@ const canonical = new URL(Astro.url.pathname, Astro.site).toString();
   <meta name="description" content={description} />
   {noIndex && <meta name="robots" content="noindex, nofollow" />}
 
-  <!-- Open Graph -->
   <meta property="og:title" content={title} />
   <meta property="og:description" content={description} />
   <meta property="og:url" content={canonical} />
@@ -37,16 +37,13 @@ const canonical = new URL(Astro.url.pathname, Astro.site).toString();
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="701am" />
 
-  <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content={title} />
   <meta name="twitter:description" content={description} />
   <meta name="twitter:image" content={new URL(ogImage, Astro.site).toString()} />
 
-  <!-- Favicon (uses the seal) -->
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 
-  <!-- Fonts: Newsreader (with opsz axis) + Instrument Sans -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
@@ -63,9 +60,9 @@ const canonical = new URL(Astro.url.pathname, Astro.site).toString();
     <slot />
   </main>
   <Footer />
+  <SearchOverlay />
 
   <script>
-    // Scroll reveal — fade up sections as they enter view
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {

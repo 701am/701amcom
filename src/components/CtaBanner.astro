@@ -1,0 +1,107 @@
+---
+interface Props {
+  eyebrow?: string;
+  heading?: string;
+  body?: string;
+  primaryLabel?: string;
+  primaryHref?: string;
+  secondaryLabel?: string;
+  secondaryHref?: string;
+}
+
+const {
+  eyebrow = "The work begins at 7:01",
+  heading = "Ready to <em>begin?</em>",
+  body = "Thirty minutes on a call. We listen, find the angle, and tell you straight whether we can help.",
+  primaryLabel = "Book a sunrise call",
+  primaryHref = "/contact",
+  secondaryLabel = "Or read the scroll",
+  secondaryHref = "mailto:hello@701am.com?subject=Send%20me%20the%20scroll",
+} = Astro.props;
+---
+<section class="cta-banner">
+  <div class="cta-banner-inner">
+    <div class="cta-banner-corner cta-banner-corner-tl" aria-hidden="true"></div>
+    <div class="cta-banner-corner cta-banner-corner-tr" aria-hidden="true"></div>
+    <div class="cta-banner-corner cta-banner-corner-bl" aria-hidden="true"></div>
+    <div class="cta-banner-corner cta-banner-corner-br" aria-hidden="true"></div>
+
+    <p class="cta-banner-eyebrow">★ {eyebrow} ★</p>
+    <h2 class="cta-banner-h" set:html={heading} />
+    <p class="cta-banner-body">{body}</p>
+
+    <div class="cta-cluster">
+      <a class="btn-primary" href={primaryHref}>
+        {primaryLabel}
+        <span class="btn-icon" aria-hidden="true">→</span>
+      </a>
+      <a class="btn-link" href={secondaryHref}>
+        {secondaryLabel}
+        <span class="arrow" aria-hidden="true">↓</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<style>
+  .cta-banner {
+    background: var(--navy-deep);
+    padding: var(--x1) var(--x1) calc(var(--x1) + var(--x3));
+  }
+  .cta-banner-inner {
+    max-width: var(--measure);
+    margin: 0 auto;
+    padding: calc(var(--x1) + var(--x3)) var(--x1);
+    background: rgba(212, 168, 83, 0.04);
+    border: 1px solid rgba(212, 168, 83, 0.25);
+    position: relative;
+    text-align: center;
+  }
+  .cta-banner-corner {
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    border: 1px solid var(--gold);
+  }
+  .cta-banner-corner-tl { top: -1px; left: -1px; border-right: none; border-bottom: none; }
+  .cta-banner-corner-tr { top: -1px; right: -1px; border-left: none; border-bottom: none; }
+  .cta-banner-corner-bl { bottom: -1px; left: -1px; border-right: none; border-top: none; }
+  .cta-banner-corner-br { bottom: -1px; right: -1px; border-left: none; border-top: none; }
+
+  .cta-banner-eyebrow {
+    font-family: 'Instrument Sans', sans-serif;
+    font-size: 10px;
+    letter-spacing: 0.32em;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin: 0 0 var(--x3);
+    font-weight: 500;
+  }
+  .cta-banner-h {
+    font-family: 'Newsreader', Georgia, serif;
+    font-size: clamp(2rem, 4vw, 2.75rem);
+    font-weight: 500;
+    line-height: 1.05;
+    letter-spacing: -0.025em;
+    color: var(--cream-warm);
+    margin: 0 0 var(--x3);
+    text-wrap: balance;
+    max-width: 18ch;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .cta-banner-h em {
+    font-style: italic;
+    color: var(--gold-light);
+    font-weight: 400;
+  }
+  .cta-banner-body {
+    font-family: 'Newsreader', Georgia, serif;
+    font-style: italic;
+    font-size: 17px;
+    line-height: 1.5;
+    color: var(--muted);
+    max-width: 32ch;
+    margin: 0 auto var(--x2);
+  }
+</style>

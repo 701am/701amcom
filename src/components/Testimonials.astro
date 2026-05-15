@@ -1,0 +1,137 @@
+---
+const testimonials = [
+  {
+    quote: "They sat with us for an hour and found an angle we had been carrying around for two years without seeing. Forty-seven days later we were quoted in the Wall Street Journal.",
+    name: "Maya Rodríguez",
+    role: "Founder, higher-ed platform",
+    initial: "M",
+  },
+  {
+    quote: "I have worked with three agencies in five years. 701am is the first one that pitched a story I would actually want to read. The placements followed.",
+    name: "Daniel Okonkwo",
+    role: "CMO, B2B SaaS",
+    initial: "D",
+  },
+  {
+    quote: "What I paid for: a campaign. What I got: a thesis for the next decade of how we tell our story. Everything we've done since has been downstream of that first sunrise call.",
+    name: "Sara Lindqvist",
+    role: "CEO, climate tech",
+    initial: "S",
+  },
+];
+---
+<section class="section section-navy testimonials-section">
+  <div class="container-wide">
+    <div class="section-label">
+      <div class="label-bar"></div>
+      <div class="label-text">§ — From the field</div>
+      <div class="label-bar"></div>
+    </div>
+    <h2 class="h2">What the office <em>hears back.</em></h2>
+    <p class="body body-center" style="margin-bottom: var(--x1);">
+      A few words from founders we have worked with. Names changed where confidentiality required, words unchanged.
+    </p>
+
+    <div class="testimonials-grid">
+      {testimonials.map((t) => (
+        <figure class="testimonial">
+          <span class="testimonial-mark" aria-hidden="true">“</span>
+          <blockquote class="testimonial-quote">
+            {t.quote}
+          </blockquote>
+          <figcaption class="testimonial-attr">
+            <span class="testimonial-avatar" aria-hidden="true">{t.initial}</span>
+            <div>
+              <div class="testimonial-name">— {t.name}</div>
+              <div class="testimonial-role">{t.role}</div>
+            </div>
+          </figcaption>
+        </figure>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .testimonials-section {
+    border-top: 1px solid rgba(212, 168, 83, 0.08);
+    border-bottom: 1px solid rgba(212, 168, 83, 0.08);
+  }
+  .testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+    margin-top: var(--x1);
+    border-top: 1px solid rgba(212, 168, 83, 0.2);
+  }
+  .testimonial {
+    margin: 0;
+    padding: var(--x2) var(--x3);
+    border-right: 1px solid rgba(212, 168, 83, 0.15);
+    border-bottom: 1px solid rgba(212, 168, 83, 0.2);
+    display: flex;
+    flex-direction: column;
+    position: relative;
+  }
+  .testimonial:last-child { border-right: none; }
+  .testimonial-mark {
+    font-family: 'Newsreader', Georgia, serif;
+    font-style: italic;
+    font-size: 64px;
+    line-height: 0.6;
+    color: var(--gold);
+    margin-bottom: var(--x4);
+    font-variant-numeric: oldstyle-nums;
+  }
+  .testimonial-quote {
+    font-family: 'Newsreader', Georgia, serif;
+    font-style: italic;
+    font-weight: 400;
+    font-size: 17px;
+    line-height: 1.55;
+    color: var(--cream);
+    margin: 0 0 var(--x3);
+    flex: 1;
+    text-wrap: pretty;
+  }
+  .testimonial-attr {
+    display: flex;
+    align-items: center;
+    gap: var(--x4);
+    padding-top: var(--x3);
+    border-top: 1px dotted rgba(212, 168, 83, 0.18);
+  }
+  .testimonial-avatar {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--claret) 0%, var(--coral) 100%);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Newsreader', Georgia, serif;
+    font-style: italic;
+    font-size: 17px;
+    color: var(--cream-warm);
+    flex-shrink: 0;
+  }
+  .testimonial-name {
+    font-family: 'Newsreader', Georgia, serif;
+    font-size: 15px;
+    color: var(--cream-warm);
+    line-height: 1.2;
+  }
+  .testimonial-role {
+    font-family: 'Instrument Sans', sans-serif;
+    font-size: 10px;
+    letter-spacing: 0.24em;
+    color: var(--muted-dim);
+    text-transform: uppercase;
+    margin-top: 3px;
+  }
+
+  @media (max-width: 900px) {
+    .testimonials-grid { grid-template-columns: 1fr; }
+    .testimonial { border-right: none; }
+  }
+</style>

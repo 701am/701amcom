@@ -1,10 +1,12 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import LatestDispatches from '../components/LatestDispatches.astro';
+import Testimonials from '../components/Testimonials.astro';
+import CtaBanner from '../components/CtaBanner.astro';
 ---
 <BaseLayout
   title="701am — Earn what you cannot buy."
-  description="The office of earned media. Book a sunrise call or read the scroll."
+  description="The morning record. Book a sunrise call or read the scroll."
 >
 
   <!-- ════ HERO ════ -->
@@ -261,8 +263,18 @@ import LatestDispatches from '../components/LatestDispatches.astro';
     </div>
   </section>
 
+  <!-- ════ § — TESTIMONIALS ════ -->
+  <Testimonials />
+
   <!-- ════ § 05 — LATEST DISPATCHES (move C) ════ -->
   <LatestDispatches />
+
+  <!-- ════ FINAL CTA BANNER ════ -->
+  <CtaBanner
+    eyebrow="The work begins at 7:01"
+    heading="Ready to <em>begin?</em>"
+    body="Thirty minutes. No deck, no pitch, no charge. We listen, find the angle, and tell you straight whether we can help you become impossible to ignore."
+  />
 
 </BaseLayout>
 

@@ -7,7 +7,10 @@
   <title>701am — Office archive</title>
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,500;1,400&family=Instrument+Sans:wght@400;500&display=swap" rel="stylesheet" />
+
+  <!-- Netlify Identity widget — required for Decap CMS login -->
   <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+
   <style>
     body { background: #0A1633; color: #F5EFE4; font-family: 'Instrument Sans', sans-serif; margin: 0; }
     .pre-auth-banner {
@@ -33,7 +36,11 @@
     <span class="title">701am — Office archive</span>
     <span class="tag">Decap CMS</span>
   </div>
+
+  <!-- Decap CMS app -->
   <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+
+  <!-- Redirect signed-up users back to /admin/ instead of homepage -->
   <script>
     if (window.netlifyIdentity) {
       window.netlifyIdentity.on("init", (user) => {
