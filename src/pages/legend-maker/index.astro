@@ -1,0 +1,239 @@
+---
+/**
+ * /legend-maker — Landing page for the Legend-Maker Scroll.
+ *
+ * Routes:
+ *   /legend-maker          → this page (pitch + email capture)
+ *   /legend-maker/scroll   → the full scroll (next file)
+ *
+ * IMPORTANT: Replace the form action (#FORM_ACTION) with your email provider's
+ * endpoint — ConvertKit, Mailchimp, Buttondown, Netlify Forms, etc. As shipped
+ * it falls back to a Netlify Forms-compatible setup (data-netlify="true").
+ */
+
+import LegendMakerLayout from "../../layouts/LegendMakerLayout.astro";
+
+const title = "The Legend-Maker Scroll — 701am";
+const description =
+  "The method we use in the office, written down. How to find the angle, write the pitch, and earn the placement. No fee. No funnel. Just the work.";
+---
+
+<LegendMakerLayout title={title} description={description}>
+  <!-- HERO -->
+  <section class="lm-hero">
+    <div class="lm-container">
+      <div class="lm-hero__edition">
+        <span>Vol. I — The Method</span>
+        <span>701am.com / Legend-Maker</span>
+      </div>
+
+      <h1 class="lm-hero__title">
+        The Legend-Maker <em>Scroll.</em>
+      </h1>
+
+      <p class="lm-hero__lede">
+        How to build a data story the press cannot ignore.
+      </p>
+
+      <div class="lm-hero__byline">
+        <div>
+          <strong>From</strong>
+          The desk at 701am
+        </div>
+        <div>
+          <strong>For</strong>
+          Founders, marketers, agency operators
+        </div>
+        <div>
+          <strong>Length</strong>
+          About 35 minutes
+        </div>
+        <div>
+          <strong>Price</strong>
+          Free. No funnel.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DEK / BLURB -->
+  <section class="lm-dek">
+    <div class="lm-container">
+      <div class="lm-dek__grid">
+        <div class="lm-dek__label">The Promise</div>
+        <div class="lm-dek__body">
+          <p>
+            The same method we use in the office, written down, sent to your inbox.
+            <strong>How to find the angle. How to write the pitch. How to earn the placement.</strong>
+            No fee. No funnel. Just the work.
+          </p>
+          <p>
+            This is the playbook for building a data story unique to your business — by
+            combining <em>two public datasets nobody has thought to multiply</em> into a
+            number that did not exist this morning. Editors approve those stories.
+            Reporters chase them. Competitors cannot copy them.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STATS / WHY THIS WORKS -->
+  <section class="lm-container" style="padding-top: clamp(3rem, 6vw, 5rem); padding-bottom: 0;">
+    <div class="lm-stat-row">
+      <div class="lm-stat">
+        <div class="lm-stat__num">2</div>
+        <div class="lm-stat__label">
+          Public datasets, multiplied. One number that did not exist before you calculated it.
+        </div>
+      </div>
+      <div class="lm-stat">
+        <div class="lm-stat__num">7</div>
+        <div class="lm-stat__label">
+          Steps from blank page to a story sitting in a reporter's inbox. One week of work.
+        </div>
+      </div>
+      <div class="lm-stat">
+        <div class="lm-stat__num">1</div>
+        <div class="lm-stat__label">
+          Method. The same one we run every week. Now yours to keep.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- METHOD GRID -->
+  <section class="lm-method">
+    <div class="lm-container">
+      <div class="lm-method__head">
+        <span class="lm-eyebrow">What you'll learn</span>
+        <h2>Six things most PR advice gets wrong — and the inversions that work.</h2>
+      </div>
+
+      <div class="lm-method__grid">
+        <div class="lm-method__cell">
+          <span class="lm-method__num">01 / The Theory</span>
+          <h3>Why your product is not your angle.</h3>
+          <p>
+            Reporters cover beats, not companies. The job is to find a story on the
+            reporter's beat that requires your data to be told.
+          </p>
+        </div>
+
+        <div class="lm-method__cell">
+          <span class="lm-method__num">02 / The Two-Dataset Rule</span>
+          <h3>One dataset is journalism the press has already done.</h3>
+          <p>
+            But two boring public datasets, multiplied, make one interesting number
+            that nobody can re-report without crediting you.
+          </p>
+        </div>
+
+        <div class="lm-method__cell">
+          <span class="lm-method__num">03 / The Headline Test</span>
+          <h3>If you cannot write the headline, you do not have a story.</h3>
+          <p>
+            Headlines are the editor's pre-approval. Write yours before you write the
+            pitch — and walk away if it won't come.
+          </p>
+        </div>
+
+        <div class="lm-method__cell">
+          <span class="lm-method__num">04 / The Press Kit</span>
+          <h3>Three documents. Not thirty.</h3>
+          <p>
+            A one-page brief, a methodology document, and a clean dataset. Send those
+            three. Skip the brand book.
+          </p>
+        </div>
+
+        <div class="lm-method__cell">
+          <span class="lm-method__num">05 / The Pitch</span>
+          <h3>120 words, four lines, one finding.</h3>
+          <p>
+            The pitch is not a press release. It is a sentence designed to be forwarded.
+            Templates included.
+          </p>
+        </div>
+
+        <div class="lm-method__cell">
+          <span class="lm-method__num">06 / The Follow-Up</span>
+          <h3>One follow-up. Then move on.</h3>
+          <p>
+            Two emails is the etiquette. The third is what gets you blocked. The
+            sequence, the tracker, and what to do after the placement.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EMAIL CAPTURE -->
+  <section class="lm-capture" id="capture">
+    <div class="lm-container">
+      <div class="lm-capture__inner">
+        <div>
+          <span class="lm-eyebrow">Get the Scroll</span>
+          <h2 style="margin-top: 1rem;">
+            Sent to your inbox. <em>Free.</em>
+          </h2>
+          <p class="lm-capture__copy">
+            Drop your email. We send the full Legend-Maker Scroll — the seven-step
+            playbook, the templates, the checklist. No drip. No upsell. One file.
+          </p>
+        </div>
+
+        <!--
+          FORM: As shipped this works with Netlify Forms out of the box.
+          To use another provider (ConvertKit, Mailchimp, Buttondown):
+            1. Change `action` to your provider's POST endpoint
+            2. Remove `data-netlify` and the hidden `form-name` input
+            3. Adjust field `name` attributes to match the provider's schema
+        -->
+        <form
+          class="lm-form"
+          name="legend-maker"
+          method="POST"
+          action="/legend-maker/thanks"
+          data-netlify="true"
+          netlify-honeypot="bot-field"
+        >
+          <input type="hidden" name="form-name" value="legend-maker" />
+          <p hidden>
+            <label>Don't fill: <input name="bot-field" /></label>
+          </p>
+
+          <label for="lm-email">Your work email</label>
+          <input
+            type="email"
+            id="lm-email"
+            name="email"
+            required
+            placeholder="you@company.com"
+            autocomplete="email"
+          />
+
+          <button type="submit">Send me the Scroll →</button>
+
+          <p class="lm-form__note">
+            We send the file once. We don't sell, share, or drip. Unsubscribe with one click.
+          </p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- BRIDGE TO THE FULL SCROLL -->
+  <section style="padding: var(--section-pad) 0;">
+    <div class="lm-container lm-container--narrow" style="text-align: center;">
+      <span class="lm-eyebrow" style="justify-content: center;">Or read it now</span>
+      <h2 style="font-size: clamp(2rem, 4vw, 2.75rem); font-weight: 300; margin: 1.5rem 0 1.25rem; letter-spacing: -0.03em;">
+        Don't want to wait for an email?
+      </h2>
+      <p style="font-family: var(--font-serif); font-size: 1.15rem; font-style: italic; color: var(--ink-soft); max-width: 38ch; margin: 0 auto 2rem;">
+        The full scroll lives at a permanent URL. Bookmark it, link it, send it to a colleague.
+      </p>
+      <a href="/legend-maker/scroll" class="lm-btn">Read the full Scroll →</a>
+    </div>
+  </section>
+</LegendMakerLayout>
