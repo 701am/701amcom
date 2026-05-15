@@ -159,7 +159,7 @@ Everything sizes from one base: **17px body / 29px line-height / φ ratio**. The
 
 - **Brand colors** → `src/styles/global.css` CSS custom properties
 - **Topbar links** → `src/components/Topbar.astro`
-- **CTA targets** → currently `mailto:hello@701am.com`. Swap for Cal.com / Tally / your form URL in:
+- **CTA targets** → currently `mailto:dk@701am.com (or https://cal.com/davidkrug/discovery for sunrise calls)`. Swap for Cal.com / Tally / your form URL in:
   - `src/pages/index.astro` (offer cards, hero buttons)
   - `src/pages/notes/[slug].astro` (post CTA inset)
 - **Author byline** → `src/pages/notes/[slug].astro` — the avatar initial and `— David, at sunrise` line

@@ -29,7 +29,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
           <p class="contact-card-p">
             Thirty minutes. We listen to the shape of your business and tell you, plainly, whether earned media will move the needle for you. <em>No deck. No pitch. No charge.</em> If we cannot help, we will say so, and tell you who can.
           </p>
-          <a class="btn-primary" href="mailto:hello@701am.com?subject=Sunrise%20call%20—%20I'd%20like%20to%20book">
+          <a class="btn-primary" href="https://cal.com/davidkrug/discovery">
             Book the call
             <span class="btn-icon" aria-hidden="true">→</span>
           </a>
@@ -41,7 +41,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
           <p class="contact-card-p">
             The Legend-Maker scroll — the same method we use in the office, written down, sent to your inbox. <em>How to find the angle. How to write the pitch. How to earn the placement.</em> No fee. No funnel. Just the work.
           </p>
-          <a class="btn-link" href="mailto:hello@701am.com?subject=Send%20me%20the%20scroll">
+          <a class="btn-link" href="mailto:dk@701am.com?subject=Send%20me%20the%20scroll">
             Send me the scroll
             <span class="arrow" aria-hidden="true">↓</span>
           </a>
@@ -155,20 +155,20 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       <h2 class="h2">The <em>direct line.</em></h2>
 
       <div class="direct-methods">
-        <a class="direct-method" href="mailto:hello@701am.com">
+        <a class="direct-method" href="mailto:dk@701am.com">
           <div class="direct-method-label">Email</div>
-          <div class="direct-method-value">hello@701am.com</div>
+          <div class="direct-method-value">dk@701am.com</div>
           <div class="direct-method-sub">For everything. Read within a day.</div>
         </a>
-        <a class="direct-method" href="https://x.com/701am">
-          <div class="direct-method-label">X / Twitter</div>
-          <div class="direct-method-value">@701am</div>
-          <div class="direct-method-sub">DMs open. Replies less reliable.</div>
+        <a class="direct-method" href="https://cal.com/davidkrug/discovery">
+          <div class="direct-method-label">Sunrise call</div>
+          <div class="direct-method-value">Book on Cal.com</div>
+          <div class="direct-method-sub">Thirty minutes. No deck, no charge.</div>
         </a>
-        <a class="direct-method" href="https://linkedin.com/company/701am">
-          <div class="direct-method-label">LinkedIn</div>
-          <div class="direct-method-value">/company/701am</div>
-          <div class="direct-method-sub">For introductions and referrals.</div>
+        <a class="direct-method direct-method-urgent" href="tel:+14063106419">
+          <div class="direct-method-label">★ Emergencies only</div>
+          <div class="direct-method-value">406&middot;310&middot;6419</div>
+          <div class="direct-method-sub">Active clients, time-sensitive issues.</div>
         </a>
       </div>
     </div>
@@ -336,14 +336,14 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   .contact-field input,
   .contact-field textarea {
     width: 100%;
-    background: rgba(255, 248, 236, 0.4);
+    background: var(--paper-soft);
     border: 1px solid rgba(10, 22, 51, 0.2);
     padding: 12px 14px;
     font-family: 'Newsreader', Georgia, serif;
     font-size: 17px;
     line-height: 1.5;
     color: var(--navy-deep);
-    transition: border-color 0.2s, background 0.2s;
+    transition: border-color 0.2s, background 0.2s, box-shadow 0.2s;
     border-radius: 0;
     -webkit-appearance: none;
     appearance: none;
@@ -356,8 +356,9 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   .contact-field input:focus,
   .contact-field textarea:focus {
     outline: none;
-    border-color: var(--gold);
-    background: rgba(255, 248, 236, 0.7);
+    border-color: var(--teal);
+    background: rgba(255, 241, 224, 0.85);
+    box-shadow: 0 0 0 3px rgba(13, 118, 128, 0.12);
   }
   .contact-field textarea {
     resize: vertical;
@@ -455,6 +456,17 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     font-style: italic;
     font-size: 14px;
     color: var(--muted);
+  }
+
+  /* Urgent variant — emergencies only card */
+  .direct-method-urgent .direct-method-label {
+    color: var(--claret);
+  }
+  .direct-method-urgent:hover {
+    background: rgba(142, 58, 58, 0.08);
+  }
+  .direct-method-urgent:hover .direct-method-value {
+    color: var(--coral);
   }
 
   @media (max-width: 900px) {

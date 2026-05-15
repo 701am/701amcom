@@ -39,21 +39,44 @@
   --measure-narrow: 32rem;
   --measure-wide: 52rem;
 
-  /* Color palette */
+  /* Color palette
+     ─────────────────────────────────────────────
+     Two modes:
+     - DARK side: navy backgrounds with gold + text-light text
+     - LIGHT side: salmon "paper" backgrounds with ink text + claret accent
+     ───────────────────────────────────────────── */
+
+  /* Dark side */
   --navy-deep: #0A1633;
   --navy: #131C42;
   --plum: #3B2347;
-  --claret: #8E3A3A;
-  --coral: #C97A3F;
-  --amber: #E8A85B;
+  --coral: #C97A3F;          /* used in hero gradient + avatar mixes */
+  --amber: #E8A85B;          /* used in hero gradient */
   --gold: #D4A853;
   --gold-light: #E8C77A;
-  --cream: #F5EFE4;
-  --cream-warm: #FFF8EC;
-  --parchment: #F2EAD8;
-  --ink: #1E1E1E;
-  --muted: #C9BFA8;
+  --text-light: #FFF1E0;     /* primary text color on dark backgrounds */
+  --text-light-warm: #F8E8D0;
+  --muted: #D9CFBE;
   --muted-dim: #8B9BB8;
+
+  /* Light side — FT salmon palette */
+  --paper: #FCE4D0;          /* primary salmon — decisively pink */
+  --paper-warm: #F8D4B8;     /* deeper salmon — emphasis blocks */
+  --paper-deep: #F2C9A8;     /* deepest salmon — cards, code, the proclamation doc */
+  --paper-soft: #FFF1E0;     /* FT canonical — input fields, subtle layers */
+  --ink: #1E1E1E;            /* primary text on salmon */
+  --ink-soft: #2A2A2A;       /* body prose on salmon */
+
+  /* Accents — work on both sides */
+  --claret: #990F3D;         /* FT claret — primary accent on light side, deep red on dark */
+  --teal: #0D7680;           /* secondary accent — focus states, secondary links on salmon */
+
+  /* Legacy aliases — point old names at new palette so existing CSS keeps working.
+     Code that references --cream/--cream-warm/--parchment as backgrounds now gets salmon.
+     Code that references them for text on dark backgrounds is fixed via component updates. */
+  --cream: var(--paper);
+  --cream-warm: var(--text-light);
+  --parchment: var(--paper-deep);
 }
 
 *, *::before, *::after { box-sizing: border-box; }
