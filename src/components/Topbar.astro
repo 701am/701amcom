@@ -213,20 +213,7 @@ const isCurrent = (href: string) =>
 </style>
 
 <script>
-  document.querySelectorAll('[data-open-search]').forEach((btn) => {
-    btn.addEventListener('click', () => {
-      const overlay = document.querySelector('[data-search-overlay]');
-      if (overlay instanceof HTMLElement) {
-        overlay.removeAttribute('hidden');
-        const input = overlay.querySelector('input');
-        if (input instanceof HTMLInputElement) {
-          setTimeout(() => input.focus(), 50);
-        }
-        document.body.style.overflow = 'hidden';
-      }
-    });
-  });
-
+  // Mobile burger menu — search logic lives in SearchOverlay.astro
   const burger = document.querySelector('[data-burger]');
   const drawer = document.querySelector('[data-mobile-drawer]');
   if (burger && drawer) {
@@ -240,12 +227,4 @@ const isCurrent = (href: string) =>
       }
     });
   }
-
-  document.addEventListener('keydown', (e) => {
-    if (e.key === '/' && !(e.target instanceof HTMLInputElement || e.target instanceof HTMLTextAreaElement)) {
-      e.preventDefault();
-      const btn = document.querySelector('[data-open-search]');
-      if (btn instanceof HTMLButtonElement) btn.click();
-    }
-  });
 </script>
