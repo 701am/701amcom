@@ -1,0 +1,199 @@
+---
+import { getCollection } from 'astro:content';
+
+const recent = (await getCollection('notes', ({ data }) => !data.draft))
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
+  .slice(0, 3);
+
+const dateFormatter = new Intl.DateTimeFormat('en-US', {
+  month: 'short',
+  day: 'numeric',
+  year: 'numeric',
+});
+---
+{recent.length > 0 && (
+  <section class="section section-navy" id="from-the-record">
+    <div class="container-wide">
+      <div class="record-head">
+        <div class="section-label" style="margin-bottom: 0;">
+          <div class="label-bar"></div>
+          <div class="label-text">§ 05 · From the morning record</div>
+          <div class="label-bar"></div>
+        </div>
+      </div>
+      <h2 class="h2">The latest <em>dispatches.</em></h2>
+      <p class="body body-center" style="margin-bottom: var(--x1);">
+        Notes on the work, written in the office, filed at sunrise.
+      </p>
+
+      <div class="record-slats">
+        {recent.map((note) => (
+          <a href={`/notes/${note.id}`} class="record-slat">
+            <div class="record-slat-top">
+              <span class="record-num">№ {String(note.data.number).padStart(3, '0')}</span>
+              <span class="record-topic">{note.data.topic}</span>
+            </div>
+            <h3 class="record-title">{note.data.title}</h3>
+            <p class="record-deck">{note.data.deck}</p>
+            <div class="record-meta">
+              <span>{dateFormatter.format(note.data.date)}</span>
+              {note.data.readingTime && (
+                <>
+                  <span class="record-meta-sep">·</span>
+                  <span>{note.data.readingTime} read</span>
+                </>
+              )}
+              <span class="record-chevron" aria-hidden="true">→</span>
+            </div>
+          </a>
+        ))}
+      </div>
+
+      <div class="record-foot">
+        <a href="/notes" class="btn-link">
+          The complete record
+          <span class="arrow" aria-hidden="true">→</span>
+        </a>
+      </div>
+    </div>
+  </section>
+)}
+
+<style>
+  .record-head {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: var(--x2);
+  }
+
+  .record-slats {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 0;
+    margin-top: var(--x1);
+    border-top: 1px solid rgba(212, 168, 83, 0.25);
+  }
+
+  .record-slat {
+    display: flex;
+    flex-direction: column;
+    padding: var(--x2) var(--x3);
+    text-decoration: none;
+    color: inherit;
+    border-bottom: 1px solid rgba(212, 168, 83, 0.25);
+    border-right: 1px solid rgba(212, 168, 83, 0.15);
+    transition: background 0.25s ease;
+    min-height: 16rem;
+  }
+  .record-slat:last-child { border-right: none; }
+  .record-slat:hover {
+    background: rgba(212, 168, 83, 0.04);
+  }
+  .record-slat:hover .record-title {
+    color: var(--gold-light);
+  }
+  .record-slat:hover .record-chevron {
+    transform: translateX(4px);
+    color: var(--gold-light);
+  }
+
+  .record-slat-top {
+    display: flex;
+    align-items: center;
+    gap: var(--x3);
+    margin-bottom: var(--x3);
+  }
+  .record-num {
+    font-family: 'Newsreader', Georgia, serif;
+    font-style: italic;
+    font-size: var(--f5-size);
+    color: var(--gold);
+    line-height: 1;
+    font-variant-numeric: oldstyle-nums;
+    letter-spacing: 0.02em;
+  }
+  .record-topic {
+    font-family: 'Instrument Sans', sans-serif;
+    font-size: 9px;
+    letter-spacing: 0.30em;
+    text-transform: uppercase;
+    color: var(--gold);
+    font-weight: 500;
+    padding-top: 4px;
+  }
+
+  .record-title {
+    font-family: 'Newsreader', Georgia, serif;
+    font-size: var(--f4-size);
+    font-weight: 500;
+    line-height: 1.18;
+    letter-spacing: -0.015em;
+    color: var(--cream-warm);
+    margin: 0 0 var(--x4);
+    text-wrap: balance;
+    transition: color 0.25s ease;
+    font-feature-settings: "kern" 1, "liga" 1, "dlig" 1;
+  }
+
+  .record-deck {
+    font-family: 'Newsreader', Georgia, serif;
+    font-style: italic;
+    font-size: var(--f6-size);
+    line-height: 1.45;
+    color: var(--muted);
+    margin: 0 0 var(--x3);
+    flex: 1;
+    font-weight: 400;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .record-meta {
+    display: flex;
+    align-items: center;
+    gap: var(--x4);
+    font-family: 'Instrument Sans', sans-serif;
+    font-size: 10px;
+    letter-spacing: 0.20em;
+    color: var(--muted-dim);
+    text-transform: uppercase;
+    margin-top: auto;
+    padding-top: var(--x4);
+    border-top: 1px dotted rgba(212, 168, 83, 0.18);
+  }
+  .record-meta-sep { color: var(--gold); }
+  .record-chevron {
+    margin-left: auto;
+    color: var(--gold);
+    font-family: 'Instrument Sans', sans-serif;
+    font-size: 14px;
+    transition: transform 0.25s ease, color 0.25s ease;
+  }
+
+  .record-foot {
+    text-align: center;
+    margin-top: var(--x1);
+  }
+
+  @media (max-width: 900px) {
+    .record-slats { grid-template-columns: 1fr 1fr; }
+    .record-slat:nth-child(2) { border-right: none; }
+    .record-slat:nth-child(3) {
+      grid-column: 1 / -1;
+      border-right: none;
+    }
+  }
+  @media (max-width: 600px) {
+    .record-slats { grid-template-columns: 1fr; }
+    .record-slat,
+    .record-slat:nth-child(2),
+    .record-slat:nth-child(3) {
+      grid-column: auto;
+      border-right: none;
+    }
+    .record-slat { min-height: 0; padding: var(--x3) var(--x4); }
+  }
+</style>

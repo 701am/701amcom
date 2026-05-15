@@ -12,11 +12,10 @@ import Seal from './Seal.astro';
   <nav class="topbar-nav">
     <a class="nav-link" href="/notes">
       Dispatches
-      <span class="arrow">→</span>
     </a>
-    <a class="nav-link" href="/#choose">
+    <a class="nav-pill" href="/#choose">
       Begin
-      <span class="arrow">→</span>
+      <span class="nav-pill-arrow" aria-hidden="true">→</span>
     </a>
   </nav>
 </header>
@@ -28,8 +27,49 @@ import Seal from './Seal.astro';
     gap: var(--x2);
     align-items: center;
   }
+
+  /* Nav pill — promoted "Begin" CTA in the topbar */
+  .nav-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    background: var(--gold);
+    color: var(--navy-deep);
+    font-family: 'Instrument Sans', sans-serif;
+    font-size: 12px;
+    letter-spacing: 0.18em;
+    font-weight: 600;
+    text-transform: uppercase;
+    text-decoration: none;
+    border: 1px solid var(--gold);
+    transition: background 0.2s ease, transform 0.2s ease;
+  }
+  .nav-pill:hover {
+    background: var(--cream-warm);
+    border-color: var(--cream-warm);
+    transform: translateY(-1px);
+  }
+  .nav-pill-arrow {
+    font-size: 11px;
+    transition: transform 0.2s ease;
+  }
+  .nav-pill:hover .nav-pill-arrow {
+    transform: translateX(2px);
+  }
+
   @media (max-width: 540px) {
-    .topbar-nav { gap: var(--x3); }
-    .topbar-nav .nav-link:first-child { display: none; }
+    .topbar-nav { gap: var(--x4); }
+    .topbar-nav .nav-link {
+      font-size: 14px;
+    }
+    .nav-pill {
+      padding: 7px 12px;
+      font-size: 11px;
+      letter-spacing: 0.14em;
+    }
+  }
+  @media (max-width: 380px) {
+    .topbar-nav .nav-link { display: none; }
   }
 </style>
