@@ -35,7 +35,7 @@ const isCurrent = (href: string) =>
     </div>
   </div>
 
-  <div class="mobile-drawer" data-mobile-drawer hidden>
+  <div class="mobile-drawer" data-mobile-drawer>
     <a class="mobile-link" href="/">Home</a>
     <a class="mobile-link" href="/notes">Dispatches</a>
     <a class="mobile-link" href="/about">About</a>
@@ -185,9 +185,12 @@ const isCurrent = (href: string) =>
     background: rgba(10, 22, 51, 0.98);
     border-top: 1px solid rgba(212, 168, 83, 0.2);
     padding: var(--x3);
-    display: flex;
+    display: none;
     flex-direction: column;
     gap: var(--x4);
+  }
+  .mobile-drawer.is-open {
+    display: flex;
   }
   .mobile-link {
     font-family: 'Newsreader', Georgia, serif;
@@ -220,11 +223,7 @@ const isCurrent = (href: string) =>
     burger.addEventListener('click', () => {
       const expanded = burger.getAttribute('aria-expanded') === 'true';
       burger.setAttribute('aria-expanded', String(!expanded));
-      if (expanded) {
-        drawer.setAttribute('hidden', '');
-      } else {
-        drawer.removeAttribute('hidden');
-      }
+      drawer.classList.toggle('is-open', !expanded);
     });
   }
 </script>
