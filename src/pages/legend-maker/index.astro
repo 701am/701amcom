@@ -184,17 +184,29 @@ const description =
         </div>
 
         <!--
-          FORM: As shipped this works with Netlify Forms out of the box.
-          To use another provider (ConvertKit, Mailchimp, Buttondown):
-            1. Change `action` to your provider's POST endpoint
-            2. Remove `data-netlify` and the hidden `form-name` input
-            3. Adjust field `name` attributes to match the provider's schema
+          NETLIFY FORMS — How this is wired
+          ─────────────────────────────────
+          1. The form schema is also declared in /public/__forms.html so Netlify's
+             build-time scanner detects it (Astro's HTML compression can strip
+             data-netlify before the scanner sees it; the static file is the fix).
+          2. Form detection must be enabled in your Netlify dashboard:
+             Netlify → your site → Forms → "Enable form detection"
+          3. After enabling + first deploy, submissions appear at:
+             Netlify → your site → Forms → "legend-maker"
+          4. To get email notifications on each submit:
+             Netlify → Forms → Settings & usage → Form notifications → Add notification
+
+          To switch providers (ConvertKit, Mailchimp, Buttondown) later:
+            - Change `action` to provider's POST endpoint
+            - Remove `data-netlify`, `netlify-honeypot`, and hidden `form-name` input
+            - Delete /public/__forms.html
+            - Adjust field `name` attributes to provider's schema
         -->
         <form
           class="lm-form"
           name="legend-maker"
           method="POST"
-          action="/legend-maker/thanks"
+          action="/legend-maker/thanks/"
           data-netlify="true"
           netlify-honeypot="bot-field"
         >

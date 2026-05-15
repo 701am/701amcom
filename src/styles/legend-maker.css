@@ -12,20 +12,24 @@
 
 /* ------------------------------- TOKENS -------------------------------- */
 .lm-page {
-  /* FT-inspired salmon palette */
-  --paper:         #FFF1E5;   /* FT pink/salmon — the iconic page color */
-  --paper-warm:    #FBE7D2;   /* warmer for emphasis blocks */
-  --paper-deep:    #F4DCC0;   /* deeper salmon for cards */
-  --ink:           #262421;   /* warm near-black for body */
-  --ink-soft:      #5A544E;   /* secondary text */
-  --ink-faint:     #8A8278;   /* tertiary / captions */
-  --rule:          #E7D4B8;   /* hairline rule on salmon */
-  --rule-strong:   #C9B08A;   /* heavier rule */
+  /* Salmon palette — FT print edition register, pushed warmer/pinker than FT.com.
+     The FT website background (#FFF1E0) reads as cream on most screens; for
+     editorial impact we pull more saturation into the pink so it clearly reads
+     as salmon, not as warm white. Still anchored on FT claret + teal accents. */
+  --paper:         #FCE4D0;   /* primary salmon — clearly pink-orange, FT print register */
+  --paper-warm:    #F8D4B8;   /* warmer/pinker for emphasis blocks (capture, callouts) */
+  --paper-deep:    #F2C9A8;   /* deepest salmon — for cards & code blocks */
+  --paper-soft:    #FFF1E0;   /* FT.com canonical — for hover states & subtle layers */
+  --ink:           #2A2723;   /* warm near-black for body */
+  --ink-soft:      #5C544B;   /* secondary text */
+  --ink-faint:     #948A7C;   /* tertiary / captions */
+  --rule:          #E8C8A5;   /* hairline rule — visible on salmon, pinker than cream */
+  --rule-strong:   #C99670;   /* heavier rule — warm tan */
 
   /* Accents */
-  --claret:        #990F3D;   /* FT claret */
+  --claret:        #990F3D;   /* FT claret — the signature accent */
   --claret-dark:   #6E0A2C;
-  --teal:          #0D7680;
+  --teal:          #0D7680;   /* FT teal — secondary accent */
   --gold:          #B0823A;
 
   /* Functional */
@@ -436,31 +440,42 @@
   outline: 0;
   border-color: var(--claret);
 }
+/* Buttons & CTAs.
+   IMPORTANT: anchor tags get color from `.lm-page a` above (claret), so we
+   have to explicitly re-paint .lm-btn's color and kill its inherited border. */
 .lm-form button,
-.lm-btn {
+.lm-page .lm-btn {
   font-family: var(--font-sans);
   font-size: 0.95rem;
   font-weight: 500;
   letter-spacing: 0.04em;
   padding: 1.05rem 1.5rem;
   background: var(--ink);
-  color: var(--paper);
-  border: 0;
+  color: var(--paper);            /* white-on-dark — overrides claret link color */
+  border: 0;                       /* kills the link underline border */
   cursor: pointer;
   text-decoration: none;
   display: inline-block;
   text-align: center;
   border-radius: 0;
-  transition: background 0.2s ease;
+  transition: background 0.2s ease, color 0.2s ease;
 }
 .lm-form button:hover,
-.lm-btn:hover { background: var(--claret); border: 0; }
-.lm-btn--ghost {
+.lm-page .lm-btn:hover {
+  background: var(--claret);
+  color: var(--paper);             /* keep text light on hover too */
+  border: 0;
+}
+.lm-page .lm-btn--ghost {
   background: transparent;
   color: var(--ink);
   border: 1px solid var(--ink);
 }
-.lm-btn--ghost:hover { background: var(--ink); color: var(--paper); }
+.lm-page .lm-btn--ghost:hover {
+  background: var(--ink);
+  color: var(--paper);
+  border: 1px solid var(--ink);
+}
 .lm-form__note {
   font-size: var(--fs-micro);
   color: var(--ink-faint);
