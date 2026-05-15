@@ -1,0 +1,35 @@
+---
+import Seal from './Seal.astro';
+---
+<header class="topbar">
+  <a class="brand" href="/">
+    <Seal size={44} ariaLabel="701am" />
+    <div class="brand-text">
+      <div class="brand-name">701am</div>
+      <div class="brand-tag">Office of Earned Media</div>
+    </div>
+  </a>
+  <nav class="topbar-nav">
+    <a class="nav-link" href="/notes">
+      Dispatches
+      <span class="arrow">→</span>
+    </a>
+    <a class="nav-link" href="/#choose">
+      Begin
+      <span class="arrow">→</span>
+    </a>
+  </nav>
+</header>
+<div class="bunting"></div>
+
+<style>
+  .topbar-nav {
+    display: flex;
+    gap: var(--x2);
+    align-items: center;
+  }
+  @media (max-width: 540px) {
+    .topbar-nav { gap: var(--x3); }
+    .topbar-nav .nav-link:first-child { display: none; }
+  }
+</style>

@@ -1,0 +1,20 @@
+{
+  "name": "701am-site",
+  "type": "module",
+  "version": "1.0.0",
+  "private": true,
+  "description": "701am — the office of earned media. Astro + Decap CMS + Netlify.",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "astro": "^5.0.0",
+    "@astrojs/mdx": "^4.0.0",
+    "@astrojs/rss": "^4.0.0",
+    "@astrojs/sitemap": "^3.2.0"
+  }
+}

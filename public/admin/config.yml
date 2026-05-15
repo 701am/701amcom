@@ -1,0 +1,58 @@
+backend:
+  name: git-gateway
+  branch: main
+  commit_messages:
+    create: "Dispatch: {{slug}} (filed)"
+    update: "Dispatch: {{slug}} (revised)"
+    delete: "Dispatch: {{slug}} (withdrawn)"
+
+# Optional: editorial workflow. Uncomment to enable drafts → in-review → ready PR flow.
+# publish_mode: editorial_workflow
+
+media_folder: "public/uploads"
+public_folder: "/uploads"
+
+site_url: https://701am.com
+display_url: https://701am.com
+logo_url: https://701am.com/favicon.svg
+
+collections:
+  - name: "notes"
+    label: "Dispatches"
+    label_singular: "Dispatch"
+    folder: "src/content/notes"
+    create: true
+    slug: "{{slug}}"
+    extension: "md"
+    format: "frontmatter"
+    summary: "№ {{number}} · {{title}}"
+    sortable_fields:
+      - number
+      - date
+      - title
+    view_filters:
+      - label: "Drafts"
+        field: draft
+        pattern: true
+      - label: "Published"
+        field: draft
+        pattern: false
+    fields:
+      - { name: "title",       label: "Title",        widget: "string" }
+      - { name: "deck",        label: "Deck (one-line subtitle)", widget: "text" }
+      - { name: "number",      label: "Dispatch number", widget: "number", value_type: "int", min: 1, step: 1 }
+      - { name: "date",        label: "Filed date",   widget: "datetime", date_format: "YYYY-MM-DD", time_format: false, picker_utc: false }
+      - name: "topic"
+        label: "Topic"
+        widget: "select"
+        options:
+          - "The angle"
+          - "The pitch"
+          - "Authority"
+          - "The trade"
+          - "Field notes"
+          - "The reading list"
+      - { name: "tags",        label: "Tags",         widget: "list", default: [], required: false }
+      - { name: "readingTime", label: "Reading time (e.g. '6 min')", widget: "string", required: false }
+      - { name: "draft",       label: "Draft",        widget: "boolean", default: false }
+      - { name: "body",        label: "Body",         widget: "markdown" }

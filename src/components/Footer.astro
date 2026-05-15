@@ -1,0 +1,16 @@
+---
+import Seal from './Seal.astro';
+const year = new Date().getFullYear();
+---
+<footer class="foot">
+  <div class="foot-row">
+    <div class="foot-left">
+      <Seal size={36} ariaLabel="701am" />
+      <div class="foot-name">
+        701am
+        <span>Earned, not bought</span>
+      </div>
+    </div>
+    <div class="foot-right">© {year} 701am · The sunrise of earned media</div>
+  </div>
+</footer>
