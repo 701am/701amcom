@@ -142,7 +142,7 @@ import CtaBanner from '../components/CtaBanner.astro';
     primaryLabel="Book a sunrise call"
     primaryHref="/contact"
     secondaryLabel="Or read the scroll"
-    secondaryHref="mailto:dk@701am.com?subject=Send%20me%20the%20scroll"
+    secondaryHref="/legend-maker"
   />
 
 </BaseLayout>
@@ -151,7 +151,7 @@ import CtaBanner from '../components/CtaBanner.astro';
   .page-masthead {
     padding: calc(var(--x1) + var(--x3)) var(--x1) var(--x1);
     text-align: center;
-    border-bottom: 1px solid rgba(212, 168, 83, 0.15);
+    border-bottom: 1px solid var(--rule);
     max-width: var(--measure-wide);
     margin: 0 auto;
   }
@@ -159,7 +159,7 @@ import CtaBanner from '../components/CtaBanner.astro';
     font-family: 'Instrument Sans', sans-serif;
     font-size: 11px;
     letter-spacing: 0.34em;
-    color: var(--gold);
+    color: var(--claret);
     text-transform: uppercase;
     margin: 0 0 var(--x3);
     font-weight: 500;
@@ -170,7 +170,7 @@ import CtaBanner from '../components/CtaBanner.astro';
   .page-rule {
     display: inline-block;
     width: 28px; height: 1px;
-    background: rgba(212, 168, 83, 0.5);
+    background: rgba(153, 15, 61, 0.5);
   }
   .page-title {
     font-family: 'Newsreader', Georgia, serif;
@@ -178,7 +178,7 @@ import CtaBanner from '../components/CtaBanner.astro';
     font-weight: 500;
     line-height: 1.04;
     letter-spacing: -0.035em;
-    color: var(--cream-warm);
+    color: var(--ink);
     margin: 0 0 var(--x3);
     max-width: 18ch;
     margin-left: auto;
@@ -189,7 +189,7 @@ import CtaBanner from '../components/CtaBanner.astro';
   .page-title em {
     font-style: italic;
     font-weight: 400;
-    color: var(--gold-light);
+    color: var(--claret);
   }
   .page-deck {
     font-family: 'Newsreader', Georgia, serif;
@@ -197,7 +197,7 @@ import CtaBanner from '../components/CtaBanner.astro';
     font-weight: 300;
     font-size: var(--f5-size);
     line-height: 1.45;
-    color: var(--muted);
+    color: var(--ink-faint);
     max-width: 36ch;
     margin: 0 auto;
   }
@@ -211,7 +211,7 @@ import CtaBanner from '../components/CtaBanner.astro';
     line-height: 0.82;
     padding: 0.05em 0.12em 0 0;
     margin-top: 0.04em;
-    color: var(--gold);
+    color: var(--claret);
     font-style: italic;
   }
   .aphorism {
@@ -220,7 +220,7 @@ import CtaBanner from '../components/CtaBanner.astro';
     font-size: var(--f7-size);
     line-height: 1.5;
     letter-spacing: 0.34em;
-    color: var(--gold);
+    color: var(--claret);
     text-transform: uppercase;
     margin: var(--x1) auto;
     font-weight: 500;
@@ -234,7 +234,7 @@ import CtaBanner from '../components/CtaBanner.astro';
     top: 50%;
     width: 36px;
     height: 1px;
-    background: rgba(212, 168, 83, 0.4);
+    background: rgba(153, 15, 61, 0.4);
   }
   .aphorism::before { left: 0; }
   .aphorism::after { right: 0; }
@@ -252,7 +252,7 @@ import CtaBanner from '../components/CtaBanner.astro';
     grid-template-columns: 3.5rem 1fr;
     gap: var(--x3);
     padding: var(--x3) 0;
-    border-bottom: 1px solid rgba(10, 22, 51, 0.12);
+    border-bottom: 1px solid rgba(30, 30, 30, 0.12);
   }
   .principle:last-child { border-bottom: none; }
   .principle-num {
@@ -269,7 +269,7 @@ import CtaBanner from '../components/CtaBanner.astro';
     font-size: var(--f4-size);
     font-weight: 500;
     line-height: 1.2;
-    color: var(--navy-deep);
+    color: var(--paper);
     margin: 0 0 var(--x5);
     letter-spacing: -0.015em;
     text-wrap: balance;
@@ -294,8 +294,8 @@ import CtaBanner from '../components/CtaBanner.astro';
   .person {
     margin: 0;
     padding: var(--x2);
-    background: rgba(19, 28, 66, 0.5);
-    border: 1px solid rgba(212, 168, 83, 0.22);
+    background: rgba(248, 212, 184, 0.5);
+    border: 1px solid var(--rule-strong);
     text-align: center;
   }
   .person-avatar {
@@ -309,18 +309,18 @@ import CtaBanner from '../components/CtaBanner.astro';
     font-family: 'Newsreader', Georgia, serif;
     font-style: italic;
     font-size: 24px;
-    color: var(--cream-warm);
+    color: var(--ink);
     margin-bottom: var(--x3);
   }
   .person-avatar-alt {
-    background: linear-gradient(135deg, var(--gold) 0%, var(--coral) 100%);
-    color: var(--navy-deep);
+    background: linear-gradient(135deg, var(--claret) 0%, var(--coral) 100%);
+    color: var(--paper);
   }
   .person-name {
     font-family: 'Newsreader', Georgia, serif;
     font-size: var(--f4-size);
     font-weight: 500;
-    color: var(--cream-warm);
+    color: var(--ink);
     margin: 0 0 var(--x5);
     letter-spacing: -0.012em;
   }
@@ -328,7 +328,7 @@ import CtaBanner from '../components/CtaBanner.astro';
     font-family: 'Instrument Sans', sans-serif;
     font-size: 10px;
     letter-spacing: 0.28em;
-    color: var(--gold);
+    color: var(--claret);
     text-transform: uppercase;
     margin: 0 0 var(--x4);
     font-weight: 500;
@@ -337,7 +337,7 @@ import CtaBanner from '../components/CtaBanner.astro';
     font-family: 'Newsreader', Georgia, serif;
     font-size: 15px;
     line-height: 1.6;
-    color: var(--muted);
+    color: var(--ink-faint);
     margin: 0;
     font-style: italic;
   }

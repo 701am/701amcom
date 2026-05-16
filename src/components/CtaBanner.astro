@@ -16,7 +16,7 @@ const {
   primaryLabel = "Book a sunrise call",
   primaryHref = "https://cal.com/davidkrug/discovery",
   secondaryLabel = "Or read the scroll",
-  secondaryHref = "mailto:dk@701am.com?subject=Send%20me%20the%20scroll",
+  secondaryHref = "/legend-maker",
 } = Astro.props;
 ---
 <section class="cta-banner">
@@ -45,15 +45,15 @@ const {
 
 <style>
   .cta-banner {
-    background: var(--navy-deep);
+    background: var(--paper);
     padding: var(--x1) var(--x1) calc(var(--x1) + var(--x3));
   }
   .cta-banner-inner {
     max-width: var(--measure);
     margin: 0 auto;
     padding: calc(var(--x1) + var(--x3)) var(--x1);
-    background: rgba(212, 168, 83, 0.04);
-    border: 1px solid rgba(212, 168, 83, 0.25);
+    background: var(--paper-soft);
+    border: 1px solid rgba(153, 15, 61, 0.25);
     position: relative;
     text-align: center;
   }
@@ -61,7 +61,7 @@ const {
     position: absolute;
     width: 16px;
     height: 16px;
-    border: 1px solid var(--gold);
+    border: 1px solid var(--claret);
   }
   .cta-banner-corner-tl { top: -1px; left: -1px; border-right: none; border-bottom: none; }
   .cta-banner-corner-tr { top: -1px; right: -1px; border-left: none; border-bottom: none; }
@@ -72,7 +72,7 @@ const {
     font-family: 'Instrument Sans', sans-serif;
     font-size: 10px;
     letter-spacing: 0.32em;
-    color: var(--gold);
+    color: var(--claret);
     text-transform: uppercase;
     margin: 0 0 var(--x3);
     font-weight: 500;
@@ -83,7 +83,7 @@ const {
     font-weight: 500;
     line-height: 1.05;
     letter-spacing: -0.025em;
-    color: var(--cream-warm);
+    color: var(--ink);
     margin: 0 0 var(--x3);
     text-wrap: balance;
     max-width: 18ch;
@@ -92,7 +92,7 @@ const {
   }
   .cta-banner-h em {
     font-style: italic;
-    color: var(--gold-light);
+    color: var(--claret);
     font-weight: 400;
   }
   .cta-banner-body {
@@ -100,7 +100,7 @@ const {
     font-style: italic;
     font-size: 17px;
     line-height: 1.5;
-    color: var(--muted);
+    color: var(--ink-faint);
     max-width: 32ch;
     margin: 0 auto var(--x2);
   }

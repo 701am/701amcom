@@ -1,60 +1,38 @@
 /* =============================================================================
    THE LEGEND-MAKER SCROLL — 701am
-   Stylesheet scoped under .lm-page so it won't touch any other page on 701am.com.
-
-   Design system
-   ─────────────────────────────────────────────────────────────────────────────
-   Palette        Financial Times salmon paper + claret accent + warm ink
-   Type           Newsreader (display/serif) + Instrument Sans (UI/body sans)
-   Grid           12-col Swiss baseline, generous whitespace, hairline rules
-   Spirit         Enterprise whitepaper meets Sunday FT — quiet, confident, dense
+   Document-layout stylesheet scoped under .lm-page.
+   Palette and fonts come from global.css; this file just adds the document
+   typography rules (number rails, dropcaps, pull quotes, step blocks).
    ============================================================================= */
 
-/* ------------------------------- TOKENS -------------------------------- */
 .lm-page {
-  /* FT-inspired salmon palette */
-  --paper:         #FFF1E5;   /* FT pink/salmon — the iconic page color */
-  --paper-warm:    #FBE7D2;   /* warmer for emphasis blocks */
-  --paper-deep:    #F4DCC0;   /* deeper salmon for cards */
-  --ink:           #262421;   /* warm near-black for body */
-  --ink-soft:      #5A544E;   /* secondary text */
-  --ink-faint:     #8A8278;   /* tertiary / captions */
-  --rule:          #E7D4B8;   /* hairline rule on salmon */
-  --rule-strong:   #C9B08A;   /* heavier rule */
-
-  /* Accents */
-  --claret:        #990F3D;   /* FT claret */
-  --claret-dark:   #6E0A2C;
-  --teal:          #0D7680;
-  --gold:          #B0823A;
-
-  /* Functional */
-  --link:          var(--claret);
-  --link-hover:    var(--claret-dark);
-
-  /* Type stacks */
-  --font-serif: "Newsreader", "Source Serif Pro", Georgia, "Times New Roman", serif;
-  --font-sans:  "Instrument Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+  /* Document-specific tokens layered on top of globals */
+  --font-serif: 'Newsreader', "Source Serif Pro", Georgia, "Times New Roman", serif;
+  --font-sans:  'Instrument Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
   --font-mono:  "JetBrains Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
 
-  /* Type scale — built on a 1.2 ratio for body, 1.333 for display */
-  --fs-micro:    0.75rem;
-  --fs-small:    0.8125rem;
-  --fs-body:     1.0625rem;
-  --fs-lede:     1.25rem;
-  --fs-h4:       1.375rem;
-  --fs-h3:       1.75rem;
-  --fs-h2:       2.5rem;
-  --fs-h1:       3.5rem;
-  --fs-hero:     clamp(3rem, 7vw, 5.5rem);
+  /* Document type scale — slightly different from global's GRT scale to fit dense longform */
+  --fs-micro: 0.75rem;
+  --fs-small: 0.8125rem;
+  --fs-body:  1.0625rem;
+  --fs-lede:  1.25rem;
+  --fs-h4:    1.375rem;
+  --fs-h3:    1.75rem;
+  --fs-h2:    2.5rem;
+  --fs-h1:    3.5rem;
+  --fs-hero:  clamp(3rem, 7vw, 5.5rem);
 
-  /* Layout */
-  --measure:        66ch;             /* ideal reading measure */
-  --measure-narrow: 56ch;             /* for ledes and pulls */
+  /* Document layout */
+  --measure:        66ch;
+  --measure-narrow: 56ch;
   --gutter:         clamp(1.25rem, 4vw, 2.5rem);
   --section-pad:    clamp(4rem, 9vw, 7rem);
-  --container:      75rem;            /* 1200px outer */
-  --container-wide: 86rem;            /* 1376px wide */
+  --container:      75rem;
+  --container-wide: 86rem;
+
+  /* Local link colors */
+  --link:       var(--claret);
+  --link-hover: var(--claret-dark);
 
   background: var(--paper);
   color: var(--ink);
@@ -69,19 +47,12 @@
   font-feature-settings: "ss01", "ss02", "kern", "liga";
 }
 
-/* Body wrapper class (apply to <body> on these pages so the whole canvas is salmon) */
-.lm-body {
-  margin: 0;
-  background: var(--paper);
-}
-
-/* Selection */
 .lm-page ::selection {
   background: var(--claret);
   color: var(--paper);
 }
 
-/* --------------------------- BASELINE TYPOGRAPHY ---------------------------- */
+/* ----------------------- BASELINE TYPOGRAPHY ----------------------- */
 .lm-page h1,
 .lm-page h2,
 .lm-page h3,
@@ -94,7 +65,6 @@
   margin: 0 0 0.6em;
   font-feature-settings: "ss01", "kern", "liga", "dlig";
 }
-
 .lm-page h1 { font-size: var(--fs-h1); font-weight: 400; }
 .lm-page h2 { font-size: var(--fs-h2); font-weight: 400; }
 .lm-page h3 { font-size: var(--fs-h3); font-weight: 500; line-height: 1.18; }
@@ -114,7 +84,7 @@
 .lm-page :where(a):hover { color: var(--link-hover); }
 
 .lm-page strong, .lm-page b { font-weight: 600; color: var(--ink); }
-.lm-page em, .lm-page i  { font-style: italic; }
+.lm-page em, .lm-page i { font-style: italic; }
 
 .lm-page hr {
   border: 0;
@@ -122,7 +92,7 @@
   margin: 3rem 0;
 }
 
-/* ------------------------------- UTILITIES --------------------------------- */
+/* ----------------------------- UTILITIES ----------------------------- */
 .lm-container {
   width: 100%;
   max-width: var(--container);
@@ -135,7 +105,7 @@
 .lm-eyebrow {
   font-family: var(--font-sans);
   font-size: var(--fs-small);
-  font-weight: 500;
+  font-weight: 600;
   letter-spacing: 0.16em;
   text-transform: uppercase;
   color: var(--claret);
@@ -170,48 +140,9 @@
   padding: 0.3em 0.8em;
   border: 1px solid var(--rule-strong);
   border-radius: 999px;
-  color: var(--ink-soft);
+  color: var(--ink-faint);
   background: transparent;
 }
-
-/* ----------------------------- TOP / NAV ------------------------------- */
-.lm-topbar {
-  border-bottom: 1px solid var(--rule);
-  padding: 1.25rem 0;
-  font-family: var(--font-sans);
-  font-size: var(--fs-small);
-}
-.lm-topbar__row {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 2rem;
-}
-.lm-topbar__brand {
-  font-family: var(--font-serif);
-  font-size: 1.0625rem;
-  font-weight: 500;
-  letter-spacing: -0.01em;
-  color: var(--ink);
-  border: 0;
-}
-.lm-topbar__brand b { font-weight: 600; }
-.lm-topbar__meta {
-  color: var(--ink-soft);
-  font-size: var(--fs-micro);
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-}
-.lm-topbar__nav {
-  display: flex;
-  gap: 1.75rem;
-}
-.lm-topbar__nav a {
-  color: var(--ink-soft);
-  border: 0;
-  font-size: var(--fs-small);
-}
-.lm-topbar__nav a:hover { color: var(--claret); }
 
 /* --------------------------------- HERO ------------------------------------ */
 .lm-hero {
@@ -224,7 +155,7 @@
   font-size: var(--fs-micro);
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: var(--ink-faint);
+  color: var(--ink-fainter);
   display: flex;
   justify-content: space-between;
   margin-bottom: 3.5rem;
@@ -254,7 +185,7 @@
   font-weight: 300;
   font-style: italic;
   line-height: 1.35;
-  color: var(--ink-soft);
+  color: var(--ink-faint);
   max-width: 38ch;
   margin: 0 0 2.5rem;
 }
@@ -264,7 +195,7 @@
   gap: 2rem;
   font-family: var(--font-sans);
   font-size: var(--fs-small);
-  color: var(--ink-soft);
+  color: var(--ink-faint);
   letter-spacing: 0.04em;
   padding-top: 1.5rem;
   border-top: 1px solid var(--rule);
@@ -276,8 +207,8 @@
   font-size: var(--fs-micro);
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: var(--ink-faint);
-  font-weight: 500;
+  color: var(--ink-fainter);
+  font-weight: 600;
   margin-bottom: 0.25rem;
 }
 
@@ -298,7 +229,7 @@
   letter-spacing: 0.18em;
   text-transform: uppercase;
   color: var(--claret);
-  font-weight: 500;
+  font-weight: 600;
   padding-top: 0.5em;
 }
 .lm-dek__body p {
@@ -344,7 +275,7 @@
 .lm-method__num {
   font-family: var(--font-sans);
   font-size: var(--fs-micro);
-  font-weight: 500;
+  font-weight: 600;
   letter-spacing: 0.2em;
   color: var(--claret);
   margin-bottom: 1rem;
@@ -359,7 +290,7 @@
 .lm-method__cell p {
   font-size: 0.95rem;
   line-height: 1.55;
-  color: var(--ink-soft);
+  color: var(--ink-faint);
   margin: 0;
 }
 
@@ -402,9 +333,10 @@
   font-size: 1.15rem;
   font-weight: 300;
   line-height: 1.5;
-  color: var(--ink-soft);
+  color: var(--ink-faint);
   max-width: 36ch;
 }
+
 .lm-form {
   display: flex;
   flex-direction: column;
@@ -416,8 +348,8 @@
   font-size: var(--fs-micro);
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: var(--ink-faint);
-  font-weight: 500;
+  color: var(--ink-fainter);
+  font-weight: 600;
   margin-bottom: -0.25rem;
 }
 .lm-form input[type="email"],
@@ -426,16 +358,19 @@
   font-size: 1.0625rem;
   padding: 0.95rem 1rem;
   border: 1px solid var(--rule-strong);
-  background: var(--paper);
+  background: var(--paper-soft);
   color: var(--ink);
   border-radius: 0;
   width: 100%;
-  transition: border-color 0.2s ease;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 .lm-form input:focus {
   outline: 0;
-  border-color: var(--claret);
+  border-color: var(--teal);
+  box-shadow: 0 0 0 3px rgba(13, 118, 128, 0.12);
 }
+
+/* Buttons — high-specificity so they beat .lm-page a */
 .lm-form button,
 .lm-btn,
 .lm-page a.lm-btn {
@@ -444,8 +379,8 @@
   font-weight: 500;
   letter-spacing: 0.04em;
   padding: 1.05rem 1.5rem;
-  background: var(--ink);
-  color: var(--paper);
+  background: var(--ink-deep);
+  color: var(--paper-soft);
   border: 0;
   border-bottom: 0;
   cursor: pointer;
@@ -459,7 +394,7 @@
 .lm-btn:hover,
 .lm-page a.lm-btn:hover {
   background: var(--claret);
-  color: var(--paper);
+  color: var(--paper-soft);
   border: 0;
   border-bottom: 0;
 }
@@ -471,12 +406,12 @@
 }
 .lm-btn--ghost:hover,
 .lm-page a.lm-btn--ghost:hover {
-  background: var(--ink);
-  color: var(--paper);
+  background: var(--ink-deep);
+  color: var(--paper-soft);
 }
 .lm-form__note {
   font-size: var(--fs-micro);
-  color: var(--ink-faint);
+  color: var(--ink-fainter);
   margin: 0.25rem 0 0;
   letter-spacing: 0.02em;
 }
@@ -488,14 +423,9 @@
 /* =============================================================================
    SCROLL PAGE — the actual document
    ============================================================================= */
+.lm-scroll { padding-top: 0; }
 
-/* The scroll uses a 12-column grid with a center reading column at 7 cols,
-   leaving room for marginalia and pull-quotes in the sidebars. */
-.lm-scroll {
-  padding-top: 0;
-}
-
-/* Section openers — quiet, large, with a number rail */
+/* Section openers */
 .lm-section-opener {
   padding: clamp(4rem, 8vw, 7rem) 0 clamp(3rem, 5vw, 4rem);
   border-bottom: 1px solid var(--rule);
@@ -512,7 +442,7 @@
   letter-spacing: 0.2em;
   text-transform: uppercase;
   color: var(--claret);
-  font-weight: 500;
+  font-weight: 600;
   padding-top: 0.5rem;
   border-top: 2px solid var(--claret);
   display: block;
@@ -543,7 +473,7 @@
   font-style: italic;
   font-weight: 300;
   line-height: 1.4;
-  color: var(--ink-soft);
+  color: var(--ink-faint);
   max-width: 48ch;
   margin: 0;
 }
@@ -553,7 +483,7 @@
   .lm-section-opener__rail-num { font-size: 2rem; }
 }
 
-/* Article body — the long-form prose blocks */
+/* Article body */
 .lm-article {
   padding: clamp(2rem, 5vw, 4rem) 0 clamp(3rem, 7vw, 5rem);
   border-bottom: 1px solid var(--rule);
@@ -568,10 +498,10 @@
   font-size: var(--fs-micro);
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: var(--ink-faint);
-  font-weight: 500;
+  color: var(--ink-fainter);
+  font-weight: 600;
   position: sticky;
-  top: 2rem;
+  top: 5rem;
   align-self: start;
   padding-top: 0.5rem;
   border-top: 1px solid var(--rule);
@@ -579,7 +509,7 @@
 .lm-article__rail b {
   display: block;
   color: var(--claret);
-  font-weight: 500;
+  font-weight: 600;
   margin-bottom: 0.5rem;
 }
 .lm-article__body {
@@ -662,12 +592,8 @@
   color: var(--claret);
   font-weight: 500;
 }
-.lm-article__body ol {
-  counter-reset: lm-counter;
-}
-.lm-article__body ol li {
-  counter-increment: lm-counter;
-}
+.lm-article__body ol { counter-reset: lm-counter; }
+.lm-article__body ol li { counter-increment: lm-counter; }
 .lm-article__body ol li::before {
   content: counter(lm-counter, decimal-leading-zero);
   position: absolute;
@@ -685,7 +611,7 @@
   .lm-article__rail { position: static; }
 }
 
-/* Step blocks — for the seven-step playbook */
+/* Step blocks */
 .lm-step {
   padding: clamp(3rem, 5vw, 4.5rem) 0;
   border-bottom: 1px solid var(--rule);
@@ -717,10 +643,10 @@
   font-family: var(--font-sans);
   font-size: var(--fs-micro);
   font-style: normal;
-  font-weight: 500;
+  font-weight: 600;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: var(--ink-faint);
+  color: var(--ink-fainter);
   margin-bottom: 0.5rem;
 }
 .lm-step h3 {
@@ -755,6 +681,8 @@
   line-height: 1.65;
   color: var(--ink);
   white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  word-break: break-word;
 }
 .lm-template strong {
   font-family: var(--font-sans);
@@ -783,11 +711,9 @@
   width: 1.1rem;
   height: 1.1rem;
   border: 1.5px solid var(--rule-strong);
-  background: var(--paper);
+  background: var(--paper-soft);
 }
-.lm-checklist__group {
-  margin: 2rem 0 1rem;
-}
+.lm-checklist__group { margin: 2rem 0 1rem; }
 .lm-checklist__group h4 {
   font-family: var(--font-sans);
   font-size: var(--fs-small);
@@ -798,7 +724,7 @@
   margin: 0 0 0.5rem;
 }
 
-/* Stat / number-feature block */
+/* Stat row */
 .lm-stat-row {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -807,9 +733,7 @@
   border-bottom: 1px solid var(--rule);
   margin: 3rem 0;
 }
-.lm-stat {
-  padding: 2rem 1.5rem 2rem 0;
-}
+.lm-stat { padding: 2rem 1.5rem 2rem 0; }
 .lm-stat:not(:last-child) {
   border-right: 1px solid var(--rule);
   padding-right: 1.5rem;
@@ -827,13 +751,17 @@
 .lm-stat__label {
   font-family: var(--font-sans);
   font-size: var(--fs-small);
-  color: var(--ink-soft);
+  color: var(--ink-faint);
   line-height: 1.45;
   max-width: 24ch;
 }
 @media (max-width: 700px) {
   .lm-stat-row { grid-template-columns: 1fr; }
-  .lm-stat { border-right: 0; border-bottom: 1px solid var(--rule); padding: 1.5rem 0; }
+  .lm-stat {
+    border-right: 0;
+    border-bottom: 1px solid var(--rule);
+    padding: 1.5rem 0;
+  }
   .lm-stat:last-child { border-bottom: 0; }
 }
 
@@ -881,21 +809,26 @@
   gap: 2rem;
   align-items: baseline;
   padding: 1.75rem 0;
-  border-bottom: 1px solid var(--rule);
   text-decoration: none;
   color: var(--ink);
   border: 0;
   border-bottom: 1px solid var(--rule);
   transition: background 0.2s ease;
 }
-.lm-toc__item:hover { background: var(--paper-warm); padding-left: 1rem; padding-right: 1rem; }
+@media (hover: hover) {
+  .lm-toc__item:hover {
+    background: var(--paper-warm);
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
 .lm-toc__part {
   font-family: var(--font-sans);
   font-size: var(--fs-micro);
   letter-spacing: 0.2em;
   text-transform: uppercase;
   color: var(--claret);
-  font-weight: 500;
+  font-weight: 600;
 }
 .lm-toc__title {
   font-family: var(--font-serif);
@@ -908,7 +841,7 @@
 .lm-toc__time {
   font-family: var(--font-sans);
   font-size: var(--fs-small);
-  color: var(--ink-faint);
+  color: var(--ink-fainter);
   letter-spacing: 0.04em;
   white-space: nowrap;
 }
@@ -917,83 +850,13 @@
   .lm-toc__item { grid-template-columns: 1fr; gap: 0.5rem; }
 }
 
-/* Footer / colophon */
-.lm-colophon {
-  padding: clamp(3rem, 6vw, 5rem) 0 clamp(2rem, 4vw, 3rem);
-  border-top: 2px solid var(--ink);
-  margin-top: clamp(4rem, 8vw, 6rem);
-  background: var(--paper);
-}
-.lm-colophon__grid {
-  display: grid;
-  grid-template-columns: 2fr 1fr 1fr;
-  gap: 2rem;
-  align-items: start;
-}
-.lm-colophon__brand {
-  font-family: var(--font-serif);
-  font-size: 1.5rem;
-  font-weight: 400;
-  letter-spacing: -0.02em;
-  margin: 0 0 0.75rem;
-}
-.lm-colophon__brand b { font-weight: 600; }
-.lm-colophon__tag {
-  font-family: var(--font-serif);
-  font-style: italic;
-  font-weight: 300;
-  color: var(--ink-soft);
-  font-size: 1.05rem;
-  margin: 0;
-  max-width: 36ch;
-}
-.lm-colophon h5 {
-  font-family: var(--font-sans);
-  font-size: var(--fs-micro);
-  font-weight: 600;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: var(--claret);
-  margin: 0 0 1rem;
-}
-.lm-colophon ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-.lm-colophon li {
-  margin-bottom: 0.5rem;
-  font-size: var(--fs-small);
-}
-.lm-colophon a {
-  color: var(--ink);
-  border: 0;
-}
-.lm-colophon a:hover { color: var(--claret); }
-.lm-colophon__legal {
-  margin-top: 3rem;
-  padding-top: 1.5rem;
-  border-top: 1px solid var(--rule);
-  display: flex;
-  justify-content: space-between;
-  font-family: var(--font-sans);
-  font-size: var(--fs-micro);
-  color: var(--ink-faint);
-  letter-spacing: 0.04em;
-}
-
-@media (max-width: 800px) {
-  .lm-colophon__grid { grid-template-columns: 1fr; gap: 2.5rem; }
-  .lm-colophon__legal { flex-direction: column; gap: 0.5rem; }
-}
-
-/* Reading progress bar (scroll page) */
+/* Reading progress bar */
 .lm-progress {
   position: fixed;
   top: 0; left: 0;
   height: 2px;
   background: var(--claret);
-  z-index: 100;
+  z-index: 60;
   width: 0;
   transition: width 0.1s linear;
   pointer-events: none;
@@ -1006,8 +869,8 @@
   right: 2rem;
   width: 3rem;
   height: 3rem;
-  background: var(--ink);
-  color: var(--paper);
+  background: var(--ink-deep);
+  color: var(--paper-soft);
   border: 0;
   cursor: pointer;
   display: flex;
@@ -1022,48 +885,18 @@
 .lm-back.is-visible { opacity: 1; }
 .lm-back:hover { background: var(--claret); }
 
-/* Print styles — for if anyone wants to actually print it like a whitepaper */
+/* Print */
 @media print {
   .lm-page { background: white; color: black; }
-  .lm-progress, .lm-back, .lm-topbar__nav { display: none; }
+  .lm-progress, .lm-back { display: none; }
   .lm-section-opener, .lm-step, .lm-article, .lm-toc { page-break-inside: avoid; }
 }
 
 /* =============================================================================
-   MOBILE RESPONSIVENESS PATCH
-   Fixes for screens <= 720px (phones) and <= 480px (small phones).
-   Targets elements that didn't have mobile breakpoints in the original CSS.
+   MOBILE RESPONSIVENESS — phones up to 720px and small phones up to 420px
    ============================================================================= */
-
-/* ----- TABLET / LARGE PHONE (<=720px) ----- */
 @media (max-width: 720px) {
-
-  /* Topbar — stack brand on top, nav below, hide the right-side meta strip
-     which adds visual weight without much info on a small screen */
-  .lm-topbar {
-    padding: 1rem 0 0.75rem;
-  }
-  .lm-topbar__row {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 0.75rem;
-  }
-  .lm-topbar__nav {
-    gap: 1.25rem;
-    flex-wrap: wrap;
-    width: 100%;
-  }
-  .lm-topbar__nav a {
-    font-size: 0.8125rem;
-  }
-  .lm-topbar__meta {
-    display: none;             /* hide the volume/edition strip on phones */
-  }
-
-  /* Hero — tighten the spacing, shrink the headline so it doesn't wall-of-text */
-  .lm-hero {
-    padding: 3rem 0 2.5rem;
-  }
+  .lm-hero { padding: 3rem 0 2.5rem; }
   .lm-hero__edition {
     flex-direction: column;
     gap: 0.5rem;
@@ -1081,73 +914,33 @@
     line-height: 1.45;
     margin-bottom: 1.75rem;
   }
-
-  /* Byline — stack the three columns vertically. The flex with gap: 2rem
-     was overflowing the viewport at <=480px */
   .lm-hero__byline {
     flex-direction: column;
     gap: 1rem;
     padding-top: 1.25rem;
     margin-top: 1.75rem;
   }
-  .lm-hero__byline strong {
-    margin-bottom: 0.125rem;
-  }
+  .lm-hero__byline strong { margin-bottom: 0.125rem; }
 
-  /* TOC items — gap is already collapsed in the original 700px rule,
-     but tighten the padding so each entry doesn't feel like its own page */
-  .lm-toc__item {
-    padding: 1.25rem 0;
-  }
-  .lm-toc__item:hover {
-    padding-left: 0;
-    padding-right: 0;
-  }
-  .lm-toc__title {
-    font-size: 1.1875rem;
-  }
+  .lm-toc__item { padding: 1.25rem 0; }
+  .lm-toc__item:hover { padding-left: 0; padding-right: 0; }
+  .lm-toc__title { font-size: 1.1875rem; }
 
-  /* Section openers — shrink the giant rail number (it was 2rem on mobile;
-     still too big on a phone next to a 40px heading) */
-  .lm-section-opener {
-    padding: 2.5rem 0 1.75rem;
-  }
-  .lm-section-opener__grid {
-    gap: 0.5rem;
-  }
-  .lm-section-opener__rail {
-    padding-top: 0.375rem;
-    font-size: 0.6875rem;
-  }
-  .lm-section-opener__rail-num {
-    display: none;             /* hide on phones — the rail label is enough */
-  }
+  .lm-section-opener { padding: 2.5rem 0 1.75rem; }
+  .lm-section-opener__grid { gap: 0.5rem; }
+  .lm-section-opener__rail { padding-top: 0.375rem; font-size: 0.6875rem; }
+  .lm-section-opener__rail-num { display: none; }
   .lm-section-opener h2 {
     font-size: clamp(2rem, 8vw, 2.5rem);
     line-height: 1.02;
     letter-spacing: -0.025em;
   }
-  .lm-section-opener__lede {
-    font-size: 1.0625rem;
-    line-height: 1.45;
-  }
+  .lm-section-opener__lede { font-size: 1.0625rem; line-height: 1.45; }
 
-  /* Article body — the dropcap was 4.5em (~75px) which on phones eats
-     half the screen width. Shrink to 3.5em and pull tighter to text */
-  .lm-article {
-    padding: 1.5rem 0 2.5rem;
-  }
-  .lm-article__grid {
-    gap: 1rem;
-  }
-  .lm-article__rail {
-    font-size: 0.6875rem;
-    padding-top: 0.375rem;
-  }
-  .lm-article__body {
-    font-size: 1rem;
-    line-height: 1.6;
-  }
+  .lm-article { padding: 1.5rem 0 2.5rem; }
+  .lm-article__grid { gap: 1rem; }
+  .lm-article__rail { font-size: 0.6875rem; padding-top: 0.375rem; }
+  .lm-article__body { font-size: 1rem; line-height: 1.6; }
   .lm-article__body p:first-of-type:first-letter,
   .lm-article__body .lm-dropcap::first-letter {
     font-size: 3.25em;
@@ -1158,83 +951,45 @@
     margin: 2em 0 0.625em;
   }
 
-  /* Pull quotes — were clamping to 1.5rem floor, still too big with
-     letter-spacing on narrow screens */
   .lm-pull {
     font-size: 1.3125rem;
     line-height: 1.3;
     margin: 1.75em 0;
   }
-  .lm-pull::before {
-    width: 2rem;
-    margin-bottom: 1rem;
-  }
+  .lm-pull::before { width: 2rem; margin-bottom: 1rem; }
 
-  /* Step blocks — the number was clamping to 3rem (48px) at the floor,
-     which on a stacked mobile layout dominates the heading */
-  .lm-step {
-    padding: 2rem 0;
-  }
-  .lm-step__grid {
-    gap: 0.75rem;
-  }
-  .lm-step__num {
-    font-size: 2.5rem;
-    line-height: 1;
-  }
-  .lm-step__num::after {
-    width: 2rem;
-    margin-top: 0.625rem;
-  }
-  .lm-step__num small {
-    font-size: 0.6875rem;
-    margin-bottom: 0.375rem;
-  }
+  .lm-step { padding: 2rem 0; }
+  .lm-step__grid { gap: 0.75rem; }
+  .lm-step__num { font-size: 2.5rem; line-height: 1; }
+  .lm-step__num::after { width: 2rem; margin-top: 0.625rem; }
+  .lm-step__num small { font-size: 0.6875rem; margin-bottom: 0.375rem; }
   .lm-step h3 {
     font-size: 1.5rem;
     line-height: 1.15;
     margin-bottom: 0.875em;
   }
 
-  /* Template / code blocks — prevent horizontal overflow from long mono lines */
   .lm-template {
-    padding: 1.25rem 1.25rem;
+    padding: 1.25rem;
     font-size: 0.8125rem;
-    overflow-wrap: anywhere;
-    word-break: break-word;
     margin: 1.5rem 0;
   }
 
-  /* Method grid — the original 600px rule already collapses to 1 col with
-     2rem 0 padding; tighten further for narrow phones */
-  .lm-method {
-    padding: 3rem 0;
-  }
-  .lm-method__head {
-    margin-bottom: 2rem;
-  }
-  .lm-method__head h2 {
-    font-size: clamp(1.75rem, 6vw, 2.25rem);
-  }
-  .lm-method__cell h3 {
-    font-size: 1.1875rem;
-  }
+  .lm-method { padding: 3rem 0; }
+  .lm-method__head { margin-bottom: 2rem; }
+  .lm-method__head h2 { font-size: clamp(1.75rem, 6vw, 2.25rem); }
+  .lm-method__cell h3 { font-size: 1.1875rem; }
 
-  /* Email capture — already collapses to 1 col at 800px; reduce vertical padding */
-  .lm-capture {
-    padding: 3rem 0;
-  }
+  .lm-capture { padding: 3rem 0; }
   .lm-capture h2 {
     font-size: clamp(2rem, 8vw, 2.5rem);
     line-height: 1.05;
   }
-  .lm-capture__copy {
-    font-size: 1.0625rem;
-  }
+  .lm-capture__copy { font-size: 1.0625rem; }
   .lm-form input[type="email"],
   .lm-form input[type="text"] {
-    font-size: 16px;           /* 16px prevents iOS Safari zoom-on-focus */
-    padding: 0.875rem 0.875rem;
+    font-size: 16px;             /* prevents iOS Safari zoom-on-focus */
+    padding: 0.875rem;
   }
   .lm-form button,
   .lm-btn {
@@ -1242,21 +997,11 @@
     padding: 1rem 1.25rem;
   }
 
-  /* Stat row — already collapses at 700px; tighten the padding */
-  .lm-stat-row {
-    margin: 2rem 0;
-  }
-  .lm-stat {
-    padding: 1.25rem 0;
-  }
-  .lm-stat__num {
-    font-size: 2.25rem;
-  }
-  .lm-stat__label {
-    font-size: 0.875rem;
-  }
+  .lm-stat-row { margin: 2rem 0; }
+  .lm-stat { padding: 1.25rem 0; }
+  .lm-stat__num { font-size: 2.25rem; }
+  .lm-stat__label { font-size: 0.875rem; }
 
-  /* Tables — convert to scrollable on phones rather than breaking the page */
   .lm-table {
     display: block;
     overflow-x: auto;
@@ -1266,36 +1011,15 @@
     padding: 0 1rem;
     font-size: 0.8125rem;
   }
-  .lm-table th,
-  .lm-table td {
-    padding: 0.625rem 0.75rem 0.625rem 0;
-  }
+  .lm-table th, .lm-table td { padding: 0.625rem 0.75rem 0.625rem 0; }
 
-  /* Checklist — tighten line-height + spacing */
   .lm-checklist li {
     padding: 0.5rem 0 0.5rem 1.875rem;
     font-size: 1rem;
     line-height: 1.45;
   }
-  .lm-checklist li::before {
-    top: 0.75rem;
-    width: 1rem;
-    height: 1rem;
-  }
+  .lm-checklist li::before { top: 0.75rem; width: 1rem; height: 1rem; }
 
-  /* Colophon — already collapses at 800px; just reduce vertical padding */
-  .lm-colophon {
-    padding: 2.5rem 0 1.5rem;
-    margin-top: 3rem;
-  }
-  .lm-colophon__brand {
-    font-size: 1.3125rem;
-  }
-  .lm-colophon__legal {
-    font-size: 0.6875rem;
-  }
-
-  /* Back-to-top — bump touch target to 48px and pull inward slightly */
   .lm-back {
     bottom: 1.25rem;
     right: 1.25rem;
@@ -1304,41 +1028,13 @@
     font-size: 1.05rem;
   }
 
-  /* Dek (lede) section — already collapses at 700px; tighten the body text */
-  .lm-dek {
-    padding: 2.25rem 0 2.5rem;
-  }
-  .lm-dek__body p {
-    font-size: 1.0625rem;
-    line-height: 1.5;
-  }
+  .lm-dek { padding: 2.25rem 0 2.5rem; }
+  .lm-dek__body p { font-size: 1.0625rem; line-height: 1.5; }
 }
 
-/* ----- SMALL PHONES (<=420px) ----- */
 @media (max-width: 420px) {
-  /* Hero gets ultra-tight on the smallest phones */
-  .lm-hero__title {
-    font-size: clamp(2rem, 10vw, 2.5rem);
-  }
-  .lm-hero__lede {
-    font-size: 1rem;
-  }
-
-  /* Section opener title — last shrink for ultra-small screens */
-  .lm-section-opener h2 {
-    font-size: 1.875rem;
-  }
-
-  /* Topbar nav — wrap the three links over two lines if needed */
-  .lm-topbar__nav {
-    gap: 0.875rem;
-  }
-  .lm-topbar__nav a {
-    font-size: 0.75rem;
-  }
-
-  /* Step number — final shrink */
-  .lm-step__num {
-    font-size: 2.125rem;
-  }
+  .lm-hero__title { font-size: clamp(2rem, 10vw, 2.5rem); }
+  .lm-hero__lede { font-size: 1rem; }
+  .lm-section-opener h2 { font-size: 1.875rem; }
+  .lm-step__num { font-size: 2.125rem; }
 }

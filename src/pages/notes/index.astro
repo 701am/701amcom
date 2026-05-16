@@ -130,7 +130,7 @@ const countWords = (n: number): string => {
   .archive-masthead {
     padding: 4rem var(--x1) 2.5rem;
     text-align: center;
-    border-bottom: 1px double rgba(212, 168, 83, 0.3);
+    border-bottom: 1px double var(--rule-strong);
     position: relative;
   }
   .archive-masthead::after {
@@ -139,12 +139,12 @@ const countWords = (n: number): string => {
     left: 50%; bottom: -3px;
     transform: translateX(-50%);
     width: 60px; height: 1px;
-    background: var(--gold);
+    background: var(--claret);
   }
   .archive-eyebrow {
     font-size: var(--f7-size);
     letter-spacing: 0.34em;
-    color: var(--gold);
+    color: var(--claret);
     text-transform: uppercase;
     margin: 0 0 var(--x3);
     font-weight: 500;
@@ -156,7 +156,7 @@ const countWords = (n: number): string => {
     content: "";
     display: inline-block;
     width: 24px; height: 1px;
-    background: rgba(212, 168, 83, 0.5);
+    background: rgba(153, 15, 61, 0.5);
   }
   .archive-title {
     font-family: 'Newsreader', Georgia, serif;
@@ -164,18 +164,18 @@ const countWords = (n: number): string => {
     font-weight: 500;
     line-height: 1;
     letter-spacing: -0.035em;
-    color: var(--cream-warm);
+    color: var(--ink);
     margin: 0 0 var(--x3);
     font-feature-settings: "kern" 1, "liga" 1, "dlig" 1;
   }
-  .archive-title em { font-style: italic; font-weight: 400; color: var(--gold-light); }
+  .archive-title em { font-style: italic; font-weight: 400; color: var(--claret); }
   .archive-deck {
     font-family: 'Newsreader', Georgia, serif;
     font-style: italic;
     font-weight: 300;
     font-size: var(--f5-size);
     line-height: 1.5;
-    color: var(--muted);
+    color: var(--ink-faint);
     max-width: 32em;
     margin: 0 auto;
   }
@@ -186,12 +186,12 @@ const countWords = (n: number): string => {
     margin-top: var(--x2);
     font-size: var(--f7-size);
     letter-spacing: 0.28em;
-    color: var(--muted-dim);
+    color: var(--ink-fainter);
     text-transform: uppercase;
     flex-wrap: wrap;
   }
   .archive-issue strong {
-    color: var(--gold);
+    color: var(--claret);
     font-weight: 500;
     margin-right: 6px;
   }
@@ -199,14 +199,14 @@ const countWords = (n: number): string => {
   .archive-nav {
     padding: var(--x3) var(--x1);
     text-align: center;
-    border-bottom: 1px solid rgba(212, 168, 83, 0.18);
+    border-bottom: 1px solid var(--rule);
     display: flex;
     justify-content: center;
     gap: var(--x2);
     flex-wrap: wrap;
   }
   .archive-nav a {
-    color: var(--muted);
+    color: var(--ink-faint);
     font-size: 11px;
     letter-spacing: 0.24em;
     text-transform: uppercase;
@@ -216,13 +216,13 @@ const countWords = (n: number): string => {
     transition: color 0.2s, border-color 0.2s;
   }
   .archive-nav a:hover {
-    color: var(--cream-warm);
-    border-bottom-color: var(--gold);
+    color: var(--ink);
+    border-bottom-color: var(--claret);
   }
 
   .archive-section {
     padding: var(--x1) var(--x1) calc(var(--x1) + var(--x3));
-    border-bottom: 1px solid rgba(212, 168, 83, 0.12);
+    border-bottom: 1px solid rgba(153, 15, 61, 0.12);
     max-width: var(--measure-wide);
     margin: 0 auto;
   }
@@ -239,19 +239,19 @@ const countWords = (n: number): string => {
     font-size: var(--f3-size);
     font-weight: 500;
     letter-spacing: -0.02em;
-    color: var(--cream-warm);
+    color: var(--ink);
     margin: 0;
     line-height: 1.1;
   }
   .archive-section-label h2 em {
     font-style: italic;
-    color: var(--gold-light);
+    color: var(--claret);
     font-weight: 400;
   }
   .archive-count {
     font-size: var(--f7-size);
     letter-spacing: 0.32em;
-    color: var(--gold);
+    color: var(--claret);
     text-transform: uppercase;
     font-weight: 500;
   }
@@ -263,7 +263,7 @@ const countWords = (n: number): string => {
     gap: var(--x2) var(--x1);
   }
   .archive-topic {
-    border-top: 1px solid rgba(212, 168, 83, 0.2);
+    border-top: 1px solid var(--rule-strong);
     padding-top: var(--x3);
   }
   .archive-topic-name {
@@ -271,7 +271,7 @@ const countWords = (n: number): string => {
     font-style: italic;
     font-weight: 400;
     font-size: var(--f5-size);
-    color: var(--gold);
+    color: var(--claret);
     margin: 0 0 var(--x3);
     line-height: 1;
     letter-spacing: -0.01em;
@@ -285,7 +285,7 @@ const countWords = (n: number): string => {
     padding: var(--x5) 0;
   }
   .archive-topic li a {
-    color: var(--cream);
+    color: var(--ink);
     text-decoration: none;
     font-family: 'Newsreader', Georgia, serif;
     font-size: var(--f6-size);
@@ -295,14 +295,14 @@ const countWords = (n: number): string => {
     transition: color 0.2s, border-color 0.2s;
   }
   .archive-topic li a:hover {
-    color: var(--gold-light);
-    border-bottom-color: rgba(232, 199, 122, 0.4);
+    color: var(--claret);
+    border-bottom-color: rgba(153, 15, 61, 0.4);
   }
 
   /* by date */
   .archive-year {
     padding: var(--x2) 0 var(--x3);
-    border-bottom: 1px solid rgba(212, 168, 83, 0.12);
+    border-bottom: 1px solid rgba(153, 15, 61, 0.12);
   }
   .archive-year:last-child { border-bottom: none; }
   .archive-year-h {
@@ -316,7 +316,7 @@ const countWords = (n: number): string => {
     font-size: var(--f2-size);
     font-weight: 400;
     font-style: italic;
-    color: var(--gold);
+    color: var(--claret);
     line-height: 0.9;
     letter-spacing: -0.02em;
     font-variant-numeric: oldstyle-nums;
@@ -324,12 +324,12 @@ const countWords = (n: number): string => {
   .archive-year-rule {
     flex: 1;
     height: 1px;
-    background: rgba(212, 168, 83, 0.25);
+    background: rgba(153, 15, 61, 0.25);
   }
   .archive-year-count {
     font-size: var(--f7-size);
     letter-spacing: 0.32em;
-    color: var(--muted-dim);
+    color: var(--ink-fainter);
     text-transform: uppercase;
   }
   .archive-entries {
@@ -343,14 +343,14 @@ const countWords = (n: number): string => {
     gap: var(--x3);
     padding: 9px 0;
     align-items: baseline;
-    border-bottom: 1px dotted rgba(212, 168, 83, 0.1);
+    border-bottom: 1px dotted rgba(153, 15, 61, 0.1);
   }
   .archive-entry:last-child { border-bottom: none; }
   .archive-entry-date {
     font-family: 'Instrument Sans', sans-serif;
     font-size: 11px;
     letter-spacing: 0.16em;
-    color: var(--muted-dim);
+    color: var(--ink-fainter);
     text-transform: uppercase;
     font-variant-numeric: tabular-nums;
   }
@@ -360,15 +360,15 @@ const countWords = (n: number): string => {
     line-height: 1.4;
   }
   .archive-entry-title a {
-    color: var(--cream);
+    color: var(--ink);
     text-decoration: none;
     border-bottom: 1px solid transparent;
     padding-bottom: 1px;
     transition: color 0.2s, border-color 0.2s;
   }
   .archive-entry-title a:hover {
-    color: var(--gold-light);
-    border-bottom-color: rgba(232, 199, 122, 0.4);
+    color: var(--claret);
+    border-bottom-color: rgba(153, 15, 61, 0.4);
   }
   .archive-entry-num {
     font-family: 'Newsreader', Georgia, serif;
@@ -383,7 +383,7 @@ const countWords = (n: number): string => {
   .archive-empty {
     padding: var(--x1);
     text-align: center;
-    color: var(--muted);
+    color: var(--ink-faint);
     font-family: 'Newsreader', Georgia, serif;
     font-style: italic;
     font-size: var(--f5-size);
@@ -392,13 +392,13 @@ const countWords = (n: number): string => {
   .archive-coda {
     padding: var(--x1);
     text-align: center;
-    border-top: 1px solid rgba(212, 168, 83, 0.18);
+    border-top: 1px solid var(--rule);
   }
   .archive-coda p {
     font-family: 'Newsreader', Georgia, serif;
     font-style: italic;
     font-size: 14px;
-    color: var(--muted-dim);
+    color: var(--ink-fainter);
     margin: 0;
   }
 

@@ -41,7 +41,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
           <p class="contact-card-p">
             The Legend-Maker scroll — the same method we use in the office, written down, sent to your inbox. <em>How to find the angle. How to write the pitch. How to earn the placement.</em> No fee. No funnel. Just the work.
           </p>
-          <a class="btn-link" href="mailto:dk@701am.com?subject=Send%20me%20the%20scroll">
+          <a class="btn-link" href="/legend-maker">
             Send me the scroll
             <span class="arrow" aria-hidden="true">↓</span>
           </a>
@@ -137,7 +137,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
             <span class="btn-icon" aria-hidden="true">→</span>
           </button>
           <p class="contact-fine">
-            <span style="color: var(--gold);">★</span> We never sell, share, or syndicate addresses. Ever.
+            <span style="color: var(--claret);">★</span> We never sell, share, or syndicate addresses. Ever.
           </p>
         </div>
       </form>
@@ -156,19 +156,22 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
       <div class="direct-methods">
         <a class="direct-method" href="mailto:dk@701am.com">
-          <div class="direct-method-label">Email</div>
-          <div class="direct-method-value">dk@701am.com</div>
-          <div class="direct-method-sub">For everything. Read within a day.</div>
+          <span class="direct-method-label">Email</span>
+          <span class="direct-method-value">dk@701am.com</span>
+          <span class="direct-method-sub">For everything. Read within a day.</span>
+          <span class="direct-method-chevron" aria-hidden="true">→</span>
         </a>
         <a class="direct-method" href="https://cal.com/davidkrug/discovery">
-          <div class="direct-method-label">Sunrise call</div>
-          <div class="direct-method-value">Book on Cal.com</div>
-          <div class="direct-method-sub">Thirty minutes. No deck, no charge.</div>
+          <span class="direct-method-label">Sunrise call</span>
+          <span class="direct-method-value">Book on Cal.com</span>
+          <span class="direct-method-sub">Thirty minutes. No deck, no charge.</span>
+          <span class="direct-method-chevron" aria-hidden="true">→</span>
         </a>
         <a class="direct-method direct-method-urgent" href="tel:+14063106419">
-          <div class="direct-method-label">★ Emergencies only</div>
-          <div class="direct-method-value">406&middot;310&middot;6419</div>
-          <div class="direct-method-sub">Active clients, time-sensitive issues.</div>
+          <span class="direct-method-label">★ Emergencies only</span>
+          <span class="direct-method-value">406&middot;310&middot;6419</span>
+          <span class="direct-method-sub">Active clients, time-sensitive issues.</span>
+          <span class="direct-method-chevron" aria-hidden="true">→</span>
         </a>
       </div>
     </div>
@@ -180,7 +183,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   .page-masthead {
     padding: calc(var(--x1) + var(--x3)) var(--x1) var(--x1);
     text-align: center;
-    border-bottom: 1px solid rgba(212, 168, 83, 0.15);
+    border-bottom: 1px solid var(--rule);
     max-width: var(--measure-wide);
     margin: 0 auto;
   }
@@ -188,7 +191,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     font-family: 'Instrument Sans', sans-serif;
     font-size: 11px;
     letter-spacing: 0.34em;
-    color: var(--gold);
+    color: var(--claret);
     text-transform: uppercase;
     margin: 0 0 var(--x3);
     font-weight: 500;
@@ -199,7 +202,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   .page-rule {
     display: inline-block;
     width: 28px; height: 1px;
-    background: rgba(212, 168, 83, 0.5);
+    background: rgba(153, 15, 61, 0.5);
   }
   .page-title {
     font-family: 'Newsreader', Georgia, serif;
@@ -207,7 +210,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     font-weight: 500;
     line-height: 1.04;
     letter-spacing: -0.035em;
-    color: var(--cream-warm);
+    color: var(--ink);
     margin: 0 0 var(--x3);
     max-width: 18ch;
     margin-left: auto;
@@ -218,7 +221,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   .page-title em {
     font-style: italic;
     font-weight: 400;
-    color: var(--gold-light);
+    color: var(--claret);
   }
   .page-deck {
     font-family: 'Newsreader', Georgia, serif;
@@ -226,7 +229,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     font-weight: 300;
     font-size: var(--f5-size);
     line-height: 1.45;
-    color: var(--muted);
+    color: var(--ink-faint);
     max-width: 36ch;
     margin: 0 auto;
   }
@@ -240,8 +243,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     margin: 0 auto;
   }
   .contact-card {
-    background: rgba(19, 28, 66, 0.55);
-    border: 1px solid rgba(212, 168, 83, 0.22);
+    background: rgba(248, 212, 184, 0.55);
+    border: 1px solid var(--rule-strong);
     padding: var(--x2) var(--x2) var(--x2);
     text-align: center;
     position: relative;
@@ -249,16 +252,16 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     flex-direction: column;
   }
   .contact-card-featured {
-    border-color: rgba(212, 168, 83, 0.55);
-    background: rgba(212, 168, 83, 0.06);
+    border-color: rgba(153, 15, 61, 0.55);
+    background: var(--paper-deep);
   }
   .contact-card-badge {
     position: absolute;
     top: -12px;
     left: 50%;
     transform: translateX(-50%);
-    background: var(--gold);
-    color: var(--navy-deep);
+    background: var(--claret);
+    color: var(--paper);
     padding: 5px 14px;
     font-family: 'Instrument Sans', sans-serif;
     font-size: 9px;
@@ -271,7 +274,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     font-family: 'Newsreader', Georgia, serif;
     font-style: italic;
     font-size: 36px;
-    color: var(--gold);
+    color: var(--claret);
     line-height: 1;
     margin-bottom: var(--x4);
     font-variant-numeric: oldstyle-nums;
@@ -281,27 +284,27 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     font-size: var(--f4-size);
     font-weight: 500;
     line-height: 1.15;
-    color: var(--cream-warm);
+    color: var(--ink);
     margin: 0 0 var(--x3);
     letter-spacing: -0.018em;
     text-wrap: balance;
   }
   .contact-card-h em {
     font-style: italic;
-    color: var(--gold-light);
+    color: var(--claret);
     font-weight: 400;
   }
   .contact-card-p {
     font-family: 'Newsreader', Georgia, serif;
     font-size: 15px;
     line-height: 1.55;
-    color: var(--muted);
+    color: var(--ink-faint);
     margin: 0 0 var(--x2);
     flex: 1;
   }
   .contact-card-p em {
     font-style: italic;
-    color: var(--gold-light);
+    color: var(--claret);
   }
 
   /* Form */
@@ -337,12 +340,12 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   .contact-field textarea {
     width: 100%;
     background: var(--paper-soft);
-    border: 1px solid rgba(10, 22, 51, 0.2);
+    border: 1px solid rgba(30, 30, 30, 0.2);
     padding: 12px 14px;
     font-family: 'Newsreader', Georgia, serif;
     font-size: 17px;
     line-height: 1.5;
-    color: var(--navy-deep);
+    color: var(--paper);
     transition: border-color 0.2s, background 0.2s, box-shadow 0.2s;
     border-radius: 0;
     -webkit-appearance: none;
@@ -350,7 +353,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   }
   .contact-field input::placeholder,
   .contact-field textarea::placeholder {
-    color: rgba(10, 22, 51, 0.4);
+    color: rgba(30, 30, 30, 0.4);
     font-style: italic;
   }
   .contact-field input:focus,
@@ -402,7 +405,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     flex-wrap: wrap;
     margin-top: var(--x3);
     padding-top: var(--x3);
-    border-top: 1px solid rgba(10, 22, 51, 0.15);
+    border-top: 1px solid rgba(30, 30, 30, 0.15);
   }
   .contact-fine {
     font-family: 'Newsreader', Georgia, serif;
@@ -412,67 +415,103 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     margin: 0;
   }
 
-  /* Direct methods */
+  /* Direct methods — vertical stack, editorial line items */
   .direct-methods {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 0;
-    max-width: var(--measure-wide);
+    max-width: var(--measure);
     margin: var(--x1) auto 0;
-    border-top: 1px solid rgba(212, 168, 83, 0.25);
+    border-top: 1px solid var(--rule-strong);
   }
   .direct-method {
-    display: block;
-    padding: var(--x2);
+    display: grid;
+    grid-template-columns: 11rem 1fr auto;
+    gap: var(--x3);
+    align-items: baseline;
+    padding: var(--x2) 0;
     text-decoration: none;
     color: inherit;
-    border-right: 1px solid rgba(212, 168, 83, 0.15);
-    border-bottom: 1px solid rgba(212, 168, 83, 0.25);
-    transition: background 0.2s;
+    border-bottom: 1px solid var(--rule);
+    transition: padding 0.25s ease, background 0.2s ease;
   }
-  .direct-method:last-child { border-right: none; }
-  .direct-method:hover { background: rgba(212, 168, 83, 0.04); }
-  .direct-method:hover .direct-method-value { color: var(--gold-light); }
+  .direct-method:hover {
+    padding-left: var(--x4);
+    padding-right: var(--x4);
+    background: var(--paper-soft);
+  }
+  .direct-method:hover .direct-method-value { color: var(--claret); }
+  .direct-method:hover .direct-method-chevron {
+    color: var(--claret);
+    transform: translateX(4px);
+  }
   .direct-method-label {
     font-family: 'Instrument Sans', sans-serif;
     font-size: 10px;
     letter-spacing: 0.30em;
-    color: var(--gold);
+    color: var(--claret);
     text-transform: uppercase;
-    margin-bottom: var(--x4);
-    font-weight: 500;
+    font-weight: 600;
+    align-self: center;
   }
   .direct-method-value {
+    display: block;
     font-family: 'Newsreader', Georgia, serif;
-    font-size: var(--f4-size);
-    font-weight: 500;
-    color: var(--cream-warm);
+    font-size: clamp(1.5rem, 3.2vw, 2rem);
+    font-weight: 400;
+    color: var(--ink);
+    letter-spacing: -0.018em;
+    line-height: 1.1;
     margin-bottom: var(--x5);
-    letter-spacing: -0.012em;
-    transition: color 0.2s;
+    transition: color 0.2s ease;
   }
   .direct-method-sub {
+    display: block;
     font-family: 'Newsreader', Georgia, serif;
     font-style: italic;
-    font-size: 14px;
-    color: var(--muted);
+    font-size: 15px;
+    line-height: 1.4;
+    color: var(--ink-faint);
+  }
+  .direct-method-chevron {
+    font-family: 'Instrument Sans', sans-serif;
+    font-size: 18px;
+    color: var(--ink-fainter);
+    align-self: center;
+    transition: color 0.2s ease, transform 0.2s ease;
   }
 
-  /* Urgent variant — emergencies only card */
-  .direct-method-urgent .direct-method-label {
-    color: var(--claret);
-  }
-  .direct-method-urgent:hover {
-    background: rgba(142, 58, 58, 0.08);
-  }
-  .direct-method-urgent:hover .direct-method-value {
-    color: var(--coral);
+  /* Urgent variant — emergency card */
+  .direct-method-urgent .direct-method-label { color: var(--coral); }
+  .direct-method-urgent:hover .direct-method-value { color: var(--coral); }
+  .direct-method-urgent:hover .direct-method-chevron { color: var(--coral); }
+
+  @media (max-width: 720px) {
+    .direct-method {
+      grid-template-columns: 1fr auto;
+      grid-template-rows: auto auto;
+      gap: var(--x5) var(--x3);
+      padding: var(--x3) 0;
+    }
+    .direct-method-label {
+      grid-column: 1 / -1;
+      grid-row: 1;
+      margin-bottom: 0;
+    }
+    .direct-method-value,
+    .direct-method-sub {
+      grid-column: 1;
+    }
+    .direct-method-chevron {
+      grid-column: 2;
+      grid-row: 2;
+      align-self: end;
+    }
+    .direct-method:hover {
+      padding-left: var(--x3);
+      padding-right: var(--x3);
+    }
   }
 
   @media (max-width: 900px) {
     .contact-cards { grid-template-columns: 1fr; gap: var(--x3); }
-    .direct-methods { grid-template-columns: 1fr; }
-    .direct-method { border-right: none; }
   }
   @media (max-width: 720px) {
     .contact-row { grid-template-columns: 1fr; }
