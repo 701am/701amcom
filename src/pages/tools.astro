@@ -1,0 +1,726 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+<BaseLayout
+  title="The tools — 701am"
+  description="Three tools built at 701am for finding stories, building data narratives, and arming AI agents with earned-media craft. Kraken, Build a Data Story, and the Earned Media Skills library — all free."
+  pageType="collectionPage"
+  breadcrumbs={[
+    { name: 'Home', url: '/' },
+    { name: 'The tools' },
+  ]}
+>
+
+  <article class="tools-page">
+
+    <!-- ════════════════════════════════════════════════════════════
+         MASTHEAD
+         ════════════════════════════════════════════════════════════ -->
+    <header class="tp-mast">
+      <p class="tp-mast-eyebrow">
+        <span class="tp-mast-rule"></span>
+        Section III · The tools
+        <span class="tp-mast-rule"></span>
+      </p>
+      <h1 class="tp-mast-h">
+        What lives <em>behind</em><br />
+        <em>the masthead.</em>
+      </h1>
+      <p class="tp-mast-deck">
+        Three things we built at 701am because the work demanded them. <em>Each is free. Each is opinionated. Each does one thing well.</em>
+      </p>
+      <p class="tp-mast-stats">
+        <span><em>3</em> tools</span>
+        <span class="tp-mast-stat-sep">·</span>
+        <span><em>0</em> signups</span>
+        <span class="tp-mast-stat-sep">·</span>
+        <span><em>1</em> office</span>
+      </p>
+    </header>
+
+    <!-- ════════════════════════════════════════════════════════════
+         TOOL I — KRAKEN
+         ════════════════════════════════════════════════════════════ -->
+    <section class="tp-tool tp-tool--featured" id="kraken">
+      <span class="tp-tool-ribbon">★ The newest ★</span>
+      <div class="tp-tool-grid">
+
+        <div class="tp-tool-body">
+          <p class="tp-tool-num">i.</p>
+          <p class="tp-tool-eyebrow">Newsroom prediction engine</p>
+          <h2 class="tp-tool-h">
+            <em>Kraken.</em>
+          </h2>
+          <p class="tp-tool-deck">
+            Drop a dataset, organization, event, or trend. The Kraken runs <em>50 narrative framings</em> through five interpretive lenses, clusters them into <em>10 stable attractors</em>, and predicts the stories most likely to emerge from a real newsroom.
+          </p>
+
+          <dl class="tp-tool-specs">
+            <dt>Runtime</dt><dd>~25 seconds</dd>
+            <dt>Output</dt><dd>6-section predictive report — cluster map, top 10 stories, pitches, headlines, insights, and publication targets</dd>
+            <dt>Method</dt><dd>5 parallel interpretive lenses (economic, cultural, structural, behavioral, technological) → clustering → ranking by Editorial Success Value</dd>
+            <dt>Best for</dt><dd>Founders, agencies, and PR strategists deciding which angle to pursue before they've written a word</dd>
+            <dt>Cost to you</dt><dd>Free, no signup</dd>
+          </dl>
+
+          <a href="/kraken" class="tp-tool-cta">
+            <span class="tp-tool-cta-star" aria-hidden="true">★</span>
+            Release the Kraken
+            <span class="tp-tool-cta-arrow" aria-hidden="true">→</span>
+          </a>
+        </div>
+
+        <aside class="tp-tool-art tp-tool-art--kraken" aria-hidden="true">
+          <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="100" cy="100" r="92" fill="none" stroke="currentColor" stroke-width="0.6" opacity="0.25"/>
+            <circle cx="100" cy="100" r="82" fill="none" stroke="currentColor" stroke-width="0.5" opacity="0.45" stroke-dasharray="3 5"/>
+            <circle cx="100" cy="100" r="72" fill="none" stroke="currentColor" stroke-width="0.5" opacity="0.3"/>
+            <!-- Eye -->
+            <ellipse cx="100" cy="100" rx="38" ry="20" fill="none" stroke="currentColor" stroke-width="1.4"/>
+            <circle cx="100" cy="100" r="10" fill="currentColor"/>
+            <circle cx="97" cy="97" r="2.5" fill="var(--paper)"/>
+            <!-- Tentacles -->
+            <path d="M 100 64 Q 94 46, 102 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+            <path d="M 130 80 Q 152 70, 168 50" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+            <path d="M 138 100 Q 166 100, 192 94" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+            <path d="M 130 120 Q 152 130, 168 150" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+            <path d="M 100 136 Q 94 154, 102 176" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+            <path d="M 70 120 Q 48 130, 32 150" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+            <path d="M 62 100 Q 34 100, 8 94" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+            <path d="M 70 80 Q 48 70, 32 50" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+          </svg>
+          <p class="tp-tool-art-cap">The Kraken sigil</p>
+        </aside>
+
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════════
+         TOOL II — BUILD A DATA STORY
+         ════════════════════════════════════════════════════════════ -->
+    <section class="tp-tool" id="build">
+      <div class="tp-tool-grid">
+
+        <div class="tp-tool-body">
+          <p class="tp-tool-num">ii.</p>
+          <p class="tp-tool-eyebrow">The 3-minute workshop</p>
+          <h2 class="tp-tool-h">
+            Build a <em>Data Story.</em>
+          </h2>
+          <p class="tp-tool-deck">
+            Five questions about your business. Two public datasets. <em>One headline you did not have yesterday.</em> A guided workshop that ends with a complete strategy memo — methodology, pitch, journalist names, four-week roadmap.
+          </p>
+
+          <dl class="tp-tool-specs">
+            <dt>Runtime</dt><dd>~3 minutes</dd>
+            <dt>Output</dt><dd>A full strategy memo on your screen — working headline, dataset hints, pitch draft, reporter beats, four-week roadmap. Print-friendly.</dd>
+            <dt>Method</dt><dd>5-question intake → 5 candidate angles → you pick → Tavily research → synthesis</dd>
+            <dt>Best for</dt><dd>Founders who have a meeting in the morning and nothing to say in it</dd>
+            <dt>Cost to you</dt><dd>Free, no signup</dd>
+          </dl>
+
+          <a href="/build" class="tp-tool-cta">
+            <span class="tp-tool-cta-star" aria-hidden="true">★</span>
+            Open the workshop
+            <span class="tp-tool-cta-arrow" aria-hidden="true">→</span>
+          </a>
+        </div>
+
+        <aside class="tp-tool-art tp-tool-art--build" aria-hidden="true">
+          <div class="tp-build-mock">
+            <div class="tp-build-mock-head">
+              <span class="tp-build-mock-dot"></span>
+              <span class="tp-build-mock-label">Strategy memo · sample</span>
+              <span class="tp-build-mock-time">7:01 a.m.</span>
+            </div>
+            <div class="tp-build-mock-body">
+              <p class="tp-build-mock-eyebrow">§ Working headline</p>
+              <p class="tp-build-mock-headline">The Hidden Hour: How Restaurant Wages Shifted in 2026</p>
+              <p class="tp-build-mock-meta">Surprise Statistic · BLS QCEW</p>
+              <div class="tp-build-mock-rule"></div>
+              <p class="tp-build-mock-eyebrow">§ The pitch</p>
+              <p class="tp-build-mock-pitch-subj">Wage data nobody is running</p>
+              <p class="tp-build-mock-pitch-body">"The federal data shows back-of-house wages outpaced front-of-house for the first time in eight years. The story is in the metro breakdown nobody has pulled…"</p>
+            </div>
+          </div>
+          <p class="tp-tool-art-cap">A real memo, blurred</p>
+        </aside>
+
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════════
+         TOOL III — SKILLS
+         ════════════════════════════════════════════════════════════ -->
+    <section class="tp-tool" id="skills">
+      <div class="tp-tool-grid">
+
+        <div class="tp-tool-body">
+          <p class="tp-tool-num">iii.</p>
+          <p class="tp-tool-eyebrow">For your AI agent</p>
+          <h2 class="tp-tool-h">
+            Earned Media <em>Skills.</em>
+          </h2>
+          <p class="tp-tool-deck">
+            Twenty-eight earned-media skills your AI agent can read. <em>Pitch craft, journalist research, the humanizer.</em> Plain markdown. MIT licensed. Free to clone, fork, and ship.
+          </p>
+
+          <dl class="tp-tool-specs">
+            <dt>Format</dt><dd>28 markdown skill files + 1 SKILL.md index</dd>
+            <dt>License</dt><dd>MIT — clone it, fork it, ship it, sell what you build with it</dd>
+            <dt>Runtime</dt><dd>For Claude Code, Claude Cowork, or any agent that can read markdown</dd>
+            <dt>Best for</dt><dd>Developers, agencies, and AI builders who want the playbook in their stack, not in another tab</dd>
+            <dt>Cost to you</dt><dd>Free, open source</dd>
+          </dl>
+
+          <a href="/skills" class="tp-tool-cta">
+            <span class="tp-tool-cta-star" aria-hidden="true">★</span>
+            Browse the skills
+            <span class="tp-tool-cta-arrow" aria-hidden="true">→</span>
+          </a>
+          <p class="tp-tool-fine">
+            <em>Repository:</em> <a href="https://github.com/701am/earned-media-skills">github.com/701am/earned-media-skills</a>
+          </p>
+        </div>
+
+        <aside class="tp-tool-art tp-tool-art--skills" aria-hidden="true">
+          <pre class="tp-skills-mock"><code><span class="tp-skills-comment"># SKILL.md</span>
+<span class="tp-skills-heading">## Pitch craft</span>
+  - Subject lines that survive triage
+  - The five-sentence body
+  - The follow-up cadence
+
+<span class="tp-skills-heading">## Journalist research</span>
+  - Beat mapping
+  - Editorial fit scoring
+  - The reporter graph
+
+<span class="tp-skills-heading">## The humanizer</span>
+  - Removing LLM cadence
+  - Voice anchors
+  - The tells</code></pre>
+          <p class="tp-tool-art-cap">28 skills, 1 rule</p>
+        </aside>
+
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════════
+         CLOSING — WORK WITH THE DESK
+         ════════════════════════════════════════════════════════════ -->
+    <footer class="tp-coda">
+      <div class="tp-coda-rule">
+        <span class="tp-coda-rule-bar"></span>
+        <span class="tp-coda-rule-time">★ 7:01 ★</span>
+        <span class="tp-coda-rule-bar"></span>
+      </div>
+      <h2 class="tp-coda-h">
+        The tools <em>are free.</em><br />
+        The desk <em>is not.</em>
+      </h2>
+      <p class="tp-coda-p">
+        These three tools exist because we use them every day. The Kraken plots the field. The workshop drafts the memo. The skills run the work inside an AI. <em>When you are ready to hand the work to people instead of tools, the desk is here.</em>
+      </p>
+      <div class="tp-coda-cta-row">
+        <a href="/discovery" class="tp-coda-cta-primary">
+          Book a sunrise call <span aria-hidden="true">→</span>
+        </a>
+        <a href="/legend-maker" class="tp-coda-cta-secondary">
+          Or read the scroll first
+        </a>
+      </div>
+      <p class="tp-coda-sig">— The desk at 701am</p>
+    </footer>
+
+  </article>
+
+</BaseLayout>
+
+<style>
+  /* ═══════════════════════════════════════════════════════════════════
+     /tools — dedicated tool gallery
+     ═══════════════════════════════════════════════════════════════════ */
+
+  .tools-page {
+    max-width: 76rem;
+    margin: 0 auto;
+    padding: var(--x1) 32px var(--x1);
+    color: var(--ink);
+    font-family: 'Newsreader', Georgia, serif;
+  }
+
+  /* ─────────── MASTHEAD ─────────── */
+  .tp-mast {
+    text-align: center;
+    padding: calc(var(--x1) + var(--x3)) var(--x3) var(--x1);
+    border-bottom: 1px solid var(--rule);
+    max-width: 50rem;
+    margin: 0 auto;
+  }
+  .tp-mast-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--x4);
+    margin: 0 0 var(--x1);
+    font-family: 'Instrument Sans', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.30em;
+    color: var(--claret);
+    text-transform: uppercase;
+  }
+  .tp-mast-rule {
+    display: inline-block;
+    width: 42px;
+    height: 1px;
+    background: var(--claret);
+    opacity: 0.55;
+  }
+  .tp-mast-h {
+    font-family: 'Newsreader', Georgia, serif;
+    font-size: clamp(3rem, 8vw, 6rem);
+    font-weight: 300;
+    line-height: 1.02;
+    letter-spacing: -0.045em;
+    color: var(--ink);
+    margin: 0 0 var(--x1);
+    text-wrap: balance;
+  }
+  .tp-mast-h em {
+    font-style: italic;
+    color: var(--claret);
+    font-weight: 300;
+  }
+  .tp-mast-deck {
+    font-family: 'Newsreader', Georgia, serif;
+    font-weight: 300;
+    font-size: clamp(1.125rem, 2vw, 1.3rem);
+    line-height: 1.55;
+    color: var(--ink-soft);
+    max-width: 40rem;
+    margin: 0 auto var(--x1);
+  }
+  .tp-mast-deck em {
+    font-style: italic;
+    color: var(--claret);
+    font-weight: 400;
+  }
+  .tp-mast-stats {
+    font-family: 'Instrument Sans', sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.22em;
+    color: var(--ink-soft);
+    text-transform: uppercase;
+    margin: var(--x2) 0 0;
+    display: inline-flex;
+    align-items: baseline;
+    gap: 14px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .tp-mast-stats em {
+    font-family: 'Newsreader', Georgia, serif;
+    font-style: italic;
+    font-weight: 400;
+    color: var(--claret);
+    font-variant-numeric: oldstyle-nums;
+    font-size: 20px;
+    letter-spacing: 0;
+    text-transform: none;
+    margin-right: 4px;
+  }
+  .tp-mast-stat-sep { color: var(--rule-strong); }
+
+  /* ─────────── TOOL BLOCKS ─────────── */
+  .tp-tool {
+    padding: var(--x1) 0 var(--x1);
+    border-bottom: 1px solid var(--rule);
+    position: relative;
+  }
+  .tp-tool:last-of-type { border-bottom: none; }
+  .tp-tool--featured {
+    background: var(--paper-deep);
+    margin: 0 calc(var(--x1) * -1);
+    padding-left: var(--x1);
+    padding-right: var(--x1);
+    border-top: 3px solid var(--claret);
+    border-bottom: 3px solid var(--claret);
+  }
+  .tp-tool-ribbon {
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--claret);
+    color: var(--paper-soft);
+    font-family: 'Instrument Sans', sans-serif;
+    font-size: 10px;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    font-weight: 600;
+    padding: 6px 16px;
+    white-space: nowrap;
+  }
+
+  .tp-tool-grid {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr;
+    gap: var(--x1);
+    align-items: start;
+    padding: 0 var(--x3);
+    max-width: 68rem;
+    margin: 0 auto;
+  }
+
+  .tp-tool-num {
+    font-family: 'Newsreader', Georgia, serif;
+    font-style: italic;
+    font-weight: 300;
+    font-size: 2rem;
+    color: var(--claret);
+    line-height: 1;
+    margin: 0 0 var(--x4);
+    font-variant-numeric: oldstyle-nums;
+  }
+  .tp-tool-eyebrow {
+    font-family: 'Instrument Sans', sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.28em;
+    color: var(--claret);
+    text-transform: uppercase;
+    font-weight: 600;
+    margin: 0 0 var(--x4);
+  }
+  .tp-tool-h {
+    font-family: 'Newsreader', Georgia, serif;
+    font-size: clamp(2.5rem, 6vw, 4rem);
+    font-weight: 300;
+    line-height: 1.02;
+    letter-spacing: -0.04em;
+    color: var(--ink);
+    margin: 0 0 var(--x1);
+  }
+  .tp-tool-h em {
+    font-style: italic;
+    color: var(--claret);
+    font-weight: 300;
+  }
+  .tp-tool-deck {
+    font-family: 'Newsreader', Georgia, serif;
+    font-weight: 300;
+    font-size: 1.125rem;
+    line-height: 1.55;
+    color: var(--ink);
+    margin: 0 0 var(--x1);
+    max-width: 38rem;
+  }
+  .tp-tool-deck em { font-style: italic; color: var(--claret); font-weight: 400; }
+
+  .tp-tool-specs {
+    margin: 0 0 var(--x1);
+    display: grid;
+    grid-template-columns: 6.5rem 1fr;
+    gap: 8px var(--x4);
+  }
+  .tp-tool-specs dt {
+    font-family: 'Instrument Sans', sans-serif;
+    font-size: 9.5px;
+    letter-spacing: 0.24em;
+    color: var(--claret);
+    text-transform: uppercase;
+    font-weight: 600;
+    padding-top: 6px;
+  }
+  .tp-tool-specs dd {
+    font-family: 'Newsreader', Georgia, serif;
+    font-size: 15px;
+    line-height: 1.55;
+    color: var(--ink);
+    margin: 0;
+  }
+
+  .tp-tool-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 26px;
+    background: var(--ink-deep);
+    color: var(--paper-soft);
+    text-decoration: none;
+    font-family: 'Instrument Sans', sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    transition: background 0.25s ease, transform 0.25s ease;
+  }
+  .tp-tool-cta:hover {
+    background: var(--claret);
+    transform: translateY(-1px);
+  }
+  .tp-tool-cta-star {
+    color: var(--claret-light, #C8334F);
+    transition: transform 0.3s ease;
+  }
+  .tp-tool-cta:hover .tp-tool-cta-star {
+    transform: rotate(72deg);
+    color: var(--paper-soft);
+  }
+  .tp-tool-cta-arrow { transition: transform 0.25s ease; }
+  .tp-tool-cta:hover .tp-tool-cta-arrow { transform: translateX(4px); }
+
+  .tp-tool-fine {
+    margin: var(--x4) 0 0;
+    font-family: 'Newsreader', Georgia, serif;
+    font-style: italic;
+    font-size: 13px;
+    color: var(--ink-fainter);
+  }
+  .tp-tool-fine em { color: var(--claret); }
+  .tp-tool-fine a {
+    color: var(--ink);
+    text-decoration: none;
+    border-bottom: 1px solid var(--claret);
+  }
+
+  /* ─────────── TOOL ART ─────────── */
+  .tp-tool-art {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--x4);
+    padding: var(--x4) 0;
+  }
+  .tp-tool-art-cap {
+    font-family: 'Newsreader', Georgia, serif;
+    font-style: italic;
+    font-size: 12px;
+    color: var(--ink-fainter);
+    margin: 0;
+    text-align: center;
+  }
+
+  /* Kraken sigil */
+  .tp-tool-art--kraken svg {
+    width: 240px;
+    height: 240px;
+    color: var(--claret);
+  }
+
+  /* Build mock memo */
+  .tp-tool-art--build {
+    width: 100%;
+  }
+  .tp-build-mock {
+    width: 100%;
+    max-width: 320px;
+    background: var(--paper-soft);
+    border: 1px solid var(--rule-strong);
+    box-shadow: 0 4px 12px rgba(15, 14, 14, 0.06);
+    font-family: 'Newsreader', Georgia, serif;
+  }
+  .tp-build-mock-head {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 14px;
+    border-bottom: 1px solid var(--rule);
+    font-family: 'Instrument Sans', sans-serif;
+    font-size: 10px;
+    letter-spacing: 0.16em;
+    color: var(--ink-fainter);
+    text-transform: uppercase;
+  }
+  .tp-build-mock-dot {
+    width: 6px; height: 6px; border-radius: 50%;
+    background: var(--claret);
+    flex-shrink: 0;
+  }
+  .tp-build-mock-time { margin-left: auto; }
+  .tp-build-mock-body {
+    padding: var(--x4);
+  }
+  .tp-build-mock-eyebrow {
+    font-family: 'Instrument Sans', sans-serif;
+    font-size: 9px;
+    letter-spacing: 0.22em;
+    color: var(--claret);
+    text-transform: uppercase;
+    font-weight: 600;
+    margin: 0 0 6px;
+  }
+  .tp-build-mock-headline {
+    font-family: 'Newsreader', Georgia, serif;
+    font-size: 15px;
+    font-weight: 500;
+    line-height: 1.3;
+    margin: 0 0 6px;
+    color: var(--ink);
+  }
+  .tp-build-mock-meta {
+    font-family: 'Newsreader', Georgia, serif;
+    font-style: italic;
+    font-size: 11px;
+    color: var(--ink-fainter);
+    margin: 0;
+  }
+  .tp-build-mock-rule {
+    height: 1px;
+    background: var(--rule);
+    margin: var(--x4) 0;
+  }
+  .tp-build-mock-pitch-subj {
+    font-family: 'Newsreader', Georgia, serif;
+    font-size: 13px;
+    font-weight: 500;
+    margin: 0 0 6px;
+    color: var(--ink);
+  }
+  .tp-build-mock-pitch-body {
+    font-family: 'Newsreader', Georgia, serif;
+    font-style: italic;
+    font-size: 12.5px;
+    line-height: 1.5;
+    color: var(--ink-soft);
+    margin: 0;
+  }
+
+  /* Skills mock */
+  .tp-tool-art--skills {
+    width: 100%;
+  }
+  .tp-skills-mock {
+    margin: 0;
+    padding: var(--x3);
+    background: var(--ink-deep);
+    color: #e7d4b8;
+    border: 1px solid var(--ink-deep);
+    font-family: 'JetBrains Mono', ui-monospace, Menlo, Consolas, monospace;
+    font-size: 12px;
+    line-height: 1.65;
+    overflow: hidden;
+    max-width: 340px;
+    width: 100%;
+    box-shadow: 0 4px 12px rgba(15, 14, 14, 0.10);
+  }
+  .tp-skills-comment { color: rgba(231, 212, 184, 0.5); }
+  .tp-skills-heading { color: #C8334F; font-weight: 600; }
+
+  /* ─────────── CODA ─────────── */
+  .tp-coda {
+    text-align: center;
+    padding: calc(var(--x1) + var(--x3)) var(--x3) var(--x1);
+    max-width: 50rem;
+    margin: 0 auto;
+  }
+  .tp-coda-rule {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--x3);
+    margin: 0 0 var(--x1);
+  }
+  .tp-coda-rule-bar {
+    display: inline-block;
+    width: 56px;
+    height: 1px;
+    background: var(--claret);
+    opacity: 0.55;
+  }
+  .tp-coda-rule-time {
+    font-family: 'Newsreader', Georgia, serif;
+    font-style: italic;
+    font-size: 18px;
+    color: var(--claret);
+    font-variant-numeric: oldstyle-nums;
+    letter-spacing: -0.02em;
+  }
+  .tp-coda-h {
+    font-family: 'Newsreader', Georgia, serif;
+    font-size: clamp(2.25rem, 5vw, 3.5rem);
+    font-weight: 300;
+    line-height: 1.05;
+    letter-spacing: -0.035em;
+    color: var(--ink);
+    margin: 0 0 var(--x1);
+    text-wrap: balance;
+  }
+  .tp-coda-h em {
+    font-style: italic;
+    color: var(--claret);
+    font-weight: 300;
+  }
+  .tp-coda-p {
+    font-family: 'Newsreader', Georgia, serif;
+    font-weight: 300;
+    font-size: 1.0625rem;
+    line-height: 1.6;
+    color: var(--ink);
+    max-width: 36rem;
+    margin: 0 auto var(--x1);
+  }
+  .tp-coda-p em { font-style: italic; color: var(--claret); font-weight: 400; }
+  .tp-coda-cta-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--x3);
+    flex-wrap: wrap;
+    margin: 0 0 var(--x1);
+  }
+  .tp-coda-cta-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 14px 26px;
+    background: var(--ink-deep);
+    color: var(--paper-soft);
+    text-decoration: none;
+    font-family: 'Instrument Sans', sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    transition: background 0.25s ease;
+  }
+  .tp-coda-cta-primary:hover { background: var(--claret); }
+  .tp-coda-cta-secondary {
+    font-family: 'Newsreader', Georgia, serif;
+    font-style: italic;
+    font-size: 15px;
+    color: var(--ink-soft);
+    text-decoration: none;
+    border-bottom: 1px solid var(--claret);
+    padding-bottom: 1px;
+  }
+  .tp-coda-cta-secondary:hover { color: var(--claret); }
+  .tp-coda-sig {
+    font-family: 'Newsreader', Georgia, serif;
+    font-style: italic;
+    font-size: 14px;
+    color: var(--ink-fainter);
+    margin: 0;
+  }
+
+  /* ─────────── RESPONSIVE ─────────── */
+  @media (max-width: 880px) {
+    .tp-tool-grid {
+      grid-template-columns: 1fr;
+      gap: var(--x1);
+    }
+    .tp-tool-art {
+      order: -1;
+      padding-top: 0;
+    }
+    .tp-tool-art--kraken svg { width: 180px; height: 180px; }
+  }
+
+  @media (max-width: 600px) {
+    .tools-page { padding: var(--x4) 20px; }
+    .tp-tool-grid { padding: 0; }
+    .tp-tool-specs {
+      grid-template-columns: 1fr;
+      gap: 4px;
+    }
+    .tp-tool-specs dt { padding-top: var(--x4); }
+    .tp-tool-specs dd { margin-bottom: var(--x4); }
+  }
+</style>

@@ -91,6 +91,9 @@ const dateLabel = `${dayLabel} · ${today.getDate()} ${monthLabel} ${today.getFu
                 <span class="mast-tools-item-deck">The Newsroom Prediction Engine</span>
               </span>
             </a>
+            <a class="mast-tools-all" role="menuitem" href="/tools" aria-current={isCurrent('/tools') ? 'page' : undefined}>
+              View the full tool gallery <span aria-hidden="true">→</span>
+            </a>
           </div>
         </div>
 
@@ -158,6 +161,9 @@ const dateLabel = `${dayLabel} · ${today.getDate()} ${monthLabel} ${today.getFu
         <span class="mast-drawer-tool-name">Kraken</span>
         <span class="mast-drawer-tool-deck">The Newsroom Prediction Engine</span>
       </span>
+    </a>
+    <a class="mast-drawer-all" href="/tools">
+      View the full tool gallery <span aria-hidden="true">→</span>
     </a>
 
     <a class="mast-drawer-cta" href="/discovery">
@@ -473,6 +479,23 @@ const dateLabel = `${dayLabel} · ${today.getDate()} ${monthLabel} ${today.getFu
   .mast-tools-item[aria-current="page"] .mast-tools-item-name {
     color: var(--claret);
   }
+  .mast-tools-all {
+    display: block;
+    padding: 10px 12px;
+    margin-top: 6px;
+    text-align: center;
+    border-top: 1px solid var(--rule);
+    text-decoration: none;
+    font-family: 'Newsreader', Georgia, serif;
+    font-style: italic;
+    font-size: 13px;
+    color: var(--ink-soft);
+    transition: color 0.2s ease, background 0.2s ease;
+  }
+  .mast-tools-all:hover {
+    color: var(--claret);
+    background: var(--paper);
+  }
 
   /* Actions cluster */
   .mast-actions {
@@ -622,6 +645,20 @@ const dateLabel = `${dayLabel} · ${today.getDate()} ${monthLabel} ${today.getFu
     font-size: 13px;
     color: var(--ink-fainter);
   }
+
+  .mast-drawer-all {
+    display: block;
+    padding: 12px 0;
+    text-align: center;
+    text-decoration: none;
+    font-family: 'Newsreader', Georgia, serif;
+    font-style: italic;
+    font-size: 15px;
+    color: var(--ink-soft);
+    border-bottom: 1px solid var(--rule);
+    margin-bottom: var(--x4);
+  }
+  .mast-drawer-all:hover { color: var(--claret); }
 
   .mast-drawer-cta {
     margin-top: var(--x4);
