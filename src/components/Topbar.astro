@@ -20,6 +20,10 @@ const isCurrent = (href: string) =>
     </nav>
 
     <div class="topbar-right">
+      <a class="topbar-build" href="/build" aria-current={isCurrent('/build') ? 'page' : undefined}>
+        <span class="topbar-build-star" aria-hidden="true">★</span>
+        <span class="topbar-build-label">Build A Data Story</span>
+      </a>
       <button class="topbar-search" type="button" aria-label="Search" data-open-search>
         <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
           <circle cx="11" cy="11" r="7"></circle>
@@ -42,6 +46,9 @@ const isCurrent = (href: string) =>
     <a class="mobile-link" href="/legend-maker">The Scroll</a>
     <a class="mobile-link" href="/notes">Dispatches</a>
     <a class="mobile-link" href="/about">About</a>
+    <a class="mobile-link mobile-link--build" href="/build">
+      <span aria-hidden="true">★</span> Build A Data Story
+    </a>
     <a class="mobile-link mobile-link--cta" href="/discovery">Work with us →</a>
   </div>
 </header>
@@ -151,6 +158,52 @@ const isCurrent = (href: string) =>
   }
   .topbar-search:hover { color: var(--claret); }
 
+  /* Build link — discoverable tool, sits before the primary CTA */
+  .topbar-build {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 0;
+    background: transparent;
+    color: var(--ink);
+    text-decoration: none;
+    font-family: 'Instrument Sans', sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.01em;
+    position: relative;
+    transition: color 0.25s ease;
+    margin-right: 4px;
+  }
+  .topbar-build::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 1px;
+    background: var(--claret);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .topbar-build:hover { color: var(--claret); }
+  .topbar-build:hover::after { transform: scaleX(1); }
+  .topbar-build:hover .topbar-build-star { transform: rotate(72deg); }
+  .topbar-build-star {
+    color: var(--claret);
+    font-size: 12px;
+    display: inline-block;
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    line-height: 1;
+  }
+  .topbar-build[aria-current="page"] {
+    color: var(--claret);
+  }
+  .topbar-build[aria-current="page"]::after {
+    transform: scaleX(1);
+  }
+
   /* CTA — bordered, integratedbio-style */
   .topbar-cta {
     display: inline-flex;
@@ -232,8 +285,21 @@ const isCurrent = (href: string) =>
   }
   .mobile-link:last-child { border-bottom: none; }
   .mobile-link:hover { color: var(--claret); }
+  .mobile-link--build {
+    color: var(--claret);
+    font-weight: 600;
+    margin-top: var(--x5);
+    padding-top: var(--x4);
+    border-top: 1px solid var(--rule-strong);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .mobile-link--build span {
+    font-size: 13px;
+  }
   .mobile-link--cta {
-    margin-top: var(--x4);
+    margin-top: var(--x5);
     padding: 14px 18px;
     border: 1px solid var(--ink);
     text-align: center;
@@ -246,11 +312,12 @@ const isCurrent = (href: string) =>
   }
 
   /* Responsive */
-  @media (max-width: 960px) {
+  @media (max-width: 1024px) {
     .topbar-nav { display: none; }
     .topbar-grid { grid-template-columns: auto 1fr; gap: var(--x3); }
     .topbar-burger { display: flex; }
     .topbar-cta { display: none; }   /* CTA only inside drawer on mobile */
+    .topbar-build { display: none; } /* Build only inside drawer on mobile */
     .topbar-search { display: inline-flex; }
   }
   @media (max-width: 480px) {

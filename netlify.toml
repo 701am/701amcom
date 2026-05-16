@@ -1,11 +1,17 @@
 [build]
   command = "npm run build"
   publish = "dist"
+  functions = "netlify/functions"
 
 [build.environment]
   NODE_VERSION = "20"
 
-# Decap CMS git-gateway endpoint
+# Functions config — Node 20 runtime, esbuild bundler for native fetch
+[functions]
+  node_bundler = "esbuild"
+  directory = "netlify/functions"
+
+# Decap CMS git-gateway + /api routes → Netlify Functions
 [[redirects]]
   from = "/api/*"
   to = "/.netlify/functions/:splat"
