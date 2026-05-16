@@ -1,0 +1,1608 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+<BaseLayout
+  title="Kraken — The Newsroom Prediction Engine · 701am"
+  description="Drop a dataset, event, organization, or trend. The Kraken runs 50 framings through 5 interpretive lenses, clusters them into 10 stable attractors, and predicts the stories most likely to be published. A free Monte Carlo newsroom simulator from 701am."
+  breadcrumbs={[
+    { name: 'Home', url: '/' },
+    { name: 'Kraken' },
+  ]}
+>
+
+  <main class="kraken" data-kraken-app>
+
+    <!-- ════════════════════════════════════════════════════════════
+         STAGE 1 — INPUT
+         ════════════════════════════════════════════════════════════ -->
+    <section class="kr-stage kr-stage--input" data-stage="input">
+
+      <header class="kr-mast">
+        <p class="kr-mast-eyebrow">
+          <span class="kr-mast-rule"></span>
+          A free Monte Carlo prediction engine
+          <span class="kr-mast-rule"></span>
+        </p>
+
+        <!-- The Kraken sigil -->
+        <div class="kr-sigil" aria-hidden="true">
+          <svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+            <!-- Outer ring -->
+            <circle cx="60" cy="60" r="56" fill="none" stroke="currentColor" stroke-width="0.8" opacity="0.3"/>
+            <circle cx="60" cy="60" r="50" fill="none" stroke="currentColor" stroke-width="0.6" opacity="0.5" stroke-dasharray="2 4"/>
+            <!-- Eye in the center -->
+            <ellipse cx="60" cy="60" rx="22" ry="12" fill="none" stroke="currentColor" stroke-width="1.2"/>
+            <circle cx="60" cy="60" r="6" fill="currentColor"/>
+            <circle cx="58" cy="58" r="1.6" fill="var(--paper)"/>
+            <!-- Tentacles radiating out -->
+            <path d="M 60 38 Q 56 26, 62 14" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+            <path d="M 78 48 Q 92 42, 102 30" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+            <path d="M 82 60 Q 100 60, 116 56" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+            <path d="M 78 72 Q 92 78, 102 90" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+            <path d="M 60 82 Q 56 94, 62 106" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+            <path d="M 42 72 Q 28 78, 18 90" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+            <path d="M 38 60 Q 20 60, 4 56" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+            <path d="M 42 48 Q 28 42, 18 30" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+          </svg>
+        </div>
+
+        <h1 class="kr-mast-h">
+          The <em>Kraken.</em>
+        </h1>
+        <p class="kr-mast-sub">
+          The Newsroom Prediction Engine.
+        </p>
+
+        <p class="kr-mast-deck">
+          Drop a dataset, organization, event, or trend. The Kraken runs <em>50 narrative framings</em> through five interpretive lenses, clusters them into <em>10 stable attractors</em>, and predicts the stories most likely to emerge from a real newsroom.
+        </p>
+
+        <p class="kr-mast-stats">
+          <span><em>5</em> interpretive lenses</span>
+          <span class="kr-mast-stat-sep">·</span>
+          <span><em>50</em> parallel framings</span>
+          <span class="kr-mast-stat-sep">·</span>
+          <span><em>10</em> ranked attractors</span>
+          <span class="kr-mast-stat-sep">·</span>
+          <span><em>6</em>-section report</span>
+        </p>
+      </header>
+
+      <!-- The input form -->
+      <form class="kr-form" data-kr-form>
+        <label class="kr-form-label" for="kr-input">
+          <span class="kr-form-label-text">★ The input</span>
+          <span class="kr-form-label-meta">A dataset, an organization, an event, or a one-line phenomenon</span>
+        </label>
+
+        <textarea
+          id="kr-input"
+          class="kr-textarea"
+          name="input"
+          rows="5"
+          maxlength="800"
+          placeholder="Example: A 60-employee fintech in São Paulo serving small businesses, growing 40% YoY, no press coverage. — or — The U.S. Census household pulse survey showing remote work declining in 2026. — or — Anything from one sentence to three paragraphs."
+          required
+        ></textarea>
+
+        <div class="kr-form-foot">
+          <p class="kr-form-counter" data-kr-counter>0 / 800</p>
+          <button type="submit" class="kr-submit" data-kr-submit>
+            <span class="kr-submit-text">Release the Kraken</span>
+            <span class="kr-submit-arrow" aria-hidden="true">→</span>
+          </button>
+        </div>
+      </form>
+
+      <!-- The methodology note -->
+      <details class="kr-method">
+        <summary class="kr-method-summary">How the Kraken works <span aria-hidden="true">↓</span></summary>
+        <div class="kr-method-body">
+          <ol>
+            <li><strong>Coverage research.</strong> The Kraken first pulls recent press coverage and dataset references about your input. This grounds the predictions in what has actually been written.</li>
+            <li><strong>Five lens passes.</strong> Five parallel calls — each carrying a different interpretive lens (economic, cultural, structural, behavioral, technological) — generate <em>10 distinct framings</em> apiece. <em>50 framings total.</em></li>
+            <li><strong>Clustering.</strong> The 50 framings are clustered into the 10 strongest <em>narrative attractors</em> — the stable gravity wells that emerge from the simulation.</li>
+            <li><strong>Editorial Success Value.</strong> Each cluster is scored on clarity, novelty against saturation, emotional activation, cross-audience appeal, diffusion potential, rejection resistance, and evidence groundability.</li>
+            <li><strong>Six-section report.</strong> The top clusters are expanded into a complete report: cluster map, top 10 stories, top 10 pitches, top 10 headlines, top 10 insights, and top 10 publication targets.</li>
+          </ol>
+          <p class="kr-method-cost">Total runtime: ~45 seconds. Total cost to 701am: about three cents.<br /><em>The Kraken is free. The cost is ours. The output is yours.</em></p>
+        </div>
+      </details>
+
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════════
+         STAGE 2 — LOADING THEATER
+         ════════════════════════════════════════════════════════════ -->
+    <section class="kr-stage kr-stage--loading" data-stage="loading" hidden>
+      <div class="kr-loading">
+        <div class="kr-loading-sigil" aria-hidden="true">
+          <svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="60" cy="60" r="56" fill="none" stroke="currentColor" stroke-width="0.8" opacity="0.3"/>
+            <circle cx="60" cy="60" r="50" fill="none" stroke="currentColor" stroke-width="0.6" opacity="0.5" stroke-dasharray="2 4" class="kr-spin"/>
+            <ellipse cx="60" cy="60" rx="22" ry="12" fill="none" stroke="currentColor" stroke-width="1.2"/>
+            <circle cx="60" cy="60" r="6" fill="currentColor"/>
+            <circle cx="58" cy="58" r="1.6" fill="var(--paper)"/>
+            <path d="M 60 38 Q 56 26, 62 14" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+            <path d="M 78 48 Q 92 42, 102 30" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+            <path d="M 82 60 Q 100 60, 116 56" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+            <path d="M 78 72 Q 92 78, 102 90" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+            <path d="M 60 82 Q 56 94, 62 106" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+            <path d="M 42 72 Q 28 78, 18 90" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+            <path d="M 38 60 Q 20 60, 4 56" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+            <path d="M 42 48 Q 28 42, 18 30" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <p class="kr-loading-stage" data-kr-loading-stage>The Kraken is waking</p>
+        <p class="kr-loading-detail" data-kr-loading-detail>This usually takes about 45 seconds</p>
+
+        <div class="kr-loading-pipeline" aria-hidden="true">
+          <ol>
+            <li data-kr-step="research"><span class="kr-step-num">i.</span> Pulling recent coverage</li>
+            <li data-kr-step="ideate"><span class="kr-step-num">ii.</span> Running 5 interpretive lenses</li>
+            <li data-kr-step="cluster"><span class="kr-step-num">iii.</span> Clustering 50 framings</li>
+            <li data-kr-step="synthesize"><span class="kr-step-num">iv.</span> Ranking by editorial success value</li>
+            <li data-kr-step="render"><span class="kr-step-num">v.</span> Drafting the report</li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════════
+         STAGE 3 — REPORT
+         ════════════════════════════════════════════════════════════ -->
+    <section class="kr-stage kr-stage--report" data-stage="report" hidden>
+      <!-- Report markup is rendered by JS — see <template> below -->
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════════
+         STAGE 4 — ERROR
+         ════════════════════════════════════════════════════════════ -->
+    <section class="kr-stage kr-stage--error" data-stage="error" hidden>
+      <div class="kr-error">
+        <p class="kr-error-stamp">★ The Kraken returned empty-handed ★</p>
+        <h2 class="kr-error-h">Something went wrong.</h2>
+        <p class="kr-error-msg" data-kr-error-msg>An unknown error occurred.</p>
+        <button type="button" class="kr-error-retry" data-kr-retry>
+          Try again <span aria-hidden="true">→</span>
+        </button>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ════════════════════════════════════════════════════════════
+       TEMPLATE — used by JS to render the report
+       ════════════════════════════════════════════════════════════ -->
+  <template id="kr-report-template">
+    <!-- Report masthead -->
+    <header class="kr-report-mast">
+      <p class="kr-report-eyebrow">★ The Kraken Report ★</p>
+      <p class="kr-report-stamp" data-kr-stamp>Filed at sunrise · Saturday · 16 May 2026</p>
+      <h2 class="kr-report-h" data-kr-input-echo>—</h2>
+      <p class="kr-report-deck">A predictive map of the stories most likely to emerge from this input, ranked by editorial success value.</p>
+
+      <div class="kr-report-actions">
+        <button type="button" class="kr-action" data-kr-print>Print full report ↘</button>
+        <button type="button" class="kr-action kr-action--ghost" data-kr-restart>Run another ↺</button>
+      </div>
+    </header>
+
+    <!-- § 01 — CLUSTER MAP -->
+    <section class="kr-section">
+      <header class="kr-section-head">
+        <p class="kr-section-label">§ 01 · Cluster map</p>
+        <h3 class="kr-section-h">Ten stable <em>attractors.</em></h3>
+        <p class="kr-section-deck" data-kr-distribution>—</p>
+      </header>
+
+      <div class="kr-bubble-chart" data-kr-bubble-chart>
+        <!-- SVG rendered by JS -->
+      </div>
+
+      <ol class="kr-attractor-list" data-kr-attractor-list>
+        <!-- Rows rendered by JS -->
+      </ol>
+    </section>
+
+    <!-- § 02 — TOP 10 STORIES -->
+    <section class="kr-section">
+      <header class="kr-section-head">
+        <p class="kr-section-label">§ 02 · Top 10 stories</p>
+        <h3 class="kr-section-h">The narratives that <em>survive.</em></h3>
+        <p class="kr-section-deck">Ten finalized stories. Each scored against editorial filters. Each ready to refine.</p>
+      </header>
+      <ol class="kr-stories" data-kr-stories></ol>
+    </section>
+
+    <!-- § 03 — TOP 10 PITCHES -->
+    <section class="kr-section">
+      <header class="kr-section-head">
+        <p class="kr-section-label">§ 03 · Top 10 pitches</p>
+        <h3 class="kr-section-h">Ten pitches, <em>publication-ready.</em></h3>
+        <p class="kr-section-deck">Each pitch is structured for the journalist's inbox — subject line, three sentences, no fluff.</p>
+      </header>
+      <ol class="kr-pitches" data-kr-pitches></ol>
+    </section>
+
+    <!-- § 04 — TOP 10 HEADLINES -->
+    <section class="kr-section">
+      <header class="kr-section-head">
+        <p class="kr-section-label">§ 04 · Top 10 headline sets</p>
+        <h3 class="kr-section-h">Headlines, <em>by format.</em></h3>
+        <p class="kr-section-deck">Five variations per story, formatted for different outlet styles.</p>
+      </header>
+      <ol class="kr-headlines" data-kr-headlines></ol>
+    </section>
+
+    <!-- § 05 — TOP 10 INSIGHTS -->
+    <section class="kr-section">
+      <header class="kr-section-head">
+        <p class="kr-section-label">§ 05 · Top 10 non-obvious insights</p>
+        <h3 class="kr-section-h">What the data <em>quietly reveals.</em></h3>
+        <p class="kr-section-deck">Signals that survive editorial scrutiny and still feel discovered, not deduced.</p>
+      </header>
+      <ol class="kr-insights" data-kr-insights></ol>
+    </section>
+
+    <!-- § 06 — TOP 10 PLACEMENTS -->
+    <section class="kr-section">
+      <header class="kr-section-head">
+        <p class="kr-section-label">§ 06 · Top 10 publication targets</p>
+        <h3 class="kr-section-h">Where the work will <em>most likely land.</em></h3>
+        <p class="kr-section-deck">For each story, the outlet archetype most likely to publish it — and the framing adjustment that wins acceptance.</p>
+      </header>
+      <ol class="kr-placements" data-kr-placements></ol>
+    </section>
+
+    <!-- Closing -->
+    <footer class="kr-report-coda">
+      <p class="kr-coda-stamp">★ End of report ★</p>
+      <p class="kr-coda-p">
+        Take any of these angles into the <a href="/build" class="kr-coda-link">three-minute workshop</a> to produce a full strategy memo — methodology, pitch, journalist names, and a four-week roadmap.
+      </p>
+      <p class="kr-coda-sig">— The Kraken · 701am</p>
+    </footer>
+  </template>
+
+</BaseLayout>
+
+<style is:global>
+  /* ═══════════════════════════════════════════════════════════════════
+     /kraken — The Newsroom Prediction Engine
+     ═══════════════════════════════════════════════════════════════════ */
+
+  .kraken {
+    max-width: 76rem;
+    margin: 0 auto;
+    padding: var(--x1) 32px var(--x1);
+    color: var(--ink);
+    font-family: 'Newsreader', Georgia, serif;
+  }
+
+  .kr-stage[hidden] { display: none !important; }
+
+  /* ═══════════ STAGE 1 — INPUT ═══════════ */
+  .kr-stage--input {
+    padding: calc(var(--x1) + var(--x2)) 0 var(--x1);
+  }
+
+  .kr-mast {
+    text-align: center;
+    padding: 0 var(--x3) var(--x1);
+    max-width: 50rem;
+    margin: 0 auto;
+  }
+  .kr-mast-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--x4);
+    margin: 0 0 var(--x1);
+    font-family: 'Instrument Sans', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.30em;
+    color: var(--claret);
+    text-transform: uppercase;
+  }
+  .kr-mast-rule {
+    display: inline-block;
+    width: 42px;
+    height: 1px;
+    background: var(--claret);
+    opacity: 0.55;
+  }
+  .kr-sigil {
+    width: 110px;
+    height: 110px;
+    margin: 0 auto var(--x1);
+    color: var(--claret);
+  }
+  .kr-sigil svg {
+    width: 100%;
+    height: 100%;
+  }
+  .kr-mast-h {
+    font-family: 'Newsreader', Georgia, serif;
+    font-size: clamp(3rem, 8vw, 6rem);
+    font-weight: 300;
+    line-height: 1;
+    letter-spacing: -0.045em;
+    color: var(--ink);
+    margin: 0 0 8px;
+  }
+  .kr-mast-h em {
+    font-style: italic;
+    color: var(--claret);
+    font-weight: 300;
+  }
+  .kr-mast-sub {
+    font-family: 'Newsreader', Georgia, serif;
+    font-style: italic;
+    font-weight: 300;
+    font-size: clamp(1.25rem, 2.4vw, 1.625rem);
+    color: var(--ink-soft);
+    margin: 0 0 var(--x1);
+  }
+  .kr-mast-deck {
+    font-family: 'Newsreader', Georgia, serif;
+    font-weight: 300;
+    font-size: clamp(1.0625rem, 1.6vw, 1.25rem);
+    line-height: 1.55;
+    color: var(--ink);
+    max-width: 38rem;
+    margin: 0 auto var(--x1);
+  }
+  .kr-mast-deck em {
+    font-style: italic;
+    color: var(--claret);
+    font-weight: 400;
+  }
+  .kr-mast-stats {
+    font-family: 'Instrument Sans', sans-serif;
+    font-size: 11.5px;
+    letter-spacing: 0.18em;
+    color: var(--ink-soft);
+    text-transform: uppercase;
+    margin: var(--x2) 0 0;
+    display: inline-flex;
+    align-items: baseline;
+    gap: 12px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .kr-mast-stats em {
+    font-family: 'Newsreader', Georgia, serif;
+    font-style: italic;
+    font-weight: 400;
+    color: var(--claret);
+    font-variant-numeric: oldstyle-nums;
+    font-size: 18px;
+    letter-spacing: 0;
+    text-transform: none;
+    margin-right: 4px;
+  }
+  .kr-mast-stat-sep {
+    color: var(--rule-strong);
+  }
+
+  /* The form */
+  .kr-form {
+    max-width: 48rem;
+    margin: var(--x1) auto 0;
+    padding: var(--x1) var(--x1);
+    background: var(--paper-soft);
+    border: 1px solid var(--ink);
+    border-top: 3px solid var(--claret);
+    box-shadow: 0 12px 32px rgba(15, 14, 14, 0.06);
+    position: relative;
+  }
+  .kr-form::before {
+    content: "";
+    position: absolute;
+    top: 6px; left: 6px; right: 6px; bottom: 6px;
+    border: 1px solid rgba(15, 14, 14, 0.08);
+    pointer-events: none;
+  }
+  .kr-form-label {
+    display: block;
+    margin-bottom: var(--x4);
+    position: relative;
+    z-index: 1;
+  }
+  .kr-form-label-text {
+    display: block;
+    font-family: 'Instrument Sans', sans-serif;
+    font-size: 10.5px;
+    letter-spacing: 0.28em;
+    color: var(--claret);
+    text-transform: uppercase;
+    font-weight: 600;
+    margin-bottom: 4px;
+  }
+  .kr-form-label-meta {
+    display: block;
+    font-family: 'Newsreader', Georgia, serif;
+    font-style: italic;
+    font-size: 13.5px;
+    color: var(--ink-fainter);
+  }
+  .kr-textarea {
+    width: 100%;
+    padding: 16px 18px;
+    background: var(--paper);
+    border: 1px solid var(--rule-strong);
+    font-family: 'Newsreader', Georgia, serif;
+    font-size: 16.5px;
+    line-height: 1.55;
+    color: var(--ink);
+    resize: vertical;
+    min-height: 130px;
+    font-feature-settings: "kern" 1, "liga" 1, "onum" 1;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    position: relative;
+    z-index: 1;
+  }
+  .kr-textarea:focus {
+    outline: none;
+    border-color: var(--claret);
+    box-shadow: 0 0 0 3px rgba(153, 15, 61, 0.08);
+  }
+  .kr-textarea::placeholder {
+    color: var(--ink-fainter);
+    font-style: italic;
+  }
+  .kr-form-foot {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: var(--x4);
+    gap: var(--x3);
+    flex-wrap: wrap;
+    position: relative;
+    z-index: 1;
+  }
+  .kr-form-counter {
+    font-family: 'Newsreader', Georgia, serif;
+    font-style: italic;
+    font-size: 12.5px;
+    color: var(--ink-fainter);
+    margin: 0;
+    font-variant-numeric: oldstyle-nums;
+  }
+  .kr-submit {
+    background: var(--ink-deep);
+    color: var(--paper-soft);
+    border: none;
+    padding: 14px 28px;
+    font-family: 'Instrument Sans', sans-serif;
+    font-size: 13.5px;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    transition: background 0.25s ease, transform 0.25s ease;
+  }
+  .kr-submit:hover {
+    background: var(--claret);
+    transform: translateY(-1px);
+  }
+  .kr-submit:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none;
+  }
+  .kr-submit-arrow {
+    transition: transform 0.25s ease;
+  }
+  .kr-submit:hover .kr-submit-arrow {
+    transform: translateX(4px);
+  }
+
+  /* Methodology details */
+  .kr-method {
+    max-width: 48rem;
+    margin: var(--x1) auto 0;
+    padding: 0 var(--x3);
+  }
+  .kr-method-summary {
+    cursor: pointer;
+    font-family: 'Instrument Sans', sans-serif;
+    font-size: 12px;
+    letter-spacing: 0.22em;
+    color: var(--ink-soft);
+    text-transform: uppercase;
+    font-weight: 600;
+    list-style: none;
+    padding: var(--x4) 0;
+    border-top: 1px solid var(--rule);
+    transition: color 0.2s ease;
+  }
+  .kr-method-summary::-webkit-details-marker { display: none; }
+  .kr-method-summary:hover { color: var(--claret); }
+  .kr-method[open] .kr-method-summary { color: var(--claret); }
+  .kr-method-body {
+    padding: var(--x3) 0;
+    font-family: 'Newsreader', Georgia, serif;
+  }
+  .kr-method-body ol {
+    counter-reset: kr-method-counter;
+    list-style: none;
+    padding: 0;
+    margin: 0 0 var(--x1);
+  }
+  .kr-method-body li {
+    counter-increment: kr-method-counter;
+    position: relative;
+    padding: var(--x4) 0 var(--x4) var(--x1);
+    border-bottom: 1px solid var(--rule);
+    font-size: 15px;
+    line-height: 1.55;
+    color: var(--ink);
+  }
+  .kr-method-body li::before {
+    content: counter(kr-method-counter, lower-roman) ".";
+    position: absolute;
+    left: 0;
+    top: var(--x4);
+    font-family: 'Newsreader', Georgia, serif;
+    font-style: italic;
+    color: var(--claret);
+    font-variant-numeric: oldstyle-nums;
+    font-size: 17px;
+  }
+  .kr-method-body li strong {
+    color: var(--ink);
+    font-weight: 500;
+  }
+  .kr-method-body em { font-style: italic; color: var(--claret); }
+  .kr-method-cost {
+    font-family: 'Newsreader', Georgia, serif;
+    font-style: italic;
+    font-size: 13.5px;
+    color: var(--ink-fainter);
+    margin: var(--x4) 0 0;
+    line-height: 1.55;
+    text-align: center;
+  }
+  .kr-method-cost em { color: var(--claret); }
+
+  /* ═══════════ STAGE 2 — LOADING ═══════════ */
+  .kr-stage--loading {
+    padding: var(--x1) 0;
+    min-height: 60vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .kr-loading {
+    text-align: center;
+    max-width: 32rem;
+  }
+  .kr-loading-sigil {
+    width: 96px;
+    height: 96px;
+    margin: 0 auto var(--x1);
+    color: var(--claret);
+    animation: kr-pulse 2.4s ease-in-out infinite;
+  }
+  @keyframes kr-pulse {
+    0%, 100% { opacity: 0.85; transform: scale(1); }
+    50% { opacity: 1; transform: scale(1.05); }
+  }
+  .kr-spin {
+    transform-origin: 60px 60px;
+    animation: kr-rotate 8s linear infinite;
+  }
+  @keyframes kr-rotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+  .kr-loading-stage {
+    font-family: 'Newsreader', Georgia, serif;
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    font-weight: 300;
+    font-style: italic;
+    color: var(--claret);
+    margin: 0 0 8px;
+    line-height: 1.2;
+  }
+  .kr-loading-detail {
+    font-family: 'Instrument Sans', sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.22em;
+    color: var(--ink-fainter);
+    text-transform: uppercase;
+    margin: 0 0 var(--x1);
+  }
+  .kr-loading-pipeline {
+    margin: var(--x1) auto 0;
+    text-align: left;
+    max-width: 26rem;
+  }
+  .kr-loading-pipeline ol {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  .kr-loading-pipeline li {
+    display: flex;
+    align-items: baseline;
+    gap: 14px;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--rule);
+    font-family: 'Newsreader', Georgia, serif;
+    font-size: 15px;
+    color: var(--ink-fainter);
+    transition: color 0.4s ease, opacity 0.4s ease;
+  }
+  .kr-loading-pipeline li.is-active {
+    color: var(--ink);
+  }
+  .kr-loading-pipeline li.is-active .kr-step-num {
+    color: var(--claret);
+  }
+  .kr-loading-pipeline li.is-done {
+    color: var(--ink-soft);
+    text-decoration: line-through;
+    text-decoration-thickness: 1px;
+    opacity: 0.65;
+  }
+  .kr-step-num {
+    font-family: 'Newsreader', Georgia, serif;
+    font-style: italic;
+    color: var(--ink-fainter);
+    font-variant-numeric: oldstyle-nums;
+    font-size: 17px;
+    min-width: 20px;
+    transition: color 0.4s ease;
+  }
+
+  /* ═══════════ STAGE 3 — REPORT ═══════════ */
+  .kr-stage--report {
+    padding: var(--x1) 0;
+  }
+
+  .kr-report-mast {
+    text-align: center;
+    padding: var(--x1) var(--x3);
+    border-bottom: 1px solid var(--claret);
+    margin-bottom: var(--x1);
+  }
+  .kr-report-eyebrow {
+    font-family: 'Instrument Sans', sans-serif;
+    font-size: 12px;
+    letter-spacing: 0.30em;
+    color: var(--claret);
+    text-transform: uppercase;
+    font-weight: 600;
+    margin: 0 0 var(--x4);
+  }
+  .kr-report-stamp {
+    font-family: 'Instrument Sans', sans-serif;
+    font-size: 10.5px;
+    letter-spacing: 0.22em;
+    color: var(--ink-fainter);
+    text-transform: uppercase;
+    margin: 0 0 var(--x4);
+  }
+  .kr-report-h {
+    font-family: 'Newsreader', Georgia, serif;
+    font-size: clamp(1.875rem, 4vw, 2.625rem);
+    font-weight: 300;
+    line-height: 1.15;
+    letter-spacing: -0.025em;
+    color: var(--ink);
+    margin: 0 auto var(--x4);
+    max-width: 44rem;
+    text-wrap: balance;
+  }
+  .kr-report-deck {
+    font-family: 'Newsreader', Georgia, serif;
+    font-style: italic;
+    font-size: 16px;
+    color: var(--ink-soft);
+    max-width: 38rem;
+    margin: 0 auto var(--x1);
+    line-height: 1.5;
+  }
+  .kr-report-actions {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+  .kr-action {
+    background: var(--ink-deep);
+    color: var(--paper-soft);
+    border: 1px solid var(--ink-deep);
+    padding: 10px 18px;
+    font-family: 'Instrument Sans', sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    cursor: pointer;
+    transition: background 0.25s, color 0.25s, border-color 0.25s;
+  }
+  .kr-action:hover { background: var(--claret); border-color: var(--claret); }
+  .kr-action--ghost {
+    background: transparent;
+    color: var(--ink);
+  }
+  .kr-action--ghost:hover {
+    background: var(--ink-deep);
+    color: var(--paper-soft);
+  }
+
+  /* Sections */
+  .kr-section {
+    padding: var(--x1) 0 var(--x1);
+    border-bottom: 1px solid var(--rule);
+  }
+  .kr-section:last-of-type { border-bottom: none; }
+  .kr-section-head {
+    margin-bottom: var(--x1);
+    text-align: center;
+    max-width: 44rem;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 var(--x3);
+  }
+  .kr-section-label {
+    font-family: 'Instrument Sans', sans-serif;
+    font-size: 11.5px;
+    letter-spacing: 0.30em;
+    color: var(--claret);
+    text-transform: uppercase;
+    font-weight: 600;
+    margin: 0 0 var(--x4);
+  }
+  .kr-section-h {
+    font-family: 'Newsreader', Georgia, serif;
+    font-size: clamp(2rem, 4.5vw, 3rem);
+    font-weight: 300;
+    line-height: 1.05;
+    letter-spacing: -0.035em;
+    color: var(--ink);
+    margin: 0 0 var(--x4);
+    text-wrap: balance;
+  }
+  .kr-section-h em { font-style: italic; color: var(--claret); font-weight: 300; }
+  .kr-section-deck {
+    font-family: 'Newsreader', Georgia, serif;
+    font-style: italic;
+    font-size: 15.5px;
+    line-height: 1.55;
+    color: var(--ink-soft);
+    margin: 0 auto;
+    max-width: 36rem;
+  }
+
+  /* Cluster map (bubble chart) */
+  .kr-bubble-chart {
+    max-width: 56rem;
+    margin: 0 auto var(--x1);
+    padding: 0 var(--x3);
+  }
+  .kr-bubble-chart svg {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+  .kr-bubble {
+    transition: opacity 0.25s ease, transform 0.25s ease;
+    cursor: pointer;
+  }
+  .kr-bubble:hover { opacity: 1; }
+  .kr-bubble-label {
+    font-family: 'Newsreader', Georgia, serif;
+    font-style: italic;
+    font-size: 11px;
+    fill: var(--ink);
+    text-anchor: middle;
+    pointer-events: none;
+  }
+  .kr-bubble-rank {
+    font-family: 'Newsreader', Georgia, serif;
+    font-style: italic;
+    font-size: 14px;
+    fill: var(--paper);
+    text-anchor: middle;
+    dominant-baseline: middle;
+    font-variant-numeric: oldstyle-nums;
+    font-weight: 500;
+    pointer-events: none;
+  }
+
+  /* Attractor list */
+  .kr-attractor-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    max-width: 56rem;
+    margin: var(--x1) auto 0;
+  }
+  .kr-attractor-row {
+    display: grid;
+    grid-template-columns: 3rem 1fr auto auto;
+    gap: var(--x3);
+    align-items: baseline;
+    padding: var(--x4) var(--x3);
+    border-bottom: 1px solid var(--rule);
+  }
+  .kr-attractor-row:last-child { border-bottom: none; }
+  .kr-attractor-rank {
+    font-family: 'Newsreader', Georgia, serif;
+    font-style: italic;
+    font-size: 22px;
+    color: var(--claret);
+    font-variant-numeric: oldstyle-nums;
+  }
+  .kr-attractor-label {
+    font-family: 'Newsreader', Georgia, serif;
+    font-size: 18px;
+    color: var(--ink);
+    line-height: 1.3;
+  }
+  .kr-attractor-esv {
+    font-family: 'Newsreader', Georgia, serif;
+    font-style: italic;
+    font-size: 14px;
+    color: var(--ink-soft);
+    font-variant-numeric: oldstyle-nums;
+  }
+  .kr-attractor-esv em { color: var(--claret); font-weight: 400; }
+  .kr-attractor-sat {
+    font-family: 'Instrument Sans', sans-serif;
+    font-size: 9.5px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    padding: 3px 8px;
+    border: 1px solid currentColor;
+    font-weight: 600;
+  }
+  .kr-attractor-sat[data-sat="low"] { color: #2d6f3f; }
+  .kr-attractor-sat[data-sat="medium"] { color: #b07f1a; }
+  .kr-attractor-sat[data-sat="high"] { color: var(--claret); }
+
+  /* Stories / pitches / etc. lists */
+  .kr-stories, .kr-pitches, .kr-headlines, .kr-insights, .kr-placements {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    max-width: 60rem;
+    margin: 0 auto;
+    padding: 0 var(--x3);
+  }
+
+  .kr-story, .kr-pitch, .kr-headline-set, .kr-insight, .kr-placement {
+    display: grid;
+    grid-template-columns: 3.5rem 1fr;
+    gap: var(--x3);
+    padding: var(--x1) 0;
+    border-bottom: 1px solid var(--rule);
+  }
+  .kr-story:last-child, .kr-pitch:last-child, .kr-headline-set:last-child,
+  .kr-insight:last-child, .kr-placement:last-child {
+    border-bottom: none;
+  }
+
+  .kr-item-rank {
+    font-family: 'Newsreader', Georgia, serif;
+    font-style: italic;
+    font-size: 32px;
+    color: var(--claret);
+    font-variant-numeric: oldstyle-nums;
+    line-height: 1;
+    letter-spacing: -0.02em;
+  }
+
+  /* Story card */
+  .kr-story-title {
+    font-family: 'Newsreader', Georgia, serif;
+    font-size: 26px;
+    font-weight: 400;
+    line-height: 1.15;
+    letter-spacing: -0.025em;
+    color: var(--ink);
+    margin: 0 0 var(--x4);
+  }
+  .kr-story-headline {
+    font-family: 'Newsreader', Georgia, serif;
+    font-style: italic;
+    font-size: 17px;
+    color: var(--claret);
+    margin: 0 0 var(--x4);
+    line-height: 1.4;
+  }
+  .kr-story-meta {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 8px var(--x4);
+    margin: var(--x4) 0;
+    font-family: 'Newsreader', Georgia, serif;
+    font-size: 14.5px;
+    line-height: 1.5;
+  }
+  .kr-story-meta dt {
+    font-family: 'Instrument Sans', sans-serif;
+    font-size: 9.5px;
+    letter-spacing: 0.22em;
+    color: var(--claret);
+    text-transform: uppercase;
+    font-weight: 600;
+    padding-top: 4px;
+    white-space: nowrap;
+  }
+  .kr-story-meta dd { margin: 0; color: var(--ink); }
+  .kr-story-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: var(--x4);
+    font-family: 'Instrument Sans', sans-serif;
+    font-size: 11.5px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--claret);
+    text-decoration: none;
+    border-bottom: 1px solid var(--claret);
+    padding-bottom: 2px;
+    transition: gap 0.25s ease;
+    width: fit-content;
+  }
+  .kr-story-cta:hover { gap: 12px; }
+
+  /* Pitch */
+  .kr-pitch-subject {
+    font-family: 'Newsreader', Georgia, serif;
+    font-size: 19px;
+    font-weight: 500;
+    line-height: 1.3;
+    color: var(--ink);
+    margin: 0 0 var(--x4);
+  }
+  .kr-pitch-subject::before {
+    content: "Subject: ";
+    font-family: 'Instrument Sans', sans-serif;
+    font-size: 10px;
+    letter-spacing: 0.22em;
+    color: var(--claret);
+    text-transform: uppercase;
+    font-weight: 600;
+    margin-right: 6px;
+  }
+  .kr-pitch-body {
+    font-family: 'Newsreader', Georgia, serif;
+    font-size: 15.5px;
+    line-height: 1.65;
+    color: var(--ink);
+    margin: 0 0 var(--x4);
+    padding: var(--x4) var(--x3);
+    background: var(--paper-soft);
+    border-left: 3px solid var(--claret);
+  }
+  .kr-pitch-frame {
+    font-family: 'Newsreader', Georgia, serif;
+    font-style: italic;
+    font-size: 13.5px;
+    color: var(--ink-fainter);
+  }
+  .kr-pitch-frame::before {
+    content: "Frame: ";
+    font-style: normal;
+    font-family: 'Instrument Sans', sans-serif;
+    font-size: 9.5px;
+    letter-spacing: 0.22em;
+    color: var(--claret);
+    text-transform: uppercase;
+    font-weight: 600;
+    margin-right: 6px;
+  }
+
+  /* Headlines */
+  .kr-headline-cluster {
+    font-family: 'Instrument Sans', sans-serif;
+    font-size: 10px;
+    letter-spacing: 0.22em;
+    color: var(--claret);
+    text-transform: uppercase;
+    font-weight: 600;
+    margin: 0 0 var(--x4);
+  }
+  .kr-headline-variations {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    counter-reset: hl-counter;
+  }
+  .kr-headline-variations li {
+    counter-increment: hl-counter;
+    position: relative;
+    padding: var(--x4) 0 var(--x4) 2.5rem;
+    border-bottom: 1px solid var(--rule);
+    font-family: 'Newsreader', Georgia, serif;
+    font-size: 17px;
+    line-height: 1.35;
+    color: var(--ink);
+  }
+  .kr-headline-variations li:last-child { border-bottom: none; }
+  .kr-headline-variations li::before {
+    content: counter(hl-counter) ".";
+    position: absolute;
+    left: 0;
+    top: var(--x4);
+    font-family: 'Newsreader', Georgia, serif;
+    font-style: italic;
+    color: var(--ink-fainter);
+    font-variant-numeric: oldstyle-nums;
+    font-size: 15px;
+  }
+  .kr-headline-notes {
+    margin-top: var(--x4);
+    font-family: 'Newsreader', Georgia, serif;
+    font-style: italic;
+    font-size: 13.5px;
+    color: var(--ink-fainter);
+    line-height: 1.5;
+  }
+
+  /* Insights */
+  .kr-insight-body {
+    font-family: 'Newsreader', Georgia, serif;
+    font-size: 19px;
+    line-height: 1.45;
+    color: var(--ink);
+    margin: 0 0 var(--x4);
+    font-weight: 400;
+  }
+  .kr-insight-type {
+    display: inline-block;
+    font-family: 'Instrument Sans', sans-serif;
+    font-size: 9.5px;
+    letter-spacing: 0.22em;
+    color: var(--claret);
+    text-transform: uppercase;
+    font-weight: 600;
+    padding: 3px 10px;
+    border: 1px solid var(--claret);
+    margin-bottom: var(--x4);
+  }
+  .kr-insight-why {
+    font-family: 'Newsreader', Georgia, serif;
+    font-style: italic;
+    font-size: 13.5px;
+    color: var(--ink-fainter);
+    line-height: 1.5;
+  }
+
+  /* Placements */
+  .kr-placement-archetype {
+    font-family: 'Newsreader', Georgia, serif;
+    font-size: 21px;
+    font-weight: 400;
+    color: var(--ink);
+    margin: 0 0 var(--x4);
+    line-height: 1.25;
+  }
+  .kr-placement-outlets {
+    font-family: 'Newsreader', Georgia, serif;
+    font-style: italic;
+    font-size: 14.5px;
+    color: var(--ink-soft);
+    margin: 0 0 var(--x4);
+  }
+  .kr-placement-outlets::before {
+    content: "Examples: ";
+    font-style: normal;
+    font-family: 'Instrument Sans', sans-serif;
+    font-size: 9.5px;
+    letter-spacing: 0.22em;
+    color: var(--claret);
+    text-transform: uppercase;
+    font-weight: 600;
+    margin-right: 6px;
+  }
+  .kr-placement-shift {
+    font-family: 'Newsreader', Georgia, serif;
+    font-size: 14.5px;
+    line-height: 1.55;
+    color: var(--ink);
+    margin: 0 0 var(--x4);
+  }
+  .kr-placement-fit {
+    font-family: 'Instrument Sans', sans-serif;
+    font-size: 10px;
+    letter-spacing: 0.22em;
+    color: var(--ink-fainter);
+    text-transform: uppercase;
+  }
+  .kr-placement-fit em {
+    font-family: 'Newsreader', Georgia, serif;
+    font-style: italic;
+    color: var(--claret);
+    font-variant-numeric: oldstyle-nums;
+    font-size: 14px;
+    text-transform: none;
+    letter-spacing: 0;
+    margin-left: 4px;
+  }
+
+  /* Report coda */
+  .kr-report-coda {
+    text-align: center;
+    padding: var(--x1) var(--x3) var(--x1);
+    margin-top: var(--x1);
+    border-top: 1px solid var(--rule);
+  }
+  .kr-coda-stamp {
+    font-family: 'Instrument Sans', sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.30em;
+    color: var(--claret);
+    text-transform: uppercase;
+    font-weight: 600;
+    margin: 0 0 var(--x4);
+  }
+  .kr-coda-p {
+    font-family: 'Newsreader', Georgia, serif;
+    font-size: 16px;
+    line-height: 1.55;
+    color: var(--ink);
+    margin: 0 auto var(--x4);
+    max-width: 36rem;
+  }
+  .kr-coda-link {
+    color: var(--claret);
+    text-decoration: none;
+    border-bottom: 1px solid var(--claret);
+  }
+  .kr-coda-sig {
+    font-family: 'Newsreader', Georgia, serif;
+    font-style: italic;
+    font-size: 15px;
+    color: var(--ink-fainter);
+  }
+
+  /* Error stage */
+  .kr-stage--error {
+    padding: var(--x1) 0;
+    min-height: 50vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .kr-error {
+    text-align: center;
+    max-width: 32rem;
+  }
+  .kr-error-stamp {
+    font-family: 'Instrument Sans', sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.30em;
+    color: var(--claret);
+    text-transform: uppercase;
+    font-weight: 600;
+    margin: 0 0 var(--x4);
+  }
+  .kr-error-h {
+    font-family: 'Newsreader', Georgia, serif;
+    font-size: 2.25rem;
+    font-weight: 300;
+    color: var(--ink);
+    margin: 0 0 var(--x4);
+    letter-spacing: -0.025em;
+  }
+  .kr-error-msg {
+    font-family: 'Newsreader', Georgia, serif;
+    font-style: italic;
+    color: var(--ink-soft);
+    margin: 0 0 var(--x1);
+    line-height: 1.55;
+  }
+  .kr-error-retry {
+    background: var(--claret);
+    color: var(--paper-soft);
+    border: none;
+    padding: 12px 24px;
+    font-family: 'Instrument Sans', sans-serif;
+    font-size: 12px;
+    letter-spacing: 0.05em;
+    cursor: pointer;
+  }
+
+  /* ─────────── RESPONSIVE ─────────── */
+  @media (max-width: 720px) {
+    .kraken { padding: var(--x4) 20px; }
+    .kr-form { padding: var(--x3); }
+    .kr-form-foot { flex-direction: column-reverse; align-items: stretch; gap: var(--x4); }
+    .kr-submit { width: 100%; justify-content: center; }
+    .kr-mast-stats { font-size: 10px; gap: 8px; }
+    .kr-mast-stats em { font-size: 15px; }
+    .kr-story, .kr-pitch, .kr-headline-set, .kr-insight, .kr-placement,
+    .kr-attractor-row {
+      grid-template-columns: 2.5rem 1fr;
+      gap: var(--x4);
+    }
+    .kr-attractor-row {
+      grid-template-columns: 2.5rem 1fr;
+      grid-template-areas:
+        "rank label"
+        ".    meta";
+    }
+    .kr-attractor-rank { grid-area: rank; }
+    .kr-attractor-label { grid-area: label; }
+    .kr-attractor-esv, .kr-attractor-sat {
+      grid-area: meta;
+      display: inline-block;
+      margin-right: 12px;
+    }
+    .kr-item-rank { font-size: 24px; }
+    .kr-story-title { font-size: 21px; }
+  }
+
+  /* ─────────── PRINT ─────────── */
+  @media print {
+    @page { margin: 18mm 15mm; }
+    body { background: white; color: black; }
+    .masthead, .breadcrumbs, .bb, footer.site-footer,
+    .kr-stage--input, .kr-stage--loading, .kr-stage--error,
+    .kr-report-actions, .kr-method, .build-badge {
+      display: none !important;
+    }
+    .kraken { max-width: 100%; padding: 0; }
+    .kr-section { page-break-inside: avoid; padding: 12mm 0; border-bottom: 0.5pt solid #999; }
+    .kr-section-h { font-size: 22pt; }
+    .kr-story-title, .kr-placement-archetype { font-size: 14pt; page-break-after: avoid; }
+    .kr-story, .kr-pitch, .kr-headline-set, .kr-insight, .kr-placement,
+    .kr-attractor-row {
+      page-break-inside: avoid;
+    }
+    .kr-report-coda { page-break-before: avoid; }
+  }
+</style>
+
+<script>
+  // ═══════════════════════════════════════════════════════════════════
+  // KRAKEN — client orchestration
+  // ═══════════════════════════════════════════════════════════════════
+
+  const app = document.querySelector('[data-kraken-app]');
+  if (app) {
+    const stages = {
+      input: app.querySelector('[data-stage="input"]'),
+      loading: app.querySelector('[data-stage="loading"]'),
+      report: app.querySelector('[data-stage="report"]'),
+      error: app.querySelector('[data-stage="error"]'),
+    };
+    const form = app.querySelector('[data-kr-form]');
+    const textarea = app.querySelector('#kr-input') as HTMLTextAreaElement;
+    const counter = app.querySelector('[data-kr-counter]');
+    const submit = app.querySelector('[data-kr-submit]');
+    const retry = app.querySelector('[data-kr-retry]');
+    const errMsg = app.querySelector('[data-kr-error-msg]');
+
+    function showStage(name) {
+      Object.entries(stages).forEach(([k, el]) => {
+        if (el) (el as HTMLElement).hidden = k !== name;
+      });
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // Character counter
+    if (textarea && counter) {
+      textarea.addEventListener('input', () => {
+        counter.textContent = `${textarea.value.length} / 800`;
+      });
+    }
+
+    // Loading stage controller
+    const STEPS = [
+      { key: 'research', label: 'Pulling recent coverage', estMs: 8000 },
+      { key: 'ideate', label: 'Running 5 interpretive lenses', estMs: 14000 },
+      { key: 'cluster', label: 'Clustering 50 framings', estMs: 1000 },
+      { key: 'synthesize', label: 'Ranking by editorial success value', estMs: 18000 },
+      { key: 'render', label: 'Drafting the report', estMs: 2000 },
+    ];
+    const stageLabel = app.querySelector('[data-kr-loading-stage]');
+    const stageDetail = app.querySelector('[data-kr-loading-detail]');
+
+    function setStep(key) {
+      app.querySelectorAll('[data-kr-step]').forEach((el) => {
+        const stepKey = el.getAttribute('data-kr-step');
+        el.classList.remove('is-active', 'is-done');
+        const stepIdx = STEPS.findIndex((s) => s.key === stepKey);
+        const activeIdx = STEPS.findIndex((s) => s.key === key);
+        if (stepIdx < activeIdx) el.classList.add('is-done');
+        else if (stepIdx === activeIdx) el.classList.add('is-active');
+      });
+      const step = STEPS.find((s) => s.key === key);
+      if (step && stageLabel) {
+        stageLabel.textContent = step.label + '…';
+      }
+    }
+
+    // Run the full Kraken pipeline
+    async function runKraken(input) {
+      showStage('loading');
+
+      try {
+        // 1. Research
+        setStep('research');
+        const researchRes = await fetch('/api/kraken-research', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ input }),
+        });
+        if (!researchRes.ok) {
+          const e = await researchRes.json().catch(() => ({}));
+          throw new Error(e.error || 'Research failed');
+        }
+        const research = await researchRes.json();
+
+        // 2. Ideate (5 parallel calls server-side)
+        setStep('ideate');
+        const ideateRes = await fetch('/api/kraken-ideate', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            input,
+            coverageBrief: research.coverageBrief,
+          }),
+        });
+        if (!ideateRes.ok) {
+          const e = await ideateRes.json().catch(() => ({}));
+          throw new Error(e.error || 'Ideation failed');
+        }
+        const ideation = await ideateRes.json();
+
+        // 3+4. Cluster + synthesize
+        setStep('cluster');
+        await new Promise((r) => setTimeout(r, 600));
+        setStep('synthesize');
+        const synthRes = await fetch('/api/kraken-synthesize', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            input,
+            framings: ideation.framings,
+            coverageBrief: research.coverageBrief,
+          }),
+        });
+        if (!synthRes.ok) {
+          const e = await synthRes.json().catch(() => ({}));
+          throw new Error(e.error || 'Synthesis failed');
+        }
+        const { report } = await synthRes.json();
+
+        // 5. Render
+        setStep('render');
+        await new Promise((r) => setTimeout(r, 400));
+        renderReport(report);
+        showStage('report');
+
+      } catch (err) {
+        if (errMsg) errMsg.textContent = err.message || 'Unknown error';
+        showStage('error');
+      }
+    }
+
+    // Render the report into the DOM
+    function renderReport(report) {
+      const tpl = document.querySelector('#kr-report-template');
+      if (!tpl) return;
+      const reportStage = stages.report;
+      if (!reportStage) return;
+
+      // Clone template
+      reportStage.innerHTML = '';
+      reportStage.appendChild((tpl as HTMLTemplateElement).content.cloneNode(true));
+
+      // Header
+      const inputEcho = reportStage.querySelector('[data-kr-input-echo]');
+      if (inputEcho) inputEcho.textContent = report.input_echo || '—';
+
+      const stampEl = reportStage.querySelector('[data-kr-stamp]');
+      if (stampEl) {
+        const today = new Date();
+        const days = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+        const months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+        stampEl.textContent = `Filed at sunrise · ${days[today.getDay()]} · ${today.getDate()} ${months[today.getMonth()]} ${today.getFullYear()}`;
+      }
+
+      // Cluster map
+      const distEl = reportStage.querySelector('[data-kr-distribution]');
+      if (distEl && report.cluster_map?.narrative_distribution_note) {
+        distEl.textContent = report.cluster_map.narrative_distribution_note;
+      }
+
+      renderBubbleChart(reportStage, report.cluster_map?.attractors || []);
+      renderAttractorList(reportStage, report.cluster_map?.attractors || []);
+
+      renderStories(reportStage, report.top_stories || []);
+      renderPitches(reportStage, report.top_pitches || []);
+      renderHeadlines(reportStage, report.top_headlines || []);
+      renderInsights(reportStage, report.top_insights || []);
+      renderPlacements(reportStage, report.top_placements || []);
+
+      // Wire actions
+      const printBtn = reportStage.querySelector('[data-kr-print]');
+      if (printBtn) printBtn.addEventListener('click', () => window.print());
+      const restartBtn = reportStage.querySelector('[data-kr-restart]');
+      if (restartBtn) restartBtn.addEventListener('click', () => {
+        if (textarea) textarea.value = '';
+        if (counter) counter.textContent = '0 / 800';
+        showStage('input');
+      });
+    }
+
+    // SVG bubble chart for cluster map
+    function renderBubbleChart(root, attractors) {
+      const host = root.querySelector('[data-kr-bubble-chart]');
+      if (!host || !attractors.length) return;
+
+      const W = 760, H = 320;
+      const padX = 40, padY = 30;
+      const cols = 5, rows = 2;
+      const cellW = (W - padX * 2) / cols;
+      const cellH = (H - padY * 2) / rows;
+
+      const weights = attractors.map((a) => a.weight || a.esv || 0.5);
+      const maxW = Math.max(...weights);
+      const minR = 22, maxR = 50;
+
+      let svg = `<svg viewBox="0 0 ${W} ${H}" xmlns="http://www.w3.org/2000/svg" aria-label="Cluster map">`;
+      attractors.slice(0, 10).forEach((a, i) => {
+        const col = i % cols;
+        const row = Math.floor(i / cols);
+        const cx = padX + cellW * col + cellW / 2;
+        const cy = padY + cellH * row + cellH / 2;
+        const w = a.weight || a.esv || 0.5;
+        const r = minR + ((w / maxW) * (maxR - minR));
+        const opacity = 0.55 + ((w / maxW) * 0.4);
+        const labelY = cy + r + 14;
+        const label = (a.label || '').slice(0, 22);
+        svg += `<g class="kr-bubble" opacity="${opacity.toFixed(2)}">
+          <circle cx="${cx}" cy="${cy}" r="${r}" fill="var(--claret)" />
+          <text class="kr-bubble-rank" x="${cx}" y="${cy}">${a.rank || i + 1}</text>
+          <text class="kr-bubble-label" x="${cx}" y="${labelY}">${escapeHtml(label)}</text>
+        </g>`;
+      });
+      svg += '</svg>';
+      host.innerHTML = svg;
+    }
+
+    function renderAttractorList(root, attractors) {
+      const host = root.querySelector('[data-kr-attractor-list]');
+      if (!host) return;
+      host.innerHTML = attractors.map((a) => `
+        <li class="kr-attractor-row">
+          <span class="kr-attractor-rank">${a.rank}.</span>
+          <span class="kr-attractor-label">${escapeHtml(a.label || '')}</span>
+          <span class="kr-attractor-esv">ESV <em>${(a.esv || 0).toFixed(2)}</em></span>
+          <span class="kr-attractor-sat" data-sat="${a.saturation_risk || 'medium'}">${a.saturation_risk || '—'}</span>
+        </li>
+      `).join('');
+    }
+
+    function renderStories(root, stories) {
+      const host = root.querySelector('[data-kr-stories]');
+      if (!host) return;
+      host.innerHTML = stories.map((s) => `
+        <li class="kr-story">
+          <span class="kr-item-rank">${s.rank}.</span>
+          <div class="kr-story-body">
+            <h4 class="kr-story-title">${escapeHtml(s.story_title || '')}</h4>
+            <p class="kr-story-headline">${escapeHtml(s.example_headline || '')}</p>
+            <dl class="kr-story-meta">
+              <dt>Frame</dt><dd>${escapeHtml(s.frame || '')}</dd>
+              <dt>Hook</dt><dd>${escapeHtml(s.core_hook || '')}</dd>
+              <dt>Survives because</dt><dd>${escapeHtml(s.survives_filter_because || '')}</dd>
+              <dt>Audience</dt><dd>${escapeHtml(s.audience_resonance || '')}</dd>
+              <dt>Tier</dt><dd>${escapeHtml(s.publication_tier_likelihood || '')}</dd>
+            </dl>
+            <a class="kr-story-cta" href="/build?angle=${encodeURIComponent(s.story_title || '')}">
+              Refine this in /build <span aria-hidden="true">→</span>
+            </a>
+          </div>
+        </li>
+      `).join('');
+    }
+
+    function renderPitches(root, pitches) {
+      const host = root.querySelector('[data-kr-pitches]');
+      if (!host) return;
+      host.innerHTML = pitches.map((p) => `
+        <li class="kr-pitch">
+          <span class="kr-item-rank">${p.rank}.</span>
+          <div>
+            <p class="kr-pitch-subject">${escapeHtml(p.subject_line || '')}</p>
+            <div class="kr-pitch-body">${escapeHtml(p.body || '').replace(/\n/g, '<br/>')}</div>
+            <p class="kr-pitch-frame">${escapeHtml(p.implied_frame || '')}</p>
+          </div>
+        </li>
+      `).join('');
+    }
+
+    function renderHeadlines(root, headlines) {
+      const host = root.querySelector('[data-kr-headlines]');
+      if (!host) return;
+      host.innerHTML = headlines.map((h) => `
+        <li class="kr-headline-set">
+          <span class="kr-item-rank">${h.rank}.</span>
+          <div>
+            <p class="kr-headline-cluster">Cluster ${h.cluster_id || h.rank}</p>
+            <ol class="kr-headline-variations">
+              ${(h.variations || []).map((v) => `<li>${escapeHtml(v)}</li>`).join('')}
+            </ol>
+            ${h.format_notes ? `<p class="kr-headline-notes">${escapeHtml(h.format_notes)}</p>` : ''}
+          </div>
+        </li>
+      `).join('');
+    }
+
+    function renderInsights(root, insights) {
+      const host = root.querySelector('[data-kr-insights]');
+      if (!host) return;
+      host.innerHTML = insights.map((i) => `
+        <li class="kr-insight">
+          <span class="kr-item-rank">${i.rank}.</span>
+          <div>
+            <p class="kr-insight-type">${escapeHtml(i.type || '—')}</p>
+            <p class="kr-insight-body">${escapeHtml(i.insight || '')}</p>
+            ${i.why_it_feels_revealed ? `<p class="kr-insight-why">${escapeHtml(i.why_it_feels_revealed)}</p>` : ''}
+          </div>
+        </li>
+      `).join('');
+    }
+
+    function renderPlacements(root, placements) {
+      const host = root.querySelector('[data-kr-placements]');
+      if (!host) return;
+      host.innerHTML = placements.map((p) => `
+        <li class="kr-placement">
+          <span class="kr-item-rank">${p.rank}.</span>
+          <div>
+            <h4 class="kr-placement-archetype">${escapeHtml(p.outlet_archetype || '')}</h4>
+            <p class="kr-placement-outlets">${(p.specific_outlets || []).map(escapeHtml).join(' · ')}</p>
+            <p class="kr-placement-shift">${escapeHtml(p.framing_adjustment || '')}</p>
+            <p class="kr-placement-fit">Fit score<em>${(p.fit_score || 0).toFixed(2)}</em></p>
+          </div>
+        </li>
+      `).join('');
+    }
+
+    function escapeHtml(s) {
+      if (s == null) return '';
+      return String(s)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#39;');
+    }
+
+    // Submit handler
+    if (form && textarea && submit) {
+      form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const val = textarea.value.trim();
+        if (val.length < 8) {
+          textarea.focus();
+          return;
+        }
+        runKraken(val);
+      });
+    }
+
+    // Retry
+    if (retry) {
+      retry.addEventListener('click', () => {
+        showStage('input');
+      });
+    }
+  }
+</script>
