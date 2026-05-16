@@ -1,67 +1,64 @@
 // netlify/functions/kraken-research.js
 //
-// Grounding pass for the Kraken. Before ideation runs, we hand the model
-// the recent press coverage about the input topic so that:
-// 1) Generated framings know what's already been written (avoid duplication)
-// 2) The "saturation penalty" can be honestly applied
-// 3) Generated novelty_notes have grounding for "this hasn't been done yet"
+// The Kraken's grounding pass. Two parallel Tavily searches (press + datasets)
+// return a compact coverage brief that grounds the downstream ideation.
 //
-// Uses Tavily for the search. Returns a compact coverage brief — title + url
-// + snippet for each result, plus a small list of detected dataset/source
-// mentions extracted from the snippets.
+// POST body: { input: string }
+// Response:  { coverageBrief: string, sources: [...], counts: {...} }
 
-const TAVILY_URL = 'https://api.tavily.com/search';
+const TAVILY_API_KEY = process.env.TAVILY_API_KEY;
+const TAVILY_URL = "https://api.tavily.com/search";
 
 const DATA_SOURCE_HINTS = [
-  'bls.gov', 'census.gov', 'fred.stlouisfed.org', 'cdc.gov', 'nih.gov',
-  'sec.gov', 'fda.gov', 'usda.gov', 'noaa.gov', 'nasa.gov',
-  'data.gov', 'oecd.org', 'imf.org', 'worldbank.org', 'who.int',
-  'gallup.com', 'pewresearch.org', 'kff.org', 'rand.org',
+  "bls.gov","census.gov","fred.stlouisfed.org","cdc.gov","nih.gov",
+  "sec.gov","fda.gov","usda.gov","noaa.gov","nasa.gov",
+  "data.gov","oecd.org","imf.org","worldbank.org","who.int",
+  "gallup.com","pewresearch.org","kff.org","rand.org",
 ];
 
 async function searchTavily(query, opts = {}) {
-  const response = await fetch(TAVILY_URL, {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
+  const res = await fetch(TAVILY_URL, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
     body: JSON.stringify({
-      api_key: process.env.TAVILY_API_KEY,
+      api_key: TAVILY_API_KEY,
       query,
-      search_depth: 'advanced',
+      search_depth: "advanced",
       max_results: opts.maxResults || 8,
       include_answer: false,
       include_raw_content: false,
       include_domains: opts.includeDomains,
     }),
   });
-
-  if (!response.ok) {
-    const errText = await response.text();
-    throw new Error(`Tavily ${response.status}: ${errText.slice(0, 200)}`);
+  if (!res.ok) {
+    const errText = await res.text();
+    throw new Error(`Tavily ${res.status}: ${errText.slice(0, 200)}`);
   }
-  return response.json();
+  return res.json();
 }
 
-export default async (req) => {
-  if (req.method !== 'POST') {
-    return new Response('Method not allowed', { status: 405 });
+export const handler = async (event) => {
+  if (event.httpMethod !== "POST") {
+    return { statusCode: 405, body: JSON.stringify({ error: "Method not allowed" }) };
+  }
+  if (!TAVILY_API_KEY) {
+    return { statusCode: 500, body: JSON.stringify({ error: "TAVILY_API_KEY not set" }) };
   }
 
   let body;
-  try { body = await req.json(); } catch {
-    return new Response(JSON.stringify({ error: 'Invalid JSON' }), { status: 400 });
+  try {
+    body = JSON.parse(event.body || "{}");
+  } catch {
+    return { statusCode: 400, body: JSON.stringify({ error: "Invalid JSON" }) };
   }
 
-  const { input } = body || {};
-  if (!input || typeof input !== 'string' || input.trim().length < 8) {
-    return new Response(JSON.stringify({ error: 'Input too short' }), { status: 400 });
-  }
-  if (!process.env.TAVILY_API_KEY) {
-    return new Response(JSON.stringify({ error: 'Missing TAVILY_API_KEY' }), { status: 500 });
+  const input = (body.input || "").trim();
+  if (input.length < 8) {
+    return { statusCode: 400, body: JSON.stringify({ error: "Input too short" }) };
   }
 
   try {
-    // Two parallel passes: open press coverage, plus dataset-source-tilted.
-    const [pressCoverage, dataCoverage] = await Promise.all([
+    const [press, data] = await Promise.all([
       searchTavily(input, { maxResults: 8 }).catch(() => ({ results: [] })),
       searchTavily(`${input} data report study statistics`, {
         maxResults: 6,
@@ -77,44 +74,37 @@ export default async (req) => {
         return true;
       });
 
-    const press = dedupe(pressCoverage.results).slice(0, 8).map((r) => ({
-      title: r.title,
-      url: r.url,
-      snippet: (r.content || '').slice(0, 320),
-      type: 'press',
+    const pressSources = dedupe(press.results).slice(0, 8).map((r) => ({
+      title: r.title, url: r.url,
+      snippet: (r.content || "").slice(0, 320),
+      type: "press",
     }));
-    const data = dedupe(dataCoverage.results).slice(0, 6).map((r) => ({
-      title: r.title,
-      url: r.url,
-      snippet: (r.content || '').slice(0, 320),
-      type: 'data',
+    const dataSources = dedupe(data.results).slice(0, 6).map((r) => ({
+      title: r.title, url: r.url,
+      snippet: (r.content || "").slice(0, 320),
+      type: "data",
     }));
 
-    const all = [...press, ...data];
-
-    // Build a compact coverage brief that the ideation prompt can consume.
+    const all = [...pressSources, ...dataSources];
     const brief = all.length === 0
-      ? '(No coverage retrieved.)'
-      : all
-          .map((s, i) =>
-            `[${i + 1}] (${s.type.toUpperCase()}) ${s.title}\n    ${s.snippet}\n    ${s.url}`
-          )
-          .join('\n\n');
+      ? "(No coverage retrieved.)"
+      : all.map((s, i) =>
+          `[${i + 1}] (${s.type.toUpperCase()}) ${s.title}\n    ${s.snippet}\n    ${s.url}`
+        ).join("\n\n");
 
-    return new Response(
-      JSON.stringify({
+    return {
+      statusCode: 200,
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
         coverageBrief: brief,
         sources: all,
-        counts: { press: press.length, data: data.length, total: all.length },
+        counts: { press: pressSources.length, data: dataSources.length, total: all.length },
       }),
-      { status: 200, headers: { 'Content-Type': 'application/json' } }
-    );
+    };
   } catch (err) {
-    return new Response(
-      JSON.stringify({ error: err.message || 'Research failed' }),
-      { status: 500, headers: { 'Content-Type': 'application/json' } }
-    );
+    return {
+      statusCode: 500,
+      body: JSON.stringify({ error: "Research failed", detail: String(err).slice(0, 500) }),
+    };
   }
 };
-
-export const config = { path: '/api/kraken-research' };

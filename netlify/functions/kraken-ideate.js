@@ -1,20 +1,14 @@
 // netlify/functions/kraken-ideate.js
 //
-// The Kraken's ideation layer.
+// Five parallel OpenAI calls — one per interpretive lens — each generating
+// 10 distinct narrative framings. Returns 50 framings total.
 //
-// Runs 5 parallel OpenAI calls with different "lens biases" (economic,
-// cultural, structural, behavioral, technological) — each generating 10
-// distinct narrative framings of the user's input.
-//
-// Returns 50 framings total. The cluster-and-synthesize function downstream
-// reduces these to 10 stable attractors.
-//
-// This is the genuine variance layer. Five independent calls with different
-// system prompts produce real diversity that one giant call cannot — each
-// call doesn't see the others' outputs and can't unconsciously repeat them.
+// POST body: { input: string, coverageBrief: string }
+// Response:  { framings: [...], lensResults: [...], total: number }
 
-const OPENAI_URL = 'https://api.openai.com/v1/chat/completions';
-const MODEL = process.env.OPENAI_MODEL || 'gpt-4o-mini';
+const OPENAI_API_KEY = process.env.OPENAI_API_KEY;
+const OPENAI_MODEL = process.env.OPENAI_MODEL || "gpt-4o-mini";
+const OPENAI_URL = "https://api.openai.com/v1/chat/completions";
 
 const LENS_PROMPTS = {
   economic: `You apply an ECONOMIC interpretive lens.
@@ -71,51 +65,48 @@ Output strict JSON, no preamble, no markdown:
       "core_tension": "<the friction/contradiction the story exposes>",
       "novelty_note": "<why this hasn't been written yet, given the coverage shown>",
       "evidence_required": "<what data or sources would make this real>"
-    },
-    ... 10 items total
+    }
   ]
-}`;
+}
 
-async function callOpenAI(input, coverageBrief, lensKey) {
+Return exactly 10 items in the framings array.`;
+
+async function callOpenAILens(input, coverageBrief, lensKey) {
   const lensPrompt = LENS_PROMPTS[lensKey];
-  const systemMessage = `${BASE_SYSTEM}
-
-${lensPrompt}`;
-
+  const systemMessage = `${BASE_SYSTEM}\n\n${lensPrompt}`;
   const userMessage = `INPUT: ${input}
 
 RECENT COVERAGE / GROUNDING:
-${coverageBrief || '(No prior coverage retrieved. Proceed with lens-driven reasoning.)'}
+${coverageBrief || "(No prior coverage retrieved. Proceed with lens-driven reasoning.)"}
 
 Generate 10 distinct narrative framings through your assigned lens. Return strict JSON.`;
 
-  const response = await fetch(OPENAI_URL, {
-    method: 'POST',
+  const res = await fetch(OPENAI_URL, {
+    method: "POST",
     headers: {
-      'Content-Type': 'application/json',
-      Authorization: `Bearer ${process.env.OPENAI_API_KEY}`,
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${OPENAI_API_KEY}`,
     },
     body: JSON.stringify({
-      model: MODEL,
+      model: OPENAI_MODEL,
       messages: [
-        { role: 'system', content: systemMessage },
-        { role: 'user', content: userMessage },
+        { role: "system", content: systemMessage },
+        { role: "user", content: userMessage },
       ],
-      temperature: 0.9,         // high temp for divergence
-      response_format: { type: 'json_object' },
+      temperature: 0.9,
+      response_format: { type: "json_object" },
       max_tokens: 2200,
     }),
   });
 
-  if (!response.ok) {
-    const errText = await response.text();
-    throw new Error(`OpenAI ${response.status}: ${errText.slice(0, 200)}`);
+  if (!res.ok) {
+    const errText = await res.text();
+    throw new Error(`OpenAI ${res.status}: ${errText.slice(0, 200)}`);
   }
-  const data = await response.json();
-  const raw = data.choices?.[0]?.message?.content || '{}';
+  const data = await res.json();
+  const raw = data.choices?.[0]?.message?.content || "{}";
   try {
     const parsed = JSON.parse(raw);
-    // Tag each framing with its lens
     if (Array.isArray(parsed.framings)) {
       parsed.framings.forEach((f) => { f.lens = lensKey; });
     }
@@ -125,53 +116,61 @@ Generate 10 distinct narrative framings through your assigned lens. Return stric
   }
 }
 
-export default async (req) => {
-  if (req.method !== 'POST') {
-    return new Response('Method not allowed', { status: 405 });
+export const handler = async (event) => {
+  if (event.httpMethod !== "POST") {
+    return { statusCode: 405, body: JSON.stringify({ error: "Method not allowed" }) };
+  }
+  if (!OPENAI_API_KEY) {
+    return { statusCode: 500, body: JSON.stringify({ error: "OPENAI_API_KEY not set" }) };
   }
 
   let body;
   try {
-    body = await req.json();
+    body = JSON.parse(event.body || "{}");
   } catch {
-    return new Response(JSON.stringify({ error: 'Invalid JSON' }), { status: 400 });
+    return { statusCode: 400, body: JSON.stringify({ error: "Invalid JSON" }) };
   }
 
-  const { input, coverageBrief } = body || {};
-  if (!input || typeof input !== 'string' || input.trim().length < 8) {
-    return new Response(JSON.stringify({ error: 'Input too short' }), { status: 400 });
-  }
-
-  if (!process.env.OPENAI_API_KEY) {
-    return new Response(JSON.stringify({ error: 'Missing OPENAI_API_KEY' }), { status: 500 });
+  const input = (body.input || "").trim();
+  const coverageBrief = body.coverageBrief || "";
+  if (input.length < 8) {
+    return { statusCode: 400, body: JSON.stringify({ error: "Input too short" }) };
   }
 
   try {
-    // 5 PARALLEL CALLS — one per lens
     const lensKeys = Object.keys(LENS_PROMPTS);
     const results = await Promise.all(
       lensKeys.map((lens) =>
-        callOpenAI(input, coverageBrief, lens).catch((err) => ({
-          lens,
-          framings: [],
-          error: err.message,
+        callOpenAILens(input, coverageBrief, lens).catch((err) => ({
+          lens, framings: [], error: String(err.message || err).slice(0, 200),
         }))
       )
     );
 
-    // Flatten all framings into one array, re-id sequentially for downstream clustering
     const allFramings = [];
     let counter = 1;
-    for (const result of results) {
-      if (Array.isArray(result.framings)) {
-        for (const f of result.framings) {
+    for (const r of results) {
+      if (Array.isArray(r.framings)) {
+        for (const f of r.framings) {
           allFramings.push({ ...f, id: `f${counter++}` });
         }
       }
     }
 
-    return new Response(
-      JSON.stringify({
+    // If ALL five lenses failed, surface the error so the user sees something
+    // actionable instead of an empty cluster downstream.
+    if (allFramings.length === 0) {
+      const firstError = results.find((r) => r.error)?.error || "Unknown ideation failure";
+      return {
+        statusCode: 500,
+        body: JSON.stringify({ error: "All lens calls failed", detail: firstError }),
+      };
+    }
+
+    return {
+      statusCode: 200,
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
         framings: allFramings,
         lensResults: results.map((r) => ({
           lens: r.lens,
@@ -180,17 +179,11 @@ export default async (req) => {
         })),
         total: allFramings.length,
       }),
-      {
-        status: 200,
-        headers: { 'Content-Type': 'application/json' },
-      }
-    );
+    };
   } catch (err) {
-    return new Response(
-      JSON.stringify({ error: err.message || 'Ideation failed' }),
-      { status: 500, headers: { 'Content-Type': 'application/json' } }
-    );
+    return {
+      statusCode: 500,
+      body: JSON.stringify({ error: "Ideation failed", detail: String(err).slice(0, 500) }),
+    };
   }
 };
-
-export const config = { path: '/api/kraken-ideate' };

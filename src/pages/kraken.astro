@@ -1339,7 +1339,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         });
         if (!researchRes.ok) {
           const e = await researchRes.json().catch(() => ({}));
-          throw new Error(e.error || 'Research failed');
+          const msg = e.detail ? `${e.error || 'Research failed'}: ${e.detail}` : (e.error || 'Research failed');
+          throw new Error(msg);
         }
         const research = await researchRes.json();
 
@@ -1355,9 +1356,13 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         });
         if (!ideateRes.ok) {
           const e = await ideateRes.json().catch(() => ({}));
-          throw new Error(e.error || 'Ideation failed');
+          const msg = e.detail ? `${e.error || 'Ideation failed'}: ${e.detail}` : (e.error || 'Ideation failed');
+          throw new Error(msg);
         }
         const ideation = await ideateRes.json();
+        if (!ideation.framings || ideation.framings.length === 0) {
+          throw new Error('Ideation returned no framings');
+        }
 
         // 3+4. Cluster + synthesize
         setStep('cluster');
@@ -1374,7 +1379,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         });
         if (!synthRes.ok) {
           const e = await synthRes.json().catch(() => ({}));
-          throw new Error(e.error || 'Synthesis failed');
+          const msg = e.detail ? `${e.error || 'Synthesis failed'}: ${e.detail}` : (e.error || 'Synthesis failed');
+          throw new Error(msg);
         }
         const { report } = await synthRes.json();
 
