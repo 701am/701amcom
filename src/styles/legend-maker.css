@@ -105,13 +105,13 @@
   max-width: var(--measure);
 }
 
-.lm-page a {
+.lm-page :where(a) {
   color: var(--link);
   text-decoration: none;
   border-bottom: 1px solid currentColor;
   transition: color 0.2s ease;
 }
-.lm-page a:hover { color: var(--link-hover); }
+.lm-page :where(a):hover { color: var(--link-hover); }
 
 .lm-page strong, .lm-page b { font-weight: 600; color: var(--ink); }
 .lm-page em, .lm-page i  { font-style: italic; }
@@ -437,7 +437,8 @@
   border-color: var(--claret);
 }
 .lm-form button,
-.lm-btn {
+.lm-btn,
+.lm-page a.lm-btn {
   font-family: var(--font-sans);
   font-size: 0.95rem;
   font-weight: 500;
@@ -446,6 +447,7 @@
   background: var(--ink);
   color: var(--paper);
   border: 0;
+  border-bottom: 0;
   cursor: pointer;
   text-decoration: none;
   display: inline-block;
@@ -454,13 +456,24 @@
   transition: background 0.2s ease;
 }
 .lm-form button:hover,
-.lm-btn:hover { background: var(--claret); border: 0; }
-.lm-btn--ghost {
+.lm-btn:hover,
+.lm-page a.lm-btn:hover {
+  background: var(--claret);
+  color: var(--paper);
+  border: 0;
+  border-bottom: 0;
+}
+.lm-btn--ghost,
+.lm-page a.lm-btn--ghost {
   background: transparent;
   color: var(--ink);
   border: 1px solid var(--ink);
 }
-.lm-btn--ghost:hover { background: var(--ink); color: var(--paper); }
+.lm-btn--ghost:hover,
+.lm-page a.lm-btn--ghost:hover {
+  background: var(--ink);
+  color: var(--paper);
+}
 .lm-form__note {
   font-size: var(--fs-micro);
   color: var(--ink-faint);
