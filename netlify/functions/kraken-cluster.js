@@ -2,10 +2,10 @@
 //
 // First synthesis call: cluster the 50 framings into 10 attractors AND
 // expand each into a finalized story. Returns:
-//   { cluster_map, top_stories }
+//   { input_echo, cluster_map, top_stories }
 //
-// Designed to finish under ~7 seconds so it fits comfortably in Netlify's
-// default 10-second function timeout. Uses gpt-4o-mini.
+// Per network logs, this call reliably completes in 7-8 seconds. Pitches
+// was the only call timing out (504); fixed separately in kraken-expand-pitches.
 
 const OPENAI_API_KEY = process.env.OPENAI_API_KEY;
 const OPENAI_MODEL = process.env.OPENAI_MODEL_SYNTH || "gpt-4o-mini";
@@ -32,6 +32,7 @@ Output strict JSON. No markdown. No preamble. Be concise.
         "rank": 1,
         "id": "c1",
         "label": "<3-5 word cluster label>",
+        "theme": "<one-sentence theme>",
         "esv": 0.92,
         "saturation_risk": "low",
         "weight": 0.92
