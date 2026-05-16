@@ -72,7 +72,7 @@ const dateFormatter = new Intl.DateTimeFormat('en-US', {
     grid-template-columns: 1fr 1fr 1fr;
     gap: 0;
     margin-top: var(--x1);
-    border-top: 1px solid rgba(212, 168, 83, 0.25);
+    border-top: 1px solid var(--rule);
   }
 
   .record-slat {
@@ -81,21 +81,21 @@ const dateFormatter = new Intl.DateTimeFormat('en-US', {
     padding: var(--x2) var(--x3);
     text-decoration: none;
     color: inherit;
-    border-bottom: 1px solid rgba(212, 168, 83, 0.25);
-    border-right: 1px solid rgba(212, 168, 83, 0.15);
+    border-bottom: 1px solid var(--rule);
+    border-right: 1px solid var(--rule);
     transition: background 0.25s ease;
     min-height: 16rem;
   }
   .record-slat:last-child { border-right: none; }
   .record-slat:hover {
-    background: rgba(212, 168, 83, 0.04);
+    background: var(--paper-soft);
   }
   .record-slat:hover .record-title {
-    color: var(--gold-light);
+    color: var(--claret);
   }
   .record-slat:hover .record-chevron {
     transform: translateX(4px);
-    color: var(--gold-light);
+    color: var(--claret);
   }
 
   .record-slat-top {
@@ -108,7 +108,7 @@ const dateFormatter = new Intl.DateTimeFormat('en-US', {
     font-family: 'Newsreader', Georgia, serif;
     font-style: italic;
     font-size: var(--f5-size);
-    color: var(--gold);
+    color: var(--claret);
     line-height: 1;
     font-variant-numeric: oldstyle-nums;
     letter-spacing: 0.02em;
@@ -118,7 +118,7 @@ const dateFormatter = new Intl.DateTimeFormat('en-US', {
     font-size: 9px;
     letter-spacing: 0.30em;
     text-transform: uppercase;
-    color: var(--gold);
+    color: var(--claret);
     font-weight: 500;
     padding-top: 4px;
   }
@@ -129,7 +129,7 @@ const dateFormatter = new Intl.DateTimeFormat('en-US', {
     font-weight: 500;
     line-height: 1.18;
     letter-spacing: -0.015em;
-    color: var(--cream-warm);
+    color: var(--ink);
     margin: 0 0 var(--x4);
     text-wrap: balance;
     transition: color 0.25s ease;
@@ -141,7 +141,7 @@ const dateFormatter = new Intl.DateTimeFormat('en-US', {
     font-style: italic;
     font-size: var(--f6-size);
     line-height: 1.45;
-    color: var(--muted);
+    color: var(--ink-faint);
     margin: 0 0 var(--x3);
     flex: 1;
     font-weight: 400;
@@ -158,16 +158,16 @@ const dateFormatter = new Intl.DateTimeFormat('en-US', {
     font-family: 'Instrument Sans', sans-serif;
     font-size: 10px;
     letter-spacing: 0.20em;
-    color: var(--muted-dim);
+    color: var(--ink-fainter);
     text-transform: uppercase;
     margin-top: auto;
     padding-top: var(--x4);
-    border-top: 1px dotted rgba(212, 168, 83, 0.18);
+    border-top: 1px dotted var(--rule-strong);
   }
-  .record-meta-sep { color: var(--gold); }
+  .record-meta-sep { color: var(--claret); }
   .record-chevron {
     margin-left: auto;
-    color: var(--gold);
+    color: var(--claret);
     font-family: 'Instrument Sans', sans-serif;
     font-size: 14px;
     transition: transform 0.25s ease, color 0.25s ease;

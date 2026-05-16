@@ -7,13 +7,14 @@ const isCurrent = (href: string) =>
 <header class="topbar">
   <div class="topbar-grid">
     <a class="brand" href="/">
-      <Seal size={40} ariaLabel="701am" />
+      <Seal size={36} ariaLabel="701am" />
       <div class="brand-name">701am</div>
     </a>
 
     <nav class="topbar-center" aria-label="Primary">
       <a class="nav-link" href="/" aria-current={isCurrent('/') ? 'page' : undefined}>Home</a>
       <a class="nav-link" href="/notes" aria-current={isCurrent('/notes') ? 'page' : undefined}>Dispatches</a>
+      <a class="nav-link" href="/legend-maker" aria-current={isCurrent('/legend-maker') ? 'page' : undefined}>The Scroll</a>
       <a class="nav-link" href="/about" aria-current={isCurrent('/about') ? 'page' : undefined}>About</a>
       <a class="nav-link" href="/contact" aria-current={isCurrent('/contact') ? 'page' : undefined}>Contact</a>
     </nav>
@@ -25,7 +26,7 @@ const isCurrent = (href: string) =>
           <line x1="20" y1="20" x2="16.5" y2="16.5"></line>
         </svg>
       </button>
-      <a class="nav-pill" href="/contact">
+      <a class="nav-pill" href="https://cal.com/davidkrug/discovery">
         Begin
         <span class="nav-pill-arrow" aria-hidden="true">→</span>
       </a>
@@ -38,6 +39,7 @@ const isCurrent = (href: string) =>
   <div class="mobile-drawer" data-mobile-drawer>
     <a class="mobile-link" href="/">Home</a>
     <a class="mobile-link" href="/notes">Dispatches</a>
+    <a class="mobile-link" href="/legend-maker">The Scroll</a>
     <a class="mobile-link" href="/about">About</a>
     <a class="mobile-link" href="/contact">Contact</a>
   </div>
@@ -57,15 +59,15 @@ const isCurrent = (href: string) =>
   .brand {
     display: inline-flex;
     align-items: center;
-    gap: var(--x4);
+    gap: 12px;
     text-decoration: none;
     color: inherit;
   }
   .brand-name {
     font-family: 'Newsreader', Georgia, serif;
-    font-size: 24px;
+    font-size: 22px;
     font-weight: 500;
-    color: var(--cream-warm);
+    color: var(--ink);
     letter-spacing: -0.018em;
     line-height: 1;
     font-feature-settings: "kern" 1, "onum" 1;
@@ -73,33 +75,33 @@ const isCurrent = (href: string) =>
 
   .topbar-center {
     display: flex;
-    gap: var(--x2);
+    gap: 1.5rem;
     align-items: center;
     justify-self: center;
   }
   .topbar-center .nav-link {
     font-family: 'Newsreader', Georgia, serif;
     font-style: italic;
-    font-size: 17px;
-    color: var(--cream);
+    font-size: 16px;
+    color: var(--ink-soft);
     text-decoration: none;
     padding: 6px 4px;
     border-bottom: 1px solid transparent;
     transition: color 0.2s, border-color 0.2s;
   }
   .topbar-center .nav-link:hover {
-    color: var(--gold-light);
-    border-bottom-color: var(--gold);
+    color: var(--claret);
+    border-bottom-color: var(--claret);
   }
   .topbar-center .nav-link[aria-current="page"] {
-    color: var(--gold-light);
-    border-bottom-color: var(--gold);
+    color: var(--claret);
+    border-bottom-color: var(--claret);
   }
 
   .topbar-right {
     display: flex;
     align-items: center;
-    gap: var(--x4);
+    gap: 0.65rem;
     justify-self: end;
   }
 
@@ -107,8 +109,8 @@ const isCurrent = (href: string) =>
     width: 36px;
     height: 36px;
     background: transparent;
-    border: 1px solid rgba(212, 168, 83, 0.3);
-    color: var(--gold);
+    border: 1px solid var(--rule-strong);
+    color: var(--ink);
     cursor: pointer;
     display: inline-flex;
     align-items: center;
@@ -117,9 +119,9 @@ const isCurrent = (href: string) =>
     transition: border-color 0.2s, color 0.2s, background 0.2s;
   }
   .topbar-icon:hover {
-    border-color: var(--gold);
-    color: var(--gold-light);
-    background: rgba(212, 168, 83, 0.06);
+    border-color: var(--claret);
+    color: var(--claret);
+    background: var(--paper-soft);
   }
 
   .nav-pill {
@@ -127,20 +129,20 @@ const isCurrent = (href: string) =>
     align-items: center;
     gap: 8px;
     padding: 8px 16px;
-    background: var(--gold);
-    color: var(--navy-deep);
+    background: var(--ink-deep);
+    color: var(--paper-soft);
     font-family: 'Instrument Sans', sans-serif;
     font-size: 11px;
-    letter-spacing: 0.18em;
+    letter-spacing: 0.16em;
     font-weight: 600;
     text-transform: uppercase;
     text-decoration: none;
-    border: 1px solid var(--gold);
-    transition: background 0.2s ease, transform 0.2s ease;
+    border: 1px solid var(--ink-deep);
+    transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
   }
   .nav-pill:hover {
-    background: var(--cream-warm);
-    border-color: var(--cream-warm);
+    background: var(--claret);
+    border-color: var(--claret);
     transform: translateY(-1px);
   }
   .nav-pill-arrow {
@@ -156,7 +158,7 @@ const isCurrent = (href: string) =>
     width: 36px;
     height: 36px;
     background: transparent;
-    border: 1px solid rgba(212, 168, 83, 0.3);
+    border: 1px solid var(--rule-strong);
     cursor: pointer;
     padding: 0;
     flex-direction: column;
@@ -168,49 +170,46 @@ const isCurrent = (href: string) =>
     display: block;
     width: 16px;
     height: 1px;
-    background: var(--gold);
+    background: var(--ink);
     transition: transform 0.25s ease, opacity 0.25s ease;
   }
   .topbar-burger[aria-expanded="true"] span:nth-child(1) {
     transform: translateY(5px) rotate(45deg);
   }
-  .topbar-burger[aria-expanded="true"] span:nth-child(2) {
-    opacity: 0;
-  }
+  .topbar-burger[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
   .topbar-burger[aria-expanded="true"] span:nth-child(3) {
     transform: translateY(-5px) rotate(-45deg);
   }
 
   .mobile-drawer {
-    background: rgba(10, 22, 51, 0.98);
-    border-top: 1px solid rgba(212, 168, 83, 0.2);
+    background: var(--paper);
+    border-top: 1px solid var(--rule);
     padding: var(--x3);
     display: none;
     flex-direction: column;
     gap: var(--x4);
   }
-  .mobile-drawer.is-open {
-    display: flex;
-  }
+  .mobile-drawer.is-open { display: flex; }
+
   .mobile-link {
     font-family: 'Newsreader', Georgia, serif;
     font-style: italic;
     font-size: 22px;
-    color: var(--cream);
+    color: var(--ink);
     text-decoration: none;
     padding: 8px 0;
-    border-bottom: 1px solid rgba(212, 168, 83, 0.15);
+    border-bottom: 1px solid var(--rule);
   }
   .mobile-link:last-child { border-bottom: none; }
-  .mobile-link:hover { color: var(--gold-light); }
+  .mobile-link:hover { color: var(--claret); }
 
-  @media (max-width: 880px) {
+  @media (max-width: 980px) {
     .topbar-center { display: none; }
     .topbar-grid { grid-template-columns: 1fr auto; }
     .topbar-burger { display: flex; }
   }
   @media (max-width: 420px) {
-    .topbar-right { gap: var(--x5); }
+    .topbar-right { gap: 0.45rem; }
     .nav-pill { display: none; }
   }
 </style>
