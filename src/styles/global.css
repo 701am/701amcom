@@ -1,27 +1,21 @@
 /* ═══════════════════════════════════════════════════
    701am — Global stylesheet
-   Golden Ratio Typography system
-   Base: 17px / 29px line-height / 38rem measure / ~89 CPL
+   v5 — Full FT salmon paper. Navy retired as surface.
+
+   Type system: GRT, base 17px / line-height 29px / measure 38rem
    ═══════════════════════════════════════════════════ */
 
 :root {
   /* Type scale (GRT, derived from φ) */
-  --f1-size: 4.118rem;
-  --f1-lh:   1.143;
-  --f2-size: 2.647rem;
-  --f2-lh:   1.244;
-  --f3-size: 2.059rem;
-  --f3-lh:   1.314;
-  --f4-size: 1.647rem;
-  --f4-lh:   1.357;
-  --f5-size: 1.294rem;
-  --f5-lh:   1.500;
-  --f6-size: 1rem;
-  --f6-lh:   1.706;
-  --f7-size: 0.765rem;
-  --f7-lh:   1.412;
+  --f1-size: 4.118rem;  --f1-lh: 1.143;
+  --f2-size: 2.647rem;  --f2-lh: 1.244;
+  --f3-size: 2.059rem;  --f3-lh: 1.314;
+  --f4-size: 1.647rem;  --f4-lh: 1.357;
+  --f5-size: 1.294rem;  --f5-lh: 1.500;
+  --f6-size: 1rem;      --f6-lh: 1.706;
+  --f7-size: 0.765rem;  --f7-lh: 1.412;
 
-  /* Spacing scale (line-height ÷ φⁿ) */
+  /* Spacing scale (φⁿ) */
   --x1: 2.765rem;
   --x2: 1.706rem;
   --x3: 1.059rem;
@@ -31,52 +25,43 @@
 
   /* Section padding */
   --section-y: 6rem;
-  --hero-y-top: 7rem;
-  --hero-y-bot: 8rem;
+  --hero-y-top: 6.5rem;
+  --hero-y-bot: 7.5rem;
 
   /* Content measure */
   --measure: 38rem;
   --measure-narrow: 32rem;
   --measure-wide: 52rem;
 
-  /* Color palette
-     ─────────────────────────────────────────────
-     Two modes:
-     - DARK side: navy backgrounds with gold + text-light text
-     - LIGHT side: salmon "paper" backgrounds with ink text + claret accent
-     ───────────────────────────────────────────── */
+  /* ──────────── PALETTE ──────────── */
+  /* Surface — FT salmon family */
+  --paper:       #FCE4D0;
+  --paper-warm:  #F8D4B8;
+  --paper-deep:  #F2C9A8;
+  --paper-soft:  #FFF1E0;
 
-  /* Dark side */
-  --navy-deep: #0A1633;
-  --navy: #131C42;
-  --plum: #3B2347;
-  --coral: #C97A3F;          /* used in hero gradient + avatar mixes */
-  --amber: #E8A85B;          /* used in hero gradient */
-  --gold: #D4A853;
-  --gold-light: #E8C77A;
-  --text-light: #FFF1E0;     /* primary text color on dark backgrounds */
-  --text-light-warm: #F8E8D0;
-  --muted: #D9CFBE;
-  --muted-dim: #8B9BB8;
+  /* Ink (text) */
+  --ink:         #1E1E1E;
+  --ink-soft:    #2A2A2A;
+  --ink-faint:   #5A544E;
+  --ink-fainter: #8A8278;
+  --ink-deep:    #0F0E0E;
 
-  /* Light side — FT salmon palette */
-  --paper: #FCE4D0;          /* primary salmon — decisively pink */
-  --paper-warm: #F8D4B8;     /* deeper salmon — emphasis blocks */
-  --paper-deep: #F2C9A8;     /* deepest salmon — cards, code, the proclamation doc */
-  --paper-soft: #FFF1E0;     /* FT canonical — input fields, subtle layers */
-  --ink: #1E1E1E;            /* primary text on salmon */
-  --ink-soft: #2A2A2A;       /* body prose on salmon */
+  /* Rules */
+  --rule:        #E7D4B8;
+  --rule-strong: #C9B08A;
 
-  /* Accents — work on both sides */
-  --claret: #990F3D;         /* FT claret — primary accent on light side, deep red on dark */
-  --teal: #0D7680;           /* secondary accent — focus states, secondary links on salmon */
+  /* Accents */
+  --claret:       #990F3D;
+  --claret-dark:  #6E0A2C;
+  --teal:         #0D7680;
+  --gold:         #B0823A;
 
-  /* Legacy aliases — point old names at new palette so existing CSS keeps working.
-     Code that references --cream/--cream-warm/--parchment as backgrounds now gets salmon.
-     Code that references them for text on dark backgrounds is fixed via component updates. */
-  --cream: var(--paper);
-  --cream-warm: var(--text-light);
-  --parchment: var(--paper-deep);
+  /* Sunrise tones — used in the hero gradient only */
+  --coral:       #C97A3F;
+  --amber:       #E8A85B;
+  --amber-light: #F4B860;
+  --sun-glow:    #FFE9A8;
 }
 
 *, *::before, *::after { box-sizing: border-box; }
@@ -92,8 +77,8 @@ body {
   font-family: 'Instrument Sans', system-ui, -apple-system, sans-serif;
   font-size: var(--f6-size);
   line-height: var(--f6-lh);
-  background: var(--navy-deep);
-  color: var(--cream);
+  background: var(--paper);
+  color: var(--ink);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
@@ -101,7 +86,7 @@ body {
   font-feature-settings: "kern" 1, "liga" 1, "calt" 1;
 }
 
-::selection { background: var(--gold); color: var(--navy-deep); }
+::selection { background: var(--claret); color: var(--paper-soft); }
 
 h1, h2, h3, h4 { text-wrap: balance; }
 p { text-wrap: pretty; }
@@ -113,20 +98,16 @@ a { color: inherit; }
   position: sticky;
   top: 0;
   z-index: 50;
-  background: rgba(10, 22, 51, 0.88);
-  backdrop-filter: blur(16px) saturate(120%);
-  -webkit-backdrop-filter: blur(16px) saturate(120%);
-  border-bottom: 1px solid rgba(212, 168, 83, 0.18);
+  background: rgba(252, 228, 208, 0.92);
+  backdrop-filter: blur(12px) saturate(110%);
+  -webkit-backdrop-filter: blur(12px) saturate(110%);
+  border-bottom: 1px solid var(--rule);
   padding: 14px 24px;
 }
 
-/* Bunting strip */
 .bunting {
-  height: 3px;
-  background: linear-gradient(90deg,
-    var(--gold) 0%, var(--gold) 33%,
-    var(--cream) 33%, var(--cream) 66%,
-    var(--claret) 66%, var(--claret) 100%);
+  height: 2px;
+  background: var(--claret);
 }
 
 /* ─────────────── CTA BUTTONS ─────────────── */
@@ -134,46 +115,31 @@ a { color: inherit; }
   display: inline-flex;
   align-items: center;
   gap: 12px;
-  padding: 16px 28px;
-  background: var(--cream-warm);
-  color: var(--navy-deep);
+  padding: 15px 26px;
+  background: var(--ink-deep);
+  color: var(--paper-soft);
   text-decoration: none;
-  font-family: 'Newsreader', Georgia, serif;
-  font-size: var(--f6-size);
+  font-family: 'Instrument Sans', sans-serif;
+  font-size: 0.95rem;
   font-weight: 500;
-  letter-spacing: -0.005em;
-  border: 1px solid var(--cream-warm);
-  box-shadow: 0 8px 28px rgba(10, 22, 51, 0.4);
-  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  letter-spacing: 0.02em;
+  border: 1px solid var(--ink-deep);
+  transition: background 0.25s ease, border-color 0.25s ease, transform 0.25s ease;
   position: relative;
 }
-.btn-primary::before {
-  content: "";
-  position: absolute;
-  top: -4px; left: -4px; right: -4px; bottom: -4px;
-  border: 1px solid rgba(212, 168, 83, 0.5);
-  pointer-events: none;
-  opacity: 0;
-  transition: opacity 0.25s ease;
-}
 .btn-primary:hover {
-  background: var(--gold);
-  border-color: var(--gold);
-  transform: translateY(-2px);
-  box-shadow: 0 12px 34px rgba(10, 22, 51, 0.5);
+  background: var(--claret);
+  border-color: var(--claret);
+  transform: translateY(-1px);
 }
-.btn-primary:hover::before { opacity: 1; }
 .btn-primary .btn-icon {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 24px;
-  height: 24px;
-  border-radius: 50%;
-  background: var(--navy-deep);
-  color: var(--cream-warm);
+  width: 22px;
+  height: 22px;
   font-family: 'Instrument Sans', sans-serif;
-  font-size: 11px;
+  font-size: 12px;
   transition: transform 0.25s ease;
 }
 .btn-primary:hover .btn-icon { transform: translateX(3px); }
@@ -186,19 +152,19 @@ a { color: inherit; }
   font-style: italic;
   font-weight: 400;
   font-size: var(--f6-size);
-  color: var(--cream-warm);
+  color: var(--claret);
   text-decoration: none;
   padding: 4px 0;
-  border-bottom: 1px solid rgba(232, 199, 122, 0.7);
+  border-bottom: 1px solid var(--claret);
   transition: color 0.2s ease, gap 0.2s ease, border-color 0.2s ease;
 }
 .btn-link:hover {
-  color: var(--gold-light);
+  color: var(--claret-dark);
   gap: 14px;
-  border-bottom-color: var(--gold-light);
+  border-bottom-color: var(--claret-dark);
 }
 .btn-link .arrow {
-  color: var(--gold-light);
+  color: inherit;
   font-style: normal;
   font-family: 'Instrument Sans', sans-serif;
   font-size: 13px;
@@ -217,29 +183,35 @@ a { color: inherit; }
   font-family: 'Newsreader', Georgia, serif;
   font-style: italic;
   font-size: 14px;
-  color: rgba(255, 248, 236, 0.78);
+  color: var(--ink-faint);
 }
-.cta-fine::before { content: "★ "; color: var(--gold-light); font-style: normal; }
+.cta-fine::before { content: "★ "; color: var(--claret); font-style: normal; }
 
 /* ─────────────── SECTIONS ─────────────── */
 .section {
   padding: var(--section-y) var(--x1);
   position: relative;
+  background: var(--paper);
+  color: var(--ink);
 }
-.section-navy { background: var(--navy-deep); }
+
+/* Legacy alias retained — was navy, now a deeper salmon band */
+.section-navy {
+  background: var(--paper-warm);
+  color: var(--ink);
+}
+
+/* Legacy alias retained — was cream, still salmon */
 .section-cream {
-  background: var(--cream);
+  background: var(--paper);
   color: var(--ink);
   position: relative;
 }
-.section-cream::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  opacity: 0.4;
-  pointer-events: none;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='p'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.12 0 0 0 0 0.13 0 0 0 0 0.20 0 0 0 0.08 0'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23p)'/%3E%3C/svg%3E");
-}
+
+.section-paper      { background: var(--paper);      color: var(--ink); }
+.section-paper-warm { background: var(--paper-warm); color: var(--ink); }
+.section-paper-deep { background: var(--paper-deep); color: var(--ink); }
+
 .container {
   max-width: var(--measure);
   margin: 0 auto;
@@ -263,42 +235,40 @@ a { color: inherit; }
 .label-bar {
   width: 36px;
   height: 1px;
-  background: var(--gold);
+  background: var(--claret);
 }
 .label-text {
   font-family: 'Instrument Sans', sans-serif;
   font-size: var(--f7-size);
   letter-spacing: 0.34em;
-  color: var(--gold);
+  color: var(--claret);
   text-transform: uppercase;
   font-weight: 500;
   line-height: 1.4;
 }
-.section-cream .label-bar { background: var(--claret); }
-.section-cream .label-text { color: var(--claret); }
 
 .h2 {
   font-family: 'Newsreader', Georgia, serif;
   font-feature-settings: "kern" 1, "liga" 1, "dlig" 1, "onum" 1;
   font-size: clamp(2.5rem, 5.5vw, var(--f1-size));
   line-height: 1.04;
-  font-weight: 500;
-  letter-spacing: -0.025em;
+  font-weight: 400;
+  letter-spacing: -0.028em;
   margin: 0 0 var(--x2);
-  color: var(--cream-warm);
+  color: var(--ink);
   text-align: center;
   max-width: 22ch;
   margin-left: auto;
   margin-right: auto;
 }
-.h2-dark { color: var(--navy-deep); }
-.h2 em { font-style: italic; font-weight: 400; color: var(--gold); }
+.h2-dark { color: var(--ink); }
+.h2 em { font-style: italic; font-weight: 400; color: var(--claret); }
 .h2-dark em { color: var(--claret); }
 
 .body {
   font-size: var(--f6-size);
   line-height: var(--f6-lh);
-  color: var(--muted);
+  color: var(--ink-soft);
   max-width: var(--measure-narrow);
   margin-left: auto;
   margin-right: auto;
@@ -307,15 +277,15 @@ a { color: inherit; }
 }
 .body p { margin: 0 0 var(--x2); }
 .body p:last-child { margin-bottom: 0; }
-.body strong { color: var(--cream-warm); font-weight: 500; }
+.body strong { color: var(--ink); font-weight: 600; }
 .body em {
   font-family: 'Newsreader', Georgia, serif;
   font-style: italic;
-  color: var(--gold-light);
+  color: var(--claret);
   font-weight: 400;
 }
-.body-dark { color: #3A3A3A; }
-.body-dark strong { color: var(--navy-deep); font-weight: 600; }
+.body-dark { color: var(--ink-soft); }
+.body-dark strong { color: var(--ink); font-weight: 600; }
 .body-dark em { color: var(--claret); }
 .body-center { text-align: center; }
 .body-center p { text-wrap: balance; }
@@ -323,46 +293,8 @@ a { color: inherit; }
 /* ─────────────── FOOTER ─────────────── */
 .foot {
   padding: var(--x1) var(--x1) var(--x2);
-  background: var(--navy-deep);
-  border-top: 1px solid rgba(212, 168, 83, 0.18);
-}
-.foot-row {
-  max-width: var(--measure-wide);
-  margin: 0 auto;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: var(--x1);
-  flex-wrap: wrap;
-}
-.foot-left { display: flex; align-items: center; gap: var(--x3); }
-.foot-seal { width: 36px; height: 36px; flex-shrink: 0; }
-.foot-name {
-  font-family: 'Newsreader', Georgia, serif;
-  font-size: var(--f5-size);
-  font-weight: 500;
-  color: var(--cream);
-  line-height: 1.2;
-  font-feature-settings: "kern" 1, "onum" 1;
-}
-.foot-name span {
-  display: block;
-  font-family: 'Instrument Sans', sans-serif;
-  font-size: var(--f7-size);
-  letter-spacing: 0.28em;
-  color: var(--gold);
-  margin-top: var(--x6);
-  text-transform: uppercase;
-  font-weight: 500;
-  line-height: 1.4;
-}
-.foot-right {
-  font-family: 'Instrument Sans', sans-serif;
-  font-size: var(--f7-size);
-  letter-spacing: 0.25em;
-  color: var(--muted-dim);
-  text-transform: uppercase;
-  line-height: 1.4;
+  background: var(--paper);
+  border-top: 2px solid var(--ink);
 }
 
 /* ─────────────── RESPONSIVE ─────────────── */
@@ -370,11 +302,10 @@ a { color: inherit; }
   html { font-size: 16px; }
   :root {
     --section-y: 4rem;
-    --hero-y-top: 4.5rem;
-    --hero-y-bot: 5.5rem;
+    --hero-y-top: 4rem;
+    --hero-y-bot: 5rem;
   }
-  .topbar { padding: var(--x3) var(--x3); }
-  .brand-tag { display: none; }
+  .topbar { padding: 12px 18px; }
   .section { padding: var(--section-y) var(--x3); }
 }
 

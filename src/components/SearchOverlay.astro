@@ -44,7 +44,6 @@
 </div>
 
 <style>
-  /* HIDDEN BY DEFAULT — using display:none, not just the hidden attribute */
   .search-overlay {
     display: none;
     position: fixed;
@@ -54,28 +53,23 @@
     justify-content: center;
     padding: 6vh var(--x3) var(--x3);
   }
-  /* Only visible when explicitly opened via class */
-  .search-overlay.is-open {
-    display: flex;
-  }
+  .search-overlay.is-open { display: flex; }
 
   .search-backdrop {
     position: absolute;
     inset: 0;
-    background: rgba(10, 22, 51, 0.88);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
+    background: rgba(15, 14, 14, 0.55);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
     cursor: pointer;
   }
   .search-panel {
     position: relative;
     width: 100%;
     max-width: 42rem;
-    background: var(--navy-deep);
-    border: 1px solid rgba(212, 168, 83, 0.3);
-    box-shadow:
-      0 0 0 1px rgba(212, 168, 83, 0.1),
-      0 30px 80px rgba(0, 0, 0, 0.5);
+    background: var(--paper);
+    border: 1px solid var(--rule-strong);
+    box-shadow: 0 30px 80px rgba(15, 14, 14, 0.25);
     padding: var(--x2) var(--x2) var(--x3);
     max-height: 88vh;
     display: flex;
@@ -91,28 +85,27 @@
   .search-eyebrow {
     font-family: 'Instrument Sans', sans-serif;
     font-size: 10px;
-    letter-spacing: 0.32em;
-    color: var(--gold);
+    letter-spacing: 0.30em;
+    color: var(--claret);
     text-transform: uppercase;
     margin: 0;
-    font-weight: 500;
+    font-weight: 600;
     display: inline-flex;
     align-items: center;
     gap: var(--x4);
   }
   .search-rule {
     display: inline-block;
-    width: 20px;
-    height: 1px;
-    background: rgba(212, 168, 83, 0.45);
+    width: 20px; height: 1px;
+    background: var(--claret);
   }
 
   .search-close {
     width: 30px;
     height: 30px;
     background: transparent;
-    border: 1px solid rgba(212, 168, 83, 0.3);
-    color: var(--muted);
+    border: 1px solid var(--rule-strong);
+    color: var(--ink);
     cursor: pointer;
     display: inline-flex;
     align-items: center;
@@ -121,28 +114,27 @@
     transition: border-color 0.2s, color 0.2s;
   }
   .search-close:hover {
-    border-color: var(--gold);
-    color: var(--gold-light);
+    border-color: var(--claret);
+    color: var(--claret);
   }
 
   .search-input-wrap {
     position: relative;
-    border-bottom: 1px solid rgba(212, 168, 83, 0.3);
+    border-bottom: 1px solid var(--rule-strong);
     padding-bottom: var(--x4);
   }
   .search-input-icon {
     position: absolute;
-    left: 0;
-    top: 50%;
+    left: 0; top: 50%;
     transform: translateY(-50%);
-    color: var(--gold);
+    color: var(--claret);
   }
   .search-input {
     width: 100%;
     background: transparent;
     border: none;
     outline: none;
-    color: var(--cream-warm);
+    color: var(--ink);
     font-family: 'Newsreader', Georgia, serif;
     font-style: italic;
     font-size: clamp(20px, 3vw, 28px);
@@ -151,27 +143,27 @@
     font-weight: 400;
   }
   .search-input::placeholder {
-    color: var(--muted-dim);
+    color: var(--ink-fainter);
     font-style: italic;
   }
 
   .search-hint {
     font-family: 'Instrument Sans', sans-serif;
     font-size: 11px;
-    letter-spacing: 0.05em;
-    color: var(--muted-dim);
+    letter-spacing: 0.04em;
+    color: var(--ink-fainter);
     margin-top: var(--x4);
     margin-bottom: var(--x3);
   }
   .search-hint kbd {
     display: inline-block;
     padding: 2px 6px;
-    border: 1px solid rgba(212, 168, 83, 0.3);
-    background: rgba(212, 168, 83, 0.05);
-    border-radius: 3px;
+    border: 1px solid var(--rule-strong);
+    background: var(--paper-soft);
+    border-radius: 2px;
     font-family: ui-monospace, Menlo, Consolas, monospace;
     font-size: 10px;
-    color: var(--gold);
+    color: var(--claret);
     margin: 0 2px;
   }
 
@@ -186,7 +178,7 @@
     font-family: 'Newsreader', Georgia, serif;
     font-style: italic;
     font-size: 16px;
-    color: var(--muted-dim);
+    color: var(--ink-faint);
     text-align: center;
     padding: var(--x2) 0;
     margin: 0;
@@ -196,13 +188,13 @@
     padding: var(--x4) var(--x3);
     text-decoration: none;
     color: inherit;
-    border-bottom: 1px solid rgba(212, 168, 83, 0.1);
+    border-bottom: 1px solid var(--rule);
     transition: background 0.15s ease;
   }
   .search-result:last-child { border-bottom: none; }
   .search-result:hover,
   .search-result.is-active {
-    background: rgba(212, 168, 83, 0.06);
+    background: var(--paper-soft);
   }
   .search-result-head {
     display: flex;
@@ -214,23 +206,23 @@
     font-family: 'Newsreader', Georgia, serif;
     font-style: italic;
     font-size: 14px;
-    color: var(--gold);
+    color: var(--claret);
     font-variant-numeric: oldstyle-nums;
   }
   .search-result-topic {
     font-family: 'Instrument Sans', sans-serif;
     font-size: 9px;
     letter-spacing: 0.28em;
-    color: var(--gold);
+    color: var(--claret);
     text-transform: uppercase;
-    font-weight: 500;
+    font-weight: 600;
   }
   .search-result-title {
     font-family: 'Newsreader', Georgia, serif;
     font-size: 19px;
     line-height: 1.25;
     font-weight: 500;
-    color: var(--cream-warm);
+    color: var(--ink);
     margin: 0 0 4px;
     letter-spacing: -0.01em;
   }
@@ -239,12 +231,12 @@
     font-style: italic;
     font-size: 14px;
     line-height: 1.45;
-    color: var(--muted);
+    color: var(--ink-faint);
     margin: 0;
   }
   .search-result mark {
-    background: rgba(212, 168, 83, 0.25);
-    color: var(--gold-light);
+    background: var(--rule-strong);
+    color: var(--claret-dark);
     padding: 0 2px;
   }
 </style>
@@ -270,7 +262,6 @@
   function isOpen(): boolean {
     return overlay?.classList.contains('is-open') ?? false;
   }
-
   function openOverlay() {
     if (!overlay) return;
     overlay.classList.add('is-open');
@@ -278,7 +269,6 @@
     document.body.style.overflow = 'hidden';
     if (input) setTimeout(() => input.focus(), 50);
   }
-
   function closeOverlay() {
     if (!overlay) return;
     overlay.classList.remove('is-open');
@@ -291,37 +281,18 @@
     activeIndex = -1;
   }
 
-  // Hook up all openers (search icons in topbar etc.)
   document.querySelectorAll('[data-open-search]').forEach((btn) => {
-    btn.addEventListener('click', (e) => {
-      e.preventDefault();
-      openOverlay();
-    });
+    btn.addEventListener('click', (e) => { e.preventDefault(); openOverlay(); });
   });
-
-  // Hook up all closers (X button + backdrop)
   document.querySelectorAll('[data-search-close]').forEach((btn) => {
-    btn.addEventListener('click', (e) => {
-      e.preventDefault();
-      closeOverlay();
-    });
+    btn.addEventListener('click', (e) => { e.preventDefault(); closeOverlay(); });
   });
 
-  // Keyboard shortcuts
   document.addEventListener('keydown', (e) => {
-    // Esc closes
-    if (e.key === 'Escape' && isOpen()) {
-      e.preventDefault();
-      closeOverlay();
-      return;
-    }
-    // / opens (when not typing in another input)
-    if (
-      e.key === '/' &&
-      !isOpen() &&
-      !(e.target instanceof HTMLInputElement) &&
-      !(e.target instanceof HTMLTextAreaElement)
-    ) {
+    if (e.key === 'Escape' && isOpen()) { e.preventDefault(); closeOverlay(); return; }
+    if (e.key === '/' && !isOpen()
+        && !(e.target instanceof HTMLInputElement)
+        && !(e.target instanceof HTMLTextAreaElement)) {
       e.preventDefault();
       openOverlay();
     }
@@ -334,32 +305,21 @@
       if (!res.ok) return [];
       docs = (await res.json()) as SearchDoc[];
       return docs;
-    } catch {
-      return [];
-    }
+    } catch { return []; }
   }
 
   function escapeHtml(s: string): string {
-    return s
-      .replace(/&/g, '&amp;')
-      .replace(/</g, '&lt;')
-      .replace(/>/g, '&gt;')
-      .replace(/"/g, '&quot;')
-      .replace(/'/g, '&#39;');
+    return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+            .replace(/"/g, '&quot;').replace(/'/g, '&#39;');
   }
-
   function highlight(text: string, query: string): string {
     const esc = escapeHtml(text);
     if (!query) return esc;
-    const pattern = query
-      .split(/\s+/)
-      .filter(Boolean)
-      .map((q) => q.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'))
-      .join('|');
+    const pattern = query.split(/\s+/).filter(Boolean)
+      .map((q) => q.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')).join('|');
     if (!pattern) return esc;
     return esc.replace(new RegExp(`(${pattern})`, 'gi'), '<mark>$1</mark>');
   }
-
   function score(doc: SearchDoc, terms: string[]): number {
     let s = 0;
     const title = doc.title.toLowerCase();
@@ -387,47 +347,35 @@
       results.innerHTML = '<p class="search-empty">The record is empty.</p>';
       return;
     }
-
     const terms = q.toLowerCase().split(/\s+/).filter(Boolean);
-    const matched = all
-      .map((d) => ({ doc: d, s: score(d, terms) }))
-      .filter((m) => m.s > 0)
-      .sort((a, b) => b.s - a.s)
-      .slice(0, 12);
+    const matched = all.map((d) => ({ doc: d, s: score(d, terms) }))
+      .filter((m) => m.s > 0).sort((a, b) => b.s - a.s).slice(0, 12);
 
     if (matched.length === 0) {
       results.innerHTML = `<p class="search-empty">No dispatches match <em>${escapeHtml(q)}</em>.</p>`;
       activeIndex = -1;
       return;
     }
-
-    results.innerHTML = matched
-      .map(({ doc }) => {
-        const num = String(doc.number).padStart(3, '0');
-        return `<a class="search-result" href="/notes/${doc.slug}">
-          <div class="search-result-head">
-            <span class="search-result-num">№ ${num}</span>
-            <span class="search-result-topic">${escapeHtml(doc.topic)}</span>
-          </div>
-          <h3 class="search-result-title">${highlight(doc.title, q)}</h3>
-          <p class="search-result-deck">${highlight(doc.deck, q)}</p>
-        </a>`;
-      })
-      .join('');
+    results.innerHTML = matched.map(({ doc }) => {
+      const num = String(doc.number).padStart(3, '0');
+      return `<a class="search-result" href="/notes/${doc.slug}">
+        <div class="search-result-head">
+          <span class="search-result-num">№ ${num}</span>
+          <span class="search-result-topic">${escapeHtml(doc.topic)}</span>
+        </div>
+        <h3 class="search-result-title">${highlight(doc.title, q)}</h3>
+        <p class="search-result-deck">${highlight(doc.deck, q)}</p>
+      </a>`;
+    }).join('');
     activeIndex = -1;
   }
 
-  if (input) {
-    input.addEventListener('input', () => runSearch(input.value));
-  }
+  if (input) input.addEventListener('input', () => runSearch(input.value));
 
-  // Arrow key navigation within results
   document.addEventListener('keydown', (e) => {
     if (!isOpen() || !results) return;
-
     const items = results.querySelectorAll<HTMLAnchorElement>('.search-result');
     if (items.length === 0) return;
-
     if (e.key === 'ArrowDown') {
       e.preventDefault();
       activeIndex = Math.min(activeIndex + 1, items.length - 1);
