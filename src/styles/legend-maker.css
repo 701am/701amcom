@@ -12,24 +12,20 @@
 
 /* ------------------------------- TOKENS -------------------------------- */
 .lm-page {
-  /* Salmon palette — FT print edition register, pushed warmer/pinker than FT.com.
-     The FT website background (#FFF1E0) reads as cream on most screens; for
-     editorial impact we pull more saturation into the pink so it clearly reads
-     as salmon, not as warm white. Still anchored on FT claret + teal accents. */
-  --paper:         #FCE4D0;   /* primary salmon — clearly pink-orange, FT print register */
-  --paper-warm:    #F8D4B8;   /* warmer/pinker for emphasis blocks (capture, callouts) */
-  --paper-deep:    #F2C9A8;   /* deepest salmon — for cards & code blocks */
-  --paper-soft:    #FFF1E0;   /* FT.com canonical — for hover states & subtle layers */
-  --ink:           #2A2723;   /* warm near-black for body */
-  --ink-soft:      #5C544B;   /* secondary text */
-  --ink-faint:     #948A7C;   /* tertiary / captions */
-  --rule:          #E8C8A5;   /* hairline rule — visible on salmon, pinker than cream */
-  --rule-strong:   #C99670;   /* heavier rule — warm tan */
+  /* FT-inspired salmon palette */
+  --paper:         #FFF1E5;   /* FT pink/salmon — the iconic page color */
+  --paper-warm:    #FBE7D2;   /* warmer for emphasis blocks */
+  --paper-deep:    #F4DCC0;   /* deeper salmon for cards */
+  --ink:           #262421;   /* warm near-black for body */
+  --ink-soft:      #5A544E;   /* secondary text */
+  --ink-faint:     #8A8278;   /* tertiary / captions */
+  --rule:          #E7D4B8;   /* hairline rule on salmon */
+  --rule-strong:   #C9B08A;   /* heavier rule */
 
   /* Accents */
-  --claret:        #990F3D;   /* FT claret — the signature accent */
+  --claret:        #990F3D;   /* FT claret */
   --claret-dark:   #6E0A2C;
-  --teal:          #0D7680;   /* FT teal — secondary accent */
+  --teal:          #0D7680;
   --gold:          #B0823A;
 
   /* Functional */
@@ -440,42 +436,31 @@
   outline: 0;
   border-color: var(--claret);
 }
-/* Buttons & CTAs.
-   IMPORTANT: anchor tags get color from `.lm-page a` above (claret), so we
-   have to explicitly re-paint .lm-btn's color and kill its inherited border. */
 .lm-form button,
-.lm-page .lm-btn {
+.lm-btn {
   font-family: var(--font-sans);
   font-size: 0.95rem;
   font-weight: 500;
   letter-spacing: 0.04em;
   padding: 1.05rem 1.5rem;
   background: var(--ink);
-  color: var(--paper);            /* white-on-dark — overrides claret link color */
-  border: 0;                       /* kills the link underline border */
+  color: var(--paper);
+  border: 0;
   cursor: pointer;
   text-decoration: none;
   display: inline-block;
   text-align: center;
   border-radius: 0;
-  transition: background 0.2s ease, color 0.2s ease;
+  transition: background 0.2s ease;
 }
 .lm-form button:hover,
-.lm-page .lm-btn:hover {
-  background: var(--claret);
-  color: var(--paper);             /* keep text light on hover too */
-  border: 0;
-}
-.lm-page .lm-btn--ghost {
+.lm-btn:hover { background: var(--claret); border: 0; }
+.lm-btn--ghost {
   background: transparent;
   color: var(--ink);
   border: 1px solid var(--ink);
 }
-.lm-page .lm-btn--ghost:hover {
-  background: var(--ink);
-  color: var(--paper);
-  border: 1px solid var(--ink);
-}
+.lm-btn--ghost:hover { background: var(--ink); color: var(--paper); }
 .lm-form__note {
   font-size: var(--fs-micro);
   color: var(--ink-faint);
@@ -1029,4 +1014,318 @@
   .lm-page { background: white; color: black; }
   .lm-progress, .lm-back, .lm-topbar__nav { display: none; }
   .lm-section-opener, .lm-step, .lm-article, .lm-toc { page-break-inside: avoid; }
+}
+
+/* =============================================================================
+   MOBILE RESPONSIVENESS PATCH
+   Fixes for screens <= 720px (phones) and <= 480px (small phones).
+   Targets elements that didn't have mobile breakpoints in the original CSS.
+   ============================================================================= */
+
+/* ----- TABLET / LARGE PHONE (<=720px) ----- */
+@media (max-width: 720px) {
+
+  /* Topbar — stack brand on top, nav below, hide the right-side meta strip
+     which adds visual weight without much info on a small screen */
+  .lm-topbar {
+    padding: 1rem 0 0.75rem;
+  }
+  .lm-topbar__row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+  }
+  .lm-topbar__nav {
+    gap: 1.25rem;
+    flex-wrap: wrap;
+    width: 100%;
+  }
+  .lm-topbar__nav a {
+    font-size: 0.8125rem;
+  }
+  .lm-topbar__meta {
+    display: none;             /* hide the volume/edition strip on phones */
+  }
+
+  /* Hero — tighten the spacing, shrink the headline so it doesn't wall-of-text */
+  .lm-hero {
+    padding: 3rem 0 2.5rem;
+  }
+  .lm-hero__edition {
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-bottom: 2rem;
+    padding-bottom: 0.75rem;
+    font-size: 0.6875rem;
+  }
+  .lm-hero__title {
+    font-size: clamp(2.25rem, 9vw, 3rem);
+    letter-spacing: -0.03em;
+    line-height: 1;
+  }
+  .lm-hero__lede {
+    font-size: 1.0625rem;
+    line-height: 1.45;
+    margin-bottom: 1.75rem;
+  }
+
+  /* Byline — stack the three columns vertically. The flex with gap: 2rem
+     was overflowing the viewport at <=480px */
+  .lm-hero__byline {
+    flex-direction: column;
+    gap: 1rem;
+    padding-top: 1.25rem;
+    margin-top: 1.75rem;
+  }
+  .lm-hero__byline strong {
+    margin-bottom: 0.125rem;
+  }
+
+  /* TOC items — gap is already collapsed in the original 700px rule,
+     but tighten the padding so each entry doesn't feel like its own page */
+  .lm-toc__item {
+    padding: 1.25rem 0;
+  }
+  .lm-toc__item:hover {
+    padding-left: 0;
+    padding-right: 0;
+  }
+  .lm-toc__title {
+    font-size: 1.1875rem;
+  }
+
+  /* Section openers — shrink the giant rail number (it was 2rem on mobile;
+     still too big on a phone next to a 40px heading) */
+  .lm-section-opener {
+    padding: 2.5rem 0 1.75rem;
+  }
+  .lm-section-opener__grid {
+    gap: 0.5rem;
+  }
+  .lm-section-opener__rail {
+    padding-top: 0.375rem;
+    font-size: 0.6875rem;
+  }
+  .lm-section-opener__rail-num {
+    display: none;             /* hide on phones — the rail label is enough */
+  }
+  .lm-section-opener h2 {
+    font-size: clamp(2rem, 8vw, 2.5rem);
+    line-height: 1.02;
+    letter-spacing: -0.025em;
+  }
+  .lm-section-opener__lede {
+    font-size: 1.0625rem;
+    line-height: 1.45;
+  }
+
+  /* Article body — the dropcap was 4.5em (~75px) which on phones eats
+     half the screen width. Shrink to 3.5em and pull tighter to text */
+  .lm-article {
+    padding: 1.5rem 0 2.5rem;
+  }
+  .lm-article__grid {
+    gap: 1rem;
+  }
+  .lm-article__rail {
+    font-size: 0.6875rem;
+    padding-top: 0.375rem;
+  }
+  .lm-article__body {
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+  .lm-article__body p:first-of-type:first-letter,
+  .lm-article__body .lm-dropcap::first-letter {
+    font-size: 3.25em;
+    margin: 0.04em 0.08em 0 -0.03em;
+  }
+  .lm-article__body h3 {
+    font-size: 1.375rem;
+    margin: 2em 0 0.625em;
+  }
+
+  /* Pull quotes — were clamping to 1.5rem floor, still too big with
+     letter-spacing on narrow screens */
+  .lm-pull {
+    font-size: 1.3125rem;
+    line-height: 1.3;
+    margin: 1.75em 0;
+  }
+  .lm-pull::before {
+    width: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  /* Step blocks — the number was clamping to 3rem (48px) at the floor,
+     which on a stacked mobile layout dominates the heading */
+  .lm-step {
+    padding: 2rem 0;
+  }
+  .lm-step__grid {
+    gap: 0.75rem;
+  }
+  .lm-step__num {
+    font-size: 2.5rem;
+    line-height: 1;
+  }
+  .lm-step__num::after {
+    width: 2rem;
+    margin-top: 0.625rem;
+  }
+  .lm-step__num small {
+    font-size: 0.6875rem;
+    margin-bottom: 0.375rem;
+  }
+  .lm-step h3 {
+    font-size: 1.5rem;
+    line-height: 1.15;
+    margin-bottom: 0.875em;
+  }
+
+  /* Template / code blocks — prevent horizontal overflow from long mono lines */
+  .lm-template {
+    padding: 1.25rem 1.25rem;
+    font-size: 0.8125rem;
+    overflow-wrap: anywhere;
+    word-break: break-word;
+    margin: 1.5rem 0;
+  }
+
+  /* Method grid — the original 600px rule already collapses to 1 col with
+     2rem 0 padding; tighten further for narrow phones */
+  .lm-method {
+    padding: 3rem 0;
+  }
+  .lm-method__head {
+    margin-bottom: 2rem;
+  }
+  .lm-method__head h2 {
+    font-size: clamp(1.75rem, 6vw, 2.25rem);
+  }
+  .lm-method__cell h3 {
+    font-size: 1.1875rem;
+  }
+
+  /* Email capture — already collapses to 1 col at 800px; reduce vertical padding */
+  .lm-capture {
+    padding: 3rem 0;
+  }
+  .lm-capture h2 {
+    font-size: clamp(2rem, 8vw, 2.5rem);
+    line-height: 1.05;
+  }
+  .lm-capture__copy {
+    font-size: 1.0625rem;
+  }
+  .lm-form input[type="email"],
+  .lm-form input[type="text"] {
+    font-size: 16px;           /* 16px prevents iOS Safari zoom-on-focus */
+    padding: 0.875rem 0.875rem;
+  }
+  .lm-form button,
+  .lm-btn {
+    font-size: 0.9375rem;
+    padding: 1rem 1.25rem;
+  }
+
+  /* Stat row — already collapses at 700px; tighten the padding */
+  .lm-stat-row {
+    margin: 2rem 0;
+  }
+  .lm-stat {
+    padding: 1.25rem 0;
+  }
+  .lm-stat__num {
+    font-size: 2.25rem;
+  }
+  .lm-stat__label {
+    font-size: 0.875rem;
+  }
+
+  /* Tables — convert to scrollable on phones rather than breaking the page */
+  .lm-table {
+    display: block;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    white-space: nowrap;
+    margin: 1.5rem -1rem;
+    padding: 0 1rem;
+    font-size: 0.8125rem;
+  }
+  .lm-table th,
+  .lm-table td {
+    padding: 0.625rem 0.75rem 0.625rem 0;
+  }
+
+  /* Checklist — tighten line-height + spacing */
+  .lm-checklist li {
+    padding: 0.5rem 0 0.5rem 1.875rem;
+    font-size: 1rem;
+    line-height: 1.45;
+  }
+  .lm-checklist li::before {
+    top: 0.75rem;
+    width: 1rem;
+    height: 1rem;
+  }
+
+  /* Colophon — already collapses at 800px; just reduce vertical padding */
+  .lm-colophon {
+    padding: 2.5rem 0 1.5rem;
+    margin-top: 3rem;
+  }
+  .lm-colophon__brand {
+    font-size: 1.3125rem;
+  }
+  .lm-colophon__legal {
+    font-size: 0.6875rem;
+  }
+
+  /* Back-to-top — bump touch target to 48px and pull inward slightly */
+  .lm-back {
+    bottom: 1.25rem;
+    right: 1.25rem;
+    width: 2.875rem;
+    height: 2.875rem;
+    font-size: 1.05rem;
+  }
+
+  /* Dek (lede) section — already collapses at 700px; tighten the body text */
+  .lm-dek {
+    padding: 2.25rem 0 2.5rem;
+  }
+  .lm-dek__body p {
+    font-size: 1.0625rem;
+    line-height: 1.5;
+  }
+}
+
+/* ----- SMALL PHONES (<=420px) ----- */
+@media (max-width: 420px) {
+  /* Hero gets ultra-tight on the smallest phones */
+  .lm-hero__title {
+    font-size: clamp(2rem, 10vw, 2.5rem);
+  }
+  .lm-hero__lede {
+    font-size: 1rem;
+  }
+
+  /* Section opener title — last shrink for ultra-small screens */
+  .lm-section-opener h2 {
+    font-size: 1.875rem;
+  }
+
+  /* Topbar nav — wrap the three links over two lines if needed */
+  .lm-topbar__nav {
+    gap: 0.875rem;
+  }
+  .lm-topbar__nav a {
+    font-size: 0.75rem;
+  }
+
+  /* Step number — final shrink */
+  .lm-step__num {
+    font-size: 2.125rem;
+  }
 }
