@@ -7,6 +7,8 @@ interface Props {
   primaryHref?: string;
   secondaryLabel?: string;
   secondaryHref?: string;
+  tertiaryLabel?: string;
+  tertiaryHref?: string;
 }
 
 const {
@@ -17,6 +19,8 @@ const {
   primaryHref = "/discovery",
   secondaryLabel = "Or read the scroll",
   secondaryHref = "/legend-maker",
+  tertiaryLabel,
+  tertiaryHref,
 } = Astro.props;
 ---
 <section class="cta-banner">
@@ -39,6 +43,12 @@ const {
         {secondaryLabel}
         <span class="arrow" aria-hidden="true">↓</span>
       </a>
+      {tertiaryLabel && tertiaryHref && (
+        <a class="btn-link" href={tertiaryHref}>
+          {tertiaryLabel}
+          <span class="arrow" aria-hidden="true">→</span>
+        </a>
+      )}
     </div>
   </div>
 </section>

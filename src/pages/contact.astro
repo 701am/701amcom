@@ -3,7 +3,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 ---
 <BaseLayout
   title="Contact — 701am"
-  description="Book a sunrise call, request the scroll, or write to the office directly."
+  description="Book a sunrise call, read the scroll, browse the skills, or write to the office directly."
 >
 
   <header class="page-masthead">
@@ -12,7 +12,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       Write to the office
       <span class="page-rule"></span>
     </p>
-    <h1 class="page-title">Three ways to <em>begin.</em></h1>
+    <h1 class="page-title">Four ways to <em>begin.</em></h1>
     <p class="page-deck">
       Pick the one that fits the morning you are in. All three end up in the same inbox, and we read every one.
     </p>
@@ -39,16 +39,28 @@ import BaseLayout from '../layouts/BaseLayout.astro';
           <div class="contact-card-num">ii.</div>
           <h2 class="contact-card-h">Read <em>the scroll.</em></h2>
           <p class="contact-card-p">
-            The Legend-Maker scroll — the same method we use in the office, written down, sent to your inbox. <em>How to find the angle. How to write the pitch. How to earn the placement.</em> No fee. No funnel. Just the work.
+            The Legend-Maker scroll — the same method we use in the office, written down. <em>How to find the angle. How to write the pitch. How to earn the placement.</em> A field manual. No fee. No funnel. Just the work.
           </p>
           <a class="btn-link" href="/legend-maker">
-            Send me the scroll
-            <span class="arrow" aria-hidden="true">↓</span>
+            Read the scroll
+            <span class="arrow" aria-hidden="true">→</span>
           </a>
         </article>
 
         <article class="contact-card">
           <div class="contact-card-num">iii.</div>
+          <h2 class="contact-card-h">Browse <em>the skills.</em></h2>
+          <p class="contact-card-p">
+            Twenty-eight earned-media skills your AI agent can read — pitch craft, journalist research, the humanizer. <em>Plain markdown. MIT licensed.</em> Clone the repo, run it against your own clients, send improvements back.
+          </p>
+          <a class="btn-link" href="/skills">
+            Browse the skills
+            <span class="arrow" aria-hidden="true">→</span>
+          </a>
+        </article>
+
+        <article class="contact-card">
+          <div class="contact-card-num">iv.</div>
           <h2 class="contact-card-h">Write <em>a letter.</em></h2>
           <p class="contact-card-p">
             For anything else — partnerships, press, a question about a dispatch, a thought on the work. <em>Use the form below.</em> We read every one and reply within two business days.
@@ -119,6 +131,10 @@ import BaseLayout from '../layouts/BaseLayout.astro';
             <label class="contact-radio">
               <input type="radio" name="reason" value="scroll" />
               <span>Request the scroll</span>
+            </label>
+            <label class="contact-radio">
+              <input type="radio" name="reason" value="skills" />
+              <span>About the skills</span>
             </label>
             <label class="contact-radio">
               <input type="radio" name="reason" value="press" />
@@ -237,7 +253,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   /* Contact cards */
   .contact-cards {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     gap: var(--x3);
     max-width: var(--measure-wide);
     margin: 0 auto;

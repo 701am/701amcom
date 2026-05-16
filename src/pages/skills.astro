@@ -1135,7 +1135,12 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   }
 
   /* ─────── RESPONSIVE ─────── */
+  /* ═══════════════════════════════════════════════
+     RESPONSIVE — tablet (≤900px) → phone (≤720px) → small phone (≤420px)
+     ═══════════════════════════════════════════════ */
+
   @media (max-width: 900px) {
+    /* Side-by-side grids collapse */
     .remedy-grid,
     .desks-grid {
       grid-template-columns: 1fr;
@@ -1152,22 +1157,268 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     .desk:last-child {
       border-bottom: none;
     }
+
+    /* Shelf — collapse the label column earlier than the inherited 720 breakpoint */
+    .shelf-row {
+      grid-template-columns: 9rem 1fr;
+      gap: var(--x4);
+      padding: var(--x3) 0;
+    }
+
+    /* Briefing-style spacing tightens */
+    .skills-section { padding: var(--x1) var(--x3); }
+    .skills-masthead { padding: calc(var(--x1) + var(--x4)) var(--x3) var(--x3); }
   }
+
   @media (max-width: 720px) {
-    .skills-section { padding: var(--section-y) var(--x3); }
-    .skills-masthead { padding: var(--x1) var(--x3); }
-    .scene-prose { font-size: 1.0625rem; }
+    /* Section padding — consistent breathing room */
+    .skills-section { padding: var(--x1) var(--x3); }
+    .skills-masthead { padding: var(--x2) var(--x3) var(--x3); }
+
+    /* MASTHEAD */
+    .skills-title {
+      font-size: clamp(2.25rem, 9vw, 3rem);
+      letter-spacing: -0.028em;
+      max-width: 14ch;
+    }
+    .skills-deck {
+      font-size: 1.0625rem;
+      line-height: 1.45;
+      max-width: 36ch;
+    }
+    .masthead-meta {
+      flex-direction: column;
+      gap: var(--x5);
+      font-size: 10px;
+      letter-spacing: 0.16em;
+    }
+    .meta-dot { display: none; }
+    .masthead-cta {
+      flex-direction: column;
+      align-items: stretch;
+      gap: var(--x4);
+      width: 100%;
+      max-width: 22rem;
+      margin: 0 auto;
+    }
+    .masthead-cta .btn-primary,
+    .masthead-cta .btn-link {
+      justify-content: center;
+      width: 100%;
+    }
+
+    /* SCENE — § 01 */
+    .scene-stamp {
+      font-size: 9px;
+      letter-spacing: 0.18em;
+      padding-bottom: var(--x5);
+    }
+    .scene-prose {
+      font-size: 1.0625rem;
+      line-height: 1.55;
+    }
+    .scene-prose.dropcap::first-letter {
+      font-size: 3.25em;
+      margin: 0.04em 0.08em 0 -0.03em;
+    }
+    .scene-prose--quiet {
+      font-size: 1rem;
+    }
+
+    /* DIAGNOSIS — § 02 */
+    .diagnosis-h {
+      font-size: clamp(1.875rem, 7vw, 2.25rem);
+      letter-spacing: -0.025em;
+    }
+    .diagnosis-lede {
+      font-size: 1.0625rem;
+      line-height: 1.45;
+      max-width: 32ch;
+    }
+    .diagnosis-label {
+      font-size: 9px;
+      letter-spacing: 0.22em;
+      margin-bottom: var(--x5);
+    }
+    .diagnosis-list li {
+      padding: var(--x4) 0 var(--x4) 2.25rem;
+      font-size: 1rem;
+      line-height: 1.5;
+    }
+    .diagnosis-list li::before {
+      top: calc(var(--x4) + 2px);
+      font-size: 10px;
+    }
+    .diagnosis-close {
+      font-size: 1rem;
+      line-height: 1.55;
+    }
+
+    /* REMEDY — § 03 */
+    .remedy-h {
+      font-size: clamp(1.875rem, 7vw, 2.25rem);
+      max-width: 22ch;
+    }
+    .remedy-col {
+      padding: var(--x3) 0;
+    }
+    .remedy-sub {
+      font-size: 1.1875rem;
+    }
+    .remedy-col p { font-size: 0.9375rem; }
+
+    /* DESKS — § 04 */
+    .desks-h {
+      font-size: clamp(1.875rem, 7vw, 2.25rem);
+    }
+    .desk { padding: var(--x3) 0; }
+    .desk-h {
+      font-size: 1.3125rem;
+      line-height: 1.2;
+    }
+    .desk-p { font-size: 0.9375rem; line-height: 1.55; }
+
+    /* SHELF — § 05 — stack the label above its items on phones */
+    .shelf-h {
+      font-size: clamp(1.875rem, 7vw, 2.25rem);
+    }
+    .shelf-deck {
+      font-size: 1rem;
+      max-width: 32ch;
+    }
+    .shelf {
+      margin: var(--x3) auto 0;
+    }
     .shelf-row {
       grid-template-columns: 1fr;
-      gap: var(--x4);
+      grid-template-rows: auto auto auto;
+      gap: var(--x5);
+      padding: var(--x3) 0;
+    }
+    .shelf-row--highlight {
+      padding: var(--x3);
+      margin: 0 calc(-1 * var(--x4));
     }
     .shelf-label {
-      grid-row: auto;
+      grid-row: 1;
+      grid-column: 1;
+      font-size: 9px;
+      letter-spacing: 0.28em;
+      padding-top: 0;
     }
-    .shelf-items { grid-column: 1; grid-row: auto; }
-    .shelf-note { grid-column: 1; grid-row: auto; }
-    .install-steps li { grid-template-columns: 2.5rem 1fr; gap: var(--x4); }
-    .install-num { font-size: 1.875rem; }
-    .install-code { font-size: 12px; }
+    .shelf-items {
+      grid-row: 2;
+      grid-column: 1;
+      gap: 6px;
+    }
+    .shelf-item {
+      font-size: 12px;
+      padding: 3px 8px;
+    }
+    .shelf-note {
+      grid-row: 3;
+      grid-column: 1;
+      font-size: 14px;
+      line-height: 1.45;
+      max-width: 100%;
+    }
+
+    /* PROCLAMATION — § 06 */
+    .proclamation {
+      padding: var(--x2) var(--x3) var(--x2);
+      max-width: 100%;
+    }
+    .proclamation::before {
+      top: 6px; left: 6px; right: 6px; bottom: 6px;
+    }
+    .proc-stamp {
+      font-size: 9px;
+      letter-spacing: 0.22em;
+    }
+    .proc-h {
+      font-size: clamp(1.5rem, 6vw, 1.875rem);
+      line-height: 1.15;
+    }
+    .proc-q {
+      font-size: clamp(1.25rem, 5.5vw, 1.625rem);
+      line-height: 1.25;
+    }
+    .proc-rule { margin: var(--x2) auto; }
+    .proc-p {
+      font-size: 0.9375rem;
+      line-height: 1.55;
+    }
+
+    /* INSTALL — § 07 */
+    .install-h {
+      font-size: clamp(1.875rem, 7vw, 2.25rem);
+    }
+    .install-steps li {
+      grid-template-columns: 2.5rem 1fr;
+      gap: var(--x4);
+      padding: var(--x3) 0;
+    }
+    .install-num {
+      font-size: 1.875rem;
+    }
+    .install-step-body h4 {
+      font-size: 1.125rem;
+      margin-bottom: var(--x5);
+    }
+    .install-code {
+      font-size: 11px;
+      padding: var(--x4) var(--x4);
+      line-height: 1.4;
+      white-space: pre-wrap;       /* allow long URLs to wrap on phones */
+      overflow-wrap: anywhere;
+      word-break: break-word;
+    }
+    .install-note { font-size: 0.9375rem; }
+    .install-license {
+      font-size: 9px;
+      letter-spacing: 0.14em;
+    }
+
+    /* CODA — § 08 */
+    .coda-aphorism {
+      font-size: 9px;
+      letter-spacing: 0.22em;
+    }
+    .coda-p { font-size: 1.0625rem; }
+  }
+
+  @media (max-width: 420px) {
+    /* MASTHEAD — shrink the headline one more notch */
+    .skills-title {
+      font-size: clamp(2rem, 10vw, 2.5rem);
+    }
+    .meta-pill {
+      font-size: 9px;
+      padding: 3px 8px;
+    }
+
+    /* SCENE */
+    .scene-prose { font-size: 1rem; }
+    .scene-prose.dropcap::first-letter { font-size: 2.75em; }
+
+    /* DIAGNOSIS */
+    .diagnosis-h { font-size: 1.75rem; }
+    .diagnosis-list li { padding-left: 2rem; font-size: 0.9375rem; }
+
+    /* SECTION HEADINGS — uniform final shrink */
+    .remedy-h,
+    .desks-h,
+    .shelf-h,
+    .install-h {
+      font-size: 1.75rem;
+    }
+
+    /* PROCLAMATION */
+    .proc-h { font-size: 1.5rem; }
+    .proc-q { font-size: 1.25rem; }
+
+    /* INSTALL */
+    .install-num { font-size: 1.5rem; }
+    .install-steps li { grid-template-columns: 2rem 1fr; gap: var(--x5); }
   }
 </style>

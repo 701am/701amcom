@@ -1084,17 +1084,476 @@ your inbox.
     </div>
   </article>
 
-  <!-- BOTTOM CTA -->
-  <section style="padding: var(--section-pad) 0; background: var(--paper-warm); border-top: 1px solid var(--rule);">
-    <div class="lm-container lm-container--narrow" style="text-align: center;">
-      <span class="lm-eyebrow" style="justify-content: center;">Save it</span>
-      <h2 style="font-size: clamp(2rem, 4vw, 2.75rem); font-weight: 300; margin: 1.5rem 0 1.25rem; letter-spacing: -0.03em;">
-        Want this in your inbox?
+  <!-- ════════════════════════════════════════════════════════════════════════
+       CLOSING — THE FORK
+       Reader has just finished the field manual. Maximum trust. The honest
+       framing: either do it yourself (Skills), or hand it to us (Discovery).
+       ════════════════════════════════════════════════════════════════════════ -->
+  <section class="lm-close">
+    <div class="lm-container lm-container--narrow">
+
+      <!-- The signoff line — Mandino voice, set apart from the doc -->
+      <div class="lm-close-signoff">
+        <span class="lm-close-rule"></span>
+        <p class="lm-close-stamp">★ The fork in the road ★</p>
+        <span class="lm-close-rule"></span>
+      </div>
+
+      <h2 class="lm-close-h">
+        You have read the <em>method.</em><br />
+        Now — what do you do with it?
       </h2>
-      <p style="font-family: var(--font-serif); font-size: 1.15rem; font-style: italic; color: var(--ink-soft); max-width: 42ch; margin: 0 auto 2rem;">
-        We'll send you the scroll as a single email — easy to forward, easy to reread.
+
+      <p class="lm-close-deck">
+        There are only two honest answers. Either you walk this road yourself —
+        with the field manual now in your hands and the skills now in your AI's —
+        or you hand it to a desk that walks it every morning. <em>Neither is wrong.</em>
+        Choose the one that fits the year you are in.
       </p>
-      <a href="/legend-maker#capture" class="lm-btn">Send me the Scroll →</a>
+
+      <!-- The two-card fork -->
+      <div class="lm-close-grid">
+
+        <!-- Path 1 — Done with you -->
+        <article class="lm-close-card lm-close-card--with-us">
+          <div class="lm-close-card-frame" aria-hidden="true"></div>
+          <p class="lm-close-card-eyebrow">Path I · With us</p>
+          <h3 class="lm-close-card-h">
+            We <em>walk it</em><br />for you.
+          </h3>
+          <p class="lm-close-card-p">
+            Thirty minutes at sunrise. No deck, no pitch, no charge. We listen
+            to the shape of your business and tell you, plainly, whether earned
+            media will move the needle. If we can help, we'll say so. If we can't,
+            we'll tell you who can.
+          </p>
+          <ul class="lm-close-card-meta">
+            <li><span>i.</span>Done for you, end to end</li>
+            <li><span>ii.</span>Sourcing, pitching, placement</li>
+            <li><span>iii.</span>Reporting in business language</li>
+          </ul>
+          <a class="lm-btn lm-close-card-cta" href="/discovery">
+            Book a sunrise call →
+          </a>
+          <p class="lm-close-card-fine">
+            Thirty minutes. <em>No deck. No pitch. No charge.</em>
+          </p>
+          <!-- Wax-seal-style flourish -->
+          <div class="lm-close-seal" aria-hidden="true">
+            <span class="lm-close-seal-time">7:01</span>
+          </div>
+        </article>
+
+        <!-- Path 2 — Done by you -->
+        <article class="lm-close-card lm-close-card--diy">
+          <div class="lm-close-card-frame" aria-hidden="true"></div>
+          <p class="lm-close-card-eyebrow">Path II · By you</p>
+          <h3 class="lm-close-card-h">
+            You <em>walk it</em><br />yourself.
+          </h3>
+          <p class="lm-close-card-p">
+            Twenty-eight earned-media skills your AI agent can read — pitch
+            craft, journalist research, the humanizer that catches every <em>leverage</em>
+            and <em>circling back</em> before it leaves the building. Plain markdown.
+            MIT licensed. Clone the repo, point your agent at it, run it against
+            your own clients.
+          </p>
+          <ul class="lm-close-card-meta">
+            <li><span>i.</span>Free &amp; open source</li>
+            <li><span>ii.</span>Twenty-eight skills, one rule</li>
+            <li><span>iii.</span>Works with Claude Code or Cowork</li>
+          </ul>
+          <a class="lm-btn lm-btn--ghost lm-close-card-cta" href="/skills">
+            Browse the skills →
+          </a>
+          <p class="lm-close-card-fine">
+            MIT licensed. <em>Yours to fork, yours to ship.</em>
+          </p>
+        </article>
+
+      </div>
+
+      <!-- The bridge — saving for later -->
+      <div class="lm-close-bridge">
+        <p class="lm-close-bridge-text">
+          Not ready for either yet? <a href="/legend-maker#capture">Save the scroll to your inbox</a>
+          for the morning you are.
+        </p>
+      </div>
+
+      <!-- Personal coda -->
+      <div class="lm-close-coda">
+        <p class="lm-close-coda-q">★ Earned, not bought ★</p>
+        <p class="lm-close-coda-p">
+          Whatever road you take, the work is real and the patience is required.
+          The morning will come when something you wrote — or something we wrote
+          for you — gets read by a stranger and changes the trajectory of a
+          quarter. That is the moment the method pays back.
+        </p>
+        <p class="lm-close-coda-sig">— D.K. · The desk at 701am · Filed at sunrise</p>
+      </div>
+
     </div>
   </section>
+
+  <style>
+    /* ═══════════════════════════════════════════════
+       CLOSING — THE FORK
+       Scoped to .lm-close so it can't leak into the rest of the doc
+       ═══════════════════════════════════════════════ */
+    .lm-close {
+      padding: clamp(4rem, 9vw, 7rem) 0 clamp(3rem, 6vw, 5rem);
+      background: var(--paper-warm);
+      border-top: 2px solid var(--ink);
+      position: relative;
+    }
+    .lm-close::before {
+      content: "";
+      position: absolute;
+      top: 8px;
+      left: 0; right: 0;
+      height: 1px;
+      background: var(--rule-strong);
+    }
+
+    /* The signoff stamp at the top */
+    .lm-close-signoff {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--x4);
+      margin: 0 auto var(--x2);
+      max-width: 28rem;
+    }
+    .lm-close-rule {
+      flex: 1;
+      height: 1px;
+      background: var(--rule-strong);
+      max-width: 80px;
+    }
+    .lm-close-stamp {
+      font-family: var(--font-sans);
+      font-size: 11px;
+      letter-spacing: 0.28em;
+      color: var(--claret);
+      text-transform: uppercase;
+      font-weight: 600;
+      margin: 0;
+      white-space: nowrap;
+    }
+
+    .lm-close-h {
+      font-family: var(--font-serif);
+      font-size: clamp(2.25rem, 5.5vw, 3.75rem);
+      font-weight: 300;
+      line-height: 1.02;
+      letter-spacing: -0.035em;
+      color: var(--ink);
+      text-align: center;
+      margin: 0 auto var(--x2);
+      max-width: 22ch;
+    }
+    .lm-close-h em {
+      font-style: italic;
+      color: var(--claret);
+      font-weight: 300;
+    }
+
+    .lm-close-deck {
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-weight: 300;
+      font-size: clamp(1.15rem, 2.2vw, 1.4rem);
+      line-height: 1.5;
+      color: var(--ink-soft);
+      text-align: center;
+      max-width: 52ch;
+      margin: 0 auto calc(var(--x1) + var(--x4));
+    }
+    .lm-close-deck em {
+      color: var(--claret);
+      font-style: italic;
+    }
+
+    /* The two-card fork */
+    .lm-close-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--x3);
+      margin: 0 auto;
+      max-width: 64rem;
+      align-items: stretch;
+    }
+
+    .lm-close-card {
+      position: relative;
+      background: var(--paper);
+      border: 1px solid var(--ink);
+      padding: calc(var(--x1) + var(--x4)) calc(var(--x1) + var(--x3)) calc(var(--x1) + var(--x4));
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 18px 40px rgba(15, 14, 14, 0.10);
+      transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease;
+    }
+    .lm-close-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 22px 50px rgba(15, 14, 14, 0.14);
+    }
+
+    /* The inner ruled frame — printed-document feel */
+    .lm-close-card-frame {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      right: 10px;
+      bottom: 10px;
+      border: 1px solid rgba(15, 14, 14, 0.10);
+      pointer-events: none;
+    }
+
+    .lm-close-card-eyebrow {
+      font-family: var(--font-sans);
+      font-size: 10px;
+      letter-spacing: 0.30em;
+      color: var(--claret);
+      text-transform: uppercase;
+      font-weight: 600;
+      margin: 0 0 var(--x4);
+      padding-bottom: var(--x5);
+      border-bottom: 1px solid var(--rule-strong);
+      position: relative;
+      z-index: 1;
+    }
+
+    .lm-close-card-h {
+      font-family: var(--font-serif);
+      font-size: clamp(1.875rem, 3.5vw, 2.5rem);
+      font-weight: 400;
+      line-height: 1.04;
+      letter-spacing: -0.025em;
+      color: var(--ink);
+      margin: 0 0 var(--x3);
+      position: relative;
+      z-index: 1;
+    }
+    .lm-close-card-h em {
+      font-style: italic;
+      color: var(--claret);
+      font-weight: 300;
+    }
+
+    .lm-close-card-p {
+      font-family: var(--font-serif);
+      font-size: 1rem;
+      line-height: 1.6;
+      color: var(--ink-soft);
+      margin: 0 0 var(--x2);
+      max-width: 38ch;
+      position: relative;
+      z-index: 1;
+    }
+    .lm-close-card-p em {
+      font-style: italic;
+      color: var(--claret);
+    }
+
+    .lm-close-card-meta {
+      list-style: none;
+      margin: 0 0 var(--x2);
+      padding: var(--x4) 0;
+      border-top: 1px solid var(--rule);
+      border-bottom: 1px solid var(--rule);
+      position: relative;
+      z-index: 1;
+    }
+    .lm-close-card-meta li {
+      display: grid;
+      grid-template-columns: 2rem 1fr;
+      gap: var(--x4);
+      padding: 4px 0;
+      font-family: var(--font-serif);
+      font-size: 0.95rem;
+      line-height: 1.4;
+      color: var(--ink);
+    }
+    .lm-close-card-meta li span {
+      font-family: var(--font-serif);
+      font-style: italic;
+      color: var(--claret);
+      font-variant-numeric: oldstyle-nums;
+      letter-spacing: 0.02em;
+    }
+
+    /* CTA button override — both buttons should breathe a little more inside this section */
+    .lm-page a.lm-close-card-cta {
+      align-self: stretch;
+      text-align: center;
+      padding: 1.1rem 1.25rem;
+      margin-top: auto;            /* push button to card bottom */
+      font-size: 1rem;
+      letter-spacing: 0.04em;
+      position: relative;
+      z-index: 1;
+    }
+
+    .lm-close-card-fine {
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-size: 13px;
+      line-height: 1.4;
+      color: var(--ink-fainter);
+      text-align: center;
+      margin: var(--x4) 0 0;
+      position: relative;
+      z-index: 1;
+    }
+    .lm-close-card-fine em {
+      color: var(--claret);
+      font-style: italic;
+    }
+
+    /* Wax-seal-style flourish on the "with us" card */
+    .lm-close-seal {
+      position: absolute;
+      top: -18px;
+      right: var(--x3);
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      background: radial-gradient(circle at 35% 35%,
+        #C8334F 0%,
+        var(--claret) 40%,
+        var(--claret-dark) 85%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 6px 14px rgba(15, 14, 14, 0.30),
+                  inset 0 -4px 8px rgba(0, 0, 0, 0.25),
+                  inset 0 4px 8px rgba(255, 255, 255, 0.18);
+      transform: rotate(-8deg);
+      z-index: 3;
+    }
+    .lm-close-seal::before {
+      content: "";
+      position: absolute;
+      inset: 5px;
+      border-radius: 50%;
+      border: 1px dashed rgba(255, 241, 224, 0.40);
+    }
+    .lm-close-seal-time {
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-size: 18px;
+      line-height: 1;
+      color: var(--paper-soft);
+      font-variant-numeric: oldstyle-nums;
+      letter-spacing: -0.02em;
+    }
+
+    /* Bridge — the third quiet option */
+    .lm-close-bridge {
+      text-align: center;
+      margin: calc(var(--x1) + var(--x3)) auto 0;
+      padding: var(--x3) 0;
+      max-width: 42rem;
+      border-top: 1px solid var(--rule);
+      border-bottom: 1px solid var(--rule);
+    }
+    .lm-close-bridge-text {
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-size: 1rem;
+      line-height: 1.5;
+      color: var(--ink-faint);
+      margin: 0;
+    }
+    .lm-page a.lm-close-bridge-text-link,
+    .lm-close-bridge-text a {
+      color: var(--claret);
+      border-bottom: 1px solid var(--claret);
+    }
+    .lm-close-bridge-text a:hover {
+      color: var(--claret-dark);
+      border-bottom-color: var(--claret-dark);
+    }
+
+    /* Personal coda — closing thought */
+    .lm-close-coda {
+      text-align: center;
+      max-width: 36rem;
+      margin: calc(var(--x1) + var(--x4)) auto 0;
+    }
+    .lm-close-coda-q {
+      font-family: var(--font-sans);
+      font-size: 10px;
+      letter-spacing: 0.30em;
+      color: var(--claret);
+      text-transform: uppercase;
+      font-weight: 600;
+      margin: 0 0 var(--x3);
+    }
+    .lm-close-coda-p {
+      font-family: var(--font-serif);
+      font-size: 1.0625rem;
+      line-height: 1.55;
+      color: var(--ink-soft);
+      margin: 0 0 var(--x3);
+      font-feature-settings: "kern" 1, "liga" 1, "onum" 1;
+      text-wrap: pretty;
+    }
+    .lm-close-coda-sig {
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-size: 14px;
+      letter-spacing: 0.02em;
+      color: var(--ink-faint);
+      margin: var(--x3) 0 0;
+    }
+
+    /* ─── Responsive ─── */
+    @media (max-width: 880px) {
+      .lm-close-grid {
+        grid-template-columns: 1fr;
+        gap: var(--x2);
+      }
+    }
+    @media (max-width: 720px) {
+      .lm-close { padding: var(--x1) 0; }
+      .lm-close-signoff { gap: var(--x5); }
+      .lm-close-rule { max-width: 40px; }
+      .lm-close-stamp { font-size: 10px; letter-spacing: 0.22em; }
+      .lm-close-h {
+        font-size: clamp(1.875rem, 8vw, 2.5rem);
+        max-width: 18ch;
+      }
+      .lm-close-deck {
+        font-size: 1.0625rem;
+        line-height: 1.45;
+      }
+      .lm-close-card {
+        padding: var(--x2) var(--x3);
+      }
+      .lm-close-card-h {
+        font-size: 1.75rem;
+      }
+      .lm-close-seal {
+        width: 52px;
+        height: 52px;
+        top: -14px;
+      }
+      .lm-close-seal-time { font-size: 15px; }
+      .lm-close-coda-p {
+        font-size: 1rem;
+      }
+    }
+    @media (max-width: 420px) {
+      .lm-close-h { font-size: 1.875rem; }
+      .lm-close-card-h { font-size: 1.5rem; }
+      .lm-close-card-meta li {
+        grid-template-columns: 1.5rem 1fr;
+        gap: var(--x5);
+        font-size: 0.875rem;
+      }
+    }
+  </style>
 </LegendMakerLayout>
