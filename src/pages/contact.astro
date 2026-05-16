@@ -41,7 +41,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
           <p class="contact-card-p">
             The Legend-Maker scroll — the same method we use in the office, written down, sent to your inbox. <em>How to find the angle. How to write the pitch. How to earn the placement.</em> No fee. No funnel. Just the work.
           </p>
-          <a class="btn-link" href="/legend-maker">
+          <a class="btn-link" href="mailto:dk@701am.com?subject=Send%20me%20the%20scroll">
             Send me the scroll
             <span class="arrow" aria-hidden="true">↓</span>
           </a>
@@ -156,22 +156,19 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
       <div class="direct-methods">
         <a class="direct-method" href="mailto:dk@701am.com">
-          <span class="direct-method-label">Email</span>
-          <span class="direct-method-value">dk@701am.com</span>
-          <span class="direct-method-sub">For everything. Read within a day.</span>
-          <span class="direct-method-chevron" aria-hidden="true">→</span>
+          <div class="direct-method-label">Email</div>
+          <div class="direct-method-value">dk@701am.com</div>
+          <div class="direct-method-sub">For everything. Read within a day.</div>
         </a>
         <a class="direct-method" href="https://cal.com/davidkrug/discovery">
-          <span class="direct-method-label">Sunrise call</span>
-          <span class="direct-method-value">Book on Cal.com</span>
-          <span class="direct-method-sub">Thirty minutes. No deck, no charge.</span>
-          <span class="direct-method-chevron" aria-hidden="true">→</span>
+          <div class="direct-method-label">Sunrise call</div>
+          <div class="direct-method-value">Book on Cal.com</div>
+          <div class="direct-method-sub">Thirty minutes. No deck, no charge.</div>
         </a>
         <a class="direct-method direct-method-urgent" href="tel:+14063106419">
-          <span class="direct-method-label">★ Emergencies only</span>
-          <span class="direct-method-value">406&middot;310&middot;6419</span>
-          <span class="direct-method-sub">Active clients, time-sensitive issues.</span>
-          <span class="direct-method-chevron" aria-hidden="true">→</span>
+          <div class="direct-method-label">★ Emergencies only</div>
+          <div class="direct-method-value">406&middot;310&middot;6419</div>
+          <div class="direct-method-sub">Active clients, time-sensitive issues.</div>
         </a>
       </div>
     </div>
@@ -415,103 +412,67 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     margin: 0;
   }
 
-  /* Direct methods — vertical stack, editorial line items */
+  /* Direct methods */
   .direct-methods {
-    max-width: var(--measure);
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+    max-width: var(--measure-wide);
     margin: var(--x1) auto 0;
-    border-top: 1px solid var(--rule-strong);
+    border-top: 1px solid var(--rule);
   }
   .direct-method {
-    display: grid;
-    grid-template-columns: 11rem 1fr auto;
-    gap: var(--x3);
-    align-items: baseline;
-    padding: var(--x2) 0;
+    display: block;
+    padding: var(--x2);
     text-decoration: none;
     color: inherit;
+    border-right: 1px solid var(--rule);
     border-bottom: 1px solid var(--rule);
-    transition: padding 0.25s ease, background 0.2s ease;
+    transition: background 0.2s;
   }
-  .direct-method:hover {
-    padding-left: var(--x4);
-    padding-right: var(--x4);
-    background: var(--paper-soft);
-  }
+  .direct-method:last-child { border-right: none; }
+  .direct-method:hover { background: var(--paper-soft); }
   .direct-method:hover .direct-method-value { color: var(--claret); }
-  .direct-method:hover .direct-method-chevron {
-    color: var(--claret);
-    transform: translateX(4px);
-  }
   .direct-method-label {
     font-family: 'Instrument Sans', sans-serif;
     font-size: 10px;
     letter-spacing: 0.30em;
     color: var(--claret);
     text-transform: uppercase;
-    font-weight: 600;
-    align-self: center;
+    margin-bottom: var(--x4);
+    font-weight: 500;
   }
   .direct-method-value {
-    display: block;
     font-family: 'Newsreader', Georgia, serif;
-    font-size: clamp(1.5rem, 3.2vw, 2rem);
-    font-weight: 400;
+    font-size: var(--f4-size);
+    font-weight: 500;
     color: var(--ink);
-    letter-spacing: -0.018em;
-    line-height: 1.1;
     margin-bottom: var(--x5);
-    transition: color 0.2s ease;
+    letter-spacing: -0.012em;
+    transition: color 0.2s;
   }
   .direct-method-sub {
-    display: block;
     font-family: 'Newsreader', Georgia, serif;
     font-style: italic;
-    font-size: 15px;
-    line-height: 1.4;
+    font-size: 14px;
     color: var(--ink-faint);
   }
-  .direct-method-chevron {
-    font-family: 'Instrument Sans', sans-serif;
-    font-size: 18px;
-    color: var(--ink-fainter);
-    align-self: center;
-    transition: color 0.2s ease, transform 0.2s ease;
+
+  /* Urgent variant — emergencies only card */
+  .direct-method-urgent .direct-method-label {
+    color: var(--claret);
   }
-
-  /* Urgent variant — emergency card */
-  .direct-method-urgent .direct-method-label { color: var(--coral); }
-  .direct-method-urgent:hover .direct-method-value { color: var(--coral); }
-  .direct-method-urgent:hover .direct-method-chevron { color: var(--coral); }
-
-  @media (max-width: 720px) {
-    .direct-method {
-      grid-template-columns: 1fr auto;
-      grid-template-rows: auto auto;
-      gap: var(--x5) var(--x3);
-      padding: var(--x3) 0;
-    }
-    .direct-method-label {
-      grid-column: 1 / -1;
-      grid-row: 1;
-      margin-bottom: 0;
-    }
-    .direct-method-value,
-    .direct-method-sub {
-      grid-column: 1;
-    }
-    .direct-method-chevron {
-      grid-column: 2;
-      grid-row: 2;
-      align-self: end;
-    }
-    .direct-method:hover {
-      padding-left: var(--x3);
-      padding-right: var(--x3);
-    }
+  .direct-method-urgent:hover {
+    background: rgba(142, 58, 58, 0.08);
+  }
+  .direct-method-urgent:hover .direct-method-value {
+    color: var(--coral);
   }
 
   @media (max-width: 900px) {
     .contact-cards { grid-template-columns: 1fr; gap: var(--x3); }
+    .direct-methods { grid-template-columns: 1fr; }
+    .direct-method { border-right: none; }
   }
   @media (max-width: 720px) {
     .contact-row { grid-template-columns: 1fr; }
