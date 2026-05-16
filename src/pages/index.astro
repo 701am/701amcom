@@ -205,6 +205,87 @@ import CtaBanner from '../components/CtaBanner.astro';
     </div>
   </section>
 
+  <!-- ════ § — A GIFT TO THE DESK ════ -->
+  <section class="skills-callout">
+    <div class="callout-inner">
+      <p class="callout-stamp">
+        <span class="callout-stamp-rule"></span>
+        ★ Free &amp; open source · MIT
+        <span class="callout-stamp-rule"></span>
+      </p>
+
+      <div class="callout-grid">
+        <div class="callout-copy">
+          <h2 class="callout-h">
+            Twenty-eight skills.<br />
+            Yours, <em>free.</em>
+          </h2>
+          <p class="callout-deck">
+            The system we use in the office — pitch craft, journalist research,
+            the humanizer that catches every <em>leverage</em> and
+            <em>circling back</em> before it leaves the building — written down
+            as plain markdown your AI agent can read. Clone the repo. Run it
+            against your own client. Fork what you like. Send the rest back.
+          </p>
+          <p class="callout-deck callout-deck--quiet">
+            We give it away because the alternative — every PR firm running its
+            own brittle, hand-coded version — produces worse pitches for every
+            reporter on earth. The work is hard enough without that.
+          </p>
+          <div class="callout-cta">
+            <a class="btn-primary" href="/skills">
+              Browse the skills
+              <span class="btn-icon" aria-hidden="true">→</span>
+            </a>
+            <a class="btn-link" href="https://github.com/701am/earned-media-skills">
+              Or jump straight to GitHub
+              <span class="arrow" aria-hidden="true">↗</span>
+            </a>
+          </div>
+        </div>
+
+        <aside class="callout-terminal" aria-hidden="false">
+          <div class="callout-terminal-bar">
+            <span class="callout-terminal-dot"></span>
+            <span class="callout-terminal-dot"></span>
+            <span class="callout-terminal-dot"></span>
+            <span class="callout-terminal-name">the-desk · ~/work</span>
+          </div>
+          <div class="callout-terminal-body">
+            <p class="callout-terminal-line">
+              <span class="callout-terminal-prompt">$</span>
+              git clone 701am/earned-media-skills
+            </p>
+            <p class="callout-terminal-line callout-terminal-line--muted">
+              Cloning into 'earned-media-skills'...
+            </p>
+            <p class="callout-terminal-line callout-terminal-line--muted">
+              Receiving objects: 100% · 28 skills
+            </p>
+            <p class="callout-terminal-line">
+              <span class="callout-terminal-prompt">$</span>
+              claude "run intake for acme co"
+            </p>
+            <p class="callout-terminal-line callout-terminal-line--muted">
+              Reading client-context skill...
+            </p>
+            <p class="callout-terminal-line callout-terminal-line--cursor">
+              <span class="callout-terminal-prompt">→</span>
+              <em>What's the company in one sentence?</em>
+              <span class="callout-terminal-blink">▋</span>
+            </p>
+          </div>
+        </aside>
+      </div>
+
+      <ul class="callout-meta">
+        <li><strong>28</strong> skills</li>
+        <li><strong>0</strong> dependencies</li>
+        <li><strong>1</strong> rule — would a journalist feel respected receiving this?</li>
+      </ul>
+    </div>
+  </section>
+
   <!-- ════ § 04 — CHOOSE ════ -->
   <section class="section section-navy" id="choose">
     <div class="container-wide reveal">
@@ -828,6 +909,217 @@ import CtaBanner from '../components/CtaBanner.astro';
     color: var(--claret);
     text-transform: uppercase;
     font-weight: 600;
+  }
+
+  /* ─────── SKILLS CALLOUT ─────── */
+  .skills-callout {
+    background: var(--paper-warm);
+    padding: var(--section-y) var(--x1);
+    border-top: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+  }
+  .callout-inner {
+    max-width: var(--measure-wide);
+    margin: 0 auto;
+  }
+  .callout-stamp {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--x4);
+    font-family: 'Instrument Sans', sans-serif;
+    font-size: 10px;
+    letter-spacing: 0.30em;
+    color: var(--claret);
+    text-transform: uppercase;
+    margin: 0 0 var(--x1);
+    font-weight: 600;
+    padding-bottom: var(--x4);
+    border-bottom: 1px solid var(--rule-strong);
+    width: 100%;
+    justify-content: center;
+  }
+  .callout-stamp-rule {
+    display: inline-block;
+    width: 40px;
+    height: 1px;
+    background: var(--claret);
+    opacity: 0.6;
+  }
+  .callout-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: var(--x1);
+    align-items: center;
+  }
+  .callout-h {
+    font-family: 'Newsreader', Georgia, serif;
+    font-size: clamp(2.25rem, 5.5vw, 3.5rem);
+    font-weight: 400;
+    line-height: 1.04;
+    letter-spacing: -0.032em;
+    color: var(--ink);
+    margin: 0 0 var(--x3);
+    max-width: 18ch;
+  }
+  .callout-h em {
+    font-style: italic;
+    font-weight: 300;
+    color: var(--claret);
+  }
+  .callout-deck {
+    font-family: 'Newsreader', Georgia, serif;
+    font-size: 1.1875rem;
+    line-height: 1.55;
+    color: var(--ink-soft);
+    margin: 0 0 var(--x3);
+    font-feature-settings: "kern" 1, "liga" 1, "onum" 1;
+    text-wrap: pretty;
+    max-width: 38ch;
+  }
+  .callout-deck em {
+    font-style: italic;
+    color: var(--claret);
+  }
+  .callout-deck--quiet {
+    font-style: italic;
+    font-size: 1rem;
+    color: var(--ink-faint);
+    border-left: 2px solid var(--claret);
+    padding-left: var(--x3);
+    margin-bottom: var(--x2);
+  }
+  .callout-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--x2);
+    flex-wrap: wrap;
+    margin-top: var(--x3);
+  }
+
+  /* Terminal mock — right column */
+  .callout-terminal {
+    background: var(--ink-deep);
+    color: var(--paper-soft);
+    border: 1px solid var(--ink-deep);
+    box-shadow: 0 18px 40px rgba(15, 14, 14, 0.18);
+    font-family: 'JetBrains Mono', ui-monospace, Menlo, Consolas, monospace;
+    overflow: hidden;
+  }
+  .callout-terminal-bar {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 10px 14px;
+    background: rgba(255, 241, 224, 0.06);
+    border-bottom: 1px solid rgba(255, 241, 224, 0.10);
+  }
+  .callout-terminal-dot {
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: rgba(255, 241, 224, 0.20);
+  }
+  .callout-terminal-dot:nth-child(1) { background: var(--coral); opacity: 0.6; }
+  .callout-terminal-dot:nth-child(2) { background: var(--amber); opacity: 0.6; }
+  .callout-terminal-dot:nth-child(3) { background: var(--paper-soft); opacity: 0.4; }
+  .callout-terminal-name {
+    margin-left: var(--x4);
+    font-size: 11px;
+    letter-spacing: 0.04em;
+    color: rgba(255, 241, 224, 0.45);
+  }
+  .callout-terminal-body {
+    padding: var(--x3);
+    font-size: 13px;
+    line-height: 1.85;
+  }
+  .callout-terminal-line {
+    margin: 0 0 4px;
+    color: var(--paper-soft);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .callout-terminal-line--muted {
+    color: rgba(255, 241, 224, 0.45);
+    font-size: 12px;
+  }
+  .callout-terminal-line--cursor em {
+    font-style: italic;
+    color: var(--amber-light);
+  }
+  .callout-terminal-prompt {
+    color: var(--claret);
+    margin-right: 10px;
+    font-weight: 600;
+  }
+  .callout-terminal-line--muted .callout-terminal-prompt { color: rgba(201, 122, 63, 0.4); }
+  .callout-terminal-line--cursor .callout-terminal-prompt { color: var(--amber); }
+  .callout-terminal-blink {
+    color: var(--amber-light);
+    animation: blink 1.1s steps(2) infinite;
+    margin-left: 4px;
+  }
+  @keyframes blink {
+    50% { opacity: 0; }
+  }
+
+  /* Bottom meta strip */
+  .callout-meta {
+    list-style: none;
+    margin: var(--x2) 0 0;
+    padding: var(--x2) 0 0;
+    border-top: 1px solid var(--rule-strong);
+    display: grid;
+    grid-template-columns: auto auto 1fr;
+    gap: var(--x1);
+    align-items: baseline;
+    font-family: 'Newsreader', Georgia, serif;
+    font-size: 15px;
+    color: var(--ink-faint);
+    font-style: italic;
+  }
+  .callout-meta li {
+    display: inline-flex;
+    align-items: baseline;
+    gap: var(--x5);
+  }
+  .callout-meta strong {
+    font-family: 'Newsreader', Georgia, serif;
+    font-style: italic;
+    font-size: 2rem;
+    line-height: 1;
+    color: var(--claret);
+    font-variant-numeric: oldstyle-nums;
+    font-weight: 400;
+  }
+  .callout-meta li:last-child {
+    color: var(--ink-soft);
+    font-style: italic;
+  }
+
+  @media (max-width: 900px) {
+    .callout-grid {
+      grid-template-columns: 1fr;
+      gap: var(--x2);
+    }
+    .callout-meta {
+      grid-template-columns: 1fr;
+      gap: var(--x4);
+    }
+    .callout-meta li:last-child {
+      border-top: 1px solid var(--rule);
+      padding-top: var(--x4);
+    }
+  }
+  @media (max-width: 720px) {
+    .callout-deck--quiet {
+      padding-left: var(--x4);
+    }
+    .callout-terminal-body {
+      font-size: 12px;
+      padding: var(--x4);
+    }
   }
 
   /* ─────── OFFERS ─────── */
