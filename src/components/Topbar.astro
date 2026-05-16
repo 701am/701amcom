@@ -1,162 +1,321 @@
 ---
 import Seal from './Seal.astro';
+import { getCollection } from 'astro:content';
+
 const path = Astro.url.pathname;
 const isCurrent = (href: string) =>
   href === '/' ? path === '/' : path.startsWith(href);
+
+// Pull the latest dispatch number from content at build time
+let latestDispatchNum = 0;
+try {
+  const notes = await getCollection('notes', ({ data }) => !data.draft);
+  latestDispatchNum = notes.reduce(
+    (max, n) => Math.max(max, Number(n.data.number) || 0),
+    0
+  );
+} catch {
+  latestDispatchNum = 0;
+}
+
+// Editorial datestamp — "SAT · 16 MAY 2026"
+const today = new Date();
+const days = ['SUN','MON','TUE','WED','THU','FRI','SAT'];
+const months = ['JAN','FEB','MAR','APR','MAY','JUN','JUL','AUG','SEP','OCT','NOV','DEC'];
+const dayLabel = days[today.getDay()];
+const monthLabel = months[today.getMonth()];
+const dateLabel = `${dayLabel} · ${today.getDate()} ${monthLabel} ${today.getFullYear()}`;
 ---
-<header class="topbar">
-  <div class="topbar-grid">
+<header class="masthead">
 
-    <a class="brand" href="/" aria-label="701am — home">
-      <Seal size={28} ariaLabel="" />
-      <span class="brand-name">701am</span>
-    </a>
+  <!-- ════════════════════════════════════════════════════════════════
+       TIER 1 — Brand + editorial datestamp
+       ════════════════════════════════════════════════════════════════ -->
+  <div class="mast-tier mast-tier--top">
+    <div class="mast-inner">
 
-    <nav class="topbar-nav" aria-label="Primary">
-      <a class="nav-link" href="/skills" aria-current={isCurrent('/skills') ? 'page' : undefined}>Skills</a>
-      <a class="nav-link" href="/legend-maker" aria-current={isCurrent('/legend-maker') ? 'page' : undefined}>The Scroll</a>
-      <a class="nav-link" href="/notes" aria-current={isCurrent('/notes') ? 'page' : undefined}>Dispatches</a>
-      <a class="nav-link" href="/about" aria-current={isCurrent('/about') ? 'page' : undefined}>About</a>
-      <button class="topbar-search" type="button" aria-label="Search" data-open-search>
-        <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-          <circle cx="11" cy="11" r="7"></circle>
-          <line x1="20" y1="20" x2="16.5" y2="16.5"></line>
-        </svg>
-      </button>
-    </nav>
-
-    <div class="topbar-right">
-      <a class="topbar-build" href="/build" aria-current={isCurrent('/build') ? 'page' : undefined}>
-        <span class="topbar-build-star" aria-hidden="true">★</span>
-        <span class="topbar-build-label">Build A Data Story</span>
+      <a class="mast-brand" href="/" aria-label="701am — the morning record">
+        <span class="mast-seal" aria-hidden="true">
+          <Seal size={32} ariaLabel="" />
+        </span>
+        <span class="mast-brand-text">
+          <span class="mast-brand-num">701</span><span class="mast-brand-suf">am</span>
+        </span>
+        <span class="mast-brand-tag" aria-hidden="true">The morning record</span>
       </a>
-      <a class="topbar-cta" href="/discovery">
-        Work with us
-        <span class="topbar-cta-arrow" aria-hidden="true">→</span>
-      </a>
-      <button class="topbar-search-mobile" type="button" aria-label="Search" data-open-search>
-        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-          <circle cx="11" cy="11" r="7"></circle>
-          <line x1="20" y1="20" x2="16.5" y2="16.5"></line>
-        </svg>
-      </button>
-      <button class="topbar-burger" type="button" aria-label="Menu" aria-expanded="false" data-burger>
-        <span></span><span></span><span></span>
-      </button>
+
+      <p class="mast-datestamp" aria-label="Today's edition">
+        <span class="mast-ds-label">Filed at sunrise</span>
+        <span class="mast-ds-dot" aria-hidden="true">·</span>
+        <span class="mast-ds-date">{dateLabel}</span>
+        {latestDispatchNum > 0 && (
+          <>
+            <span class="mast-ds-dot" aria-hidden="true">·</span>
+            <span class="mast-ds-num">Dispatch №&nbsp;<em>{latestDispatchNum}</em></span>
+          </>
+        )}
+      </p>
+
+      <p class="mast-datestamp-mobile" aria-label="Today's edition">
+        {dateLabel}{latestDispatchNum > 0 ? ` · № ${latestDispatchNum}` : ''}
+      </p>
+
+    </div>
+  </div>
+
+  <!-- ════════════════════════════════════════════════════════════════
+       TIER 2 — Primary nav + actions
+       ════════════════════════════════════════════════════════════════ -->
+  <div class="mast-tier mast-tier--nav">
+    <div class="mast-inner">
+
+      <nav class="mast-nav" aria-label="Primary">
+        <a class="mast-link" href="/skills" aria-current={isCurrent('/skills') ? 'page' : undefined}>Skills</a>
+        <span class="mast-sep" aria-hidden="true">·</span>
+        <a class="mast-link" href="/legend-maker" aria-current={isCurrent('/legend-maker') ? 'page' : undefined}>The Scroll</a>
+        <span class="mast-sep" aria-hidden="true">·</span>
+        <a class="mast-link" href="/notes" aria-current={isCurrent('/notes') ? 'page' : undefined}>Dispatches</a>
+        <span class="mast-sep" aria-hidden="true">·</span>
+        <a class="mast-link" href="/about" aria-current={isCurrent('/about') ? 'page' : undefined}>About</a>
+        <button class="mast-search" type="button" aria-label="Search dispatches" data-open-search>
+          <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="11" cy="11" r="7"></circle>
+            <line x1="20" y1="20" x2="16.5" y2="16.5"></line>
+          </svg>
+        </button>
+      </nav>
+
+      <div class="mast-actions">
+        <a class="mast-build" href="/build" aria-current={isCurrent('/build') ? 'page' : undefined}>
+          <span class="mast-build-star" aria-hidden="true">★</span>
+          <span>Build a Data Story</span>
+        </a>
+        <a class="mast-cta" href="/discovery">
+          Work with us
+          <span class="mast-cta-arrow" aria-hidden="true">→</span>
+        </a>
+      </div>
+
+      <div class="mast-mobile-cluster">
+        <button class="mast-search-mobile" type="button" aria-label="Search" data-open-search>
+          <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="11" cy="11" r="7"></circle>
+            <line x1="20" y1="20" x2="16.5" y2="16.5"></line>
+          </svg>
+        </button>
+        <button class="mast-burger" type="button" aria-label="Menu" aria-expanded="false" data-burger>
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ════════════════════════════════════════════════════════════════
+       MOBILE DRAWER
+       ════════════════════════════════════════════════════════════════ -->
+  <div class="mast-drawer" data-mobile-drawer>
+    <a class="mast-drawer-link" href="/skills">Skills</a>
+    <a class="mast-drawer-link" href="/legend-maker">The Scroll</a>
+    <a class="mast-drawer-link" href="/notes">Dispatches</a>
+    <a class="mast-drawer-link" href="/about">About</a>
+
+    <div class="mast-drawer-rule">
+      <span class="mast-drawer-rule-bar"></span>
+      <span class="mast-drawer-rule-label">★ Begin</span>
+      <span class="mast-drawer-rule-bar"></span>
     </div>
 
+    <a class="mast-drawer-build" href="/build">
+      <span aria-hidden="true">★</span> Build a Data Story
+    </a>
+    <a class="mast-drawer-cta" href="/discovery">
+      Work with us <span aria-hidden="true">→</span>
+    </a>
   </div>
 
-  <div class="mobile-drawer" data-mobile-drawer>
-    <a class="mobile-link" href="/skills">Skills</a>
-    <a class="mobile-link" href="/legend-maker">The Scroll</a>
-    <a class="mobile-link" href="/notes">Dispatches</a>
-    <a class="mobile-link" href="/about">About</a>
-    <a class="mobile-link mobile-link--build" href="/build">
-      <span aria-hidden="true">★</span> Build A Data Story
-    </a>
-    <a class="mobile-link mobile-link--cta" href="/discovery">Work with us →</a>
-  </div>
 </header>
 
 <style>
-  /* ─────── Topbar — institutional / FT salmon ─────── */
-  .topbar {
+  /* ═══════════════════════════════════════════════════════════════════
+     MASTHEAD — two tiers, divided by a 1px claret hairline.
+     Tier 1: brand + editorial datestamp (~58px)
+     Tier 2: nav + actions              (~48px)
+     ═══════════════════════════════════════════════════════════════════ */
+  .masthead {
     position: sticky;
     top: 0;
     z-index: 50;
-    background: rgba(252, 228, 208, 0.94);
-    backdrop-filter: blur(14px) saturate(110%);
-    -webkit-backdrop-filter: blur(14px) saturate(110%);
+    background: rgba(252, 228, 208, 0.96);
+    backdrop-filter: blur(14px) saturate(115%);
+    -webkit-backdrop-filter: blur(14px) saturate(115%);
     border-bottom: 1px solid var(--rule);
+    font-family: 'Instrument Sans', sans-serif;
   }
-
-  .topbar-grid {
-    display: grid;
-    grid-template-columns: auto 1fr auto;
-    align-items: center;
-    gap: var(--x2);
+  .mast-inner {
     max-width: 88rem;
     margin: 0 auto;
-    padding: 14px 28px;
+    padding: 0 32px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--x3);
   }
 
-  /* Brand — small mark + name */
-  .brand {
+  /* ─────────────── TIER 1 ─────────────── */
+  .mast-tier--top {
+    border-bottom: 1px solid var(--claret);
+    box-shadow: 0 1px 0 var(--paper-deep);  /* subtle paper-fold under the claret rule */
+  }
+  .mast-tier--top .mast-inner {
+    min-height: 58px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+  }
+
+  /* Brand block */
+  .mast-brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+    color: var(--ink);
+    line-height: 1;
+  }
+  .mast-seal {
+    display: inline-flex;
+    color: var(--ink);
+  }
+  .mast-brand-text {
+    font-family: 'Newsreader', Georgia, serif;
+    font-size: 30px;
+    line-height: 1;
+    font-weight: 500;
+    letter-spacing: -0.025em;
+    font-feature-settings: "kern" 1, "onum" 1;
+    display: inline-flex;
+    align-items: baseline;
+  }
+  .mast-brand-num {
+    font-variant-numeric: oldstyle-nums;
+    color: var(--ink);
+  }
+  .mast-brand-suf {
+    font-style: italic;
+    font-weight: 400;
+    color: var(--claret);
+    letter-spacing: -0.005em;
+  }
+  .mast-brand-tag {
+    margin-left: 12px;
+    padding-left: 14px;
+    border-left: 1px solid var(--rule-strong);
+    font-family: 'Newsreader', Georgia, serif;
+    font-style: italic;
+    font-weight: 300;
+    font-size: 14px;
+    color: var(--ink-soft);
+    line-height: 1;
+    white-space: nowrap;
+  }
+
+  /* Editorial datestamp */
+  .mast-datestamp {
     display: inline-flex;
     align-items: center;
     gap: 10px;
-    text-decoration: none;
+    margin: 0;
+    font-family: 'Instrument Sans', sans-serif;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.22em;
+    color: var(--ink-soft);
+    text-transform: uppercase;
+    line-height: 1;
+    white-space: nowrap;
+  }
+  .mast-ds-label {
+    color: var(--claret);
+    font-weight: 600;
+  }
+  .mast-ds-dot {
+    color: var(--rule-strong);
+    font-size: 14px;
+    line-height: 1;
+    margin: 0 -2px;
+  }
+  .mast-ds-date {
     color: var(--ink);
   }
-  .brand-name {
+  .mast-ds-num {
+    color: var(--ink-soft);
+  }
+  .mast-ds-num em {
     font-family: 'Newsreader', Georgia, serif;
-    font-size: 20px;
-    font-weight: 500;
-    letter-spacing: -0.018em;
-    line-height: 1;
-    font-feature-settings: "kern" 1, "onum" 1;
+    font-style: italic;
+    font-weight: 400;
+    color: var(--claret);
+    font-variant-numeric: oldstyle-nums;
+    font-size: 14px;
+    letter-spacing: 0;
+    text-transform: none;
+    margin-left: 2px;
+  }
+  .mast-datestamp-mobile {
+    display: none;
   }
 
-  /* Nav — sans, low-key, sentence case */
-  .topbar-nav {
-    display: flex;
-    gap: 2rem;
-    align-items: center;
-    justify-self: center;
+  /* ─────────────── TIER 2 ─────────────── */
+  .mast-tier--nav .mast-inner {
+    min-height: 48px;
   }
-  .nav-link {
+
+  /* Nav links */
+  .mast-nav {
+    display: inline-flex;
+    align-items: center;
+    gap: 14px;
+    line-height: 1;
+  }
+  .mast-link {
     font-family: 'Instrument Sans', sans-serif;
     font-size: 14px;
     font-weight: 500;
     color: var(--ink);
     text-decoration: none;
     letter-spacing: 0;
-    padding: 6px 0;
+    padding: 8px 0;
     position: relative;
     transition: color 0.2s ease;
+    line-height: 1;
   }
-  .nav-link::after {
+  .mast-link::after {
     content: "";
     position: absolute;
     left: 0;
     right: 0;
-    bottom: 0;
+    bottom: 4px;
     height: 1px;
     background: var(--claret);
     transform: scaleX(0);
     transform-origin: left;
     transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
   }
-  .nav-link:hover {
-    color: var(--claret);
-  }
-  .nav-link:hover::after {
-    transform: scaleX(1);
-  }
-  .nav-link[aria-current="page"] {
-    color: var(--claret);
-  }
-  .nav-link[aria-current="page"]::after {
-    transform: scaleX(1);
+  .mast-link:hover { color: var(--claret); }
+  .mast-link:hover::after { transform: scaleX(1); }
+  .mast-link[aria-current="page"] { color: var(--claret); }
+  .mast-link[aria-current="page"]::after { transform: scaleX(1); }
+
+  .mast-sep {
+    color: var(--rule-strong);
+    font-family: 'Newsreader', Georgia, serif;
+    font-style: italic;
+    font-size: 14px;
+    line-height: 1;
+    user-select: none;
   }
 
-  /* Right cluster */
-  .topbar-right {
-    display: flex;
-    align-items: center;
-    gap: 16px;
-    justify-self: end;
-  }
-  .topbar-right::before {
-    content: "";
-    width: 1px;
-    height: 18px;
-    background: var(--rule-strong);
-    margin-right: 4px;
-  }
-
-  .topbar-search {
+  .mast-search {
     width: 28px;
     height: 28px;
     background: transparent;
@@ -167,75 +326,62 @@ const isCurrent = (href: string) =>
     align-items: center;
     justify-content: center;
     padding: 0;
-    margin-left: 6px;             /* small offset from "About" */
+    margin-left: 8px;
     transition: color 0.2s ease;
   }
-  .topbar-search:hover { color: var(--claret); }
+  .mast-search:hover { color: var(--claret); }
 
-  /* Mobile-only search — sits next to burger */
-  .topbar-search-mobile {
-    display: none;
-    width: 34px;
-    height: 34px;
-    background: transparent;
-    border: none;
-    color: var(--ink);
-    cursor: pointer;
+  /* Actions cluster */
+  .mast-actions {
+    display: inline-flex;
     align-items: center;
-    justify-content: center;
-    padding: 0;
-    transition: color 0.2s ease;
+    gap: 18px;
   }
-  .topbar-search-mobile:hover { color: var(--claret); }
 
-  /* Build link — discoverable tool, sits before the primary CTA */
-  .topbar-build {
+  /* Build a Data Story — discoverable star link */
+  .mast-build {
     display: inline-flex;
     align-items: center;
     gap: 7px;
-    padding: 6px 2px;
-    background: transparent;
+    padding: 8px 2px;
     color: var(--ink);
     text-decoration: none;
     font-family: 'Instrument Sans', sans-serif;
     font-size: 13px;
     font-weight: 600;
     letter-spacing: 0.005em;
+    line-height: 1;
     position: relative;
     transition: color 0.25s ease;
     white-space: nowrap;
   }
-  .topbar-build::after {
+  .mast-build::after {
     content: "";
     position: absolute;
     left: 2px;
     right: 2px;
-    bottom: 2px;
+    bottom: 4px;
     height: 1px;
     background: var(--claret);
     transform: scaleX(0);
     transform-origin: left;
     transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
   }
-  .topbar-build:hover { color: var(--claret); }
-  .topbar-build:hover::after { transform: scaleX(1); }
-  .topbar-build:hover .topbar-build-star { transform: rotate(72deg); }
-  .topbar-build-star {
+  .mast-build:hover { color: var(--claret); }
+  .mast-build:hover::after { transform: scaleX(1); }
+  .mast-build:hover .mast-build-star { transform: rotate(72deg); }
+  .mast-build-star {
     color: var(--claret);
     font-size: 13px;
+    line-height: 1;
     display: inline-block;
     transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-    line-height: 1;
   }
-  .topbar-build[aria-current="page"] {
-    color: var(--claret);
-  }
-  .topbar-build[aria-current="page"]::after {
-    transform: scaleX(1);
-  }
+  .mast-build[aria-current="page"] { color: var(--claret); }
+  .mast-build[aria-current="page"]::after { transform: scaleX(1); }
 
-  /* CTA — bordered, integratedbio-style */
-  .topbar-cta {
+  /* CTA — bordered */
+  .mast-cta {
     display: inline-flex;
     align-items: center;
     gap: 8px;
@@ -249,62 +395,69 @@ const isCurrent = (href: string) =>
     font-weight: 500;
     letter-spacing: 0.02em;
     transition: background 0.25s ease, color 0.25s ease, border-color 0.25s ease;
+    line-height: 1;
   }
-  .topbar-cta:hover {
+  .mast-cta:hover {
     background: var(--ink-deep);
     color: var(--paper-soft);
     border-color: var(--ink-deep);
   }
-  .topbar-cta-arrow {
+  .mast-cta-arrow {
     font-size: 13px;
     transition: transform 0.25s ease;
   }
-  .topbar-cta:hover .topbar-cta-arrow {
-    transform: translateX(2px);
-  }
+  .mast-cta:hover .mast-cta-arrow { transform: translateX(2px); }
 
-  /* Burger — mobile only */
-  .topbar-burger {
+  /* Mobile cluster — hidden until breakpoint */
+  .mast-mobile-cluster {
     display: none;
+    align-items: center;
+    gap: 6px;
+  }
+  .mast-search-mobile,
+  .mast-burger {
     width: 34px;
     height: 34px;
     background: transparent;
     border: none;
+    color: var(--ink);
     cursor: pointer;
     padding: 0;
-    flex-direction: column;
+    display: inline-flex;
     align-items: center;
     justify-content: center;
-    gap: 4px;
-    color: var(--ink);
   }
-  .topbar-burger span {
+  .mast-search-mobile:hover { color: var(--claret); }
+  .mast-burger {
+    flex-direction: column;
+    gap: 4px;
+  }
+  .mast-burger span {
     display: block;
     width: 18px;
     height: 1.5px;
     background: currentColor;
     transition: transform 0.25s ease, opacity 0.25s ease;
   }
-  .topbar-burger[aria-expanded="true"] span:nth-child(1) {
+  .mast-burger[aria-expanded="true"] span:nth-child(1) {
     transform: translateY(5.5px) rotate(45deg);
   }
-  .topbar-burger[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
-  .topbar-burger[aria-expanded="true"] span:nth-child(3) {
+  .mast-burger[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
+  .mast-burger[aria-expanded="true"] span:nth-child(3) {
     transform: translateY(-5.5px) rotate(-45deg);
   }
 
-  /* Mobile drawer */
-  .mobile-drawer {
-    background: var(--paper);
-    border-top: 1px solid var(--rule);
-    padding: var(--x3) 28px var(--x2);
+  /* ─────────────── MOBILE DRAWER ─────────────── */
+  .mast-drawer {
     display: none;
     flex-direction: column;
-    gap: 0;
+    background: var(--paper);
+    border-top: 1px solid var(--rule);
+    padding: var(--x3) 32px var(--x2);
   }
-  .mobile-drawer.is-open { display: flex; }
+  .mast-drawer.is-open { display: flex; }
 
-  .mobile-link {
+  .mast-drawer-link {
     font-family: 'Instrument Sans', sans-serif;
     font-size: 17px;
     font-weight: 500;
@@ -313,46 +466,98 @@ const isCurrent = (href: string) =>
     padding: 14px 0;
     border-bottom: 1px solid var(--rule);
   }
-  .mobile-link:last-child { border-bottom: none; }
-  .mobile-link:hover { color: var(--claret); }
-  .mobile-link--build {
+  .mast-drawer-link:hover { color: var(--claret); }
+
+  .mast-drawer-rule {
+    display: flex;
+    align-items: center;
+    gap: var(--x4);
+    margin: var(--x3) 0 var(--x4);
+  }
+  .mast-drawer-rule-bar {
+    flex: 1;
+    height: 1px;
+    background: var(--rule-strong);
+  }
+  .mast-drawer-rule-label {
+    font-family: 'Instrument Sans', sans-serif;
+    font-size: 10px;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
     color: var(--claret);
     font-weight: 600;
-    margin-top: var(--x5);
-    padding-top: var(--x4);
-    border-top: 1px solid var(--rule-strong);
+    white-space: nowrap;
+  }
+
+  .mast-drawer-build {
+    font-family: 'Instrument Sans', sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--ink);
+    text-decoration: none;
+    padding: 12px 0;
     display: flex;
     align-items: center;
     gap: 8px;
   }
-  .mobile-link--build span {
-    font-size: 13px;
-  }
-  .mobile-link--cta {
-    margin-top: var(--x5);
+  .mast-drawer-build span { color: var(--claret); font-size: 14px; }
+
+  .mast-drawer-cta {
+    margin-top: var(--x4);
     padding: 14px 18px;
     border: 1px solid var(--ink);
     text-align: center;
-    border-bottom: 1px solid var(--ink);
+    font-family: 'Instrument Sans', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--ink);
+    text-decoration: none;
+    letter-spacing: 0.02em;
   }
-  .mobile-link--cta:hover {
+  .mast-drawer-cta:hover {
     background: var(--ink-deep);
     color: var(--paper-soft);
     border-color: var(--ink-deep);
   }
 
-  /* Responsive */
-  @media (max-width: 1024px) {
-    .topbar-nav { display: none; }            /* hides desktop nav + desktop search inside it */
-    .topbar-grid { grid-template-columns: auto 1fr; gap: var(--x3); }
-    .topbar-burger { display: flex; }
-    .topbar-cta { display: none; }            /* CTA only inside drawer on mobile */
-    .topbar-build { display: none; }          /* Build only inside drawer on mobile */
-    .topbar-search-mobile { display: inline-flex; }  /* show mobile search */
+  /* ═══════════════════════════════════════════════════════════════════
+     RESPONSIVE
+     ═══════════════════════════════════════════════════════════════════ */
+
+  /* Hide the italic tagline a bit earlier so brand stays clean */
+  @media (max-width: 1180px) {
+    .mast-brand-tag { display: none; }
   }
+
+  /* Mobile: collapse the nav into a burger, datestamp shrinks */
+  @media (max-width: 960px) {
+    .mast-inner { padding: 0 20px; }
+    .mast-tier--top .mast-inner { min-height: 50px; }
+    .mast-tier--nav .mast-inner { min-height: 50px; }
+
+    .mast-brand-text { font-size: 24px; }
+    .mast-datestamp { display: none; }
+    .mast-datestamp-mobile {
+      display: inline-block;
+      margin: 0;
+      font-family: 'Instrument Sans', sans-serif;
+      font-size: 9.5px;
+      letter-spacing: 0.20em;
+      color: var(--ink-soft);
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    .mast-nav { display: none; }
+    .mast-actions { display: none; }
+    .mast-mobile-cluster { display: inline-flex; }
+  }
+
   @media (max-width: 480px) {
-    .topbar-grid { padding: 12px 18px; }
-    .mobile-drawer { padding: var(--x3) 18px var(--x2); }
+    .mast-inner { padding: 0 16px; }
+    .mast-brand-text { font-size: 22px; }
+    .mast-datestamp-mobile { font-size: 9px; letter-spacing: 0.16em; }
+    .mast-drawer { padding: var(--x3) 16px var(--x2); }
   }
 </style>
 
