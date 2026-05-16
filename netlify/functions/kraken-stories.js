@@ -1,28 +1,30 @@
-// kraken-ideate.js — one OpenAI call, 10 distinct framings.
-// POST { input, coverageBrief } → { framings: [...] }
+// kraken-stories.js — produces 10 finalized stories.
+// POST { input, cluster_map } → { top_stories }
 
 const URL = "https://api.openai.com/v1/chat/completions";
 const MODEL = process.env.OPENAI_MODEL || "gpt-4o-mini";
 
-const SYSTEM = `You generate 10 distinct narrative framings for a journalism input.
+const SYSTEM = `You expand 10 attractor clusters into 10 finalized story descriptions.
 
-You cover 5 interpretive lenses (economic, cultural, structural, behavioral, technological)
-and produce 2 distinct framings per lens. Each framing must be different from the others.
+Output strict JSON. No markdown.
 
-Output strict JSON:
 {
-  "framings": [
+  "top_stories": [
     {
-      "id": "f1",
-      "lens": "economic",
-      "headline_seed": "<~10 word working headline>",
-      "angle": "<2 sentence story spine>",
-      "core_tension": "<the friction/contradiction>"
+      "rank": 1,
+      "cluster_id": "c1",
+      "story_title": "<working title, not a headline>",
+      "frame": "<interpretive lens>",
+      "core_hook": "<psychological hook>",
+      "survives_filter_because": "<1-2 sentence editorial defense>",
+      "audience_resonance": "<who wants this and why>",
+      "publication_tier_likelihood": "<tier most likely to publish>",
+      "example_headline": "<one finished headline>"
     }
   ]
 }
 
-Exactly 10 items. Avoid generic startup/AI/disruption framing.`;
+Exactly 10 stories, ranked 1-10 matching input clusters.`;
 
 export const handler = async (event) => {
   if (event.httpMethod !== "POST") {
@@ -36,10 +38,14 @@ export const handler = async (event) => {
   try { body = JSON.parse(event.body || "{}"); }
   catch { return { statusCode: 400, body: JSON.stringify({ error: "Invalid JSON" }) }; }
   const input = (body.input || "").trim();
-  const coverage = body.coverageBrief || "";
-  if (input.length < 8) {
-    return { statusCode: 400, body: JSON.stringify({ error: "Input too short" }) };
+  const clusters = body.cluster_map?.attractors || [];
+  if (!input || clusters.length === 0) {
+    return { statusCode: 400, body: JSON.stringify({ error: "Missing input or clusters" }) };
   }
+
+  const c = clusters.map((x) =>
+    `${x.id} (rank ${x.rank}): ${x.label} — ${x.theme || ""}`
+  ).join("\n");
 
   try {
     const res = await fetch(URL, {
@@ -52,9 +58,9 @@ export const handler = async (event) => {
         model: MODEL,
         messages: [
           { role: "system", content: SYSTEM },
-          { role: "user", content: `INPUT: ${input}\n\nCOVERAGE:\n${coverage.slice(0, 1200)}\n\nGenerate 10 framings.` },
+          { role: "user", content: `INPUT: ${input}\n\nCLUSTERS:\n${c}\n\nExpand into 10 stories.` },
         ],
-        temperature: 0.85,
+        temperature: 0.55,
         response_format: { type: "json_object" },
         max_tokens: 1800,
       }),
@@ -66,16 +72,15 @@ export const handler = async (event) => {
     const data = await res.json();
     const raw = data.choices?.[0]?.message?.content || "{}";
     try {
-      const parsed = JSON.parse(raw);
       return {
         statusCode: 200,
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ framings: parsed.framings || [] }),
+        body: raw,
       };
     } catch {
-      return { statusCode: 500, body: JSON.stringify({ error: "Ideate returned invalid JSON", detail: raw.slice(0, 300) }) };
+      return { statusCode: 500, body: JSON.stringify({ error: "Stories returned invalid JSON", detail: raw.slice(0, 300) }) };
     }
   } catch (err) {
-    return { statusCode: 500, body: JSON.stringify({ error: "Ideate failed", detail: String(err).slice(0, 300) }) };
+    return { statusCode: 500, body: JSON.stringify({ error: "Stories failed", detail: String(err).slice(0, 300) }) };
   }
 };

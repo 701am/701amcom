@@ -1519,31 +1519,46 @@ import CtaBanner from '../components/CtaBanner.astro';
     font-variant-numeric: oldstyle-nums;
   }
 
-  /* CTA button — stretched, bottom-anchored */
+  /* CTA button — uniform across all three cards: same width, same height, same style */
   .offer-cta {
     align-self: stretch;
+    width: 100%;
+    box-sizing: border-box;
     justify-content: center;
-    margin-top: auto;                /* push to bottom regardless of card content height */
+    margin-top: auto;
     text-align: center;
-    padding: 14px 20px;
-    font-size: 0.95rem;
-    letter-spacing: 0.04em;
+    padding: 16px 20px;
+    font-size: 0.875rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    line-height: 1;
+    min-height: 52px;
     position: relative;
     z-index: 1;
+    gap: 10px;
   }
+  .offer-cta .btn-icon {
+    font-size: 14px;
+    transition: transform 0.25s ease;
+  }
+  .offer-cta:hover .btn-icon { transform: translateX(4px); }
 
-  /* Ghost variant for the non-featured CTAs */
-  .btn-primary--ghost {
-    background: transparent;
-    color: var(--ink);
-    border: 1px solid var(--ink);
-  }
-  .btn-primary--ghost:hover {
+  /* All three card CTAs use the same treatment — dark ink button.
+     The featured card is distinguished by its container styling (border, ribbon),
+     not by giving its button a different shape. */
+  .offer-cta.btn-primary,
+  .offer-cta.btn-primary--ghost {
     background: var(--ink-deep);
     color: var(--paper-soft);
-    border-color: var(--ink-deep);
+    border: 1px solid var(--ink-deep);
   }
-  .btn-primary--ghost .btn-icon { color: inherit; }
+  .offer-cta.btn-primary:hover,
+  .offer-cta.btn-primary--ghost:hover {
+    background: var(--claret);
+    border-color: var(--claret);
+    color: var(--paper-soft);
+  }
 
   /* Fine print */
   .offer-fine {

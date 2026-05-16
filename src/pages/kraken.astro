@@ -1329,108 +1329,88 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     async function runKraken(input) {
       showStage('loading');
 
+      // Helper: POST a JSON body, return parsed JSON or null + capture error
+      async function call(endpoint, payload, label) {
+        try {
+          const res = await fetch(endpoint, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(payload),
+          });
+          if (!res.ok) {
+            const e = await res.json().catch(() => ({}));
+            const msg = e.detail
+              ? `${e.error || label + ' failed'}: ${e.detail}`
+              : (e.error || label + ' failed');
+            return { ok: false, error: msg };
+          }
+          return { ok: true, data: await res.json() };
+        } catch (err) {
+          return { ok: false, error: `${label} network error: ${String(err).slice(0, 200)}` };
+        }
+      }
+
       try {
-        // 1. Research
+        // ── Step 1: research (Tavily) ──
         setStep('research');
-        const researchRes = await fetch('/api/kraken-research', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ input }),
-        });
-        if (!researchRes.ok) {
-          const e = await researchRes.json().catch(() => ({}));
-          const msg = e.detail ? `${e.error || 'Research failed'}: ${e.detail}` : (e.error || 'Research failed');
-          throw new Error(msg);
-        }
-        const research = await researchRes.json();
+        const researchR = await call('/api/kraken-research', { input }, 'Research');
+        if (!researchR.ok) throw new Error(researchR.error);
+        const coverageBrief = researchR.data.coverageBrief || '';
 
-        // 2. Ideate (5 parallel calls server-side)
+        // ── Step 2: ideate (10 framings) ──
         setStep('ideate');
-        const ideateRes = await fetch('/api/kraken-ideate', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            input,
-            coverageBrief: research.coverageBrief,
-          }),
-        });
-        if (!ideateRes.ok) {
-          const e = await ideateRes.json().catch(() => ({}));
-          const msg = e.detail ? `${e.error || 'Ideation failed'}: ${e.detail}` : (e.error || 'Ideation failed');
-          throw new Error(msg);
-        }
-        const ideation = await ideateRes.json();
-        if (!ideation.framings || ideation.framings.length === 0) {
-          throw new Error('Ideation returned no framings');
-        }
+        const ideateR = await call('/api/kraken-ideate', { input, coverageBrief }, 'Ideate');
+        if (!ideateR.ok) throw new Error(ideateR.error);
+        const framings = ideateR.data.framings || [];
+        if (framings.length === 0) throw new Error('Ideate returned no framings');
 
-        // 3. Cluster — produces cluster_map + top_stories
+        // ── Step 3: cluster (10 attractors only) ──
         setStep('cluster');
-        const clusterRes = await fetch('/api/kraken-cluster', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            input,
-            framings: ideation.framings,
-            coverageBrief: research.coverageBrief,
-          }),
-        });
-        if (!clusterRes.ok) {
-          const e = await clusterRes.json().catch(() => ({}));
-          const msg = e.detail ? `${e.error || 'Cluster failed'}: ${e.detail}` : (e.error || 'Cluster failed');
-          throw new Error(msg);
-        }
-        const clusterPart = await clusterRes.json();
-        if (!clusterPart.cluster_map?.attractors || !clusterPart.top_stories) {
-          throw new Error('Cluster returned incomplete data');
+        const clusterR = await call('/api/kraken-cluster', { input, framings }, 'Cluster');
+        if (!clusterR.ok) throw new Error(clusterR.error);
+        const inputEcho = clusterR.data.input_echo || '';
+        const clusterMap = clusterR.data.cluster_map || { attractors: [] };
+        if (!clusterMap.attractors || clusterMap.attractors.length === 0) {
+          throw new Error('Cluster returned no attractors');
         }
 
-        // 4. Pitches + Insights — parallel, both consume cluster output
+        // ── Step 4: 5 parallel expand calls ──
+        // Each can fail independently. The report renders whatever succeeded.
         setStep('synthesize');
-        const expandPayload = {
-          input,
-          cluster_map: clusterPart.cluster_map,
-          top_stories: clusterPart.top_stories,
-        };
-        const [pitchesRes, insightsRes] = await Promise.all([
-          fetch('/api/kraken-expand-pitches', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(expandPayload),
-          }),
-          fetch('/api/kraken-expand-insights', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(expandPayload),
-          }),
+        const expandPayload = { input, cluster_map: clusterMap };
+        const [storiesR, pitchesR, headlinesR, insightsR, placementsR] = await Promise.all([
+          call('/api/kraken-stories', expandPayload, 'Stories'),
+          call('/api/kraken-pitches', expandPayload, 'Pitches'),
+          call('/api/kraken-headlines', expandPayload, 'Headlines'),
+          call('/api/kraken-insights', expandPayload, 'Insights'),
+          call('/api/kraken-placements', expandPayload, 'Placements'),
         ]);
-        if (!pitchesRes.ok) {
-          const e = await pitchesRes.json().catch(() => ({}));
-          const msg = e.detail ? `${e.error || 'Pitches failed'}: ${e.detail}` : (e.error || 'Pitches failed');
-          throw new Error(msg);
-        }
-        if (!insightsRes.ok) {
-          const e = await insightsRes.json().catch(() => ({}));
-          const msg = e.detail ? `${e.error || 'Insights failed'}: ${e.detail}` : (e.error || 'Insights failed');
-          throw new Error(msg);
-        }
-        const pitchesPart = await pitchesRes.json();
-        const insightsPart = await insightsRes.json();
 
-        // Assemble the unified report
+        // Log any failures for debugging without breaking the report
+        const failures = [];
+        if (!storiesR.ok) failures.push(`Stories: ${storiesR.error}`);
+        if (!pitchesR.ok) failures.push(`Pitches: ${pitchesR.error}`);
+        if (!headlinesR.ok) failures.push(`Headlines: ${headlinesR.error}`);
+        if (!insightsR.ok) failures.push(`Insights: ${insightsR.error}`);
+        if (!placementsR.ok) failures.push(`Placements: ${placementsR.error}`);
+        if (failures.length > 0) {
+          console.warn('Some Kraken sections failed:', failures);
+        }
+
+        // Assemble whatever we got — graceful degradation
         const report = {
-          input_echo: clusterPart.input_echo,
-          cluster_map: clusterPart.cluster_map,
-          top_stories: clusterPart.top_stories,
-          top_pitches: pitchesPart.top_pitches || [],
-          top_headlines: pitchesPart.top_headlines || [],
-          top_insights: insightsPart.top_insights || [],
-          top_placements: insightsPart.top_placements || [],
+          input_echo: inputEcho,
+          cluster_map: clusterMap,
+          top_stories: storiesR.ok ? (storiesR.data.top_stories || []) : [],
+          top_pitches: pitchesR.ok ? (pitchesR.data.top_pitches || []) : [],
+          top_headlines: headlinesR.ok ? (headlinesR.data.top_headlines || []) : [],
+          top_insights: insightsR.ok ? (insightsR.data.top_insights || []) : [],
+          top_placements: placementsR.ok ? (placementsR.data.top_placements || []) : [],
+          _failures: failures,
         };
 
-        // 5. Render
         setStep('render');
-        await new Promise((r) => setTimeout(r, 400));
+        await new Promise((r) => setTimeout(r, 300));
         renderReport(report);
         showStage('report');
 
