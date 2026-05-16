@@ -95,7 +95,7 @@ Generate 10 distinct narrative framings through your assigned lens. Return stric
       ],
       temperature: 0.9,
       response_format: { type: "json_object" },
-      max_tokens: 2200,
+      max_tokens: 1800,
     }),
   });
 

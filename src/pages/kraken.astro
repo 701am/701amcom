@@ -1364,11 +1364,9 @@ import BaseLayout from '../layouts/BaseLayout.astro';
           throw new Error('Ideation returned no framings');
         }
 
-        // 3+4. Cluster + synthesize
+        // 3. Cluster — produces cluster_map + top_stories
         setStep('cluster');
-        await new Promise((r) => setTimeout(r, 600));
-        setStep('synthesize');
-        const synthRes = await fetch('/api/kraken-synthesize', {
+        const clusterRes = await fetch('/api/kraken-cluster', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
@@ -1377,12 +1375,58 @@ import BaseLayout from '../layouts/BaseLayout.astro';
             coverageBrief: research.coverageBrief,
           }),
         });
-        if (!synthRes.ok) {
-          const e = await synthRes.json().catch(() => ({}));
-          const msg = e.detail ? `${e.error || 'Synthesis failed'}: ${e.detail}` : (e.error || 'Synthesis failed');
+        if (!clusterRes.ok) {
+          const e = await clusterRes.json().catch(() => ({}));
+          const msg = e.detail ? `${e.error || 'Cluster failed'}: ${e.detail}` : (e.error || 'Cluster failed');
           throw new Error(msg);
         }
-        const { report } = await synthRes.json();
+        const clusterPart = await clusterRes.json();
+        if (!clusterPart.cluster_map?.attractors || !clusterPart.top_stories) {
+          throw new Error('Cluster returned incomplete data');
+        }
+
+        // 4. Pitches + Insights — parallel, both consume cluster output
+        setStep('synthesize');
+        const expandPayload = {
+          input,
+          cluster_map: clusterPart.cluster_map,
+          top_stories: clusterPart.top_stories,
+        };
+        const [pitchesRes, insightsRes] = await Promise.all([
+          fetch('/api/kraken-expand-pitches', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(expandPayload),
+          }),
+          fetch('/api/kraken-expand-insights', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(expandPayload),
+          }),
+        ]);
+        if (!pitchesRes.ok) {
+          const e = await pitchesRes.json().catch(() => ({}));
+          const msg = e.detail ? `${e.error || 'Pitches failed'}: ${e.detail}` : (e.error || 'Pitches failed');
+          throw new Error(msg);
+        }
+        if (!insightsRes.ok) {
+          const e = await insightsRes.json().catch(() => ({}));
+          const msg = e.detail ? `${e.error || 'Insights failed'}: ${e.detail}` : (e.error || 'Insights failed');
+          throw new Error(msg);
+        }
+        const pitchesPart = await pitchesRes.json();
+        const insightsPart = await insightsRes.json();
+
+        // Assemble the unified report
+        const report = {
+          input_echo: clusterPart.input_echo,
+          cluster_map: clusterPart.cluster_map,
+          top_stories: clusterPart.top_stories,
+          top_pitches: pitchesPart.top_pitches || [],
+          top_headlines: pitchesPart.top_headlines || [],
+          top_insights: insightsPart.top_insights || [],
+          top_placements: insightsPart.top_placements || [],
+        };
 
         // 5. Render
         setStep('render');
