@@ -1,0 +1,379 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+<BaseLayout
+  title="Book a sunrise call — 701am"
+  description="Thirty minutes. No deck, no pitch, no charge. Book a sunrise call with the desk at 701am."
+>
+
+  <!-- ════ MASTHEAD ════ -->
+  <header class="page-masthead">
+    <p class="page-eyebrow">
+      <span class="page-rule"></span>
+      § The Sunrise Call
+      <span class="page-rule"></span>
+    </p>
+    <h1 class="page-title">
+      Thirty minutes,<br />
+      at <em>sunrise.</em>
+    </h1>
+    <p class="page-deck">
+      No deck. No pitch. No charge. A conversation about the work you do,
+      the press you'd want, and whether 701am is the desk to earn it for you.
+    </p>
+  </header>
+
+  <!-- ════ § 01 — THE BRIEFING ════ -->
+  <section class="briefing">
+    <div class="briefing-grid">
+      <div class="briefing-col">
+        <h4 class="briefing-h">What we'll cover</h4>
+        <ol class="briefing-list">
+          <li>The angle you've been sitting on — or the one you don't know you have.</li>
+          <li>Where it lands. Which reporters, which beats, which outlets.</li>
+          <li>What earned media actually costs in time, attention, and trade-offs.</li>
+          <li>Whether 701am is the right desk for the work — and what we'd do first.</li>
+        </ol>
+      </div>
+      <div class="briefing-col">
+        <h4 class="briefing-h">What it isn't</h4>
+        <ul class="briefing-list briefing-list--quiet">
+          <li>A sales call. We do not chase. If the fit isn't there, we say so.</li>
+          <li>A creative pitch. We don't workshop ideas on a first call.</li>
+          <li>A free strategy session. We'll be candid, not exhaustive.</li>
+          <li>A commitment. Either side can walk after thirty minutes.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════ § 02 — THE CALENDAR ════ -->
+  <section class="calendar-section">
+    <div class="calendar-frame">
+      <div class="calendar-stamp">
+        <span class="calendar-stamp-line"></span>
+        <span class="calendar-stamp-text">Calendar of the Desk · Filed via Cal.com</span>
+        <span class="calendar-stamp-line"></span>
+      </div>
+
+      <div id="my-cal-inline" class="calendar-embed"></div>
+
+      <p class="calendar-fallback">
+        Embed not loading?
+        <a href="https://cal.com/davidkrug/discovery">Open the calendar at Cal.com →</a>
+      </p>
+    </div>
+  </section>
+
+  <!-- ════ § 03 — THE CODA ════ -->
+  <section class="coda">
+    <div class="coda-inner">
+      <p class="coda-aphorism">★ Mornings are for work. Afternoons are for the press. ★</p>
+      <p class="coda-prose">
+        I take a small number of these each week, and I prefer them at sunrise local
+        time — when the day hasn't yet been touched by anyone else's plan. If the
+        slots you see don't fit, write me directly at
+        <a href="mailto:dk@701am.com">dk@701am.com</a> and we'll find a window.
+      </p>
+      <p class="coda-sig">— D.K. · The desk at 701am</p>
+    </div>
+  </section>
+
+</BaseLayout>
+
+<!-- Cal.com embed init -->
+<script type="text/javascript" is:inline>
+  (function (C, A, L) {
+    let p = function (a, ar) { a.q.push(ar); };
+    let d = C.document;
+    C.Cal = C.Cal || function () {
+      let cal = C.Cal;
+      let ar = arguments;
+      if (!cal.loaded) {
+        cal.ns = {};
+        cal.q = cal.q || [];
+        d.head.appendChild(d.createElement("script")).src = A;
+        cal.loaded = true;
+      }
+      if (ar[0] === L) {
+        const api = function () { p(api, arguments); };
+        const namespace = ar[1];
+        api.q = api.q || [];
+        if (typeof namespace === "string") {
+          cal.ns[namespace] = cal.ns[namespace] || api;
+          p(cal.ns[namespace], ar);
+          p(cal, ["initNamespace", namespace]);
+        } else p(cal, ar);
+        return;
+      }
+      p(cal, ar);
+    };
+  })(window, "https://app.cal.com/embed/embed.js", "init");
+
+  Cal("init", "discovery", { origin: "https://app.cal.com" });
+
+  Cal.ns.discovery("inline", {
+    elementOrSelector: "#my-cal-inline",
+    config: { "layout": "month_view" },
+    calLink: "davidkrug/discovery",
+  });
+
+  Cal.ns.discovery("ui", {
+    "theme": "light",
+    "cssVarsPerTheme": {
+      "light": {
+        "cal-brand": "#990F3D",
+        "cal-text": "#1E1E1E",
+        "cal-text-emphasis": "#0F0E0E",
+        "cal-bg": "#FCE4D0",
+        "cal-bg-emphasis": "#F8D4B8",
+        "cal-bg-muted": "#FFF1E0",
+        "cal-border": "#E7D4B8",
+        "cal-border-emphasis": "#C9B08A",
+        "cal-text-muted": "#5A544E"
+      }
+    },
+    "hideEventTypeDetails": false,
+    "layout": "month_view"
+  });
+</script>
+
+<style>
+  .page-masthead {
+    padding: calc(var(--x1) + var(--x3)) var(--x1) var(--x1);
+    text-align: center;
+    border-bottom: 1px solid var(--rule);
+    max-width: var(--measure-wide);
+    margin: 0 auto;
+  }
+  .page-eyebrow {
+    font-family: 'Instrument Sans', sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.34em;
+    color: var(--claret);
+    text-transform: uppercase;
+    margin: 0 0 var(--x3);
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: var(--x3);
+  }
+  .page-rule {
+    display: inline-block;
+    width: 28px; height: 1px;
+    background: var(--claret);
+    opacity: 0.5;
+  }
+  .page-title {
+    font-family: 'Newsreader', Georgia, serif;
+    font-size: clamp(2.8rem, 6.5vw, 4.5rem);
+    font-weight: 400;
+    line-height: 1.04;
+    letter-spacing: -0.035em;
+    color: var(--ink);
+    margin: 0 0 var(--x2);
+    max-width: 18ch;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .page-title em {
+    font-style: italic;
+    color: var(--claret);
+    font-weight: 300;
+  }
+  .page-deck {
+    font-family: 'Newsreader', Georgia, serif;
+    font-style: italic;
+    font-weight: 300;
+    font-size: var(--f5-size);
+    line-height: 1.5;
+    color: var(--ink-soft);
+    max-width: 42ch;
+    margin: 0 auto;
+  }
+
+  /* ─────── § 01 — THE BRIEFING ─────── */
+  .briefing {
+    padding: var(--section-y) var(--x1);
+    max-width: var(--measure-wide);
+    margin: 0 auto;
+    border-bottom: 1px solid var(--rule);
+  }
+  .briefing-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: calc(var(--x1) + var(--x3));
+  }
+  .briefing-h {
+    font-family: 'Instrument Sans', sans-serif;
+    font-size: 10px;
+    letter-spacing: 0.30em;
+    color: var(--claret);
+    text-transform: uppercase;
+    margin: 0 0 var(--x3);
+    font-weight: 600;
+    padding-bottom: var(--x4);
+    border-bottom: 1px solid var(--rule-strong);
+  }
+  .briefing-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    counter-reset: brief-counter;
+  }
+  .briefing-list li {
+    position: relative;
+    padding: var(--x4) 0 var(--x4) 2.5rem;
+    font-family: 'Newsreader', Georgia, serif;
+    font-size: 16px;
+    line-height: 1.55;
+    color: var(--ink-soft);
+    border-bottom: 1px solid var(--rule);
+  }
+  .briefing-list li:last-child { border-bottom: none; }
+  .briefing-list:not(.briefing-list--quiet) li {
+    counter-increment: brief-counter;
+  }
+  .briefing-list:not(.briefing-list--quiet) li::before {
+    content: counter(brief-counter, decimal-leading-zero);
+    position: absolute;
+    left: 0;
+    top: calc(var(--x4) + 2px);
+    font-family: 'Instrument Sans', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--claret);
+    letter-spacing: 0.08em;
+  }
+  .briefing-list--quiet li::before {
+    content: "—";
+    position: absolute;
+    left: 0;
+    top: var(--x4);
+    color: var(--claret);
+    font-weight: 600;
+    width: 1.25rem;
+  }
+  .briefing-list--quiet li {
+    padding-left: 1.75rem;
+    color: var(--ink-faint);
+  }
+
+  /* ─────── § 02 — THE CALENDAR ─────── */
+  .calendar-section {
+    padding: var(--section-y) var(--x1);
+    background: var(--paper-warm);
+    border-bottom: 1px solid var(--rule);
+  }
+  .calendar-frame {
+    max-width: 64rem;
+    margin: 0 auto;
+    background: var(--paper);
+    border: 1px solid var(--rule-strong);
+    box-shadow: 0 20px 50px rgba(15, 14, 14, 0.10);
+    padding: var(--x2);
+    position: relative;
+  }
+  .calendar-frame::before {
+    content: "";
+    position: absolute;
+    top: 10px; left: 10px; right: 10px; bottom: 10px;
+    border: 1px solid rgba(15, 14, 14, 0.08);
+    pointer-events: none;
+  }
+  .calendar-stamp {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--x4);
+    padding: var(--x4) 0 var(--x3);
+    margin-bottom: var(--x3);
+    border-bottom: 1px solid var(--rule);
+    position: relative;
+    z-index: 1;
+  }
+  .calendar-stamp-line {
+    flex: 0 1 60px;
+    height: 1px;
+    background: var(--rule-strong);
+  }
+  .calendar-stamp-text {
+    font-family: 'Instrument Sans', sans-serif;
+    font-size: 10px;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--claret);
+    font-weight: 600;
+    text-align: center;
+  }
+  .calendar-embed {
+    width: 100%;
+    min-height: 720px;
+    background: var(--paper);
+    position: relative;
+    z-index: 1;
+  }
+  .calendar-fallback {
+    text-align: center;
+    margin: var(--x3) 0 0;
+    font-family: 'Newsreader', Georgia, serif;
+    font-style: italic;
+    font-size: 14px;
+    color: var(--ink-faint);
+    position: relative;
+    z-index: 1;
+  }
+  .calendar-fallback a {
+    color: var(--claret);
+    text-decoration: none;
+    border-bottom: 1px solid var(--claret);
+  }
+  .calendar-fallback a:hover { color: var(--claret-dark); }
+
+  /* ─────── § 03 — THE CODA ─────── */
+  .coda {
+    padding: var(--section-y) var(--x1);
+    background: var(--paper-deep);
+    text-align: center;
+  }
+  .coda-inner {
+    max-width: 36rem;
+    margin: 0 auto;
+  }
+  .coda-aphorism {
+    font-family: 'Instrument Sans', sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.30em;
+    color: var(--claret);
+    text-transform: uppercase;
+    font-weight: 600;
+    margin: 0 0 var(--x2);
+  }
+  .coda-prose {
+    font-family: 'Newsreader', Georgia, serif;
+    font-size: var(--f5-size);
+    line-height: 1.55;
+    color: var(--ink-soft);
+    margin: 0 0 var(--x2);
+  }
+  .coda-prose a {
+    color: var(--claret);
+    text-decoration: none;
+    border-bottom: 1px solid var(--claret);
+  }
+  .coda-prose a:hover { color: var(--claret-dark); }
+  .coda-sig {
+    font-family: 'Newsreader', Georgia, serif;
+    font-style: italic;
+    font-size: 15px;
+    color: var(--ink-faint);
+    margin: 0;
+  }
+
+  @media (max-width: 720px) {
+    .briefing-grid { grid-template-columns: 1fr; gap: var(--x1); }
+    .calendar-section { padding: var(--x1) var(--x3); }
+    .calendar-frame { padding: var(--x3); }
+    .calendar-embed { min-height: 600px; }
+  }
+</style>
