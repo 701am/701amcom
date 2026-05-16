@@ -1246,81 +1246,102 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     border-bottom-color: var(--claret);
   }
 
-  /* Roadmap timeline — four cards, each a small numbered phase */
+  /* Roadmap timeline — four horizontal phase rows, stacked vertically.
+     Each row reads like a line in a project plan: numeral · phase · action · deliverable */
   .build-app .memo-roadmap-list {
     list-style: none;
     margin: 0;
     padding: 0;
     grid-column: 1 / -1;
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: var(--x4);
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    border-top: 1px solid var(--rule-strong);
+    border-bottom: 1px solid var(--rule-strong);
+    background: var(--paper);
   }
   .build-app .memo-roadmap-list .roadmap-card,
   .build-app .memo-roadmap-list > li {
     position: relative;
-    padding: var(--x4) var(--x4);
-    background: var(--paper);
-    border: 1px solid var(--rule-strong);
-    display: flex;
-    flex-direction: column;
-    gap: var(--x5);
-    min-height: 12rem;
+    padding: var(--x3) var(--x2);
+    border: none;
+    border-bottom: 1px solid var(--rule);
+    background: transparent;
+    display: grid;
+    grid-template-columns: 4.5rem 9rem 1fr 1.2fr;
+    gap: var(--x2);
+    align-items: center;
     list-style: none;
+    transition: background 0.2s ease;
+    min-height: auto;
+  }
+  .build-app .memo-roadmap-list > li:last-child {
+    border-bottom: none;
+  }
+  .build-app .memo-roadmap-list > li:hover {
+    background: var(--paper-soft);
+  }
+  .build-app .memo-roadmap-list .roadmap-card-num {
+    font-family: 'Newsreader', Georgia, serif;
+    font-style: italic;
+    font-weight: 300;
+    font-size: 3.25rem;
+    line-height: 1;
+    color: var(--claret);
+    font-variant-numeric: oldstyle-nums;
+    letter-spacing: -0.04em;
+    text-align: center;
   }
   .build-app .memo-roadmap-list .roadmap-card-head {
     display: flex;
-    align-items: baseline;
-    justify-content: space-between;
-    gap: var(--x5);
-    padding-bottom: var(--x5);
-    border-bottom: 1px solid var(--rule);
+    flex-direction: column;
+    gap: 4px;
   }
   .build-app .memo-roadmap-list .roadmap-card-phase {
     font-family: 'Instrument Sans', sans-serif;
-    font-size: 10px;
-    letter-spacing: 0.22em;
+    font-size: 11px;
+    letter-spacing: 0.28em;
     text-transform: uppercase;
     color: var(--claret);
     font-weight: 600;
     line-height: 1;
   }
   .build-app .memo-roadmap-list .roadmap-card-week {
-    font-family: 'Instrument Sans', sans-serif;
-    font-size: 9px;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: var(--ink-fainter);
-    font-weight: 500;
-    line-height: 1;
-  }
-  .build-app .memo-roadmap-list .roadmap-card-num {
     font-family: 'Newsreader', Georgia, serif;
     font-style: italic;
-    font-weight: 300;
-    font-size: 2.75rem;
-    line-height: 1;
-    color: var(--claret);
+    font-size: 13px;
+    color: var(--ink-fainter);
     font-variant-numeric: oldstyle-nums;
-    letter-spacing: -0.04em;
+    line-height: 1.2;
   }
   .build-app .memo-roadmap-list .roadmap-card-action {
     font-family: 'Newsreader', Georgia, serif;
-    font-size: 0.9375rem;
-    line-height: 1.4;
+    font-size: 1rem;
+    line-height: 1.45;
     color: var(--ink);
     margin: 0;
-    flex: 1;
   }
   .build-app .memo-roadmap-list .roadmap-card-deliv {
     font-family: 'Newsreader', Georgia, serif;
     font-style: italic;
-    font-size: 0.8125rem;
+    font-size: 0.875rem;
     line-height: 1.45;
-    color: var(--ink-faint);
+    color: var(--ink-soft);
     margin: 0;
-    padding-top: var(--x5);
-    border-top: 1px solid var(--rule);
+    padding-left: var(--x3);
+    border-left: 1px solid var(--rule);
+  }
+  .build-app .memo-roadmap-list .roadmap-card-deliv::before {
+    content: "Deliverable · ";
+    font-family: 'Instrument Sans', sans-serif;
+    font-style: normal;
+    font-size: 9px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--claret);
+    font-weight: 600;
+    display: block;
+    margin-bottom: 4px;
   }
 
   /* North star */
@@ -1537,7 +1558,26 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     .build-app .q-radios { grid-template-columns: 1fr; }
     .build-app .q-checks { grid-template-columns: 1fr; }
     .build-app .memo-grid { grid-template-columns: 1fr; gap: var(--x1); padding: var(--x2) var(--x3); }
-    .build-app .memo-roadmap-list { grid-template-columns: 1fr 1fr; }
+    /* Roadmap: numeral + head on top, action + deliv stacked below */
+    .build-app .memo-roadmap-list > li {
+      grid-template-columns: 3.5rem 1fr;
+      grid-template-areas:
+        "num head"
+        "num action"
+        "num deliv";
+      gap: var(--x5) var(--x4);
+      padding: var(--x3);
+    }
+    .build-app .memo-roadmap-list .roadmap-card-num { grid-area: num; align-self: start; font-size: 2.5rem; }
+    .build-app .memo-roadmap-list .roadmap-card-head { grid-area: head; }
+    .build-app .memo-roadmap-list .roadmap-card-action { grid-area: action; }
+    .build-app .memo-roadmap-list .roadmap-card-deliv {
+      grid-area: deliv;
+      padding-left: 0;
+      padding-top: var(--x5);
+      border-left: none;
+      border-top: 1px solid var(--rule);
+    }
     .build-app .memo-cta-fork { grid-template-columns: 1fr; gap: var(--x4); }
   }
   @media (max-width: 560px) {
@@ -1546,7 +1586,19 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     .build-app .memo { padding: var(--x3) var(--x4); margin: var(--x3) var(--x4); }
     .build-app .memo::before { top: 10px; left: 10px; right: 10px; bottom: 10px; }
     .build-app .memo-head { padding: var(--x2) var(--x3); }
-    .build-app .memo-roadmap-list { grid-template-columns: 1fr; }
+    .build-app .memo-roadmap-list > li {
+      grid-template-columns: 1fr;
+      grid-template-areas:
+        "head"
+        "num"
+        "action"
+        "deliv";
+      gap: var(--x5);
+    }
+    .build-app .memo-roadmap-list .roadmap-card-num {
+      text-align: left;
+      font-size: 2rem;
+    }
     .build-app .idea-meta-block { flex-direction: column; gap: 2px; }
     .build-app .idea-meta-label { width: auto; }
   }
@@ -1568,7 +1620,10 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     .build-app .memo-cta { display: none !important; }
     .build-app .memo-actions { display: none !important; }
     .build-app .memo-grid { grid-template-columns: 1fr 1fr !important; }
-    .build-app .memo-roadmap-list { grid-template-columns: 1fr 1fr !important; }
+    .build-app .memo-roadmap-list > li {
+      grid-template-columns: 4.5rem 9rem 1fr 1.2fr !important;
+      page-break-inside: avoid;
+    }
   }
 </style>
 
@@ -1621,7 +1676,7 @@ function updateProgress() {
   }
 }
 
-// Field bindings
+// Field bindings (text inputs / textareas)
 app.querySelectorAll('[data-field]').forEach((el) => {
   el.addEventListener('input', (e) => {
     const key = el.getAttribute('data-field');
@@ -1634,36 +1689,60 @@ app.querySelectorAll('[data-field]').forEach((el) => {
   });
 });
 
-// Chip bindings (industry quick-pick)
+// Chip bindings (industry quick-pick) — set state AND dispatch input event so all listeners sync
 app.querySelectorAll('[data-chip]').forEach((btn) => {
   btn.addEventListener('click', () => {
     const key = btn.getAttribute('data-chip');
     const val = btn.getAttribute('data-value');
     state.answers[key] = val;
     const input = app.querySelector(`[data-field="${key}"]`);
-    if (input) input.value = val;
+    if (input) {
+      input.value = val;
+      input.dispatchEvent(new Event('input', { bubbles: true }));
+    }
     app.querySelectorAll(`[data-chip="${key}"]`).forEach((b) => b.classList.remove('is-active'));
     btn.classList.add('is-active');
   });
 });
 
-// Radios
-app.querySelectorAll('[data-radios]').forEach((group) => {
+/* ─────────────────────────────────────────────────────────
+   Radios — bind BOTH 'change' AND 'click' on the group,
+   and re-read checked state from DOM each time so we never
+   miss a selection. Some browsers (mobile Safari, some FF)
+   don't fire 'change' reliably on label-mediated clicks of
+   pointer-events:none inputs.
+   ─────────────────────────────────────────────────────── */
+function syncRadioGroup(group) {
   const key = group.getAttribute('data-radios');
-  group.addEventListener('change', (e) => {
-    if (e.target.matches('input[type="radio"]')) {
-      state.answers[key] = e.target.value;
-    }
+  const checked = group.querySelector('input[type="radio"]:checked');
+  if (checked) state.answers[key] = checked.value;
+}
+app.querySelectorAll('[data-radios]').forEach((group) => {
+  // Re-sync on any click anywhere in the group (label, span, anywhere)
+  group.addEventListener('click', () => {
+    // Defer one tick so the browser finishes checking the input
+    setTimeout(() => syncRadioGroup(group), 0);
   });
+  // Also bind change as a belt + suspenders
+  group.addEventListener('change', () => syncRadioGroup(group));
+  // Sync once on init in case a radio is pre-checked
+  syncRadioGroup(group);
 });
 
-// Checks (multi-select)
-app.querySelectorAll('[data-checks]').forEach((group) => {
+/* ─────────────────────────────────────────────────────────
+   Checks — same defensive pattern
+   ─────────────────────────────────────────────────────── */
+function syncCheckGroup(group) {
   const key = group.getAttribute('data-checks');
-  group.addEventListener('change', () => {
-    const values = Array.from(group.querySelectorAll('input:checked')).map((i) => i.value);
-    state.answers[key] = values;
+  const values = Array.from(group.querySelectorAll('input[type="checkbox"]:checked')).map((i) => i.value);
+  state.answers[key] = values;
+}
+app.querySelectorAll('[data-checks]').forEach((group) => {
+  group.addEventListener('click', () => {
+    setTimeout(() => syncCheckGroup(group), 0);
   });
+  group.addEventListener('change', () => syncCheckGroup(group));
+  syncCheckGroup(group);
 });
 
 // Actions
@@ -1674,6 +1753,17 @@ app.addEventListener('click', async (e) => {
   const requires = btn.getAttribute('data-requires');
 
   if (requires) {
+    // Belt + suspenders: re-sync ALL radio/check groups from the DOM
+    // before validating. Cheap and guarantees we never miss a selection
+    // that the user made but a 'change' event swallowed.
+    app.querySelectorAll('[data-radios]').forEach(syncRadioGroup);
+    app.querySelectorAll('[data-checks]').forEach(syncCheckGroup);
+    // Also re-pull the current text input value in case input event missed
+    const inputEl = app.querySelector(`[data-field="${requires}"]`);
+    if (inputEl && typeof inputEl.value === 'string') {
+      state.answers[requires] = inputEl.value.trim();
+    }
+
     const val = state.answers[requires];
     if (!val || (Array.isArray(val) && val.length === 0)) {
       btn.animate(
@@ -1861,11 +1951,11 @@ function renderMemo(memo, sources, idea, ctx) {
   const roadList = $('[data-memo="roadmap"]');
   roadList.innerHTML = (memo.roadmap || []).map((r) => `
     <li class="roadmap-card">
+      <div class="roadmap-card-num">${escapeHtml(String(r.week || ''))}</div>
       <div class="roadmap-card-head">
         <span class="roadmap-card-phase">${escapeHtml(r.phase || '')}</span>
         <span class="roadmap-card-week">Week ${escapeHtml(String(r.week || ''))}</span>
       </div>
-      <div class="roadmap-card-num">${escapeHtml(String(r.week || ''))}</div>
       <p class="roadmap-card-action">${escapeHtml(r.action || '')}</p>
       <p class="roadmap-card-deliv">${escapeHtml(r.deliverable || '')}</p>
     </li>
