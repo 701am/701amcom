@@ -3,6 +3,7 @@ import '../styles/global.css';
 import Topbar from '../components/Topbar.astro';
 import Footer from '../components/Footer.astro';
 import SearchOverlay from '../components/SearchOverlay.astro';
+import BuildBadge from '../components/BuildBadge.astro';
 
 interface Props {
   title?: string;
@@ -61,6 +62,7 @@ const canonical = new URL(Astro.url.pathname, Astro.site).toString();
   </main>
   <Footer />
   <SearchOverlay />
+  <BuildBadge />
 
   <script>
     const observer = new IntersectionObserver(

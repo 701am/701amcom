@@ -1,22 +1,9 @@
 ---
 import Seal from './Seal.astro';
-import { getCollection } from 'astro:content';
 
 const path = Astro.url.pathname;
 const isCurrent = (href: string) =>
   href === '/' ? path === '/' : path.startsWith(href);
-
-// Pull the latest dispatch number from content at build time
-let latestDispatchNum = 0;
-try {
-  const notes = await getCollection('notes', ({ data }) => !data.draft);
-  latestDispatchNum = notes.reduce(
-    (max, n) => Math.max(max, Number(n.data.number) || 0),
-    0
-  );
-} catch {
-  latestDispatchNum = 0;
-}
 
 // Editorial datestamp — "SAT · 16 MAY 2026"
 const today = new Date();
@@ -48,16 +35,10 @@ const dateLabel = `${dayLabel} · ${today.getDate()} ${monthLabel} ${today.getFu
         <span class="mast-ds-label">Filed at sunrise</span>
         <span class="mast-ds-dot" aria-hidden="true">·</span>
         <span class="mast-ds-date">{dateLabel}</span>
-        {latestDispatchNum > 0 && (
-          <>
-            <span class="mast-ds-dot" aria-hidden="true">·</span>
-            <span class="mast-ds-num">Dispatch №&nbsp;<em>{latestDispatchNum}</em></span>
-          </>
-        )}
       </p>
 
       <p class="mast-datestamp-mobile" aria-label="Today's edition">
-        {dateLabel}{latestDispatchNum > 0 ? ` · № ${latestDispatchNum}` : ''}
+        {dateLabel}
       </p>
 
     </div>
@@ -246,20 +227,6 @@ const dateLabel = `${dayLabel} · ${today.getDate()} ${monthLabel} ${today.getFu
   }
   .mast-ds-date {
     color: var(--ink);
-  }
-  .mast-ds-num {
-    color: var(--ink-soft);
-  }
-  .mast-ds-num em {
-    font-family: 'Newsreader', Georgia, serif;
-    font-style: italic;
-    font-weight: 400;
-    color: var(--claret);
-    font-variant-numeric: oldstyle-nums;
-    font-size: 14px;
-    letter-spacing: 0;
-    text-transform: none;
-    margin-left: 2px;
   }
   .mast-datestamp-mobile {
     display: none;

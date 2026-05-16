@@ -1,0 +1,333 @@
+---
+// BuildBadge.astro
+// A floating bottom-right callout pointing to /build. Desktop only.
+// Hidden on /build itself.
+const path = Astro.url.pathname;
+const isOnBuild = path.startsWith('/build');
+---
+{!isOnBuild && (
+  <aside class="build-badge" data-build-badge aria-label="Build a Data Story workshop">
+    <button
+      class="build-badge-dismiss"
+      type="button"
+      aria-label="Dismiss"
+      data-build-dismiss
+    >
+      <svg viewBox="0 0 12 12" width="9" height="9" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true">
+        <line x1="2" y1="2" x2="10" y2="10"></line>
+        <line x1="10" y1="2" x2="2" y2="10"></line>
+      </svg>
+    </button>
+
+    <div class="build-badge-card" data-build-card>
+      <p class="build-badge-eyebrow">★ A 3-minute workshop · Free</p>
+      <h3 class="build-badge-h">
+        Find <em>the angle</em><br />
+        your industry hasn't seen.
+      </h3>
+      <p class="build-badge-body">
+        Five questions. Two public datasets. <em>One headline you did not have yesterday.</em>
+      </p>
+      <a class="build-badge-cta" href="/build">
+        Build a Data Story
+        <span class="build-badge-arrow" aria-hidden="true">→</span>
+      </a>
+    </div>
+
+    <a class="build-badge-seal" href="/build" aria-label="Build a Data Story">
+      <span class="build-badge-seal-time">7:01</span>
+      <span class="build-badge-pulse" aria-hidden="true"></span>
+    </a>
+  </aside>
+)}
+
+<style>
+  /* ═══════════════════════════════════════════════════════════════════
+     BUILD BADGE — floating callout (desktop only)
+     Default: 64px wax seal pinned bottom-right
+     On hover (or 6s timer): horizontal card slides out left
+     Dismiss → fades out, localStorage flag suppresses for the session
+     ═══════════════════════════════════════════════════════════════════ */
+
+  .build-badge {
+    position: fixed;
+    bottom: 28px;
+    right: 28px;
+    z-index: 80;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    pointer-events: none;            /* let children manage hits */
+    transform: translateY(0) translateX(0);
+    transition: opacity 0.4s ease, transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    animation: build-badge-enter 0.8s cubic-bezier(0.16, 1, 0.3, 1) 1.2s both;
+  }
+  @keyframes build-badge-enter {
+    from { opacity: 0; transform: translateY(20px) scale(0.85); }
+    to { opacity: 1; transform: translateY(0) scale(1); }
+  }
+  .build-badge[hidden],
+  .build-badge.is-dismissed {
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(12px) scale(0.92);
+  }
+
+  /* ─────────── THE WAX SEAL ─────────── */
+  .build-badge-seal {
+    position: relative;
+    width: 64px;
+    height: 64px;
+    flex-shrink: 0;
+    border-radius: 50%;
+    background: radial-gradient(circle at 35% 32%,
+      #C8334F 0%,
+      var(--claret) 38%,
+      var(--claret-dark) 90%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow:
+      0 10px 22px rgba(15, 14, 14, 0.32),
+      0 2px 6px rgba(15, 14, 14, 0.18),
+      inset 0 -4px 8px rgba(0, 0, 0, 0.28),
+      inset 0 4px 8px rgba(255, 255, 255, 0.20);
+    transform: rotate(-8deg);
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+                box-shadow 0.4s ease;
+    cursor: pointer;
+    text-decoration: none;
+    pointer-events: auto;
+  }
+  .build-badge-seal::before {
+    content: "";
+    position: absolute;
+    inset: 5px;
+    border-radius: 50%;
+    border: 1px dashed rgba(255, 241, 224, 0.42);
+    pointer-events: none;
+  }
+  .build-badge-seal::after {
+    content: "★";
+    position: absolute;
+    top: 9px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 9px;
+    color: rgba(255, 241, 224, 0.7);
+    line-height: 1;
+  }
+  .build-badge-seal:hover {
+    transform: rotate(0deg) scale(1.05);
+    box-shadow:
+      0 14px 32px rgba(153, 15, 61, 0.40),
+      0 3px 8px rgba(15, 14, 14, 0.22),
+      inset 0 -4px 8px rgba(0, 0, 0, 0.28),
+      inset 0 4px 8px rgba(255, 255, 255, 0.22);
+  }
+  .build-badge-seal-time {
+    font-family: 'Newsreader', Georgia, serif;
+    font-style: italic;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 1;
+    color: var(--paper-soft);
+    font-variant-numeric: oldstyle-nums;
+    letter-spacing: -0.02em;
+    margin-top: 4px;        /* nudge down to balance with the star above */
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.35);
+  }
+
+  /* Soft pulse ring — signals interactivity without screaming */
+  .build-badge-pulse {
+    position: absolute;
+    inset: -2px;
+    border-radius: 50%;
+    border: 1.5px solid var(--claret);
+    opacity: 0;
+    animation: build-pulse 2.6s ease-out infinite;
+    animation-delay: 3s;
+    pointer-events: none;
+  }
+  @keyframes build-pulse {
+    0%   { opacity: 0; transform: scale(1); }
+    25%  { opacity: 0.6; }
+    100% { opacity: 0; transform: scale(1.6); }
+  }
+  .build-badge-seal:hover .build-badge-pulse {
+    animation: none;
+    opacity: 0;
+  }
+
+  /* ─────────── THE CARD (expanded state) ─────────── */
+  .build-badge-card {
+    width: 320px;
+    background: var(--paper-soft);
+    border: 1px solid var(--ink);
+    border-top: 3px solid var(--claret);
+    box-shadow:
+      0 22px 48px rgba(15, 14, 14, 0.22),
+      0 4px 12px rgba(15, 14, 14, 0.10);
+    padding: 18px 20px 16px;
+    position: relative;
+    opacity: 0;
+    transform: translateX(20px) scale(0.96);
+    transform-origin: right center;
+    pointer-events: none;
+    transition: opacity 0.35s ease, transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .build-badge-card::before {
+    content: "";
+    position: absolute;
+    top: 6px; left: 6px; right: 6px; bottom: 6px;
+    border: 1px solid rgba(15, 14, 14, 0.08);
+    pointer-events: none;
+  }
+  /* Show card on seal hover or when badge is in 'expanded' state */
+  .build-badge:hover .build-badge-card,
+  .build-badge.is-expanded .build-badge-card {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+    pointer-events: auto;
+  }
+
+  .build-badge-eyebrow {
+    font-family: 'Instrument Sans', sans-serif;
+    font-size: 9.5px;
+    letter-spacing: 0.26em;
+    color: var(--claret);
+    text-transform: uppercase;
+    font-weight: 600;
+    margin: 0 0 10px;
+    position: relative;
+    z-index: 1;
+  }
+  .build-badge-h {
+    font-family: 'Newsreader', Georgia, serif;
+    font-size: 22px;
+    font-weight: 400;
+    line-height: 1.1;
+    letter-spacing: -0.022em;
+    color: var(--ink);
+    margin: 0 0 10px;
+    position: relative;
+    z-index: 1;
+  }
+  .build-badge-h em {
+    font-style: italic;
+    color: var(--claret);
+    font-weight: 400;
+  }
+  .build-badge-body {
+    font-family: 'Newsreader', Georgia, serif;
+    font-size: 13.5px;
+    font-style: italic;
+    font-weight: 300;
+    line-height: 1.45;
+    color: var(--ink-soft);
+    margin: 0 0 14px;
+    position: relative;
+    z-index: 1;
+  }
+  .build-badge-body em {
+    color: var(--claret);
+    font-style: italic;
+  }
+  .build-badge-cta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    width: 100%;
+    padding: 11px 18px;
+    background: var(--ink-deep);
+    color: var(--paper-soft);
+    text-decoration: none;
+    font-family: 'Instrument Sans', sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    transition: background 0.25s ease;
+    position: relative;
+    z-index: 1;
+  }
+  .build-badge-cta:hover {
+    background: var(--claret);
+  }
+  .build-badge-arrow {
+    transition: transform 0.25s ease;
+  }
+  .build-badge-cta:hover .build-badge-arrow {
+    transform: translateX(3px);
+  }
+
+  /* Dismiss button — shows only when card is visible */
+  .build-badge-dismiss {
+    position: absolute;
+    top: 6px;
+    right: 6px;
+    width: 22px;
+    height: 22px;
+    background: var(--paper);
+    border: 1px solid var(--rule-strong);
+    border-radius: 50%;
+    color: var(--ink-soft);
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    opacity: 0;
+    transform: scale(0.85);
+    transition: opacity 0.3s ease, transform 0.3s ease, color 0.2s, border-color 0.2s;
+    pointer-events: none;
+    z-index: 5;
+  }
+  .build-badge:hover .build-badge-dismiss,
+  .build-badge.is-expanded .build-badge-dismiss {
+    opacity: 1;
+    transform: scale(1);
+    pointer-events: auto;
+  }
+  .build-badge-dismiss:hover {
+    color: var(--claret);
+    border-color: var(--claret);
+  }
+
+  /* ─────────── HIDE ON MOBILE & TABLET ─────────── */
+  @media (max-width: 960px) {
+    .build-badge { display: none; }
+  }
+
+  /* Respect reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    .build-badge { animation: none; }
+    .build-badge-pulse { animation: none; opacity: 0; }
+    .build-badge-card { transition: opacity 0.2s ease; }
+  }
+</style>
+
+<script>
+  const badge = document.querySelector('[data-build-badge]');
+  const dismiss = document.querySelector('[data-build-dismiss]');
+
+  if (badge && dismiss) {
+    // Honor previous dismissal for this session
+    try {
+      if (sessionStorage.getItem('build-badge-dismissed') === '1') {
+        (badge as HTMLElement).hidden = true;
+      }
+    } catch { /* sessionStorage might be blocked */ }
+
+    dismiss.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      badge.classList.add('is-dismissed');
+      try { sessionStorage.setItem('build-badge-dismissed', '1'); } catch {}
+      // Fully hide after the fade-out finishes
+      setTimeout(() => {
+        (badge as HTMLElement).hidden = true;
+      }, 500);
+    });
+  }
+</script>
