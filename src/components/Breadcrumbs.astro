@@ -1,0 +1,139 @@
+---
+/**
+ * Breadcrumbs.astro
+ *
+ * A small editorial breadcrumb trail that sits below the topbar and above
+ * the page masthead. Used on every page except the homepage.
+ *
+ * Items are passed in as { name, href }. The last item is treated as the
+ * current page (non-clickable, displayed differently).
+ *
+ * Visual: italic Newsreader, ink-faint, with a small ↩ arrow on the left
+ * and italic claret middots between items.
+ */
+
+interface Crumb {
+  name: string;
+  href?: string;
+}
+
+interface Props {
+  items: Crumb[];
+}
+
+const { items } = Astro.props;
+
+// Don't render anything if no items or only one (just the current page)
+const shouldRender = items && items.length >= 1;
+---
+{shouldRender && (
+  <nav class="breadcrumbs" aria-label="Breadcrumb">
+    <div class="breadcrumbs-inner">
+      <span class="breadcrumbs-mark" aria-hidden="true">↩</span>
+      <ol class="breadcrumbs-list">
+        {items.map((crumb, i) => {
+          const isLast = i === items.length - 1;
+          return (
+            <li class:list={["breadcrumbs-item", isLast && "is-current"]}>
+              {!isLast && crumb.href ? (
+                <a href={crumb.href} class="breadcrumbs-link">{crumb.name}</a>
+              ) : (
+                <span class="breadcrumbs-current" aria-current="page">{crumb.name}</span>
+              )}
+              {!isLast && <span class="breadcrumbs-sep" aria-hidden="true">·</span>}
+            </li>
+          );
+        })}
+      </ol>
+    </div>
+  </nav>
+)}
+
+<style>
+  .breadcrumbs {
+    background: var(--paper);
+    border-bottom: 1px solid var(--rule);
+    font-family: 'Newsreader', Georgia, serif;
+  }
+  .breadcrumbs-inner {
+    max-width: 88rem;
+    margin: 0 auto;
+    padding: 10px 32px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+  .breadcrumbs-mark {
+    font-size: 13px;
+    color: var(--claret);
+    line-height: 1;
+    flex-shrink: 0;
+    transform: translateY(-1px);     /* optical alignment with italic text */
+  }
+  .breadcrumbs-list {
+    list-style: none;
+    display: flex;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 0;
+    margin: 0;
+    padding: 0;
+    line-height: 1.4;
+  }
+  .breadcrumbs-item {
+    display: inline-flex;
+    align-items: baseline;
+    gap: 8px;
+  }
+  .breadcrumbs-link {
+    font-family: 'Newsreader', Georgia, serif;
+    font-style: italic;
+    font-size: 14px;
+    color: var(--ink-soft);
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: color 0.2s ease, border-color 0.2s ease;
+    line-height: 1.4;
+  }
+  .breadcrumbs-link:hover {
+    color: var(--claret);
+    border-bottom-color: var(--claret);
+  }
+  .breadcrumbs-current {
+    font-family: 'Newsreader', Georgia, serif;
+    font-style: italic;
+    font-size: 14px;
+    color: var(--ink);
+    line-height: 1.4;
+    font-feature-settings: "kern" 1, "liga" 1, "onum" 1;
+  }
+  .breadcrumbs-sep {
+    font-family: 'Newsreader', Georgia, serif;
+    font-style: italic;
+    font-size: 14px;
+    color: var(--claret);
+    line-height: 1.4;
+    margin: 0 10px;
+    user-select: none;
+    opacity: 0.6;
+  }
+
+  @media (max-width: 720px) {
+    .breadcrumbs-inner {
+      padding: 8px 20px;
+      gap: 8px;
+    }
+    .breadcrumbs-link,
+    .breadcrumbs-current {
+      font-size: 13px;
+    }
+    .breadcrumbs-mark { font-size: 12px; }
+    .breadcrumbs-sep { margin: 0 8px; font-size: 13px; }
+  }
+  @media (max-width: 480px) {
+    .breadcrumbs-inner {
+      padding: 8px 16px;
+    }
+  }
+</style>

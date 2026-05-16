@@ -4,6 +4,11 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 <BaseLayout
   title="Contact — 701am"
   description="Book a sunrise call, read the scroll, browse the skills, or write to the office directly."
+  pageType="contactPage"
+  breadcrumbs={[
+    { name: 'Home', url: '/' },
+    { name: 'Contact' },
+  ]}
 >
 
   <header class="page-masthead">

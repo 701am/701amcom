@@ -1,354 +1,785 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import CtaBanner from '../components/CtaBanner.astro';
 ---
 <BaseLayout
-  title="About — 701am"
-  description="The office of earned media. Why we built it, what we believe, and how we work."
+  title="About David Krug — 701am"
+  description="Founder of 701am. An earned-media operator based in the Philippines, with a long history of building in higher-education lead gen, performance SEO, and the systems that make data-driven press repeatable."
+  pageType="aboutPage"
+  breadcrumbs={[
+    { name: 'Home', url: '/' },
+    { name: 'About' },
+  ]}
 >
 
-  <!-- ════ PAGE MASTHEAD ════ -->
-  <header class="page-masthead">
-    <p class="page-eyebrow">
-      <span class="page-rule"></span>
-      About the office
-      <span class="page-rule"></span>
-    </p>
-    <h1 class="page-title">A small office, <em>built around an idea.</em></h1>
-    <p class="page-deck">
-      We do two things and we do them better than anyone else on the planet: we find the un-ignorable angle, and we place it where it cannot be denied.
-    </p>
-  </header>
+  <article class="ab">
 
-  <!-- ════ § 01 — WHY THE OFFICE EXISTS ════ -->
-  <section class="section section-navy">
-    <div class="container reveal">
-      <div class="section-label">
-        <div class="label-bar"></div>
-        <div class="label-text">§ 01 · The reason</div>
-        <div class="label-bar"></div>
-      </div>
-      <h2 class="h2">Why this <em>office exists.</em></h2>
-      <div class="body">
-        <p class="dropcap">
-          For most of the last decade, paid advertising was the default answer to the question <em>"how do we get our name out there?"</em> It worked, in the way that renting an apartment works — you pay, you stay, you leave, you have nothing. The brands that lasted understood, often after spending a fortune learning it, that what they actually wanted was not attention. It was authority. And authority could not be bought.
-        </p>
+    <!-- ════════════════════════════════════════════════════════════
+         MASTHEAD — Hi, I'm David
+         ════════════════════════════════════════════════════════════ -->
+    <header class="ab-mast">
+      <p class="ab-mast-eyebrow">Section II · About me · Manila, PH</p>
+
+      <h1 class="ab-mast-h">
+        Hi! I'm <em>David</em> Krug.
+      </h1>
+
+      <p class="ab-mast-lede">
+        I'm an earned-media operator and builder based in the Philippines. I'm married, with two daughters — <em>Sofia</em>, born 2017, and <em>Dana</em>, born 2025 — who keep the office honest and the writing fast.
+      </p>
+
+      <p class="ab-mast-lede">
+        I run a small studio called <a href="/" class="ab-link">701am</a>, where I find the un-ignorable angle inside public data and place it where it cannot be denied. I write the dispatches, build most of the technical infrastructure myself, and sit with founders at sunrise.
+      </p>
+
+      <figure class="ab-portrait">
+        <div class="ab-portrait-frame" aria-hidden="true">
+          <span class="ab-portrait-init">D</span>
+          <span class="ab-portrait-stamp">★ 7:01 ★</span>
+        </div>
+        <figcaption class="ab-portrait-cap">
+          Portrait · Filed from Manila, 2026
+        </figcaption>
+      </figure>
+    </header>
+
+    <!-- ════════════════════════════════════════════════════════════
+         § 01 — BACKGROUND
+         ════════════════════════════════════════════════════════════ -->
+    <section class="ab-section">
+      <header class="ab-section-head">
+        <p class="ab-section-label">§ 01 · Background</p>
+        <h2 class="ab-section-h">My <em>story.</em></h2>
+      </header>
+
+      <div class="ab-prose">
         <p>
-          701am exists for the founders, marketers, and operators who have figured this out — or who suspect it, and want help proving it. We are not the largest earned media office in the world. We are likely not the cheapest. We are the one that will sit with you for an hour, find the angle no one else has noticed, and then prove we can place it.
+          I came up in performance content. Starting in 2007, I spent the better part of two decades operating in the higher-education lead-generation space — building and running properties that connected prospective students with online and traditional programs. <a href="https://collegeranker.com" class="ab-link">CollegeRanker.com</a>, the original incarnations of <em>CollegeChoice.net</em>, <em>BestCollegeReviews.com</em>, and roughly a hundred others. I consulted on <em>TheBestSchools.org</em>. The work taught me a lot about SEO; more importantly, it taught me where attention actually lives and what makes a publisher worth visiting twice.
         </p>
-        <div class="aphorism">If that sounds like what you are looking for</div>
+
         <p>
-          The sunrise call is free. The work that follows is not. But everything we do is on the same principle: <em>the world does not remember the loudest. It remembers the one it could not look away from.</em> Our job is to make sure that one is you.
+          In 2019 I joined a <em>Manhattan-based agency</em> as Director of SEO, where the specialty was producing infographics for tech and startup clients — visual stories built to earn coverage, not to win pop-up traffic. A year later, in 2020, I took the same title at a <em>private-equity-backed publishing portfolio</em> covering legal, financial, and insurance. Both jobs shaped how I think about narrative and distribution today.
         </p>
-      </div>
-    </div>
-  </section>
 
-  <!-- ════ § 02 — PRINCIPLES ════ -->
-  <section class="section section-cream">
-    <div class="container reveal">
-      <div class="section-label">
-        <div class="label-bar"></div>
-        <div class="label-text">§ 02 · What we believe</div>
-        <div class="label-bar"></div>
-      </div>
-      <h2 class="h2 h2-dark">Five things <em>we believe.</em></h2>
-      <div class="body body-dark body-center" style="margin-bottom: var(--x1);">
         <p>
-          These are not slogans. They are the conditions under which we choose to work, and the test we apply to every campaign before it leaves the office.
+          On the side, I had been building. In 2017 I started <em>PressTitan</em>, a managed-WordPress hosting agency that grew steadily and quietly until I sold it in 2026. In 2021 I launched <a href="https://quoteyeti.com" class="ab-link">QuoteYeti.com</a>. In 2025 I built <a href="https://mbastack.org" class="ab-link">MBAStack.org</a> as a modern take on graduate-program guides. Most of these still run.
+        </p>
+
+        <p>
+          The exit from PressTitan in 2026 cleared the runway for what I had quietly been building for a decade: a small, opinionated office for earned media. <a href="/" class="ab-link">701am</a> is the result. It is named after the minute after the alarm — 7:01 a.m. — when a hundred million people decide what matters today, and the press cycle begins again.
+        </p>
+
+        <p>
+          Alongside 701am I keep a few other things alive: the original education properties, the <a href="/skills" class="ab-link">Earned Media Skills</a> open-source library, and a handful of internal tools that exist because the office needed them. Most of what I build I build in public. The rest I write about <a href="/notes" class="ab-link">in the dispatches</a>.
+        </p>
+
+        <div class="ab-aphorism">
+          ★ Generic is a form of dishonesty ★
+        </div>
+
+        <p>
+          When I'm not at the desk, I'm with my daughters, or losing badly at chess. I write best at sunrise, ship at midnight, and believe — strongly and unfashionably — that the open web is still the most interesting commercial real estate on the internet.
         </p>
       </div>
 
-      <ol class="principles">
-        <li class="principle">
-          <span class="principle-num">i.</span>
-          <div>
-            <h3 class="principle-h">Generic is a form of dishonesty.</h3>
-            <p class="principle-p">Every business has one true sentence no competitor can copy. If we have not found it, we have not done our work.</p>
-          </div>
-        </li>
-        <li class="principle">
-          <span class="principle-num">ii.</span>
-          <div>
-            <h3 class="principle-h">The pitch is the product.</h3>
-            <p class="principle-p">A reporter decides in eight words whether to open the email. We write for the eight words first, and the rest of the campaign follows.</p>
-          </div>
-        </li>
-        <li class="principle">
-          <span class="principle-num">iii.</span>
-          <div>
-            <h3 class="principle-h">Compounds beat spikes.</h3>
-            <p class="principle-p">A single placement is a moment. Forty placements over a year is an asset. We work for the asset, not the moment.</p>
-          </div>
-        </li>
-        <li class="principle">
-          <span class="principle-num">iv.</span>
-          <div>
-            <h3 class="principle-h">The work is not for everyone.</h3>
-            <p class="principle-p">If we cannot help you, we will say so on the first call, and tell you who can. We would rather lose a client than waste their year.</p>
-          </div>
-        </li>
-        <li class="principle">
-          <span class="principle-num">v.</span>
-          <div>
-            <h3 class="principle-h">Earned, not bought.</h3>
-            <p class="principle-p">Every campaign we run is a campaign we could publish the receipts for. No paid placements dressed as earned media. No pay-to-play. No exceptions.</p>
-          </div>
-        </li>
-      </ol>
-    </div>
-  </section>
-
-  <!-- ════ § 03 — THE PEOPLE ════ -->
-  <section class="section section-navy">
-    <div class="container reveal">
-      <div class="section-label">
-        <div class="label-bar"></div>
-        <div class="label-text">§ 03 · The people</div>
-        <div class="label-bar"></div>
+      <!-- Timeline -->
+      <div class="ab-timeline" aria-label="Career timeline">
+        <p class="ab-timeline-label">Timeline</p>
+        <ol class="ab-timeline-list">
+          <li>
+            <span class="ab-time-year">2007</span>
+            <span class="ab-time-event">Started in higher-education lead gen — CollegeChoice.net, BestCollegeReviews.com, and ~100 other properties</span>
+          </li>
+          <li>
+            <span class="ab-time-year">2017</span>
+            <span class="ab-time-event">Sofia is born; founded PressTitan, a managed-WordPress hosting agency</span>
+          </li>
+          <li>
+            <span class="ab-time-year">2019</span>
+            <span class="ab-time-event">Director of SEO at a Manhattan agency specializing in tech-startup infographics</span>
+          </li>
+          <li>
+            <span class="ab-time-year">2020</span>
+            <span class="ab-time-event">Director of SEO at a P/E-backed legal, financial &amp; insurance publishing portfolio</span>
+          </li>
+          <li>
+            <span class="ab-time-year">2021</span>
+            <span class="ab-time-event">Launched QuoteYeti.com</span>
+          </li>
+          <li>
+            <span class="ab-time-year">2025</span>
+            <span class="ab-time-event">Dana is born; launched MBAStack.org</span>
+          </li>
+          <li>
+            <span class="ab-time-year">2026</span>
+            <span class="ab-time-event">Exited PressTitan; launched 701am — the earned-media office</span>
+          </li>
+          <li>
+            <span class="ab-time-year">Now</span>
+            <span class="ab-time-event">Building Cronkite, the Earned Media Skills library, and the dispatches</span>
+          </li>
+        </ol>
       </div>
-      <h2 class="h2">Who works <em>at the office.</em></h2>
+    </section>
 
-      <div class="people">
-        <figure class="person">
-          <div class="person-avatar" aria-hidden="true">D</div>
-          <figcaption>
-            <h3 class="person-name">David</h3>
-            <p class="person-role">Founder</p>
-            <p class="person-bio">
-              Spent fifteen years running content and SEO businesses for higher education. Now finds the angle for everyone else's businesses. Writes most of the dispatches at 7:01am.
-            </p>
-          </figcaption>
-        </figure>
+    <!-- ════════════════════════════════════════════════════════════
+         § 02 — CONNECT
+         ════════════════════════════════════════════════════════════ -->
+    <section class="ab-section ab-section--connect">
+      <header class="ab-section-head">
+        <p class="ab-section-label">§ 02 · Connect</p>
+        <h2 class="ab-section-h">Find me <em>online.</em></h2>
+      </header>
 
-        <figure class="person">
-          <div class="person-avatar person-avatar-alt" aria-hidden="true">★</div>
-          <figcaption>
-            <h3 class="person-name">A small bench</h3>
-            <p class="person-role">Researchers, writers, placement</p>
-            <p class="person-bio">
-              We keep the office small on purpose. Three to five people work on a campaign at any time, depending on what it needs. We do not subcontract pitching to anyone we have not worked with for two years.
-            </p>
-          </figcaption>
-        </figure>
+      <p class="ab-connect-deck">
+        These are the only accounts that are mine. If you see another, it is not me.
+      </p>
+
+      <ul class="ab-connect-list">
+        <li>
+          <a href="https://x.com/realdavidkrug" class="ab-connect-link" target="_blank" rel="noopener me">
+            <span class="ab-connect-name">X <em>@realdavidkrug</em></span>
+            <span class="ab-connect-arrow" aria-hidden="true">→</span>
+          </a>
+        </li>
+        <li>
+          <a href="https://bsky.app/profile/davidpkrug.bsky.social" class="ab-connect-link" target="_blank" rel="noopener me">
+            <span class="ab-connect-name">Bluesky <em>@davidpkrug</em></span>
+            <span class="ab-connect-arrow" aria-hidden="true">→</span>
+          </a>
+        </li>
+        <li>
+          <a href="https://www.linkedin.com/in/davidpaulkrug/" class="ab-connect-link" target="_blank" rel="noopener me">
+            <span class="ab-connect-name">LinkedIn <em>in/davidpaulkrug</em></span>
+            <span class="ab-connect-arrow" aria-hidden="true">→</span>
+          </a>
+        </li>
+        <li>
+          <a href="https://github.com/realdavidkrug" class="ab-connect-link" target="_blank" rel="noopener me">
+            <span class="ab-connect-name">GitHub <em>@realdavidkrug</em></span>
+            <span class="ab-connect-arrow" aria-hidden="true">→</span>
+          </a>
+        </li>
+        <li>
+          <a href="/contact" class="ab-connect-link">
+            <span class="ab-connect-name">Write to the desk <em>directly</em></span>
+            <span class="ab-connect-arrow" aria-hidden="true">→</span>
+          </a>
+        </li>
+      </ul>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════════
+         § 03 — WHAT I BUILD AT 701AM
+         ════════════════════════════════════════════════════════════ -->
+    <section class="ab-section">
+      <header class="ab-section-head">
+        <p class="ab-section-label">§ 03 · The office</p>
+        <h2 class="ab-section-h">What I'm building <em>at 701am.</em></h2>
+      </header>
+
+      <p class="ab-builds-deck">
+        Three things live behind the masthead. <em>The Skills</em> are for your AI agent. <em>The Scroll</em> is for you. <em>The Build workshop</em> is for the morning you have a meeting and nothing to say in it.
+      </p>
+
+      <div class="ab-builds">
+
+        <a href="/skills" class="ab-build">
+          <p class="ab-build-num">i.</p>
+          <h3 class="ab-build-h">Earned Media Skills</h3>
+          <p class="ab-build-deck">
+            An open-source library of twenty-eight markdown skills your AI agent can read. Pitch craft, journalist research, the humanizer. <em>MIT licensed.</em>
+          </p>
+          <span class="ab-build-cta">Browse the skills <span aria-hidden="true">→</span></span>
+        </a>
+
+        <a href="/legend-maker" class="ab-build">
+          <p class="ab-build-num">ii.</p>
+          <h3 class="ab-build-h">The Scroll</h3>
+          <p class="ab-build-deck">
+            The full earned-media method, written down. Method, pitch, placement. The same playbook the office uses, <em>given away.</em>
+          </p>
+          <span class="ab-build-cta">Read the scroll <span aria-hidden="true">→</span></span>
+        </a>
+
+        <a href="/build" class="ab-build ab-build--featured">
+          <span class="ab-build-ribbon">★ Free workshop ★</span>
+          <p class="ab-build-num">iii.</p>
+          <h3 class="ab-build-h">Build a Data Story</h3>
+          <p class="ab-build-deck">
+            Five questions. Two public datasets. <em>One headline you did not have yesterday.</em> A three-minute workshop that ends with a strategy memo on your screen.
+          </p>
+          <span class="ab-build-cta">Open the workshop <span aria-hidden="true">→</span></span>
+        </a>
+
       </div>
-    </div>
-  </section>
+    </section>
 
-  <CtaBanner
-    eyebrow="When you are ready"
-    heading="Walk the road <em>with us.</em>"
-    body="Three ways in. One is a sunrise call. One is the scroll, written down for the morning you walk alone. One is the system itself, free for your AI to run."
-    primaryLabel="Book a sunrise call"
-    primaryHref="/discovery"
-    secondaryLabel="Or read the scroll"
-    secondaryHref="/legend-maker"
-    tertiaryLabel="Or browse the skills"
-    tertiaryHref="/skills"
-  />
+    <!-- ════════════════════════════════════════════════════════════
+         § 04 — DISPATCHES
+         ════════════════════════════════════════════════════════════ -->
+    <section class="ab-section ab-section--dispatches">
+      <header class="ab-section-head">
+        <p class="ab-section-label">§ 04 · Writing</p>
+        <h2 class="ab-section-h">Read the <em>dispatches.</em></h2>
+      </header>
+
+      <div class="ab-dispatches-body">
+        <p class="ab-dispatches-p">
+          The blog at 701am is called <em>the dispatches</em> — a running record of essays and field notes on earned media, attention, authority, and the work of being remembered. I file most of them at sunrise. <em>You can read them; you can subscribe; you can ignore them.</em>
+        </p>
+
+        <div class="ab-dispatches-cta">
+          <a href="/notes" class="ab-cta-primary">
+            Read the dispatches <span aria-hidden="true">→</span>
+          </a>
+          <a href="/rss.xml" class="ab-cta-secondary">
+            Subscribe by RSS
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════════
+         CODA — sign off
+         ════════════════════════════════════════════════════════════ -->
+    <footer class="ab-coda">
+      <p class="ab-coda-stamp">★ Colophon ★</p>
+      <p class="ab-coda-p">
+        This site is set in <em>Newsreader</em> and Instrument Sans. Built with Astro on a quiet Saturday. Filed from Manila, every morning at 7:01.
+      </p>
+      <p class="ab-coda-sig">— David</p>
+    </footer>
+
+  </article>
 
 </BaseLayout>
 
 <style>
-  .page-masthead {
-    padding: calc(var(--x1) + var(--x3)) var(--x1) var(--x1);
-    text-align: center;
-    border-bottom: 1px solid var(--rule);
-    max-width: var(--measure-wide);
+  /* ═══════════════════════════════════════════════════════════════════
+     /about — personal page in 701am editorial voice
+     ═══════════════════════════════════════════════════════════════════ */
+
+  .ab {
+    max-width: 56rem;
     margin: 0 auto;
+    padding: var(--x1) 32px calc(var(--x1) + var(--x1));
+    color: var(--ink);
   }
-  .page-eyebrow {
+  .ab-link {
+    color: var(--ink);
+    border-bottom: 1px solid var(--claret);
+    text-decoration: none;
+    transition: color 0.2s ease, background 0.2s ease;
+    padding-bottom: 1px;
+  }
+  .ab-link:hover {
+    color: var(--paper-soft);
+    background: var(--claret);
+  }
+
+  /* ─────────── MASTHEAD ─────────── */
+  .ab-mast {
+    padding: calc(var(--x1) + var(--x2)) 0 var(--x1);
+    border-bottom: 1px solid var(--rule);
+    margin-bottom: var(--x1);
+  }
+  .ab-mast-eyebrow {
     font-family: 'Instrument Sans', sans-serif;
     font-size: 11px;
-    letter-spacing: 0.34em;
+    letter-spacing: 0.28em;
     color: var(--claret);
     text-transform: uppercase;
+    font-weight: 600;
     margin: 0 0 var(--x3);
-    font-weight: 500;
-    display: inline-flex;
-    align-items: center;
-    gap: var(--x3);
   }
-  .page-rule {
-    display: inline-block;
-    width: 28px; height: 1px;
-    background: rgba(153, 15, 61, 0.5);
-  }
-  .page-title {
+  .ab-mast-h {
     font-family: 'Newsreader', Georgia, serif;
-    font-size: clamp(2.8rem, 6.5vw, 4.5rem);
-    font-weight: 500;
-    line-height: 1.04;
-    letter-spacing: -0.035em;
+    font-size: clamp(3rem, 8vw, 5.5rem);
+    font-weight: 300;
+    line-height: 1.02;
+    letter-spacing: -0.04em;
     color: var(--ink);
-    margin: 0 0 var(--x3);
-    max-width: 18ch;
-    margin-left: auto;
-    margin-right: auto;
+    margin: 0 0 var(--x1);
     text-wrap: balance;
     font-feature-settings: "kern" 1, "liga" 1, "dlig" 1;
   }
-  .page-title em {
+  .ab-mast-h em {
     font-style: italic;
-    font-weight: 400;
     color: var(--claret);
+    font-weight: 300;
   }
-  .page-deck {
+  .ab-mast-lede {
+    font-family: 'Newsreader', Georgia, serif;
+    font-size: clamp(1.125rem, 2vw, 1.3rem);
+    font-weight: 300;
+    line-height: 1.55;
+    color: var(--ink-soft);
+    margin: 0 0 var(--x4);
+    max-width: 42rem;
+  }
+  .ab-mast-lede em {
+    font-style: italic;
+    color: var(--claret);
+    font-weight: 400;
+  }
+
+  /* Portrait card */
+  .ab-portrait {
+    margin: var(--x1) 0 0;
+    display: flex;
+    align-items: center;
+    gap: var(--x3);
+  }
+  .ab-portrait-frame {
+    width: 140px;
+    height: 140px;
+    flex-shrink: 0;
+    background: linear-gradient(155deg, var(--paper-deep) 0%, var(--paper-warm) 100%);
+    border: 1px solid var(--rule-strong);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    box-shadow: 0 1px 3px rgba(15, 14, 14, 0.08);
+  }
+  .ab-portrait-init {
     font-family: 'Newsreader', Georgia, serif;
     font-style: italic;
     font-weight: 300;
-    font-size: var(--f5-size);
-    line-height: 1.45;
-    color: var(--ink-faint);
-    max-width: 36ch;
-    margin: 0 auto;
-  }
-
-  /* Dropcap, aphorism reused from index — redeclared scoped to be safe */
-  .dropcap::first-letter {
-    font-family: 'Newsreader', Georgia, serif;
-    font-weight: 400;
-    float: left;
-    font-size: calc(var(--f6-size) * 5.2);
-    line-height: 0.82;
-    padding: 0.05em 0.12em 0 0;
-    margin-top: 0.04em;
-    color: var(--claret);
-    font-style: italic;
-  }
-  .aphorism {
-    font-family: 'Instrument Sans', sans-serif;
-    text-align: center;
-    font-size: var(--f7-size);
-    line-height: 1.5;
-    letter-spacing: 0.34em;
-    color: var(--claret);
-    text-transform: uppercase;
-    margin: var(--x1) auto;
-    font-weight: 500;
-    position: relative;
-    padding: 0 var(--x1);
-    max-width: 38ch;
-  }
-  .aphorism::before, .aphorism::after {
-    content: "";
-    position: absolute;
-    top: 50%;
-    width: 36px;
-    height: 1px;
-    background: rgba(153, 15, 61, 0.4);
-  }
-  .aphorism::before { left: 0; }
-  .aphorism::after { right: 0; }
-
-  /* Principles */
-  .principles {
-    list-style: none;
-    padding: 0;
-    margin: var(--x1) auto 0;
-    max-width: var(--measure);
-    counter-reset: principle;
-  }
-  .principle {
-    display: grid;
-    grid-template-columns: 3.5rem 1fr;
-    gap: var(--x3);
-    padding: var(--x3) 0;
-    border-bottom: 1px solid rgba(30, 30, 30, 0.12);
-  }
-  .principle:last-child { border-bottom: none; }
-  .principle-num {
-    font-family: 'Newsreader', Georgia, serif;
-    font-style: italic;
-    font-size: var(--f4-size);
+    font-size: 5rem;
     color: var(--claret);
     line-height: 1;
-    padding-top: 0.25em;
-    font-variant-numeric: oldstyle-nums;
+    letter-spacing: -0.04em;
   }
-  .principle-h {
-    font-family: 'Newsreader', Georgia, serif;
-    font-size: var(--f4-size);
-    font-weight: 500;
-    line-height: 1.2;
-    color: var(--paper);
-    margin: 0 0 var(--x5);
-    letter-spacing: -0.015em;
-    text-wrap: balance;
+  .ab-portrait-stamp {
+    position: absolute;
+    bottom: 8px;
+    right: 10px;
+    font-family: 'Instrument Sans', sans-serif;
+    font-size: 8.5px;
+    letter-spacing: 0.22em;
+    color: var(--claret);
+    text-transform: uppercase;
+    font-weight: 600;
   }
-  .principle-p {
-    font-family: 'Newsreader', Georgia, serif;
-    font-size: var(--f6-size);
-    line-height: 1.6;
-    color: #2A2A2A;
-    margin: 0;
-    max-width: 56ch;
-  }
-
-  /* People */
-  .people {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: var(--x2);
-    margin: var(--x1) auto 0;
-    max-width: var(--measure);
-  }
-  .person {
-    margin: 0;
-    padding: var(--x2);
-    background: rgba(248, 212, 184, 0.5);
-    border: 1px solid var(--rule-strong);
-    text-align: center;
-  }
-  .person-avatar {
-    width: 56px;
-    height: 56px;
-    border-radius: 50%;
-    background: linear-gradient(135deg, var(--claret) 0%, var(--coral) 100%);
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
+  .ab-portrait-cap {
     font-family: 'Newsreader', Georgia, serif;
     font-style: italic;
-    font-size: 24px;
-    color: var(--ink);
-    margin-bottom: var(--x3);
+    font-size: 14px;
+    color: var(--ink-fainter);
+    line-height: 1.4;
   }
-  .person-avatar-alt {
-    background: linear-gradient(135deg, var(--claret) 0%, var(--coral) 100%);
-    color: var(--paper);
+
+  /* ─────────── SECTIONS ─────────── */
+  .ab-section {
+    padding: calc(var(--x1) + var(--x3)) 0 var(--x1);
+    border-bottom: 1px solid var(--rule);
   }
-  .person-name {
+  .ab-section:last-of-type {
+    border-bottom: none;
+  }
+  .ab-section-head {
+    margin-bottom: var(--x1);
+  }
+  .ab-section-label {
+    font-family: 'Instrument Sans', sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.28em;
+    color: var(--claret);
+    text-transform: uppercase;
+    font-weight: 600;
+    margin: 0 0 var(--x4);
+  }
+  .ab-section-h {
     font-family: 'Newsreader', Georgia, serif;
-    font-size: var(--f4-size);
-    font-weight: 500;
+    font-size: clamp(2.25rem, 5vw, 3.5rem);
+    font-weight: 300;
+    line-height: 1.05;
+    letter-spacing: -0.035em;
     color: var(--ink);
-    margin: 0 0 var(--x5);
-    letter-spacing: -0.012em;
+    margin: 0;
+    text-wrap: balance;
   }
-  .person-role {
+  .ab-section-h em {
+    font-style: italic;
+    color: var(--claret);
+    font-weight: 300;
+  }
+
+  /* ─────────── PROSE ─────────── */
+  .ab-prose {
+    font-family: 'Newsreader', Georgia, serif;
+    font-size: 1.0625rem;
+    line-height: 1.65;
+    color: var(--ink);
+    max-width: 38rem;
+  }
+  .ab-prose p {
+    margin: 0 0 var(--x4);
+  }
+  .ab-prose em {
+    font-style: italic;
+    color: var(--claret);
+  }
+  .ab-prose .ab-link em {
+    color: inherit;          /* don't double-color links inside italics */
+  }
+  .ab-aphorism {
+    font-family: 'Newsreader', Georgia, serif;
+    font-style: italic;
+    font-weight: 300;
+    font-size: 1.5rem;
+    line-height: 1.3;
+    color: var(--claret);
+    text-align: center;
+    margin: calc(var(--x1) + var(--x4)) 0;
+    padding: var(--x4) 0;
+    border-top: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+    letter-spacing: -0.01em;
+  }
+
+  /* ─────────── TIMELINE ─────────── */
+  .ab-timeline {
+    margin: calc(var(--x1) + var(--x4)) 0 0;
+    padding: var(--x1) 0 0;
+    border-top: 1px solid var(--rule);
+  }
+  .ab-timeline-label {
     font-family: 'Instrument Sans', sans-serif;
     font-size: 10px;
     letter-spacing: 0.28em;
     color: var(--claret);
     text-transform: uppercase;
+    font-weight: 600;
     margin: 0 0 var(--x4);
-    font-weight: 500;
   }
-  .person-bio {
-    font-family: 'Newsreader', Georgia, serif;
-    font-size: 15px;
-    line-height: 1.6;
-    color: var(--ink-faint);
+  .ab-timeline-list {
+    list-style: none;
     margin: 0;
+    padding: 0;
+    border-left: 1px solid var(--rule-strong);
+  }
+  .ab-timeline-list li {
+    display: grid;
+    grid-template-columns: 7rem 1fr;
+    gap: var(--x3);
+    padding: var(--x4) var(--x3);
+    border-bottom: 1px solid var(--rule);
+    position: relative;
+    transition: background 0.2s ease;
+  }
+  .ab-timeline-list li:last-child {
+    border-bottom: none;
+  }
+  .ab-timeline-list li::before {
+    content: "";
+    position: absolute;
+    left: -4px;
+    top: 50%;
+    width: 7px;
+    height: 7px;
+    background: var(--paper);
+    border: 1px solid var(--claret);
+    transform: translateY(-50%) rotate(45deg);
+  }
+  .ab-timeline-list li:hover {
+    background: var(--paper-soft);
+  }
+  .ab-time-year {
+    font-family: 'Newsreader', Georgia, serif;
     font-style: italic;
+    font-weight: 400;
+    font-size: 1.25rem;
+    color: var(--claret);
+    font-variant-numeric: oldstyle-nums;
+    letter-spacing: -0.01em;
+    line-height: 1.3;
+  }
+  .ab-time-event {
+    font-family: 'Newsreader', Georgia, serif;
+    font-size: 1rem;
+    line-height: 1.45;
+    color: var(--ink);
   }
 
-  @media (max-width: 720px) {
-    .principle { grid-template-columns: 2.5rem 1fr; gap: var(--x4); }
-    .people { grid-template-columns: 1fr; }
-    .aphorism { padding: 0 var(--x3); }
-    .aphorism::before, .aphorism::after { width: 16px; }
-    .dropcap::first-letter { font-size: calc(var(--f6-size) * 4.2); }
+  /* ─────────── CONNECT ─────────── */
+  .ab-connect-deck {
+    font-family: 'Newsreader', Georgia, serif;
+    font-style: italic;
+    font-size: 1.0625rem;
+    line-height: 1.55;
+    color: var(--ink-soft);
+    margin: 0 0 var(--x1);
+    max-width: 38rem;
+  }
+  .ab-connect-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .ab-connect-link {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    padding: var(--x3) 0;
+    border-top: 1px solid var(--rule);
+    text-decoration: none;
+    color: var(--ink);
+    transition: color 0.2s ease, padding 0.2s ease;
+  }
+  .ab-connect-list li:last-child .ab-connect-link {
+    border-bottom: 1px solid var(--rule);
+  }
+  .ab-connect-link:hover {
+    color: var(--claret);
+    padding-left: 10px;
+  }
+  .ab-connect-name {
+    font-family: 'Newsreader', Georgia, serif;
+    font-size: 1.375rem;
+    font-weight: 400;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+  }
+  .ab-connect-name em {
+    font-family: 'Newsreader', Georgia, serif;
+    font-style: italic;
+    color: var(--claret);
+    font-weight: 400;
+    margin-left: 6px;
+  }
+  .ab-connect-arrow {
+    font-family: 'Instrument Sans', sans-serif;
+    font-size: 1.25rem;
+    color: var(--ink-fainter);
+    transition: transform 0.25s ease, color 0.25s ease;
+  }
+  .ab-connect-link:hover .ab-connect-arrow {
+    transform: translateX(6px);
+    color: var(--claret);
+  }
+
+  /* ─────────── BUILDS (Skills / Scroll / Workshop) ─────────── */
+  .ab-builds-deck {
+    font-family: 'Newsreader', Georgia, serif;
+    font-style: italic;
+    font-size: 1.0625rem;
+    line-height: 1.55;
+    color: var(--ink-soft);
+    margin: 0 0 var(--x1);
+    max-width: 42rem;
+  }
+  .ab-builds-deck em {
+    color: var(--claret);
+    font-style: italic;
+  }
+  .ab-builds {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--x3);
+  }
+  .ab-build {
+    background: var(--paper-soft);
+    border: 1px solid var(--rule);
+    padding: var(--x3) var(--x3) var(--x3);
+    text-decoration: none;
+    color: var(--ink);
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    transition: border-color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
+  }
+  .ab-build:hover {
+    border-color: var(--ink);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 22px rgba(15, 14, 14, 0.10);
+  }
+  .ab-build--featured {
+    background: var(--paper-deep);
+    border-color: var(--claret);
+    border-width: 1px;
+    border-top-width: 3px;
+  }
+  .ab-build-ribbon {
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--claret);
+    color: var(--paper-soft);
+    font-family: 'Instrument Sans', sans-serif;
+    font-size: 9.5px;
+    letter-spacing: 0.26em;
+    text-transform: uppercase;
+    font-weight: 600;
+    padding: 4px 12px;
+    white-space: nowrap;
+  }
+  .ab-build-num {
+    font-family: 'Newsreader', Georgia, serif;
+    font-style: italic;
+    font-weight: 300;
+    font-size: 1.5rem;
+    color: var(--claret);
+    line-height: 1;
+    margin: 0 0 var(--x4);
+    font-variant-numeric: oldstyle-nums;
+  }
+  .ab-build-h {
+    font-family: 'Newsreader', Georgia, serif;
+    font-size: 1.5rem;
+    font-weight: 400;
+    line-height: 1.15;
+    letter-spacing: -0.025em;
+    color: var(--ink);
+    margin: 0 0 var(--x4);
+  }
+  .ab-build-deck {
+    font-family: 'Newsreader', Georgia, serif;
+    font-size: 0.9375rem;
+    line-height: 1.5;
+    color: var(--ink-soft);
+    margin: 0 0 var(--x3);
+    flex: 1;
+  }
+  .ab-build-deck em { font-style: italic; color: var(--claret); }
+  .ab-build-cta {
+    font-family: 'Instrument Sans', sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--claret);
+    margin-top: auto;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    transition: gap 0.25s ease;
+  }
+  .ab-build:hover .ab-build-cta {
+    gap: 12px;
+  }
+
+  /* ─────────── DISPATCHES ─────────── */
+  .ab-dispatches-p {
+    font-family: 'Newsreader', Georgia, serif;
+    font-size: 1.125rem;
+    line-height: 1.6;
+    color: var(--ink);
+    margin: 0 0 var(--x1);
+    max-width: 38rem;
+  }
+  .ab-dispatches-p em {
+    font-style: italic;
+    color: var(--claret);
+  }
+  .ab-dispatches-cta {
+    display: flex;
+    align-items: center;
+    gap: var(--x3);
+    flex-wrap: wrap;
+  }
+  .ab-cta-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 14px 24px;
+    background: var(--ink-deep);
+    color: var(--paper-soft);
+    text-decoration: none;
+    font-family: 'Instrument Sans', sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    transition: background 0.25s ease, transform 0.25s ease;
+  }
+  .ab-cta-primary:hover {
+    background: var(--claret);
+    transform: translateY(-1px);
+  }
+  .ab-cta-secondary {
+    font-family: 'Newsreader', Georgia, serif;
+    font-style: italic;
+    font-size: 15px;
+    color: var(--ink-soft);
+    text-decoration: none;
+    border-bottom: 1px solid var(--claret);
+    padding-bottom: 1px;
+    transition: color 0.2s ease;
+  }
+  .ab-cta-secondary:hover {
+    color: var(--claret);
+  }
+
+  /* ─────────── CODA ─────────── */
+  .ab-coda {
+    text-align: center;
+    padding: calc(var(--x1) + var(--x3)) 0 var(--x4);
+    margin-top: var(--x1);
+    border-top: 1px solid var(--rule);
+  }
+  .ab-coda-stamp {
+    font-family: 'Instrument Sans', sans-serif;
+    font-size: 10px;
+    letter-spacing: 0.3em;
+    color: var(--claret);
+    text-transform: uppercase;
+    font-weight: 600;
+    margin: 0 0 var(--x4);
+  }
+  .ab-coda-p {
+    font-family: 'Newsreader', Georgia, serif;
+    font-style: italic;
+    font-weight: 300;
+    font-size: 1rem;
+    line-height: 1.5;
+    color: var(--ink-soft);
+    margin: 0 auto var(--x4);
+    max-width: 36rem;
+  }
+  .ab-coda-p em {
+    font-style: italic;
+    color: var(--claret);
+  }
+  .ab-coda-sig {
+    font-family: 'Newsreader', Georgia, serif;
+    font-style: italic;
+    font-size: 1.125rem;
+    color: var(--ink);
+    margin: 0;
+  }
+
+  /* ─────────── RESPONSIVE ─────────── */
+  @media (max-width: 760px) {
+    .ab { padding: var(--x4) 20px var(--x1); }
+    .ab-portrait {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: var(--x4);
+    }
+    .ab-portrait-frame {
+      width: 110px;
+      height: 110px;
+    }
+    .ab-portrait-init { font-size: 4rem; }
+    .ab-builds {
+      grid-template-columns: 1fr;
+    }
+    .ab-timeline-list li {
+      grid-template-columns: 5rem 1fr;
+      gap: var(--x4);
+      padding: var(--x4) var(--x4);
+    }
+    .ab-time-year { font-size: 1.0625rem; }
+    .ab-connect-name { font-size: 1.125rem; }
+  }
+  @media (max-width: 480px) {
+    .ab { padding: var(--x4) 16px var(--x1); }
+    .ab-timeline-list li {
+      grid-template-columns: 4rem 1fr;
+      gap: var(--x4);
+    }
+    .ab-time-year { font-size: 1rem; }
   }
 </style>

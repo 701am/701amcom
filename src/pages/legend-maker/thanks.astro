@@ -11,7 +11,15 @@ const title = "Thanks — The Legend-Maker Scroll is on its way | 701am";
 const description = "Your copy of the Legend-Maker Scroll is on its way to your inbox.";
 ---
 
-<LegendMakerLayout title={title} description={description}>
+<LegendMakerLayout
+  title={title}
+  description={description}
+  breadcrumbs={[
+    { name: 'Home', url: '/' },
+    { name: 'The Scroll', url: '/legend-maker' },
+    { name: 'Thanks' },
+  ]}
+>
   <section class="lm-hero">
     <div class="lm-container">
       <div class="lm-hero__edition">

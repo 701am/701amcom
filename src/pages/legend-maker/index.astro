@@ -18,7 +18,14 @@ const description =
   "The method we use in the office, written down. How to find the angle, write the pitch, and earn the placement. No fee. No funnel. Just the work.";
 ---
 
-<LegendMakerLayout title={title} description={description}>
+<LegendMakerLayout
+  title={title}
+  description={description}
+  breadcrumbs={[
+    { name: 'Home', url: '/' },
+    { name: 'The Scroll' },
+  ]}
+>
   <!-- HERO -->
   <section class="lm-hero">
     <div class="lm-container">

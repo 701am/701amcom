@@ -21,7 +21,16 @@ const description =
   "The complete method for building data stories that earn press coverage. Seven steps, three templates, one checklist. From the desk at 701am.";
 ---
 
-<LegendMakerLayout title={title} description={description} showProgress={true}>
+<LegendMakerLayout
+  title={title}
+  description={description}
+  showProgress={true}
+  breadcrumbs={[
+    { name: 'Home', url: '/' },
+    { name: 'The Scroll', url: '/legend-maker' },
+    { name: 'Read the Scroll' },
+  ]}
+>
   <!-- ============================== MASTHEAD ============================== -->
   <section class="lm-hero">
     <div class="lm-container">

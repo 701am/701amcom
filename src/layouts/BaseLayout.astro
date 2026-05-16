@@ -4,12 +4,32 @@ import Topbar from '../components/Topbar.astro';
 import Footer from '../components/Footer.astro';
 import SearchOverlay from '../components/SearchOverlay.astro';
 import BuildBadge from '../components/BuildBadge.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import Seo from '../components/Seo.astro';
+
+interface ArticleData {
+  publishedTime?: string | Date;
+  modifiedTime?: string | Date;
+  topic?: string;
+  tags?: string[];
+  number?: number;
+  readingTime?: string;
+}
+
+interface BreadcrumbItem {
+  name: string;
+  url?: string;
+}
 
 interface Props {
   title?: string;
   description?: string;
   ogImage?: string;
   noIndex?: boolean;
+  pageType?: 'website' | 'article' | 'aboutPage' | 'contactPage' | 'collectionPage';
+  article?: ArticleData;
+  breadcrumbs?: BreadcrumbItem[];
+  markdownAlternate?: string;
 }
 
 const {
@@ -17,31 +37,28 @@ const {
   description = 'The morning record. Book a sunrise call or read the scroll.',
   ogImage = '/og-image.png',
   noIndex = false,
+  pageType = 'website',
+  article,
+  breadcrumbs,
+  markdownAlternate,
 } = Astro.props;
-
-const canonical = new URL(Astro.url.pathname, Astro.site).toString();
 ---
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="canonical" href={canonical} />
-  <title>{title}</title>
-  <meta name="description" content={description} />
-  {noIndex && <meta name="robots" content="noindex, nofollow" />}
 
-  <meta property="og:title" content={title} />
-  <meta property="og:description" content={description} />
-  <meta property="og:url" content={canonical} />
-  <meta property="og:image" content={new URL(ogImage, Astro.site).toString()} />
-  <meta property="og:type" content="website" />
-  <meta property="og:site_name" content="701am" />
-
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content={title} />
-  <meta name="twitter:description" content={description} />
-  <meta name="twitter:image" content={new URL(ogImage, Astro.site).toString()} />
+  <Seo
+    title={title}
+    description={description}
+    ogImage={ogImage}
+    noIndex={noIndex}
+    pageType={pageType}
+    article={article}
+    breadcrumbs={breadcrumbs}
+    markdownAlternate={markdownAlternate}
+  />
 
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 
@@ -51,12 +68,12 @@ const canonical = new URL(Astro.url.pathname, Astro.site).toString();
     href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,300;1,6..72,400;1,6..72,500&family=Instrument+Sans:wght@400;500;600&display=swap"
     rel="stylesheet"
   />
-
-  <link rel="sitemap" href="/sitemap-index.xml" />
-  <link rel="alternate" type="application/rss+xml" title="Dispatches from 701am" href="/rss.xml" />
 </head>
 <body>
   <Topbar />
+  {breadcrumbs && breadcrumbs.length > 0 && (
+    <Breadcrumbs items={breadcrumbs.map((b) => ({ name: b.name, href: b.url }))} />
+  )}
   <main>
     <slot />
   </main>

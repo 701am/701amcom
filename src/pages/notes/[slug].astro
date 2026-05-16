@@ -32,7 +32,25 @@ const dateLong = new Intl.DateTimeFormat('en-US', {
   year: 'numeric',
 }).format(note.data.date);
 ---
-<BaseLayout title={`${note.data.title} — 701am`} description={note.data.deck}>
+<BaseLayout
+  title={`${note.data.title} — 701am`}
+  description={note.data.deck}
+  pageType="article"
+  article={{
+    publishedTime: note.data.date,
+    modifiedTime: note.data.date,
+    topic: note.data.topic,
+    tags: note.data.tags,
+    number: note.data.number,
+    readingTime: note.data.readingTime,
+  }}
+  breadcrumbs={[
+    { name: 'Home', url: '/' },
+    { name: 'Dispatches', url: '/notes' },
+    { name: note.data.title },
+  ]}
+  markdownAlternate={`/notes/${note.id}.md`}
+>
 
   <div class="post-eyebrow-strip">
     <a class="post-back" href="/notes">All dispatches</a>

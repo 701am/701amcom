@@ -4,6 +4,10 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 <BaseLayout
   title="The 7:01 Newsroom — Build a Story · 701am"
   description="A guided workshop. Five questions. Two datasets. One headline you didn't have yesterday."
+  breadcrumbs={[
+    { name: 'Home', url: '/' },
+    { name: 'Build a Data Story' },
+  ]}
 >
 
 <main class="build-app" data-build-app>
