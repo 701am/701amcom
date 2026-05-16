@@ -17,6 +17,12 @@ const isCurrent = (href: string) =>
       <a class="nav-link" href="/legend-maker" aria-current={isCurrent('/legend-maker') ? 'page' : undefined}>The Scroll</a>
       <a class="nav-link" href="/notes" aria-current={isCurrent('/notes') ? 'page' : undefined}>Dispatches</a>
       <a class="nav-link" href="/about" aria-current={isCurrent('/about') ? 'page' : undefined}>About</a>
+      <button class="topbar-search" type="button" aria-label="Search" data-open-search>
+        <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <circle cx="11" cy="11" r="7"></circle>
+          <line x1="20" y1="20" x2="16.5" y2="16.5"></line>
+        </svg>
+      </button>
     </nav>
 
     <div class="topbar-right">
@@ -24,16 +30,16 @@ const isCurrent = (href: string) =>
         <span class="topbar-build-star" aria-hidden="true">★</span>
         <span class="topbar-build-label">Build A Data Story</span>
       </a>
-      <button class="topbar-search" type="button" aria-label="Search" data-open-search>
+      <a class="topbar-cta" href="/discovery">
+        Work with us
+        <span class="topbar-cta-arrow" aria-hidden="true">→</span>
+      </a>
+      <button class="topbar-search-mobile" type="button" aria-label="Search" data-open-search>
         <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
           <circle cx="11" cy="11" r="7"></circle>
           <line x1="20" y1="20" x2="16.5" y2="16.5"></line>
         </svg>
       </button>
-      <a class="topbar-cta" href="/discovery">
-        Work with us
-        <span class="topbar-cta-arrow" aria-hidden="true">→</span>
-      </a>
       <button class="topbar-burger" type="button" aria-label="Menu" aria-expanded="false" data-burger>
         <span></span><span></span><span></span>
       </button>
@@ -139,48 +145,72 @@ const isCurrent = (href: string) =>
   .topbar-right {
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: 16px;
     justify-self: end;
+  }
+  .topbar-right::before {
+    content: "";
+    width: 1px;
+    height: 18px;
+    background: var(--rule-strong);
+    margin-right: 4px;
   }
 
   .topbar-search {
-    width: 34px;
-    height: 34px;
+    width: 28px;
+    height: 28px;
     background: transparent;
     border: none;
-    color: var(--ink-faint);
+    color: var(--ink-soft);
     cursor: pointer;
     display: inline-flex;
     align-items: center;
     justify-content: center;
     padding: 0;
+    margin-left: 6px;             /* small offset from "About" */
     transition: color 0.2s ease;
   }
   .topbar-search:hover { color: var(--claret); }
+
+  /* Mobile-only search — sits next to burger */
+  .topbar-search-mobile {
+    display: none;
+    width: 34px;
+    height: 34px;
+    background: transparent;
+    border: none;
+    color: var(--ink);
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    transition: color 0.2s ease;
+  }
+  .topbar-search-mobile:hover { color: var(--claret); }
 
   /* Build link — discoverable tool, sits before the primary CTA */
   .topbar-build {
     display: inline-flex;
     align-items: center;
-    gap: 6px;
-    padding: 6px 0;
+    gap: 7px;
+    padding: 6px 2px;
     background: transparent;
     color: var(--ink);
     text-decoration: none;
     font-family: 'Instrument Sans', sans-serif;
     font-size: 13px;
-    font-weight: 500;
-    letter-spacing: 0.01em;
+    font-weight: 600;
+    letter-spacing: 0.005em;
     position: relative;
     transition: color 0.25s ease;
-    margin-right: 4px;
+    white-space: nowrap;
   }
   .topbar-build::after {
     content: "";
     position: absolute;
-    left: 0;
-    right: 0;
-    bottom: 0;
+    left: 2px;
+    right: 2px;
+    bottom: 2px;
     height: 1px;
     background: var(--claret);
     transform: scaleX(0);
@@ -192,7 +222,7 @@ const isCurrent = (href: string) =>
   .topbar-build:hover .topbar-build-star { transform: rotate(72deg); }
   .topbar-build-star {
     color: var(--claret);
-    font-size: 12px;
+    font-size: 13px;
     display: inline-block;
     transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
     line-height: 1;
@@ -313,12 +343,12 @@ const isCurrent = (href: string) =>
 
   /* Responsive */
   @media (max-width: 1024px) {
-    .topbar-nav { display: none; }
+    .topbar-nav { display: none; }            /* hides desktop nav + desktop search inside it */
     .topbar-grid { grid-template-columns: auto 1fr; gap: var(--x3); }
     .topbar-burger { display: flex; }
-    .topbar-cta { display: none; }   /* CTA only inside drawer on mobile */
-    .topbar-build { display: none; } /* Build only inside drawer on mobile */
-    .topbar-search { display: inline-flex; }
+    .topbar-cta { display: none; }            /* CTA only inside drawer on mobile */
+    .topbar-build { display: none; }          /* Build only inside drawer on mobile */
+    .topbar-search-mobile { display: inline-flex; }  /* show mobile search */
   }
   @media (max-width: 480px) {
     .topbar-grid { padding: 12px 18px; }

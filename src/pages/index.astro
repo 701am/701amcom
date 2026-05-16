@@ -64,6 +64,71 @@ import CtaBanner from '../components/CtaBanner.astro';
     </div>
   </section>
 
+  <!-- ════ § — TRY IT YOURSELF (workshop callout) ════ -->
+  <section class="workshop-callout">
+    <div class="workshop-inner reveal">
+      <div class="workshop-grid">
+
+        <div class="workshop-copy">
+          <p class="workshop-stamp">
+            <span class="workshop-rule"></span>
+            ★ New · The 7:01 workshop ★
+            <span class="workshop-rule"></span>
+          </p>
+          <h2 class="workshop-h">
+            Find <em>the angle</em><br />
+            your industry hasn't seen.
+          </h2>
+          <p class="workshop-deck">
+            A guided workshop. <em>Five questions about your business. Two public datasets. One headline you did not have yesterday.</em>
+          </p>
+          <p class="workshop-body">
+            Five questions to map your industry. Five candidate angles, each backed by a real archetype reporters cover.
+            You pick the strongest. The desk searches the public record, drafts the methodology, writes the pitch,
+            names the reporter beats, and lays out the four-week roadmap. <em>Three minutes. No email. No charge.</em>
+          </p>
+          <div class="workshop-cta-row">
+            <a class="btn-primary" href="/build">
+              <span class="workshop-cta-star" aria-hidden="true">★</span>
+              Build A Data Story
+              <span class="btn-icon" aria-hidden="true">→</span>
+            </a>
+            <p class="workshop-fine">Free. No signup. <em>Yours to keep or print.</em></p>
+          </div>
+        </div>
+
+        <aside class="workshop-preview" aria-hidden="false">
+          <div class="workshop-preview-head">
+            <span class="workshop-preview-dot"></span>
+            <span class="workshop-preview-label">Strategy memo · sample</span>
+            <span class="workshop-preview-time">7:01 a.m.</span>
+          </div>
+          <div class="workshop-preview-body">
+            <p class="workshop-preview-eyebrow">§ Working headline</p>
+            <p class="workshop-preview-headline">The Hidden Hour: How Restaurant Wages Shifted in 2026</p>
+            <p class="workshop-preview-meta">Surprise Statistic · BLS QCEW + state UI claims</p>
+
+            <div class="workshop-preview-rule"></div>
+
+            <p class="workshop-preview-eyebrow">§ The pitch</p>
+            <p class="workshop-preview-pitch-subj">Subject — Wage data nobody is running</p>
+            <p class="workshop-preview-pitch-body">"The federal data shows back-of-house wages outpaced front-of-house for the first time in eight years. The story is in the metro breakdown nobody has pulled…"</p>
+
+            <div class="workshop-preview-rule"></div>
+
+            <ul class="workshop-preview-road">
+              <li><span>i.</span> Source · BLS pull</li>
+              <li><span>ii.</span> Build · methodology</li>
+              <li><span>iii.</span> Pitch · five reporters</li>
+              <li><span>iv.</span> Place · land the coverage</li>
+            </ul>
+          </div>
+        </aside>
+
+      </div>
+    </div>
+  </section>
+
   <!-- ════ § 01 — THE TRUTH ════ -->
   <section class="section section-navy">
     <div class="container reveal">
@@ -567,6 +632,268 @@ import CtaBanner from '../components/CtaBanner.astro';
     font-size: 16px;
     font-stretch: condensed;
     letter-spacing: 0.04em;
+  }
+
+  /* ═══════════════════════════════════════════════
+     WORKSHOP CALLOUT — promote /build
+     Sits between press strip and § 01
+     ═══════════════════════════════════════════════ */
+  .workshop-callout {
+    background: var(--paper-warm);
+    padding: calc(var(--x1) + var(--x4)) var(--x1) calc(var(--x1) + var(--x4));
+    border-top: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+    position: relative;
+  }
+  .workshop-inner {
+    max-width: 72rem;
+    margin: 0 auto;
+    padding: 0 var(--x3);
+  }
+  .workshop-grid {
+    display: grid;
+    grid-template-columns: 1.05fr 1fr;
+    gap: var(--x1);
+    align-items: stretch;
+  }
+
+  .workshop-copy {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .workshop-stamp {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--x4);
+    font-family: 'Instrument Sans', sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.28em;
+    color: var(--claret);
+    text-transform: uppercase;
+    margin: 0 0 var(--x3);
+    font-weight: 600;
+    align-self: flex-start;
+  }
+  .workshop-rule {
+    display: inline-block;
+    width: 36px;
+    height: 1px;
+    background: var(--claret);
+    opacity: 0.55;
+  }
+  .workshop-h {
+    font-family: 'Newsreader', Georgia, serif;
+    font-size: clamp(2.5rem, 5.5vw, 4.25rem);
+    font-weight: 300;
+    line-height: 1;
+    letter-spacing: -0.038em;
+    color: var(--ink);
+    margin: 0 0 var(--x3);
+    max-width: 16ch;
+    text-wrap: balance;
+  }
+  .workshop-h em {
+    font-style: italic;
+    color: var(--claret);
+    font-weight: 300;
+  }
+  .workshop-deck {
+    font-family: 'Newsreader', Georgia, serif;
+    font-style: italic;
+    font-weight: 300;
+    font-size: clamp(1.125rem, 1.8vw, 1.375rem);
+    line-height: 1.45;
+    color: var(--ink-soft);
+    margin: 0 0 var(--x3);
+    max-width: 38ch;
+  }
+  .workshop-deck em {
+    color: var(--claret);
+    font-style: italic;
+  }
+  .workshop-body {
+    font-family: 'Newsreader', Georgia, serif;
+    font-size: 1rem;
+    line-height: 1.55;
+    color: var(--ink-faint);
+    margin: 0 0 var(--x2);
+    max-width: 42ch;
+  }
+  .workshop-body em {
+    font-style: italic;
+    color: var(--claret);
+  }
+  .workshop-cta-row {
+    display: flex;
+    align-items: center;
+    gap: var(--x3);
+    flex-wrap: wrap;
+    margin-top: var(--x4);
+  }
+  .workshop-cta-star {
+    display: inline-block;
+    font-size: 12px;
+    color: var(--paper-soft);
+    margin-right: 2px;
+  }
+  .workshop-fine {
+    font-family: 'Newsreader', Georgia, serif;
+    font-style: italic;
+    font-size: 13px;
+    color: var(--ink-fainter);
+    margin: 0;
+  }
+  .workshop-fine em {
+    color: var(--claret);
+    font-style: italic;
+  }
+
+  /* The preview card — sample memo */
+  .workshop-preview {
+    background: var(--paper-soft);
+    border: 1px solid var(--ink);
+    box-shadow: 0 22px 50px rgba(15, 14, 14, 0.12),
+                0 2px 4px rgba(15, 14, 14, 0.06);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    transform: rotate(-1deg);                /* tactile, like a memo on a desk */
+    transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .workshop-preview:hover {
+    transform: rotate(0deg) translateY(-3px);
+  }
+  .workshop-preview::before {
+    content: "";
+    position: absolute;
+    top: 10px; left: 10px; right: 10px; bottom: 10px;
+    border: 1px solid rgba(15, 14, 14, 0.08);
+    pointer-events: none;
+  }
+  .workshop-preview-head {
+    display: flex;
+    align-items: center;
+    gap: var(--x4);
+    padding: var(--x4) var(--x3);
+    border-bottom: 1px solid var(--rule-strong);
+    background: var(--paper);
+    position: relative;
+    z-index: 1;
+  }
+  .workshop-preview-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--claret);
+    box-shadow: 0 0 0 2px rgba(153, 15, 61, 0.18);
+  }
+  .workshop-preview-label {
+    font-family: 'Instrument Sans', sans-serif;
+    font-size: 10px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    font-weight: 600;
+    flex: 1;
+  }
+  .workshop-preview-time {
+    font-family: 'Newsreader', Georgia, serif;
+    font-style: italic;
+    font-size: 12px;
+    color: var(--ink-fainter);
+    font-variant-numeric: oldstyle-nums;
+  }
+  .workshop-preview-body {
+    padding: var(--x3);
+    position: relative;
+    z-index: 1;
+  }
+  .workshop-preview-eyebrow {
+    font-family: 'Instrument Sans', sans-serif;
+    font-size: 9px;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--claret);
+    font-weight: 600;
+    margin: 0 0 var(--x5);
+  }
+  .workshop-preview-headline {
+    font-family: 'Newsreader', Georgia, serif;
+    font-size: 1.25rem;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    color: var(--ink);
+    margin: 0 0 var(--x5);
+    font-weight: 400;
+    max-width: 22ch;
+  }
+  .workshop-preview-meta {
+    font-family: 'Instrument Sans', sans-serif;
+    font-size: 11px;
+    color: var(--ink-fainter);
+    margin: 0 0 var(--x4);
+    letter-spacing: 0.04em;
+  }
+  .workshop-preview-rule {
+    height: 1px;
+    background: var(--rule);
+    margin: var(--x4) 0;
+  }
+  .workshop-preview-pitch-subj {
+    font-family: 'Newsreader', Georgia, serif;
+    font-weight: 500;
+    font-size: 0.875rem;
+    color: var(--ink);
+    margin: 0 0 var(--x5);
+    line-height: 1.3;
+  }
+  .workshop-preview-pitch-body {
+    font-family: 'Newsreader', Georgia, serif;
+    font-style: italic;
+    font-size: 0.8125rem;
+    line-height: 1.5;
+    color: var(--ink-soft);
+    margin: 0 0 var(--x4);
+  }
+  .workshop-preview-road {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6px 14px;
+  }
+  .workshop-preview-road li {
+    font-family: 'Newsreader', Georgia, serif;
+    font-size: 0.8125rem;
+    color: var(--ink);
+    display: flex;
+    align-items: baseline;
+    gap: 6px;
+    line-height: 1.3;
+  }
+  .workshop-preview-road li span {
+    font-family: 'Newsreader', Georgia, serif;
+    font-style: italic;
+    color: var(--claret);
+    font-variant-numeric: oldstyle-nums;
+    min-width: 1.5em;
+  }
+
+  @media (max-width: 880px) {
+    .workshop-grid {
+      grid-template-columns: 1fr;
+      gap: var(--x2);
+    }
+    .workshop-preview {
+      transform: rotate(0);
+      max-width: 28rem;
+    }
+  }
+  @media (max-width: 560px) {
+    .workshop-h { font-size: clamp(2rem, 8vw, 2.75rem); }
+    .workshop-preview-road { grid-template-columns: 1fr; }
   }
 
   /* ─────── LEDGER ─────── */
