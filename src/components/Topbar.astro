@@ -58,18 +58,51 @@ const dateLabel = `${dayLabel} · ${today.getDate()} ${monthLabel} ${today.getFu
         <a class="mast-link" href="/about" aria-current={isCurrent('/about') ? 'page' : undefined}>About</a>
         <span class="mast-sep" aria-hidden="true">·</span>
 
-        <div class="mast-tools" data-mast-tools>
+        <div class="mast-tools" data-mast-dropdown>
           <button
             class="mast-link mast-tools-trigger"
             type="button"
             aria-haspopup="true"
             aria-expanded="false"
-            data-mast-tools-trigger
+            data-mast-dropdown-trigger
+          >
+            Industries
+            <span class="mast-tools-caret" aria-hidden="true">▾</span>
+          </button>
+          <div class="mast-tools-menu" data-mast-dropdown-menu role="menu">
+            <a class="mast-tools-item" role="menuitem" href="/industries/nursing" aria-current={isCurrent('/industries/nursing') ? 'page' : undefined}>
+              <span class="mast-tools-item-star" aria-hidden="true">★</span>
+              <span class="mast-tools-item-text">
+                <span class="mast-tools-item-name">Nursing Staffing Agencies</span>
+                <span class="mast-tools-item-deck">Earned media for the staffing desk</span>
+              </span>
+            </a>
+            <a class="mast-tools-item" role="menuitem" href="/industries/higher-education" aria-current={isCurrent('/industries/higher-education') ? 'page' : undefined}>
+              <span class="mast-tools-item-star" aria-hidden="true">★</span>
+              <span class="mast-tools-item-text">
+                <span class="mast-tools-item-name">Higher Education</span>
+                <span class="mast-tools-item-deck">Colleges · EdTech · enrolment partners</span>
+              </span>
+            </a>
+            <a class="mast-tools-all" role="menuitem" href="/industries" aria-current={path === '/industries' ? 'page' : undefined}>
+              All industries <span aria-hidden="true">→</span>
+            </a>
+          </div>
+        </div>
+        <span class="mast-sep" aria-hidden="true">·</span>
+
+        <div class="mast-tools" data-mast-dropdown>
+          <button
+            class="mast-link mast-tools-trigger"
+            type="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+            data-mast-dropdown-trigger
           >
             Tools
             <span class="mast-tools-caret" aria-hidden="true">▾</span>
           </button>
-          <div class="mast-tools-menu" data-mast-tools-menu role="menu">
+          <div class="mast-tools-menu" data-mast-dropdown-menu role="menu">
             <a class="mast-tools-item" role="menuitem" href="/build" aria-current={isCurrent('/build') ? 'page' : undefined}>
               <span class="mast-tools-item-star" aria-hidden="true">★</span>
               <span class="mast-tools-item-text">
@@ -134,6 +167,30 @@ const dateLabel = `${dayLabel} · ${today.getDate()} ${monthLabel} ${today.getFu
     <a class="mast-drawer-link" href="/legend-maker">The Scroll</a>
     <a class="mast-drawer-link" href="/notes">Dispatches</a>
     <a class="mast-drawer-link" href="/about">About</a>
+
+    <div class="mast-drawer-rule">
+      <span class="mast-drawer-rule-bar"></span>
+      <span class="mast-drawer-rule-label">★ Industries</span>
+      <span class="mast-drawer-rule-bar"></span>
+    </div>
+
+    <a class="mast-drawer-tool" href="/industries/nursing">
+      <span class="mast-drawer-tool-star" aria-hidden="true">★</span>
+      <span class="mast-drawer-tool-text">
+        <span class="mast-drawer-tool-name">Nursing Staffing Agencies</span>
+        <span class="mast-drawer-tool-deck">Earned media for the staffing desk</span>
+      </span>
+    </a>
+    <a class="mast-drawer-tool" href="/industries/higher-education">
+      <span class="mast-drawer-tool-star" aria-hidden="true">★</span>
+      <span class="mast-drawer-tool-text">
+        <span class="mast-drawer-tool-name">Higher Education</span>
+        <span class="mast-drawer-tool-deck">Colleges · EdTech · partners</span>
+      </span>
+    </a>
+    <a class="mast-drawer-all" href="/industries">
+      All industries <span aria-hidden="true">→</span>
+    </a>
 
     <div class="mast-drawer-rule">
       <span class="mast-drawer-rule-bar"></span>
@@ -731,54 +788,62 @@ const dateLabel = `${dayLabel} · ${today.getDate()} ${monthLabel} ${today.getFu
     });
   }
 
-  // Tools dropdown
-  const tools = document.querySelector('[data-mast-tools]');
-  const toolsTrigger = document.querySelector('[data-mast-tools-trigger]');
-  const toolsMenu = document.querySelector('[data-mast-tools-menu]');
+  // Dropdowns (Industries, Tools) — same behaviour, each self-contained
+  const dropdowns = document.querySelectorAll('[data-mast-dropdown]');
+  dropdowns.forEach((dd) => {
+    const trigger = dd.querySelector('[data-mast-dropdown-trigger]');
+    const menu = dd.querySelector('[data-mast-dropdown-menu]');
+    if (!trigger || !menu) return;
 
-  if (tools && toolsTrigger && toolsMenu) {
-    function openTools() {
-      tools.setAttribute('data-open', 'true');
-      toolsTrigger.setAttribute('aria-expanded', 'true');
-    }
-    function closeTools() {
-      tools.removeAttribute('data-open');
-      toolsTrigger.setAttribute('aria-expanded', 'false');
-    }
-    function toggleTools() {
-      if (tools.getAttribute('data-open') === 'true') closeTools();
-      else openTools();
-    }
+    const open = () => {
+      // Close any sibling dropdown first so only one is open at a time
+      dropdowns.forEach((other) => {
+        if (other !== dd) {
+          other.removeAttribute('data-open');
+          other.querySelector('[data-mast-dropdown-trigger]')?.setAttribute('aria-expanded', 'false');
+        }
+      });
+      dd.setAttribute('data-open', 'true');
+      trigger.setAttribute('aria-expanded', 'true');
+    };
+    const close = () => {
+      dd.removeAttribute('data-open');
+      trigger.setAttribute('aria-expanded', 'false');
+    };
+    const toggle = () => {
+      if (dd.getAttribute('data-open') === 'true') close();
+      else open();
+    };
 
-    toolsTrigger.addEventListener('click', (e) => {
+    trigger.addEventListener('click', (e) => {
       e.preventDefault();
       e.stopPropagation();
-      toggleTools();
+      toggle();
     });
 
     // Open on hover for desktop discoverability
-    let hoverTimer;
-    tools.addEventListener('mouseenter', () => {
+    let hoverTimer: ReturnType<typeof setTimeout>;
+    dd.addEventListener('mouseenter', () => {
       clearTimeout(hoverTimer);
-      if (window.matchMedia('(min-width: 961px)').matches) openTools();
+      if (window.matchMedia('(min-width: 961px)').matches) open();
     });
-    tools.addEventListener('mouseleave', () => {
-      hoverTimer = setTimeout(closeTools, 180);
+    dd.addEventListener('mouseleave', () => {
+      hoverTimer = setTimeout(close, 180);
     });
 
     // Outside click closes
     document.addEventListener('click', (e) => {
-      if (tools.getAttribute('data-open') !== 'true') return;
-      if (tools.contains(e.target as Node)) return;
-      closeTools();
+      if (dd.getAttribute('data-open') !== 'true') return;
+      if (dd.contains(e.target as Node)) return;
+      close();
     });
 
     // Escape closes
     document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && tools.getAttribute('data-open') === 'true') {
-        closeTools();
-        (toolsTrigger as HTMLElement).focus();
+      if (e.key === 'Escape' && dd.getAttribute('data-open') === 'true') {
+        close();
+        (trigger as HTMLElement).focus();
       }
     });
-  }
+  });
 </script>
