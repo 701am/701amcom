@@ -69,12 +69,12 @@ const dateLabel = `${dayLabel} · ${today.getDate()} ${monthLabel} ${today.getFu
             Industries
             <span class="mast-tools-caret" aria-hidden="true">▾</span>
           </button>
-          <div class="mast-tools-menu" data-mast-dropdown-menu role="menu">
-            <a class="mast-tools-item" role="menuitem" href="/industries/nursing" aria-current={isCurrent('/industries/nursing') ? 'page' : undefined}>
+          <div class="mast-tools-menu mast-tools-menu--tall" data-mast-dropdown-menu role="menu">
+            <a class="mast-tools-item" role="menuitem" href="/industries/healthcare" aria-current={isCurrent('/industries/healthcare') ? 'page' : undefined}>
               <span class="mast-tools-item-star" aria-hidden="true">★</span>
               <span class="mast-tools-item-text">
-                <span class="mast-tools-item-name">Nursing Staffing Agencies</span>
-                <span class="mast-tools-item-deck">Earned media for the staffing desk</span>
+                <span class="mast-tools-item-name">Healthcare</span>
+                <span class="mast-tools-item-deck">Providers · staffing · payers · health-tech</span>
               </span>
             </a>
             <a class="mast-tools-item" role="menuitem" href="/industries/higher-education" aria-current={isCurrent('/industries/higher-education') ? 'page' : undefined}>
@@ -82,6 +82,41 @@ const dateLabel = `${dayLabel} · ${today.getDate()} ${monthLabel} ${today.getFu
               <span class="mast-tools-item-text">
                 <span class="mast-tools-item-name">Higher Education</span>
                 <span class="mast-tools-item-deck">Colleges · EdTech · enrolment partners</span>
+              </span>
+            </a>
+            <a class="mast-tools-item" role="menuitem" href="/industries/b2b" aria-current={isCurrent('/industries/b2b') ? 'page' : undefined}>
+              <span class="mast-tools-item-star" aria-hidden="true">★</span>
+              <span class="mast-tools-item-text">
+                <span class="mast-tools-item-name">B2B</span>
+                <span class="mast-tools-item-deck">Arrive in the room already credible</span>
+              </span>
+            </a>
+            <a class="mast-tools-item" role="menuitem" href="/industries/startup" aria-current={isCurrent('/industries/startup') ? 'page' : undefined}>
+              <span class="mast-tools-item-star" aria-hidden="true">★</span>
+              <span class="mast-tools-item-text">
+                <span class="mast-tools-item-name">Startups</span>
+                <span class="mast-tools-item-deck">Out-story the incumbents you can't outspend</span>
+              </span>
+            </a>
+            <a class="mast-tools-item" role="menuitem" href="/industries/ai" aria-current={isCurrent('/industries/ai') ? 'page' : undefined}>
+              <span class="mast-tools-item-star" aria-hidden="true">★</span>
+              <span class="mast-tools-item-text">
+                <span class="mast-tools-item-name">AI</span>
+                <span class="mast-tools-item-deck">Be the AI company the press takes seriously</span>
+              </span>
+            </a>
+            <a class="mast-tools-item" role="menuitem" href="/industries/consumer-services" aria-current={isCurrent('/industries/consumer-services') ? 'page' : undefined}>
+              <span class="mast-tools-item-star" aria-hidden="true">★</span>
+              <span class="mast-tools-item-text">
+                <span class="mast-tools-item-name">Consumer Services</span>
+                <span class="mast-tools-item-deck">Home · fitness · finance · wellness</span>
+              </span>
+            </a>
+            <a class="mast-tools-item" role="menuitem" href="/industries/fashion-brands" aria-current={isCurrent('/industries/fashion-brands') ? 'page' : undefined}>
+              <span class="mast-tools-item-star" aria-hidden="true">★</span>
+              <span class="mast-tools-item-text">
+                <span class="mast-tools-item-name">Fashion Brands</span>
+                <span class="mast-tools-item-deck">The editorial credibility ads can't buy</span>
               </span>
             </a>
             <a class="mast-tools-all" role="menuitem" href="/industries" aria-current={path === '/industries' ? 'page' : undefined}>
@@ -174,11 +209,11 @@ const dateLabel = `${dayLabel} · ${today.getDate()} ${monthLabel} ${today.getFu
       <span class="mast-drawer-rule-bar"></span>
     </div>
 
-    <a class="mast-drawer-tool" href="/industries/nursing">
+    <a class="mast-drawer-tool" href="/industries/healthcare">
       <span class="mast-drawer-tool-star" aria-hidden="true">★</span>
       <span class="mast-drawer-tool-text">
-        <span class="mast-drawer-tool-name">Nursing Staffing Agencies</span>
-        <span class="mast-drawer-tool-deck">Earned media for the staffing desk</span>
+        <span class="mast-drawer-tool-name">Healthcare</span>
+        <span class="mast-drawer-tool-deck">Providers · staffing · payers · health-tech</span>
       </span>
     </a>
     <a class="mast-drawer-tool" href="/industries/higher-education">
@@ -186,6 +221,41 @@ const dateLabel = `${dayLabel} · ${today.getDate()} ${monthLabel} ${today.getFu
       <span class="mast-drawer-tool-text">
         <span class="mast-drawer-tool-name">Higher Education</span>
         <span class="mast-drawer-tool-deck">Colleges · EdTech · partners</span>
+      </span>
+    </a>
+    <a class="mast-drawer-tool" href="/industries/b2b">
+      <span class="mast-drawer-tool-star" aria-hidden="true">★</span>
+      <span class="mast-drawer-tool-text">
+        <span class="mast-drawer-tool-name">B2B</span>
+        <span class="mast-drawer-tool-deck">Arrive already credible</span>
+      </span>
+    </a>
+    <a class="mast-drawer-tool" href="/industries/startup">
+      <span class="mast-drawer-tool-star" aria-hidden="true">★</span>
+      <span class="mast-drawer-tool-text">
+        <span class="mast-drawer-tool-name">Startups</span>
+        <span class="mast-drawer-tool-deck">Out-story the incumbents</span>
+      </span>
+    </a>
+    <a class="mast-drawer-tool" href="/industries/ai">
+      <span class="mast-drawer-tool-star" aria-hidden="true">★</span>
+      <span class="mast-drawer-tool-text">
+        <span class="mast-drawer-tool-name">AI</span>
+        <span class="mast-drawer-tool-deck">The press taken seriously</span>
+      </span>
+    </a>
+    <a class="mast-drawer-tool" href="/industries/consumer-services">
+      <span class="mast-drawer-tool-star" aria-hidden="true">★</span>
+      <span class="mast-drawer-tool-text">
+        <span class="mast-drawer-tool-name">Consumer Services</span>
+        <span class="mast-drawer-tool-deck">Home · fitness · finance · wellness</span>
+      </span>
+    </a>
+    <a class="mast-drawer-tool" href="/industries/fashion-brands">
+      <span class="mast-drawer-tool-star" aria-hidden="true">★</span>
+      <span class="mast-drawer-tool-text">
+        <span class="mast-drawer-tool-name">Fashion Brands</span>
+        <span class="mast-drawer-tool-deck">Credibility ads can't buy</span>
       </span>
     </a>
     <a class="mast-drawer-all" href="/industries">
@@ -477,6 +547,12 @@ const dateLabel = `${dayLabel} · ${today.getDate()} ${monthLabel} ${today.getFu
     background: var(--paper-soft);
     border-top: 1px solid var(--claret);
     border-left: 1px solid var(--claret);
+  }
+  /* Industries carries seven verticals — widen slightly and cap height. */
+  .mast-tools-menu--tall {
+    width: 360px;
+    max-height: min(70vh, 560px);
+    overflow-y: auto;
   }
   .mast-tools[data-open="true"] .mast-tools-menu {
     opacity: 1;
