@@ -1,38 +1,18 @@
 [build]
   command = "npm run build"
   publish = "dist"
-  functions = "netlify/functions"
 
 [build.environment]
   NODE_VERSION = "20"
 
-# Functions config — Node 20 runtime, esbuild bundler for native fetch
-[functions]
-  node_bundler = "esbuild"
-  directory = "netlify/functions"
-
-# Decap CMS git-gateway + /api routes → Netlify Functions
+# Decap CMS admin lives at /admin/
 [[redirects]]
-  from = "/api/*"
-  to = "/.netlify/functions/:splat"
+  from = "/admin"
+  to = "/admin/index.html"
   status = 200
 
-# Force HTTPS
-[[headers]]
-  for = "/*"
-  [headers.values]
-    X-Frame-Options = "DENY"
-    X-Content-Type-Options = "nosniff"
-    Referrer-Policy = "strict-origin-when-cross-origin"
-    Permissions-Policy = "camera=(), microphone=(), geolocation=()"
-
-# Long cache for static assets (fonts, images, hashed JS/CSS)
-[[headers]]
-  for = "/_astro/*"
-  [headers.values]
-    Cache-Control = "public, max-age=31536000, immutable"
-
-[[headers]]
-  for = "/fonts/*"
-  [headers.values]
-    Cache-Control = "public, max-age=31536000, immutable"
+# SPA-style fallback for the admin app
+[[redirects]]
+  from = "/admin/*"
+  to = "/admin/index.html"
+  status = 200

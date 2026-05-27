@@ -1,0 +1,58 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { getCollection } from 'astro:content';
+
+const posts = (await getCollection('blog'))
+  .filter((p) => !p.data.draft)
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+
+const fmt = (d: Date) =>
+  d.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+
+// unique collections for the filter bar
+const collections = [...new Set(posts.map((p) => p.data.collection))];
+const labelFor: Record<string, string> = {
+  notes: 'notes', enrollment: 'enrollment', 'ai-visibility': 'ai-visibility',
+  'earned-media': 'earned-media', playbooks: 'playbooks',
+};
+---
+<Layout
+  title="Founder Notes"
+  description="Field notes on earned media, AI visibility, and enrollment — from the team building 701am."
+  ogType="website"
+>
+  <header class="blog-head">
+    <div class="blog-author">
+      <span class="av">D</span>
+      <span class="ai">
+        <span class="an">David Krug</span>
+        <span class="ad">Building 701am · earned media for higher ed</span>
+      </span>
+    </div>
+    <h1>Founder Notes</h1>
+    <p class="lede">Field notes on earned media, AI visibility, and how higher‑ed brands get found — written while building 701am. Bits worth not forgetting.</p>
+  </header>
+
+  <div class="notes wrap-narrow">
+    {posts.map((p) => (
+      <a class="note-row" href={`/blog/${p.id}`}>
+        <span class="date">{fmt(p.data.date)}</span>
+        <div class="nt">{p.data.title} <span class="arrow">→</span></div>
+        <div class="nd">{p.data.dek}</div>
+      </a>
+    ))}
+    {posts.length === 0 && (
+      <p style="text-align:center;color:var(--ink-3);padding:40px 0">No notes yet — the first ones are on the way.</p>
+    )}
+  </div>
+
+  <div class="collections">
+    <div class="cl-label">Collections</div>
+    <div class="cl-row">
+      <a class="active" href="/blog">recent</a>
+      {collections.map((c) => (
+        <a href={`/blog/c/${c}`}>{labelFor[c] ?? c}</a>
+      ))}
+    </div>
+  </div>
+</Layout>

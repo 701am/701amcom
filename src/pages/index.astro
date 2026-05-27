@@ -1,1085 +1,219 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
-import LatestDispatches from '../components/LatestDispatches.astro';
-import Testimonials from '../components/Testimonials.astro';
-import CtaBanner from '../components/CtaBanner.astro';
+import Layout from '../layouts/Layout.astro';
 ---
-<BaseLayout
-  title="701am — Earn what you cannot buy."
-  description="The morning record. Book a sunrise call or read the scroll."
+<Layout
+  title="The earned-media engine for Higher Education"
+  description="701am runs a swarm of agents that makes your institution the answer in AI, the result in Google, and the name in the press — built for universities, edtech, and the agencies that serve them."
 >
-
-  <!-- ════ HERO ════ -->
-  <section class="hero" id="top">
-    <div class="hero-grain" aria-hidden="true"></div>
-    <div class="hero-rays" aria-hidden="true"></div>
-    <div class="hero-sun" aria-hidden="true"></div>
-
-    <div class="hero-content">
-      <p class="hero-overline">
-        <span class="hero-overline-rule"></span>
-        Filed at 7:01 a.m. · From the desk
-        <span class="hero-overline-rule"></span>
-      </p>
-
-      <h1 class="hero-headline">
-        A quiet game is being<br />
-        played for your industry's <em>attention.</em>
-      </h1>
-
-      <p class="hero-deck">
-        You will never see it on a media plan or a Gantt chart. It happens in inboxes, before nine, between operators who know which reporter cares about which story. <em>Most companies do not know they are losing it.</em>
-      </p>
-
-      <div class="cta-cluster">
-        <a class="btn-primary" href="/discovery">
-          See how it works
-          <span class="btn-icon" aria-hidden="true">→</span>
-        </a>
-        <a class="btn-link" href="/legend-maker">
-          Or read the field manual
-          <span class="arrow" aria-hidden="true">↓</span>
-        </a>
-      </div>
-
-      <p class="cta-fine">Thirty minutes. No deck. No pitch. No charge.</p>
-    </div>
-  </section>
-
-  <!-- ════ § 00 — PRESS STRIP (move A) ════ -->
-  <section class="press-strip" aria-label="Press placements">
-    <div class="press-inner">
-      <p class="press-label">
-        <span class="press-star">★</span>
-        As placed and earned in
-        <span class="press-star">★</span>
-      </p>
-      <div class="press-logos">
-        <span class="press-logo press-italic">Forbes</span>
-        <span class="press-logo press-condensed">THE WALL STREET JOURNAL</span>
-        <span class="press-logo press-roman">Inc.</span>
-        <span class="press-logo press-italic">Fast Company</span>
-        <span class="press-logo press-condensed">TECHCRUNCH</span>
-      </div>
-    </div>
-  </section>
-
-  <!-- ════ § 01 — THE TRUTH ════ -->
-  <section class="section section-navy">
-    <div class="container reveal">
-      <div class="section-label">
-        <div class="label-bar"></div>
-        <div class="label-text">§ 01 · The first truth</div>
-        <div class="label-bar"></div>
-      </div>
-      <h2 class="h2">Attention is rented.<br /><em>Authority is earned.</em></h2>
-      <div class="body">
-        <p class="dropcap">
-          There are two ways to enter a room. You can shout, and be heard for a moment. Or you can be the one the others turn to look at, and be remembered for a lifetime. The first way is expensive and forgettable. The second way is harder, and it lasts.
-        </p>
-
-        <div class="aphorism">This is the difference between noise and name</div>
-
-        <p>
-          The brands you envy did not buy their place in your mind. They earned it — one editor, one story, one un-ignorable angle at a time. They understood what most never will: <em>the world does not remember the loudest. It remembers the one it could not look away from.</em>
-        </p>
-
-        <p>
-          That moment of attention has a time. It is <strong>7:01am</strong> — the minute after the alarm, when a hundred million people pick up the phone and decide, again, what matters today. The office is named for that minute. We work backward from it.
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <!-- ════ § 02 — THE LEDGER (move B) ════ -->
-  <section class="section section-navy ledger-section">
-    <div class="container-wide reveal">
-      <div class="section-label">
-        <div class="label-bar"></div>
-        <div class="label-text">§ 02 · The ledger</div>
-        <div class="label-bar"></div>
-      </div>
-      <h2 class="h2">A recent <em>placement.</em></h2>
-
-      <div class="ledger-grid">
-        <div class="ledger-cell">
-          <div class="ledger-num">20</div>
-          <div class="ledger-cap">Placements earned</div>
-          <div class="ledger-sub">In sixty days</div>
+<!-- gradient defs -->
+<!-- HERO -->
+<header class="hero" id="top">
+  <div class="hero-atmos"><div class="grid"></div><div class="glow g1"></div><div class="glow g2"></div><div class="glow g3"></div></div>
+  <div class="wrap">
+    <div class="hero-grid">
+      <div class="hero-txt">
+        <div class="pill-badge"><span class="tagm">The earned-media engine for Higher Ed</span><span class="chip2">NOW IN BUILD</span></div>
+        <h1 class="hero-h">Higher-ed visibility that <em class="grad">compounds</em>.</h1>
+        <p class="hero-sub">A swarm of agents that makes your institution the answer when students ask AI, the result they find in Google, and the name they see in the press — turning every placement into a <b>visibility asset that compounds</b> through every enrollment cycle. For a fraction of a PR retainer.</p>
+        <div class="hero-ctas">
+          <button class="btn btn-primary btn-lg js-soon"><i class="ti ti-sparkles"></i>Get early access</button>
+          <button class="btn btn-soft btn-lg js-soon"><i class="ti ti-player-play"></i>See it work</button>
         </div>
-        <div class="ledger-divider" aria-hidden="true"></div>
-        <div class="ledger-cell">
-          <div class="ledger-num">7</div>
-          <div class="ledger-cap">Tier 1 outlets</div>
-          <div class="ledger-sub">WSJ, Forbes, Inc., others</div>
         </div>
-        <div class="ledger-divider" aria-hidden="true"></div>
-        <div class="ledger-cell">
-          <div class="ledger-num">1</div>
-          <div class="ledger-cap">Un-ignorable angle</div>
-          <div class="ledger-sub">Found in the second call</div>
-        </div>
-      </div>
-
-      <div class="ledger-prose">
-        <p>
-          In the spring of 2026, we ran a campaign for a higher-education company most reporters had never heard of. <em>The founder had been pitching the same press list for eighteen months with no answer.</em> We spent the first two weeks finding the angle no one had noticed — a federal data point that put his company on the right side of a national story.
-        </p>
-        <p>
-          Sixty days later, his name appeared in the <em>Wall Street Journal</em>, <em>Forbes</em>, and <em>Inc.</em> He fielded inbound from three buyers he had been chasing for a year, and closed the largest contract in the company's history before the campaign ended.
-        </p>
-      </div>
-
-      <p class="ledger-coda">★ Client confidential. The numbers are not. ★</p>
-    </div>
-  </section>
-
-  <!-- ════ § 03 — THE METHOD (with hinge — move E) ════ -->
-  <section class="section section-cream">
-    <div class="container reveal">
-      <p class="proclamation-hinge">
-        And so the office adopted, on the morning it opened, two articles —
-      </p>
-
-      <div class="section-label">
-        <div class="label-bar"></div>
-        <div class="label-text">§ 03 · The method</div>
-        <div class="label-bar"></div>
-      </div>
-      <h2 class="h2 h2-dark">Two things. Done <em>without compromise.</em></h2>
-      <div class="body body-dark body-center">
-        <p>
-          We do not ship deliverables. We do not run campaigns. We build the conditions under which a business becomes <em>impossible to ignore.</em> The method is small enough to fit on a single page, and it has not changed since the office opened.
-        </p>
-      </div>
-
-      <article class="doc">
-        <header class="doc-header">
-          <div class="doc-stamp">★ Tenets of the office ★</div>
-          <h3 class="doc-title">The Two Articles of Earned Authority</h3>
-          <p class="doc-sub">Adopted at sunrise. Held in perpetuity.</p>
-        </header>
-
-        <div class="tenet">
-          <div class="tenet-mark">Art. i</div>
-          <div>
-            <h4 class="tenet-h">Find the un-ignorable angle.</h4>
-            <p class="tenet-p">
-              Inside every business there is one true sentence — one fact, one fight, one figure — that an editor cannot refuse and a competitor cannot copy. <em>It is almost never the thing you would put in the deck.</em> We sit with you until we find it, and then we sharpen it until it cuts.
-            </p>
+      <!-- HERO FRAGMENT: swarm running -->
+      <div class="frag"><div class="frag-glow"></div><div class="frag-wrap">
+        <div class="frag-h"><div class="ci"><i class="ti ti-sparkles"></i></div><div class="ft">The Desk</div><div class="live"><i class="ti ti-circle-filled"></i>Working</div></div>
+        <div class="frag-b">
+          <div class="cmd"><div><div class="cl">Goal, in plain English</div><div class="cv">"Make us the program AI recommends for online nursing degrees."</div></div></div>
+          <div class="swarm">
+            <span class="ad" style="left:30%;top:18%;animation-delay:0s"></span>
+            <span class="ad c" style="left:64%;top:12%;animation-delay:.5s"></span>
+            <span class="ad a" style="left:72%;top:54%;animation-delay:1s"></span>
+            <span class="ad" style="left:22%;top:60%;animation-delay:1.5s"></span>
+            <span class="ad c" style="left:46%;top:6%;animation-delay:.8s"></span>
+            <span class="ad a" style="left:56%;top:70%;animation-delay:1.3s"></span>
+            <div class="core">7</div>
+            <div class="lbl"><span class="sp"></span>a swarm of agents, working your goal</div>
           </div>
         </div>
-        <div class="tenet">
-          <div class="tenet-mark">Art. ii</div>
-          <div>
-            <h4 class="tenet-h">Place it where it cannot be denied.</h4>
-            <p class="tenet-p">
-              An idea on a napkin is still a napkin. We do the unglamorous work — the research, the pitch, the follow-up, the proof — until the right reporter at the right outlet runs the right story. <em>Then we do it again. And again. Until your name is the answer to the question.</em>
-            </p>
-          </div>
-        </div>
-
-        <div class="doc-sig">
-          <p class="doc-sig-line">— 701am, est. at sunrise</p>
-          <div class="doc-sig-title">Office of Earned Media</div>
-        </div>
-        <div class="doc-wax">7:01</div>
-      </article>
+      </div></div>
     </div>
-  </section>
+  </div>
+</header>
 
-  <!-- ════ FOUNDER NOTE (move D) ════ -->
-  <section class="founder-note">
-    <div class="founder-inner reveal">
-      <p class="founder-eyebrow">
-        <span class="founder-rule"></span>
-        A note from the office
-        <span class="founder-rule"></span>
-      </p>
-      <blockquote class="founder-quote">
-        There are perhaps fifty agencies in the world that promise earned media. We are not the largest. We may not be the cheapest. We are the one that will sit with you for an hour and find the angle no one else will, and then prove we can place it. <em>If that is what you are looking for, the sunrise call is free.</em>
-      </blockquote>
-      <p class="founder-sig">
-        <span class="founder-name">— David</span>
-        <span class="founder-time">at 7:01</span>
-      </p>
+<!-- WORKS WITH -->
+<section class="works wrap">
+  <div class="wl">Working everywhere students and decision-makers now look</div>
+  <div class="works-row">
+    <div class="it"><i class="ti ti-message-chatbot"></i>ChatGPT</div>
+    <div class="it"><i class="ti ti-search"></i>Perplexity</div>
+    <div class="it"><i class="ti ti-sparkles"></i>Claude</div>
+    <div class="it"><i class="ti ti-stars"></i>Gemini</div>
+    <div class="it"><i class="ti ti-brand-google"></i>Google</div>
+    <div class="it"><i class="ti ti-news"></i>The press</div>
+  </div>
+</section>
+
+<!-- NAMED PROBLEM -->
+<section class="band wrap">
+  <div class="problem">
+    <div class="problem-eyebrow">The discovery problem</div>
+    <h2 class="problem-h">Every enrollment cycle still starts from <em class="grad">zero</em>.<br><span class="problem-until">Until 701am.</span></h2>
+    <p class="problem-p">Your visibility is scattered — a ranking here, a mention there, a campaign that resets when the cycle ends. Meanwhile applicants have stopped Googling and started asking AI which program is best, months before they ever inquire. The institutions that show up in those answers are winning enrollment quietly. 701am makes every placement, ranking, and citation compound into the next.</p>
+  </div>
+</section>
+
+<!-- FEATURE ROW 1: AI visibility — channels fragment -->
+<section class="feat wrap" id="how">
+  <div class="feat-in">
+    <div class="feat-txt">
+      <div class="feat-eyebrow">Be the answer</div>
+      <h2>Show up when students ask <em class="grad">the AI</em>.</h2>
+      <p>Your next applicant asks ChatGPT, Perplexity, or Claude which program is best long before they reach your site. 701am earns the rankings, outcomes data, and coverage those models learn from — so your institution is the name that comes back.</p>
+      <div class="fmini"><span class="m">ChatGPT</span><span class="m">Perplexity</span><span class="m">Claude</span><span class="m">Gemini</span><span class="m">AI Overviews</span></div>
     </div>
-  </section>
+    <div class="frag" id="fragChannels"><div class="frag-glow"></div><div class="frag-wrap">
+      <div class="frag-h"><div class="ci"><i class="ti ti-broadcast"></i></div><div class="ft">Visibility — all channels</div><div class="live"><i class="ti ti-circle-filled"></i>Live</div></div>
+      <div class="frag-b"><div class="chans">
+        <div class="chrow"><div class="chi" style="background:var(--indigo-soft);color:var(--indigo-deep)"><i class="ti ti-message-chatbot"></i></div><div class="chn">ChatGPT</div><div class="chr cite"><i class="ti ti-quote"></i>Cited</div></div>
+        <div class="chrow"><div class="chi" style="background:var(--indigo-soft);color:var(--indigo-deep)"><i class="ti ti-search"></i></div><div class="chn">Perplexity</div><div class="chr cite"><i class="ti ti-quote"></i>Sourced</div></div>
+        <div class="chrow"><div class="chi" style="background:var(--green-soft);color:var(--green-deep)"><i class="ti ti-brand-google"></i></div><div class="chn">Google</div><div class="chr up"><i class="ti ti-trending-up"></i>+18</div></div>
+        <div class="chrow"><div class="chi" style="background:var(--coral-soft);color:var(--coral-deep)"><i class="ti ti-news"></i></div><div class="chn">Earned media</div><div class="chr place"><i class="ti ti-circle-check"></i>12 placed</div></div>
+      </div></div>
+    </div></div>
+  </div>
+</section>
 
-  <!-- ════ § 04 — THE TOOLS ════ -->
-  <section class="section section-navy" id="tools">
-    <div class="container-wide reveal">
-      <div class="section-label">
-        <div class="label-bar"></div>
-        <div class="label-text">§ 04 · The tools</div>
-        <div class="label-bar"></div>
-      </div>
-      <h2 class="h2">Three tools.<br /><em>Built behind the masthead.</em></h2>
-      <div class="body body-center">
-        <p>
-          Three tools we built because the work demanded them. <em>Each is free.</em> Each does one thing well. Pick the one that fits the morning you are in.
-        </p>
-      </div>
-
-      <div class="stamp-rule">
-        <div class="stamp-rule-bar"></div>
-        <div class="stamp-rule-time">7:01</div>
-        <div class="stamp-rule-bar"></div>
-      </div>
-
-      <div class="offers offers--three">
-
-        <!-- Tool I — Kraken (featured) -->
-        <article class="offer offer--featured">
-          <div class="offer-frame" aria-hidden="true"></div>
-          <div class="offer-numeral">i.</div>
-          <p class="offer-label">Tool I · Newest</p>
-          <h3 class="offer-h">Predict <em>the coverage.</em></h3>
-          <p class="offer-desc">
-            <em>Kraken</em> — the Newsroom Prediction Engine. Drop a dataset, organization, or trend. <em>50 framings through 5 lenses, clustered into 10 attractors, ranked by editorial success.</em>
-          </p>
-          <ul class="offer-meta">
-            <li><span>i.</span> Six-section predictive report</li>
-            <li><span>ii.</span> Stories · pitches · headlines</li>
-            <li><span>iii.</span> ~25 seconds · free</li>
-          </ul>
-          <a class="btn-primary offer-cta" href="/kraken">
-            Release the Kraken
-            <span class="btn-icon" aria-hidden="true">→</span>
-          </a>
-          <p class="offer-fine">★ No signup. Yours to keep.</p>
-          <div class="offer-seal" aria-hidden="true">
-            <span class="offer-seal-time">7:01</span>
-          </div>
-        </article>
-
-        <!-- Tool II — Build a Data Story -->
-        <article class="offer">
-          <div class="offer-frame" aria-hidden="true"></div>
-          <div class="offer-numeral">ii.</div>
-          <p class="offer-label">Tool II · The workshop</p>
-          <h3 class="offer-h">Build a <em>Data Story.</em></h3>
-          <p class="offer-desc">
-            A guided 3-minute workshop. Five questions about your business, two public datasets, <em>one headline you did not have yesterday.</em>
-          </p>
-          <ul class="offer-meta">
-            <li><span>i.</span> Strategy memo on screen</li>
-            <li><span>ii.</span> Pitch · reporters · roadmap</li>
-            <li><span>iii.</span> Print-friendly</li>
-          </ul>
-          <a class="btn-primary btn-primary--ghost offer-cta" href="/build">
-            Open the workshop
-            <span class="btn-icon" aria-hidden="true">→</span>
-          </a>
-          <p class="offer-fine">★ Free. No signup.</p>
-        </article>
-
-        <!-- Tool III — Earned Media Skills -->
-        <article class="offer">
-          <div class="offer-frame" aria-hidden="true"></div>
-          <div class="offer-numeral">iii.</div>
-          <p class="offer-label">Tool III · For your AI</p>
-          <h3 class="offer-h">Arm your <em>AI agent.</em></h3>
-          <p class="offer-desc">
-            Twenty-eight earned-media skills your AI agent can read. <em>Pitch craft, journalist research, the humanizer.</em> Plain markdown. MIT licensed.
-          </p>
-          <ul class="offer-meta">
-            <li><span>i.</span> 28 skills, 1 rule</li>
-            <li><span>ii.</span> MIT, open source</li>
-            <li><span>iii.</span> Claude Code or Cowork</li>
-          </ul>
-          <a class="btn-primary btn-primary--ghost offer-cta" href="/skills">
-            Clone the repo
-            <span class="btn-icon" aria-hidden="true">→</span>
-          </a>
-          <p class="offer-fine">★ Cloned by anyone. Stolen by no one.</p>
-        </article>
-
-      </div>
-
-      <p class="tools-allcta">
-        <a class="tools-allcta-link" href="/tools">
-          View the full tool gallery <span aria-hidden="true">→</span>
-        </a>
-      </p>
+<!-- FEATURE ROW 2: autopilot — slack fragment (reversed) -->
+<section class="feat wrap" id="autopilot">
+  <div class="feat-in">
+    <div class="feat-txt">
+      <div class="feat-eyebrow">Set it once</div>
+      <h2>It runs at <em class="grad">sunrise</em>, every day.</h2>
+      <p>Connect your tools, set a cadence, and the swarm works in the background — finding opportunities, earning coverage, watching the news cycle, and reporting back. Tag it, schedule it, or let it run proactively.</p>
+      <div class="fmini"><span class="m">Schedules</span><span class="m">Slack</span><span class="m">Email</span><span class="m">CRM</span><span class="m">Always-on</span></div>
     </div>
-  </section>
+    <div class="frag"><div class="frag-glow"></div><div class="frag-wrap">
+      <div class="frag-h"><div class="ci"><i class="ti ti-brand-slack"></i></div><div class="ft">#press-room</div><div class="live"><i class="ti ti-circle-filled"></i>Auto</div></div>
+      <div class="frag-b"><div class="slack">
+        <div class="sk-msg"><div class="sk-av usr">DK</div><div class="sk-b"><div class="sk-nm">David</div><div class="sk-tx">@701am any angles on the new grad-outcomes data for our nursing program?</div></div></div>
+        <div class="sk-msg"><div class="sk-av bot">7</div><div class="sk-b"><div class="sk-nm">701am <span class="tag">AGENT</span></div><div class="sk-tx">Found one. Your online nursing grads out-earned the regional average by <b>14%</b> — strongest in rural placements. Drafted 9 pitches to higher-ed and regional reporters.</div>
+          <div class="sk-card"><i class="ti ti-circle-check"></i>9 pitches staged · awaiting your approval</div>
+        </div></div>
+      </div></div>
+    </div></div>
+  </div>
+</section>
 
-  <!-- ════ § — TESTIMONIALS ════ -->
-  <Testimonials />
+<!-- FEATURE ROW 3: measurable — dashboard fragment -->
+<section class="feat wrap">
+  <div class="feat-in">
+    <div class="feat-txt">
+      <div class="feat-eyebrow">You watch it climb</div>
+      <h2>Visibility you can finally <em class="grad">measure</em>.</h2>
+      <p>No vague "impressions." Live visibility into exactly where you're showing up — across AI, search, and the press — with every number traced back to a real placement, citation, or ranking. No vanity metrics.</p>
+      <div class="fmini"><span class="m">AI citations</span><span class="m">Rankings</span><span class="m">Placements</span><span class="m">Reach</span></div>
+    </div>
+    <div class="frag"><div class="frag-glow"></div><div class="frag-wrap">
+      <div class="frag-h"><div class="ci"><i class="ti ti-chart-arcs"></i></div><div class="ft">Dashboard · last 30 days</div><div class="live"><i class="ti ti-circle-filled"></i>Live</div></div>
+      <div class="frag-b"><div class="dboard">
+        <div class="dcell"><div class="dl"><i class="ti ti-robot"></i>AI citations</div><div class="dv">47</div><div class="dd"><i class="ti ti-trending-up"></i>+31</div></div>
+        <div class="dcell"><div class="dl"><i class="ti ti-brand-google"></i>Avg. rank</div><div class="dv">#6</div><div class="dd"><i class="ti ti-trending-up"></i>+18</div></div>
+        <div class="dcell"><div class="dl"><i class="ti ti-news"></i>Placements</div><div class="dv">12</div><div class="dd"><i class="ti ti-trending-up"></i>+9</div></div>
+        <div class="dcell"><div class="dl"><i class="ti ti-broadcast"></i>Reach</div><div class="dv">4.2M</div><div class="dd"><i class="ti ti-trending-up"></i>+22%</div></div>
+      </div></div>
+    </div></div>
+  </div>
+</section>
 
-  <!-- ════ § 05 — LATEST DISPATCHES (move C) ════ -->
-  <LatestDispatches />
+<!-- CAPABILITY GRID (Runtime "every layer") -->
+<section class="layer-sec">
+  <div class="atmos"><div class="dg dg1"></div><div class="dg dg2"></div></div>
+  <div class="inner">
+    <div class="wrap">
+      <div class="layer-head">
+        <div class="eb">One engine</div>
+        <h2>Everything earned media needs. Built in.</h2>
+        <p>Research, outreach, monitoring, measurement — the work an agency charges a retainer for, running continuously and compounding.</p>
+      </div>
+      <div class="layers">
+        <div class="layer"><div class="num">01</div><h3><i class="ti ti-search"></i>Research</h3><p>Finds the angle, the data, and the right reporters before a word is written.</p></div>
+        <div class="layer"><div class="num">02</div><h3><i class="ti ti-mail-forward"></i>Outreach</h3><p>Writes and sends pitches that sound human — and stages everything for your approval.</p></div>
+        <div class="layer"><div class="num">03</div><h3><i class="ti ti-radar"></i>Monitoring</h3><p>Watches the news cycle and your coverage, and jumps on the moment it breaks.</p></div>
+        <div class="layer"><div class="num">04</div><h3><i class="ti ti-robot"></i>AI visibility</h3><p>Earns the signals that make you the answer in ChatGPT, Perplexity, and Claude.</p></div>
+        <div class="layer"><div class="num">05</div><h3><i class="ti ti-chart-bar"></i>Measurement</h3><p>Tracks citations, rankings, and placements — every number traced to a source.</p></div>
+        <div class="layer"><div class="num">06</div><h3><i class="ti ti-shield-check"></i>Quality gate</h3><p>Nothing goes out that the brand can't stand behind. You stay in control.</p></div>
+      </div>
+      <div class="layer-foot">Hire an agency for all of this — or skip the retainer.</div>
+    </div>
+  </div>
+</section>
 
-  <!-- ════ FINAL CTA BANNER ════ -->
-  <CtaBanner
-    eyebrow="The work begins at 7:01"
-    heading="Ready to <em>begin?</em>"
-    body="Thirty minutes. No deck, no pitch, no charge. We listen, find the angle, and tell you straight whether we can help you become impossible to ignore."
-  />
+<!-- FOR EVERY INDUSTRY (Runtime "for every team") -->
+<section class="band wrap">
+  <div class="sec-head">
+    <div class="sec-eyebrow">Who we serve</div>
+    <h2>One engine, tuned to <em class="grad">your corner of higher ed</em>.</h2>
+    <p>Universities, edtech, and the agencies who serve them. Same compounding visibility — pointed at your goals.</p>
+  </div>
+  <div class="forind" style="grid-template-columns:repeat(3,1fr)">
+    <a class="ficard" href="universities.html">
+      <div class="fi" style="background:var(--gold-soft);color:var(--gold-deep)"><i class="ti ti-school"></i></div>
+      <h3>Universities</h3><p>Be the program students find first. Rankings, outcomes data, and the coverage that drives enrollment.</p>
+      <span class="more">For enrollment teams <i class="ti ti-arrow-right"></i></span>
+    </a>
+    <a class="ficard" href="edtech.html">
+      <div class="fi" style="background:var(--indigo-soft);color:var(--indigo-deep)"><i class="ti ti-device-laptop"></i></div>
+      <h3>Edtech &amp; OPMs</h3><p>Be the platform institutions trust. Trade press, sector data studies, and category authority.</p>
+      <span class="more">For edtech companies <i class="ti ti-arrow-right"></i></span>
+    </a>
+    <a class="ficard" href="agencies.html">
+      <div class="fi" style="background:var(--coral-soft);color:var(--coral-deep)"><i class="ti ti-briefcase"></i></div>
+      <h3>Agencies</h3><p>Run earned media for every client without the headcount. Scoped, isolated, always on.</p>
+      <span class="more">For agencies <i class="ti ti-arrow-right"></i></span>
+    </a>
+  </div>
+</section>
 
-</BaseLayout>
+<!-- PRICING TEASER / VS -->
+<section class="band wrap" id="pricing">
+  <div class="sec-head">
+    <div class="sec-eyebrow">The math</div>
+    <h2>Everything a PR agency does. <em class="grad">None of the retainer.</em></h2>
+    <p>Traditional PR is slow, opaque, and priced for enterprises. 701am does more, continuously, for a fraction.</p>
+  </div>
+  <div class="forind" style="grid-template-columns:1fr 1fr;max-width:880px;margin:0 auto">
+    <div class="ficard" style="cursor:default">
+      <div class="fi" style="background:var(--canvas-2);color:var(--ink-3)"><i class="ti ti-building-bank"></i></div>
+      <h3 style="color:var(--ink-2)">A PR agency</h3>
+      <p><b style="font-family:var(--mono);color:var(--ink-2)">$8k–20k/mo</b> retainer · weeks to a first placement · opaque reporting · media only, blind to AI &amp; search.</p>
+    </div>
+    <div class="ficard" style="cursor:default;background:var(--night)">
+      <div class="fi" style="background:rgba(255,255,255,.08);color:#E89B7E"><i class="ti ti-sparkles"></i></div>
+      <h3 style="color:#fff">701am</h3>
+      <p style="color:var(--night-txt-2)"><b style="font-family:var(--mono);color:#fff">A fraction</b> · days to a first placement · measurable across AI, search &amp; media · a swarm that scales without hiring.</p>
+      <span class="more js-soon" style="color:#E89B7E">See pricing <i class="ti ti-arrow-right"></i></span>
+    </div>
+  </div>
+</section>
 
-<style>
+<!-- CLOSING -->
+<section class="closing">
+  <div class="catmos"><div class="cg"></div></div>
+  <div class="wrap">
+    <div class="pill-badge"><span class="tagm">Filed at sunrise</span></div>
+    <h2>Be impossible to <em class="grad">miss</em>.</h2>
+    <p>701am is opening to a first group of higher-ed teams. Put your name down.</p>
+    <button class="btn btn-primary btn-lg js-soon"><i class="ti ti-sparkles"></i>Get early access</button>
+  </div>
+</section>
 
-  /* ═══════════════════════════════════════════════
-     WORKSHOP CALLOUT — promote /build
-     Sits between press strip and § 01
-     ═══════════════════════════════════════════════ */
-  .workshop-callout {
-    background: var(--paper-warm);
-    padding: calc(var(--x1) + var(--x4)) var(--x1) calc(var(--x1) + var(--x4));
-    border-top: 1px solid var(--rule);
-    border-bottom: 1px solid var(--rule);
-    position: relative;
-  }
-  .workshop-inner {
-    max-width: 72rem;
-    margin: 0 auto;
-    padding: 0 var(--x3);
-  }
-  .workshop-grid {
-    display: grid;
-    grid-template-columns: 1.05fr 1fr;
-    gap: var(--x1);
-    align-items: stretch;
-  }
+</div>
+</Layout>
 
-  .workshop-copy {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-  }
-  .workshop-stamp {
-    display: inline-flex;
-    align-items: center;
-    gap: var(--x4);
-    font-family: 'Instrument Sans', sans-serif;
-    font-size: 11px;
-    letter-spacing: 0.28em;
-    color: var(--claret);
-    text-transform: uppercase;
-    margin: 0 0 var(--x3);
-    font-weight: 600;
-    align-self: flex-start;
-  }
-  .workshop-rule {
-    display: inline-block;
-    width: 36px;
-    height: 1px;
-    background: var(--claret);
-    opacity: 0.55;
-  }
-  .workshop-h {
-    font-family: 'Newsreader', Georgia, serif;
-    font-size: clamp(2.5rem, 5.5vw, 4.25rem);
-    font-weight: 300;
-    line-height: 1;
-    letter-spacing: -0.038em;
-    color: var(--ink);
-    margin: 0 0 var(--x3);
-    max-width: 16ch;
-    text-wrap: balance;
-  }
-  .workshop-h em {
-    font-style: italic;
-    color: var(--claret);
-    font-weight: 300;
-  }
-  .workshop-deck {
-    font-family: 'Newsreader', Georgia, serif;
-    font-style: italic;
-    font-weight: 300;
-    font-size: clamp(1.125rem, 1.8vw, 1.375rem);
-    line-height: 1.45;
-    color: var(--ink-soft);
-    margin: 0 0 var(--x3);
-    max-width: 38ch;
-  }
-  .workshop-deck em {
-    color: var(--claret);
-    font-style: italic;
-  }
-  .workshop-body {
-    font-family: 'Newsreader', Georgia, serif;
-    font-size: 1rem;
-    line-height: 1.55;
-    color: var(--ink-faint);
-    margin: 0 0 var(--x2);
-    max-width: 42ch;
-  }
-  .workshop-body em {
-    font-style: italic;
-    color: var(--claret);
-  }
-  .workshop-cta-row {
-    display: flex;
-    align-items: center;
-    gap: var(--x3);
-    flex-wrap: wrap;
-    margin-top: var(--x4);
-  }
-  .workshop-cta-star {
-    display: inline-block;
-    font-size: 12px;
-    color: var(--paper-soft);
-    margin-right: 2px;
-  }
-  .workshop-fine {
-    font-family: 'Newsreader', Georgia, serif;
-    font-style: italic;
-    font-size: 13px;
-    color: var(--ink-fainter);
-    margin: 0;
-  }
-  .workshop-fine em {
-    color: var(--claret);
-    font-style: italic;
-  }
-
-  /* The preview card — sample memo */
-  .workshop-preview {
-    background: var(--paper-soft);
-    border: 1px solid var(--ink);
-    box-shadow: 0 22px 50px rgba(15, 14, 14, 0.12),
-                0 2px 4px rgba(15, 14, 14, 0.06);
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    transform: rotate(-1deg);                /* tactile, like a memo on a desk */
-    transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
-  }
-  .workshop-preview:hover {
-    transform: rotate(0deg) translateY(-3px);
-  }
-  .workshop-preview::before {
-    content: "";
-    position: absolute;
-    top: 10px; left: 10px; right: 10px; bottom: 10px;
-    border: 1px solid rgba(15, 14, 14, 0.08);
-    pointer-events: none;
-  }
-  .workshop-preview-head {
-    display: flex;
-    align-items: center;
-    gap: var(--x4);
-    padding: var(--x4) var(--x3);
-    border-bottom: 1px solid var(--rule-strong);
-    background: var(--paper);
-    position: relative;
-    z-index: 1;
-  }
-  .workshop-preview-dot {
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    background: var(--claret);
-    box-shadow: 0 0 0 2px rgba(153, 15, 61, 0.18);
-  }
-  .workshop-preview-label {
-    font-family: 'Instrument Sans', sans-serif;
-    font-size: 10px;
-    letter-spacing: 0.22em;
-    text-transform: uppercase;
-    color: var(--ink-soft);
-    font-weight: 600;
-    flex: 1;
-  }
-  .workshop-preview-time {
-    font-family: 'Newsreader', Georgia, serif;
-    font-style: italic;
-    font-size: 12px;
-    color: var(--ink-fainter);
-    font-variant-numeric: oldstyle-nums;
-  }
-  .workshop-preview-body {
-    padding: var(--x3);
-    position: relative;
-    z-index: 1;
-  }
-  .workshop-preview-eyebrow {
-    font-family: 'Instrument Sans', sans-serif;
-    font-size: 9px;
-    letter-spacing: 0.28em;
-    text-transform: uppercase;
-    color: var(--claret);
-    font-weight: 600;
-    margin: 0 0 var(--x5);
-  }
-  .workshop-preview-headline {
-    font-family: 'Newsreader', Georgia, serif;
-    font-size: 1.25rem;
-    line-height: 1.15;
-    letter-spacing: -0.02em;
-    color: var(--ink);
-    margin: 0 0 var(--x5);
-    font-weight: 400;
-    max-width: 22ch;
-  }
-  .workshop-preview-meta {
-    font-family: 'Instrument Sans', sans-serif;
-    font-size: 11px;
-    color: var(--ink-fainter);
-    margin: 0 0 var(--x4);
-    letter-spacing: 0.04em;
-  }
-  .workshop-preview-rule {
-    height: 1px;
-    background: var(--rule);
-    margin: var(--x4) 0;
-  }
-  .workshop-preview-pitch-subj {
-    font-family: 'Newsreader', Georgia, serif;
-    font-weight: 500;
-    font-size: 0.875rem;
-    color: var(--ink);
-    margin: 0 0 var(--x5);
-    line-height: 1.3;
-  }
-  .workshop-preview-pitch-body {
-    font-family: 'Newsreader', Georgia, serif;
-    font-style: italic;
-    font-size: 0.8125rem;
-    line-height: 1.5;
-    color: var(--ink-soft);
-    margin: 0 0 var(--x4);
-  }
-  .workshop-preview-road {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 6px 14px;
-  }
-  .workshop-preview-road li {
-    font-family: 'Newsreader', Georgia, serif;
-    font-size: 0.8125rem;
-    color: var(--ink);
-    display: flex;
-    align-items: baseline;
-    gap: 6px;
-    line-height: 1.3;
-  }
-  .workshop-preview-road li span {
-    font-family: 'Newsreader', Georgia, serif;
-    font-style: italic;
-    color: var(--claret);
-    font-variant-numeric: oldstyle-nums;
-    min-width: 1.5em;
-  }
-
-  @media (max-width: 880px) {
-    .workshop-grid {
-      grid-template-columns: 1fr;
-      gap: var(--x2);
-    }
-    .workshop-preview {
-      transform: rotate(0);
-      max-width: 28rem;
-    }
-  }
-  @media (max-width: 560px) {
-    .workshop-h { font-size: clamp(2rem, 8vw, 2.75rem); }
-    .workshop-preview-road { grid-template-columns: 1fr; }
-  }
-
-
-  /* ─────── SKILLS CALLOUT ─────── */
-  .skills-callout {
-    background: var(--paper-warm);
-    padding: var(--section-y) var(--x1);
-    border-top: 1px solid var(--rule);
-    border-bottom: 1px solid var(--rule);
-  }
-  .callout-inner {
-    max-width: var(--measure-wide);
-    margin: 0 auto;
-  }
-  .callout-stamp {
-    display: inline-flex;
-    align-items: center;
-    gap: var(--x4);
-    font-family: 'Instrument Sans', sans-serif;
-    font-size: 10px;
-    letter-spacing: 0.30em;
-    color: var(--claret);
-    text-transform: uppercase;
-    margin: 0 0 var(--x1);
-    font-weight: 600;
-    padding-bottom: var(--x4);
-    border-bottom: 1px solid var(--rule-strong);
-    width: 100%;
-    justify-content: center;
-  }
-  .callout-stamp-rule {
-    display: inline-block;
-    width: 40px;
-    height: 1px;
-    background: var(--claret);
-    opacity: 0.6;
-  }
-  .callout-grid {
-    display: grid;
-    grid-template-columns: 1.2fr 1fr;
-    gap: var(--x1);
-    align-items: center;
-  }
-  .callout-h {
-    font-family: 'Newsreader', Georgia, serif;
-    font-size: clamp(2.25rem, 5.5vw, 3.5rem);
-    font-weight: 400;
-    line-height: 1.04;
-    letter-spacing: -0.032em;
-    color: var(--ink);
-    margin: 0 0 var(--x3);
-    max-width: 18ch;
-  }
-  .callout-h em {
-    font-style: italic;
-    font-weight: 300;
-    color: var(--claret);
-  }
-  .callout-deck {
-    font-family: 'Newsreader', Georgia, serif;
-    font-size: 1.1875rem;
-    line-height: 1.55;
-    color: var(--ink-soft);
-    margin: 0 0 var(--x3);
-    font-feature-settings: "kern" 1, "liga" 1, "onum" 1;
-    text-wrap: pretty;
-    max-width: 38ch;
-  }
-  .callout-deck em {
-    font-style: italic;
-    color: var(--claret);
-  }
-  .callout-deck--quiet {
-    font-style: italic;
-    font-size: 1rem;
-    color: var(--ink-faint);
-    border-left: 2px solid var(--claret);
-    padding-left: var(--x3);
-    margin-bottom: var(--x2);
-  }
-  .callout-cta {
-    display: inline-flex;
-    align-items: center;
-    gap: var(--x2);
-    flex-wrap: wrap;
-    margin-top: var(--x3);
-  }
-
-  /* Terminal mock — right column */
-  .callout-terminal {
-    background: var(--ink-deep);
-    color: var(--paper-soft);
-    border: 1px solid var(--ink-deep);
-    box-shadow: 0 18px 40px rgba(15, 14, 14, 0.18);
-    font-family: 'JetBrains Mono', ui-monospace, Menlo, Consolas, monospace;
-    overflow: hidden;
-  }
-  .callout-terminal-bar {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    padding: 10px 14px;
-    background: rgba(255, 241, 224, 0.06);
-    border-bottom: 1px solid rgba(255, 241, 224, 0.10);
-  }
-  .callout-terminal-dot {
-    width: 9px;
-    height: 9px;
-    border-radius: 50%;
-    background: rgba(255, 241, 224, 0.20);
-  }
-  .callout-terminal-dot:nth-child(1) { background: var(--coral); opacity: 0.6; }
-  .callout-terminal-dot:nth-child(2) { background: var(--amber); opacity: 0.6; }
-  .callout-terminal-dot:nth-child(3) { background: var(--paper-soft); opacity: 0.4; }
-  .callout-terminal-name {
-    margin-left: var(--x4);
-    font-size: 11px;
-    letter-spacing: 0.04em;
-    color: rgba(255, 241, 224, 0.45);
-  }
-  .callout-terminal-body {
-    padding: var(--x3);
-    font-size: 13px;
-    line-height: 1.85;
-  }
-  .callout-terminal-line {
-    margin: 0 0 4px;
-    color: var(--paper-soft);
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
-  .callout-terminal-line--muted {
-    color: rgba(255, 241, 224, 0.45);
-    font-size: 12px;
-  }
-  .callout-terminal-line--cursor em {
-    font-style: italic;
-    color: var(--amber-light);
-  }
-  .callout-terminal-prompt {
-    color: var(--claret);
-    margin-right: 10px;
-    font-weight: 600;
-  }
-  .callout-terminal-line--muted .callout-terminal-prompt { color: rgba(201, 122, 63, 0.4); }
-  .callout-terminal-line--cursor .callout-terminal-prompt { color: var(--amber); }
-  .callout-terminal-blink {
-    color: var(--amber-light);
-    animation: blink 1.1s steps(2) infinite;
-    margin-left: 4px;
-  }
-  @keyframes blink {
-    50% { opacity: 0; }
-  }
-
-  /* Bottom meta strip */
-  .callout-meta {
-    list-style: none;
-    margin: var(--x2) 0 0;
-    padding: var(--x2) 0 0;
-    border-top: 1px solid var(--rule-strong);
-    display: grid;
-    grid-template-columns: auto auto 1fr;
-    gap: var(--x1);
-    align-items: baseline;
-    font-family: 'Newsreader', Georgia, serif;
-    font-size: 15px;
-    color: var(--ink-faint);
-    font-style: italic;
-  }
-  .callout-meta li {
-    display: inline-flex;
-    align-items: baseline;
-    gap: var(--x5);
-  }
-  .callout-meta strong {
-    font-family: 'Newsreader', Georgia, serif;
-    font-style: italic;
-    font-size: 2rem;
-    line-height: 1;
-    color: var(--claret);
-    font-variant-numeric: oldstyle-nums;
-    font-weight: 400;
-  }
-  .callout-meta li:last-child {
-    color: var(--ink-soft);
-    font-style: italic;
-  }
-
-  @media (max-width: 900px) {
-    .callout-grid {
-      grid-template-columns: 1fr;
-      gap: var(--x2);
-    }
-    .callout-meta {
-      grid-template-columns: 1fr;
-      gap: var(--x4);
-    }
-    .callout-meta li:last-child {
-      border-top: 1px solid var(--rule);
-      padding-top: var(--x4);
-    }
-  }
-  @media (max-width: 720px) {
-    .callout-deck--quiet {
-      padding-left: var(--x4);
-    }
-    .callout-terminal-body {
-      font-size: 12px;
-      padding: var(--x4);
-    }
-  }
-
-  /* ═══════════════════════════════════════════════
-     OFFERS — three roads
-     Each card is a small editorial document — numeral plate, inner frame,
-     meta strip, bottom-aligned CTA. Featured card carries the wax seal.
-     ═══════════════════════════════════════════════ */
-  .offers {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: var(--x3);
-    margin: var(--x1) auto 0;
-    max-width: 72rem;
-    align-items: stretch;
-  }
-  .offer {
-    position: relative;
-    background: var(--paper-soft);
-    border: 1px solid var(--ink);
-    padding: calc(var(--x1) + var(--x3)) var(--x2) var(--x2);
-    text-align: left;
-    display: flex;
-    flex-direction: column;
-    box-shadow: 0 14px 30px rgba(15, 14, 14, 0.08);
-    transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1),
-                box-shadow 0.45s ease,
-                border-color 0.45s ease;
-  }
-  .offer:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 22px 44px rgba(15, 14, 14, 0.14);
-  }
-
-  /* Inner ruled frame — printed-document feel */
-  .offer-frame {
-    position: absolute;
-    top: 10px; left: 10px; right: 10px; bottom: 10px;
-    border: 1px solid rgba(15, 14, 14, 0.10);
-    pointer-events: none;
-  }
-
-  /* Roman numeral plate — top-left, italic claret */
-  .offer-numeral {
-    position: absolute;
-    top: calc(var(--x3) + 2px);
-    left: var(--x2);
-    font-family: 'Newsreader', Georgia, serif;
-    font-style: italic;
-    font-weight: 300;
-    font-size: 2.25rem;
-    line-height: 1;
-    color: var(--claret);
-    letter-spacing: -0.03em;
-    font-variant-numeric: oldstyle-nums;
-    z-index: 1;
-  }
-
-  /* Featured card — dark paper, claret border, wax seal */
-  .offer--featured {
-    background: var(--paper-deep);
-    border-color: var(--claret);
-  }
-  .offer--featured::before {
-    content: "★ Begin here ★";
-    position: absolute;
-    top: -13px;
-    left: 50%;
-    transform: translateX(-50%);
-    background: var(--claret);
-    color: var(--paper-soft);
-    padding: 5px var(--x3);
-    font-family: 'Instrument Sans', sans-serif;
-    font-size: 10px;
-    line-height: 1.4;
-    letter-spacing: 0.28em;
-    font-weight: 600;
-    text-transform: uppercase;
-    white-space: nowrap;
-    z-index: 2;
-  }
-
-  /* Label — Article I / II / III */
-  .offer-label {
-    font-family: 'Instrument Sans', sans-serif;
-    font-size: 10px;
-    line-height: 1.4;
-    letter-spacing: 0.28em;
-    color: var(--claret);
-    text-transform: uppercase;
-    margin: 0 0 var(--x4);
-    padding-top: var(--x4);          /* room for numeral plate above */
-    padding-bottom: var(--x5);
-    font-weight: 600;
-    border-bottom: 1px solid var(--rule-strong);
-    position: relative;
-    z-index: 1;
-    text-align: right;               /* sits opposite the numeral plate */
-  }
-
-  /* Headline */
-  .offer-h {
-    font-family: 'Newsreader', Georgia, serif;
-    font-feature-settings: "kern" 1, "liga" 1, "dlig" 1;
-    font-size: clamp(1.625rem, 2.4vw, 2rem);
-    line-height: 1.05;
-    font-weight: 400;
-    color: var(--ink);
-    margin: 0 0 var(--x3);
-    letter-spacing: -0.022em;
-    text-wrap: balance;
-    max-width: 14ch;
-    position: relative;
-    z-index: 1;
-  }
-  .offer-h em {
-    font-style: italic;
-    color: var(--claret);
-    font-weight: 300;
-  }
-
-  /* Description */
-  .offer-desc {
-    font-family: 'Newsreader', Georgia, serif;
-    font-feature-settings: "kern" 1, "liga" 1, "onum" 1;
-    font-size: 1rem;
-    line-height: 1.55;
-    color: var(--ink-soft);
-    margin: 0 0 var(--x2);
-    font-weight: 400;
-    text-wrap: pretty;
-    position: relative;
-    z-index: 1;
-  }
-  .offer-desc em {
-    font-style: italic;
-    color: var(--claret);
-  }
-
-  /* Meta strip — three numbered points */
-  .offer-meta {
-    list-style: none;
-    margin: 0 0 var(--x2);
-    padding: var(--x4) 0;
-    border-top: 1px solid var(--rule);
-    border-bottom: 1px solid var(--rule);
-    position: relative;
-    z-index: 1;
-  }
-  .offer-meta li {
-    display: grid;
-    grid-template-columns: 1.5rem 1fr;
-    gap: var(--x5);
-    padding: 3px 0;
-    font-family: 'Newsreader', Georgia, serif;
-    font-size: 0.9375rem;
-    line-height: 1.4;
-    color: var(--ink);
-  }
-  .offer-meta li span {
-    font-family: 'Newsreader', Georgia, serif;
-    font-style: italic;
-    color: var(--claret);
-    font-variant-numeric: oldstyle-nums;
-  }
-
-  /* CTA button — uniform across all three cards: same width, same height, same style */
-  .offer-cta {
-    align-self: stretch;
-    width: 100%;
-    box-sizing: border-box;
-    justify-content: center;
-    margin-top: auto;
-    text-align: center;
-    padding: 16px 20px;
-    font-size: 0.875rem;
-    font-weight: 600;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    line-height: 1;
-    min-height: 52px;
-    position: relative;
-    z-index: 1;
-    gap: 10px;
-  }
-  .offer-cta .btn-icon {
-    font-size: 14px;
-    transition: transform 0.25s ease;
-  }
-  .offer-cta:hover .btn-icon { transform: translateX(4px); }
-
-  /* All three card CTAs use the same treatment — dark ink button.
-     The featured card is distinguished by its container styling (border, ribbon),
-     not by giving its button a different shape. */
-  .offer-cta.btn-primary,
-  .offer-cta.btn-primary--ghost {
-    background: var(--ink-deep);
-    color: var(--paper-soft);
-    border: 1px solid var(--ink-deep);
-  }
-  .offer-cta.btn-primary:hover,
-  .offer-cta.btn-primary--ghost:hover {
-    background: var(--claret);
-    border-color: var(--claret);
-    color: var(--paper-soft);
-  }
-
-  /* Fine print */
-  .offer-fine {
-    font-family: 'Newsreader', Georgia, serif;
-    font-style: italic;
-    font-size: 13px;
-    line-height: 1.4;
-    color: var(--ink-fainter);
-    text-align: center;
-    margin: var(--x4) 0 0;
-    position: relative;
-    z-index: 1;
-  }
-
-  /* "View full tool gallery →" link under the Tools grid */
-  .tools-allcta {
-    text-align: center;
-    margin: calc(var(--x1) + var(--x3)) 0 0;
-  }
-  .tools-allcta-link {
-    font-family: 'Newsreader', Georgia, serif;
-    font-style: italic;
-    font-size: 17px;
-    color: var(--ink-soft);
-    text-decoration: none;
-    border-bottom: 1px solid var(--claret);
-    padding-bottom: 2px;
-    transition: color 0.25s ease, gap 0.25s ease;
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-  }
-  .tools-allcta-link:hover {
-    color: var(--claret);
-    gap: 14px;
-  }
-
-  /* Wax seal — featured card only */
-  .offer-seal {
-    position: absolute;
-    top: -16px;
-    right: var(--x3);
-    width: 56px;
-    height: 56px;
-    border-radius: 50%;
-    background: radial-gradient(circle at 35% 35%,
-      #C8334F 0%,
-      var(--claret) 40%,
-      var(--claret-dark) 85%);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 6px 12px rgba(15, 14, 14, 0.28),
-                inset 0 -3px 6px rgba(0, 0, 0, 0.22),
-                inset 0 3px 6px rgba(255, 255, 255, 0.18);
-    transform: rotate(-8deg);
-    z-index: 3;
-  }
-  .offer-seal::before {
-    content: "";
-    position: absolute;
-    inset: 4px;
-    border-radius: 50%;
-    border: 1px dashed rgba(255, 241, 224, 0.40);
-  }
-  .offer-seal-time {
-    font-family: 'Newsreader', Georgia, serif;
-    font-style: italic;
-    font-size: 16px;
-    line-height: 1;
-    color: var(--paper-soft);
-    font-variant-numeric: oldstyle-nums;
-    letter-spacing: -0.02em;
-  }
-
-  /* Responsive — tablet collapses to 1 col earlier than the 720 phone breakpoint */
-  @media (max-width: 1000px) {
-    .offers {
-      grid-template-columns: 1fr;
-      max-width: 28rem;
-    }
-    .offer-h { max-width: none; }
-  }
-</style>
+<script is:inline>
+function wait(ms){return new Promise(r=>setTimeout(r,ms));}
+  async function lightRows(){const rows=[...document.querySelectorAll('#fragChannels .chrow')];for(const r of rows){r.classList.add('lit');await wait(360);}}
+  const io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){lightRows();io.disconnect();}});},{threshold:.4});
+  const fc=document.getElementById('fragChannels');if(fc)io.observe(fc);
+</script>

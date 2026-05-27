@@ -1,0 +1,33 @@
+---
+import Mark from './Mark.astro';
+import { SITE, NAV } from '../config';
+const { pathname } = Astro.url;
+const isActive = (slug: string) =>
+  slug === 'blog' ? pathname.startsWith('/blog') : pathname === `/${slug}` || pathname === `/${slug}/`;
+---
+<div class="announce">
+  <span class="ann-tag">Early access</span>
+  <span>701am is opening to a first group of higher-ed teams.</span>
+  <a class="js-soon">Request an invite <i class="ti ti-arrow-right"></i></a>
+</div>
+
+<nav id="nav">
+  <div class="nav-in">
+    <a class="logo" href="/">
+      <Mark />
+      <span class="wm">701<span class="am">am</span></span>
+      <span class="tagline" set:html={SITE.tagline}></span>
+    </a>
+    <div class="navlinks">
+      {NAV.map((l) => (
+        <a href={`/${l.slug}`} class={isActive(l.slug) ? 'active' : ''}>{l.label}</a>
+      ))}
+      <a href="/#how">How it works</a>
+      <a href="/#pricing">Pricing</a>
+    </div>
+    <div class="nav-cta">
+      <a class="ghost js-soon">Sign in</a>
+      <button class="btn btn-primary js-soon"><i class="ti ti-sparkles"></i>Request early access</button>
+    </div>
+  </div>
+</nav>

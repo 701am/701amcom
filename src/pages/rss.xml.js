@@ -1,21 +1,21 @@
 import rss from '@astrojs/rss';
 import { getCollection } from 'astro:content';
+import { SITE } from '../config';
 
 export async function GET(context) {
-  const notes = (await getCollection('notes', ({ data }) => !data.draft))
+  const posts = (await getCollection('blog'))
+    .filter((p) => !p.data.draft)
     .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
 
   return rss({
-    title: 'Dispatches from 701am',
-    description: 'The morning record from the office of earned media.',
-    site: context.site,
-    items: notes.map((note) => ({
-      title: note.data.title,
-      pubDate: note.data.date,
-      description: note.data.deck,
-      link: `/notes/${note.id}/`,
-      categories: [note.data.topic, ...note.data.tags],
+    title: '701am · Founder Notes',
+    description: 'Field notes on earned media, AI visibility, and enrollment.',
+    site: context.site ?? SITE.url,
+    items: posts.map((p) => ({
+      title: p.data.title,
+      description: p.data.dek,
+      pubDate: p.data.date,
+      link: `/blog/${p.id}/`,
     })),
-    customData: `<language>en-us</language>`,
   });
 }

@@ -1,0 +1,101 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { getCollection, render } from 'astro:content';
+
+export async function getStaticPaths() {
+  const posts = (await getCollection('blog')).filter((p) => !p.data.draft);
+  return posts.map((post) => ({ params: { slug: post.id }, props: { post } }));
+}
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+const fmt = (d: Date) =>
+  d.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+const subject = encodeURIComponent(`Re: ${post.data.title}`);
+---
+<Layout title={post.data.title} description={post.data.dek} ogType="article">
+  <div class="back-link">
+    <a href="/blog"><i class="ti ti-arrow-left"></i>Founder Notes</a>
+  </div>
+
+  <article class="post">
+    <div class="post-meta-top">
+      <div class="blog-author">
+        <span class="av">D</span>
+        <span class="ai">
+          <span class="an">{post.data.author}</span>
+          <span class="ad">{fmt(post.data.date)}</span>
+        </span>
+      </div>
+    </div>
+
+    <header class="blog-head" style="padding-top:24px">
+      <h1>{post.data.title}</h1>
+      <p class="lede">{post.data.dek}</p>
+      {post.data.tags.length > 0 && (
+        <div class="post-tags">
+          {post.data.tags.map((t) => <a href={`/blog/c/${post.data.collection}`}>{t}</a>)}
+        </div>
+      )}
+    </header>
+
+    <div class="post-body">
+      <Content />
+    </div>
+
+    <div class="post-foot">
+      <span class="share">
+        Got thoughts on this post? Reply via
+        <a href={`mailto:hello@701am.com?subject=${subject}`}>email</a>.
+      </span>
+    </div>
+
+    <div class="subscribe" id="sub-box">
+      <h4>Get the next note at sunrise.</h4>
+      <p>Occasional field notes on earned media and AI visibility for higher ed. No spam.</p>
+      <form class="sub-row" id="sub-form" name="newsletter" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+        <input type="hidden" name="form-name" value="newsletter" />
+        <input type="hidden" name="source" value="blog" />
+        <p hidden><label>Don't fill this out: <input name="bot-field" /></label></p>
+        <input type="email" name="email" id="sub-email" placeholder="you@institution.edu" required />
+        <button type="submit" id="sub-btn">Subscribe</button>
+      </form>
+      <div class="sub-done" id="sub-done" style="display:none;font-size:14px;color:var(--green-deep);margin-top:6px"><i class="ti ti-check"></i> You're subscribed. The next note arrives at sunrise.</div>
+    </div>
+
+    <script is:inline>
+      (function () {
+        var form = document.getElementById('sub-form');
+        if (!form) return;
+        function enc(d){return Object.keys(d).map(function(k){return encodeURIComponent(k)+'='+encodeURIComponent(d[k])}).join('&')}
+        form.addEventListener('submit', function (e) {
+          e.preventDefault();
+          var emailEl = document.getElementById('sub-email');
+          var btn = document.getElementById('sub-btn');
+          var email = (emailEl && emailEl.value || '').trim();
+          if (!/.+@.+\..+/.test(email)) { emailEl && emailEl.focus(); return; }
+          btn.disabled = true; btn.textContent = 'Subscribing…';
+          fetch('/', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+            body: enc({ 'form-name': 'newsletter', email: email, source: 'blog', 'bot-field': '' })
+          }).then(function () {
+            form.style.display = 'none';
+            var done = document.getElementById('sub-done');
+            if (done) done.style.display = 'block';
+          }).catch(function () {
+            btn.disabled = false; btn.textContent = 'Subscribe';
+          });
+        });
+      })();
+    </script>
+
+    <div class="author-bio">
+      <span class="av">D</span>
+      <div class="bt">
+        <h5>David Krug</h5>
+        <p>Building 701am — the earned-media engine for higher education. Sometimes I share what I learn while building it.</p>
+      </div>
+    </div>
+  </article>
+</Layout>

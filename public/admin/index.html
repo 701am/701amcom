@@ -1,56 +1,14 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="robots" content="noindex,nofollow" />
-  <title>701am — Office archive</title>
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,500;1,400&family=Instrument+Sans:wght@400;500&display=swap" rel="stylesheet" />
-
-  <!-- Netlify Identity widget — required for Decap CMS login -->
-  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
-
-  <style>
-    body { background: #0A1633; color: #F5EFE4; font-family: 'Instrument Sans', sans-serif; margin: 0; }
-    .pre-auth-banner {
-      padding: 12px 24px;
-      background: #131C42;
-      border-bottom: 1px solid rgba(212,168,83,0.2);
-      display: flex; align-items: center; gap: 12px;
-      font-family: 'Newsreader', serif;
-    }
-    .pre-auth-banner .star { color: #D4A853; }
-    .pre-auth-banner .title { font-size: 18px; color: #FFF8EC; }
-    .pre-auth-banner .tag {
-      margin-left: auto;
-      font-family: 'Instrument Sans', sans-serif;
-      font-size: 10px; letter-spacing: 0.28em; text-transform: uppercase;
-      color: #D4A853;
-    }
-  </style>
+  <meta name="robots" content="noindex" />
+  <title>701am · Content</title>
+  <link rel="icon" href="/assets/logo-mark.svg" />
 </head>
 <body>
-  <div class="pre-auth-banner">
-    <span class="star">★</span>
-    <span class="title">701am — Office archive</span>
-    <span class="tag">Decap CMS</span>
-  </div>
-
-  <!-- Decap CMS app -->
-  <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
-
-  <!-- Redirect signed-up users back to /admin/ instead of homepage -->
-  <script>
-    if (window.netlifyIdentity) {
-      window.netlifyIdentity.on("init", (user) => {
-        if (!user) {
-          window.netlifyIdentity.on("login", () => {
-            document.location.href = "/admin/";
-          });
-        }
-      });
-    }
-  </script>
+  <!-- Decap CMS -->
+  <script src="https://unpkg.com/decap-cms@^3.6.0/dist/decap-cms.js"></script>
 </body>
 </html>

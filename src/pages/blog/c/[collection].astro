@@ -1,0 +1,50 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import { getCollection } from 'astro:content';
+
+export async function getStaticPaths() {
+  const posts = (await getCollection('blog')).filter((p) => !p.data.draft);
+  const collections = [...new Set(posts.map((p) => p.data.collection))];
+  return collections.map((c) => ({
+    params: { collection: c },
+    props: { collection: c },
+  }));
+}
+
+const { collection } = Astro.props;
+const posts = (await getCollection('blog'))
+  .filter((p) => !p.data.draft && p.data.collection === collection)
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+
+const allCollections = [
+  ...new Set((await getCollection('blog')).filter((p) => !p.data.draft).map((p) => p.data.collection)),
+];
+const fmt = (d: Date) =>
+  d.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+---
+<Layout title={`Founder Notes · ${collection}`} description={`Notes filed under ${collection}.`}>
+  <header class="blog-head">
+    <h1>{collection}</h1>
+    <p class="lede">Notes filed under <strong>{collection}</strong>.</p>
+  </header>
+
+  <div class="notes">
+    {posts.map((p) => (
+      <a class="note-row" href={`/blog/${p.id}`}>
+        <span class="date">{fmt(p.data.date)}</span>
+        <div class="nt">{p.data.title} <span class="arrow">→</span></div>
+        <div class="nd">{p.data.dek}</div>
+      </a>
+    ))}
+  </div>
+
+  <div class="collections">
+    <div class="cl-label">Collections</div>
+    <div class="cl-row">
+      <a href="/blog">recent</a>
+      {allCollections.map((c) => (
+        <a href={`/blog/c/${c}`} class={c === collection ? 'active' : ''}>{c}</a>
+      ))}
+    </div>
+  </div>
+</Layout>

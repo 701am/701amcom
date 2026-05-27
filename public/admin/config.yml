@@ -1,58 +1,44 @@
 backend:
   name: git-gateway
   branch: main
-  commit_messages:
-    create: "Dispatch: {{slug}} (filed)"
-    update: "Dispatch: {{slug}} (revised)"
-    delete: "Dispatch: {{slug}} (withdrawn)"
 
-# Optional: editorial workflow. Uncomment to enable drafts → in-review → ready PR flow.
-# publish_mode: editorial_workflow
+# Local development: run `npx decap-server` and uncomment the next line
+# local_backend: true
 
-media_folder: "public/uploads"
-public_folder: "/uploads"
+media_folder: "public/assets/uploads"
+public_folder: "/assets/uploads"
 
 site_url: https://701am.com
 display_url: https://701am.com
-logo_url: https://701am.com/favicon.svg
+logo_url: /assets/logo-mark.svg
+
+publish_mode: editorial_workflow
 
 collections:
-  - name: "notes"
-    label: "Dispatches"
-    label_singular: "Dispatch"
-    folder: "src/content/notes"
+  - name: "blog"
+    label: "Founder Notes"
+    label_singular: "Note"
+    folder: "src/content/blog"
     create: true
+    delete: true
     slug: "{{slug}}"
-    extension: "md"
-    format: "frontmatter"
-    summary: "№ {{number}} · {{title}}"
-    sortable_fields:
-      - number
-      - date
-      - title
-    view_filters:
-      - label: "Drafts"
-        field: draft
-        pattern: true
-      - label: "Published"
-        field: draft
-        pattern: false
+    preview_path: "blog/{{slug}}"
+    sortable_fields: ["date", "title"]
     fields:
-      - { name: "title",       label: "Title",        widget: "string" }
-      - { name: "deck",        label: "Deck (one-line subtitle)", widget: "text" }
-      - { name: "number",      label: "Dispatch number", widget: "number", value_type: "int", min: 1, step: 1 }
-      - { name: "date",        label: "Filed date",   widget: "datetime", date_format: "YYYY-MM-DD", time_format: false, picker_utc: false }
-      - name: "topic"
-        label: "Topic"
+      - { name: "title", label: "Title", widget: "string" }
+      - { name: "dek", label: "One-line summary (dek)", widget: "text", hint: "Shown under the title and in the index list." }
+      - { name: "date", label: "Date", widget: "datetime", date_format: "YYYY-MM-DD", time_format: false, format: "YYYY-MM-DD" }
+      - name: "collection"
+        label: "Collection"
         widget: "select"
+        default: "notes"
         options:
-          - "The angle"
-          - "The pitch"
-          - "Authority"
-          - "The trade"
-          - "Field notes"
-          - "The reading list"
-      - { name: "tags",        label: "Tags",         widget: "list", default: [], required: false }
-      - { name: "readingTime", label: "Reading time (e.g. '6 min')", widget: "string", required: false }
-      - { name: "draft",       label: "Draft",        widget: "boolean", default: false }
-      - { name: "body",        label: "Body",         widget: "markdown" }
+          - { label: "Notes", value: "notes" }
+          - { label: "Enrollment", value: "enrollment" }
+          - { label: "AI Visibility", value: "ai-visibility" }
+          - { label: "Earned Media", value: "earned-media" }
+          - { label: "Playbooks", value: "playbooks" }
+      - { name: "tags", label: "Tags", widget: "list", default: [], required: false }
+      - { name: "author", label: "Author", widget: "string", default: "David Krug" }
+      - { name: "draft", label: "Draft", widget: "boolean", default: false, required: false }
+      - { name: "body", label: "Body", widget: "markdown" }
