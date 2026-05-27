@@ -30,7 +30,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         Three things we built at 701am because the work demanded them. <em>Each is free. Each is opinionated. Each does one thing well.</em>
       </p>
       <p class="tp-mast-stats">
-        <span><em>3</em> tools</span>
+        <span><em>4</em> tools</span>
         <span class="tp-mast-stat-sep">·</span>
         <span><em>0</em> signups</span>
         <span class="tp-mast-stat-sep">·</span>
@@ -206,6 +206,60 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     </section>
 
     <!-- ════════════════════════════════════════════════════════════
+         TOOL IV — MERIT
+         ════════════════════════════════════════════════════════════ -->
+    <section class="tp-tool" id="merit">
+      <div class="tp-tool-grid">
+
+        <div class="tp-tool-body">
+          <p class="tp-tool-num">iv.</p>
+          <p class="tp-tool-eyebrow">Cold outreach intelligence</p>
+          <h2 class="tp-tool-h">
+            <em>Merit.</em>
+          </h2>
+          <p class="tp-tool-deck">
+            An open source cold outreach intelligence framework. Research-led. Humanized. Built for agencies running campaigns across multiple clients — without the copy-paste, without the generic openers, without the messages that read like they came from a tool.
+          </p>
+
+          <dl class="tp-tool-specs">
+            <dt>Runtime</dt><dd>Claude Code or OpenCode — the framework runs locally</dd>
+            <dt>Output</dt><dd>Research-grounded cold emails, DMs, sequences, follow-ups — each staged in outbox.json for human review</dd>
+            <dt>Method</dt><dd>Prospect Researcher → Skill (cold-email, cold-dm, etc.) → Humanizer (10-point rewrite). All reading from 8-file Merit Code per client.</dd>
+            <dt>Best for</dt><dd>Agencies running multi-client outreach who need every message to sound like it was written by someone who actually did the research</dd>
+            <dt>Cost to you</dt><dd>Free, open source, MIT license</dd>
+          </dl>
+
+          <a href="/merit" class="tp-tool-cta">
+            <span class="tp-tool-cta-star" aria-hidden="true">★</span>
+            Explore Merit
+            <span class="tp-tool-cta-arrow" aria-hidden="true">→</span>
+          </a>
+          <p class="tp-tool-fine">
+            <em>Repository:</em> <a href="https://github.com/701am/Merit">github.com/701am/Merit</a>
+          </p>
+        </div>
+
+        <aside class="tp-tool-art tp-tool-art--merit" aria-hidden="true">
+          <pre class="tp-merit-mock"><code><span class="tp-merit-prompt">$ </span>git clone github.com/701am/Merit
+<span class="tp-merit-prompt">$ </span>cd Merit
+
+<span class="tp-merit-label">Run intake</span>
+Merit: Let's build your Merit Code.
+      What's the client's company name?
+
+<span class="tp-merit-dim">// ~20 min later: all 8 files populated</span>
+
+<span class="tp-merit-label">Run cold-email</span>
+Merit: Who is this for?
+Researching... Writing... Humanizing...
+<span class="tp-merit-success">✓ 4-email sequence staged in outbox.json</span></code></pre>
+          <p class="tp-tool-art-cap">Clone, intake, send. That's it.</p>
+        </aside>
+
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════════
          CLOSING — WORK WITH THE DESK
          ════════════════════════════════════════════════════════════ -->
     <footer class="tp-coda">
@@ -219,7 +273,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         The desk <em>is not.</em>
       </h2>
       <p class="tp-coda-p">
-        These three tools exist because we use them every day. The Kraken plots the field. The workshop drafts the memo. The skills run the work inside an AI. <em>When you are ready to hand the work to people instead of tools, the desk is here.</em>
+        These four tools exist because we use them every day. The Kraken plots the field. The workshop drafts the memo. The skills run the work inside an AI. Merit keeps the outreach honest. <em>When you are ready to hand the work to people instead of tools, the desk is here.</em>
       </p>
       <div class="tp-coda-cta-row">
         <a href="/discovery" class="tp-coda-cta-primary">
@@ -605,6 +659,29 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   }
   .tp-skills-comment { color: rgba(231, 212, 184, 0.5); }
   .tp-skills-heading { color: #C8334F; font-weight: 600; }
+
+  /* Merit mock */
+  .tp-tool-art--merit {
+    width: 100%;
+  }
+  .tp-merit-mock {
+    margin: 0;
+    padding: var(--x3);
+    background: var(--ink-deep);
+    color: #e7d4b8;
+    border: 1px solid var(--ink-deep);
+    font-family: 'JetBrains Mono', ui-monospace, Menlo, Consolas, monospace;
+    font-size: 12px;
+    line-height: 1.65;
+    overflow: hidden;
+    max-width: 380px;
+    width: 100%;
+    box-shadow: 0 4px 12px rgba(15, 14, 14, 0.10);
+  }
+  .tp-merit-prompt { color: var(--claret); font-weight: 600; }
+  .tp-merit-label { color: #C8334F; font-weight: 600; }
+  .tp-merit-dim { color: rgba(231, 212, 184, 0.5); }
+  .tp-merit-success { color: #2d6f3f; }
 
   /* ─────────── CODA ─────────── */
   .tp-coda {
