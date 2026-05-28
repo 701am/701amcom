@@ -467,7 +467,7 @@
   .cf-field input:focus,.cf-field textarea:focus,.cf-field select:focus{border-color:var(--coral);box-shadow:0 0 0 4px var(--coral-soft);background:var(--paper)}
   .cf-seg{display:flex;gap:8px;flex-wrap:wrap}
   .cf-seg label{flex:1;min-width:120px;cursor:pointer;margin:0}
-  .cf-seg input{position:absolute;opacity:0;pointer-events:none}
+  .cf-seg input{position:absolute;opacity:0;pointer-events:none;width:0;height:0;margin:0;padding:0}
   .cf-seg .opt{display:block;text-align:center;border:1px solid var(--line-2);border-radius:11px;padding:11px 8px;font-size:13.5px;font-weight:500;color:var(--ink-2);transition:.13s;background:var(--paper-2)}
   .cf-seg input:checked + .opt{border-color:var(--coral);background:var(--coral-soft);color:var(--coral-deep);font-weight:600}
   .cf-submit{width:100%;height:50px;border-radius:12px;background:var(--coral);color:#fff;font-weight:600;font-size:15px;transition:.13s}
@@ -485,3 +485,245 @@
   .contact-form.sent .cf-form{display:none}
   .contact-form.sent .contact-thanks{display:block}
   @media(max-width:760px){.contact-wrap{grid-template-columns:1fr;gap:32px}}
+
+  /* ============================================================
+     MOBILE RESPONSIVE PASS — consolidated phone/tablet rules.
+     Tablet breakpoint (920px) already handled above; this layer
+     adds phone-specific (≤640px) and tight-phone (≤480px) rules.
+     ============================================================ */
+
+  /* overflow safety net — kills horizontal scroll from any rogue element */
+  html, body { overflow-x: hidden; }
+
+  /* PHONE (≤640px) — main mobile breakpoint */
+  @media (max-width: 640px) {
+    /* edge padding on the wrap and every constrained reading column */
+    .wrap { padding-left: 20px; padding-right: 20px; }
+
+    /* announce bar — single line, no wrap to multi-line jank */
+    .announce { font-size: 12.5px; padding: 9px 14px; gap: 8px; flex-wrap: wrap; line-height: 1.35 }
+    .announce .ann-tag { font-size: 10px; padding: 3px 8px }
+    .announce > a { white-space: nowrap }
+
+    /* NAV — tighten so hamburger has room; hide tagline; compact CTA */
+    nav .nav-in { padding: 10px 16px; gap: 10px }
+    .logo .tagline { display: none }
+    .logo .wm { font-size: 16px }
+    .nav-cta { gap: 6px }
+    .nav-cta .btn-primary { padding: 9px 13px; font-size: 13px; gap: 5px }
+    .nav-cta .btn-primary i { font-size: 14px }
+    /* shorten the primary CTA label on phone */
+    .nav-cta .btn-primary > span.short { display: inline !important }
+    .nav-cta .btn-primary > span.full { display: none !important }
+
+    /* HERO — scale down headline, collapse the two-column grid */
+    .hero-h { font-size: clamp(34px, 9vw, 44px) !important; line-height: 1.06 }
+    .hero-sub { font-size: 16.5px; max-width: 100% }
+    .pill-badge { flex-wrap: wrap; gap: 6px }
+    .hero-grid { grid-template-columns: 1fr; gap: 28px }
+    .hero-ctas { gap: 10px }
+    .hero-ctas .btn-lg { width: 100%; justify-content: center }
+
+    /* segment / about / contact hero (the centered .ind-hero pattern) */
+    .ind-hero { padding: 56px 0 28px }
+    .ind-hero h1 { font-size: clamp(32px, 8.5vw, 42px); line-height: 1.05 }
+    .ind-hero .isub { font-size: 16.5px; padding: 0 4px }
+    .ind-hero .hero-ctas { justify-content: stretch; flex-direction: column }
+    .ind-hero .hero-ctas .btn-lg { width: 100% }
+    .ind-hero .ind-eyebrow { font-size: 11px; flex-wrap: wrap; justify-content: center }
+    .hero-stat { font-size: 14px; padding: 0 8px }
+
+    /* works-with logo strip — scroll horizontally instead of wrapping ugly */
+    .wl { font-size: 10.5px; padding: 0 20px; text-align: center }
+    .works-strip { overflow-x: auto; -webkit-overflow-scrolling: touch; scrollbar-width: none }
+    .works-strip::-webkit-scrollbar { display: none }
+    .works { gap: 22px; padding: 0 20px; flex-wrap: nowrap; white-space: nowrap }
+    .works > * { flex-shrink: 0; font-size: 14px }
+
+    /* PROBLEM section — tighten */
+    .problem { padding: 8px 4px }
+    .problem-h { font-size: clamp(28px, 7.5vw, 36px); line-height: 1.1 }
+    .problem-p { font-size: 16.5px; max-width: 100% }
+
+    /* SECTION HEADS */
+    .sec-head { padding: 0 4px; margin-bottom: 28px }
+    .sec-head h2 { font-size: clamp(28px, 7.5vw, 36px); line-height: 1.1 }
+    .sec-head p { font-size: 16px; padding: 0 4px }
+    .band { padding: 56px 0 }
+
+    /* FEATURE ROWS — collapse two-column grid */
+    .feat-in { grid-template-columns: 1fr; gap: 32px }
+    .feat-txt h2 { font-size: clamp(28px, 7.5vw, 36px) !important; line-height: 1.1 }
+    .feat-txt p { font-size: 16.5px }
+    /* keep visual fragments below text rather than alternating left/right */
+    .feat:nth-child(even) .feat-in > :first-child { order: 1 }
+    .feat:nth-child(even) .feat-in > :last-child { order: 2 }
+
+    /* layer/capability grid */
+    .layer-grid, .layers, .for-grid { grid-template-columns: 1fr !important; gap: 14px }
+    .layer-head h2 { font-size: clamp(26px, 7vw, 34px); line-height: 1.1 }
+
+    /* INDUSTRY/SEGMENT LANDSCAPE cards — single column */
+    .landscape { grid-template-columns: 1fr !important; gap: 14px }
+    .lscard { padding: 22px }
+
+    /* "for who" pills */
+    .forwho { gap: 12px }
+    .fw { padding: 18px 20px }
+    .fw .ft { font-size: 15px }
+
+    /* segment grid on homepage (the "who we serve" cards) */
+    .forind { grid-template-columns: 1fr !important; gap: 14px }
+    .ficard { padding: 22px }
+    .ficard h3 { font-size: 19px }
+    .ficard p { font-size: 14.5px }
+
+    /* DASHBOARD / FRAGMENT cards — keep readable */
+    .frag, .sk-card, .story { border-radius: 16px }
+    .frag-h, .sk-h { padding: 14px 16px; font-size: 14px }
+    .story-b { padding: 22px 20px }
+    .story-h { padding: 14px 18px; font-size: 13.5px; flex-wrap: wrap; gap: 6px }
+    .story-h .mono { font-size: 11px }
+    .story .hl { font-size: 17.5px; line-height: 1.4 }
+    .story .meta { gap: 6px; flex-wrap: wrap }
+    .story .meta .m { font-size: 11px; padding: 4px 9px }
+
+    /* slack fragment */
+    .sk-msg { padding: 12px 14px }
+    .sk-tx { font-size: 14px }
+    .sk-card { padding: 12px 14px; font-size: 13.5px }
+
+    /* the channels-lighting-up live fragment */
+    .vrow { padding: 12px 14px; gap: 10px }
+    .vrow .vlbl { font-size: 13.5px }
+    .vrow .vsrc { font-size: 11px }
+
+    /* CLOSING */
+    .closing { padding: 64px 0 }
+    .closing h2 { font-size: clamp(30px, 8vw, 40px); line-height: 1.08 }
+    .closing p { font-size: 16.5px; padding: 0 4px }
+    .closing .btn-lg { width: 100% }
+
+    /* FOOTER — stack columns single, smaller text */
+    footer { padding: 44px 0 28px }
+    .foot-in { grid-template-columns: 1fr; gap: 28px }
+    .foot-cols { grid-template-columns: 1fr 1fr; gap: 22px }
+    .foot-col h5 { font-size: 12px; margin-bottom: 10px }
+    .foot-col a { font-size: 14px }
+    .foot-bottom { flex-direction: column; gap: 8px; text-align: center; align-items: center; padding-top: 22px; font-size: 12px }
+    .foot-bottom > * { padding: 0 }
+
+    /* MODAL — tighter on small screens */
+    .modal { width: calc(100vw - 32px); padding: 28px 24px; border-radius: 18px }
+    .modal h3 { font-size: 22px }
+    .modal p { font-size: 14.5px }
+    .mform { flex-direction: column; gap: 8px }
+    .mform input, .mform button { width: 100%; height: 48px }
+
+    /* DROPDOWN inside the mobile menu — already styled by 920px rules, just tighten */
+    .navdrop .menu { padding-left: 0; padding-right: 6px }
+    .navdrop .mi { padding: 11px 12px }
+    .navdrop .mi .ic { width: 30px; height: 30px; font-size: 15px }
+    .navdrop .mi .mt { font-size: 14px }
+    .navdrop .mi .md { font-size: 12px }
+
+    /* ABOUT */
+    .about-hero { padding: 56px 0 16px }
+    .about-hero h1 { font-size: clamp(34px, 9vw, 46px) !important; line-height: 1.06 }
+    .about-hero .lede { font-size: 17px; padding: 0 12px }
+    .about-prose { padding: 40px 20px 14px }
+    .about-prose p { font-size: 17px; line-height: 1.65 }
+    .about-prose p.big { font-size: 21px; line-height: 1.38 }
+    .about-prose .pull { font-size: 19px; padding-left: 18px }
+    .creds .inner { padding: 56px 0 }
+    .creds-grid { grid-template-columns: 1fr; gap: 12px; padding: 0 20px }
+    .cred { padding: 18px 20px }
+    .cred .cv { font-size: 26px }
+    .past { padding: 48px 20px }
+    .past .ph h2 { font-size: clamp(22px, 6.5vw, 28px) }
+    .values { padding: 14px 20px 48px }
+    .value { padding: 18px 20px; gap: 12px }
+
+    /* CONTACT — single column, proper edge padding */
+    .contact-hero { padding: 56px 0 14px }
+    .contact-hero h1 { font-size: clamp(32px, 8.5vw, 44px) !important; line-height: 1.06 }
+    .contact-hero .lede { font-size: 16.5px; padding: 0 12px }
+    .contact-wrap { grid-template-columns: 1fr !important; gap: 28px; padding: 36px 20px 56px }
+    .contact-form { padding: 22px 20px }
+    .cf-seg { gap: 6px }
+    .cf-seg label { flex: 1 1 calc(33% - 4px); min-width: 0 }
+    .cf-seg .opt { font-size: 13px; padding: 10px 6px }
+    .contact-side h4 { font-size: 17px }
+    .contact-side p { font-size: 14px }
+    .contact-side .cs-mail { font-size: 13.5px; word-break: break-all }
+
+    /* BLOG */
+    .blog-head { padding: 48px 20px 8px }
+    .blog-head h1 { font-size: clamp(28px, 8vw, 38px) !important; line-height: 1.08 }
+    .blog-head .lede { font-size: 16px }
+    .blog-author { gap: 11px }
+    .blog-author .av { width: 46px; height: 46px; font-size: 19px }
+    .blog-author .an { font-size: 15px }
+    .blog-author .ad { font-size: 12.5px }
+    .notes { padding: 32px 20px }
+    .note-row { padding: 22px 0 }
+    .note-row:hover { padding-left: 0 } /* no slide-on-hover on touch */
+    .note-row .nt { font-size: 20px }
+    .note-row .nd { font-size: 14.5px }
+    .collections { padding: 6px 20px 48px }
+    .post { padding: 0 20px }
+    .back-link { padding: 22px 20px 0 }
+    .post-body { font-size: 17px; line-height: 1.68; padding: 36px 0 16px }
+    .post-body h2 { font-size: 24px }
+    .post-body h3 { font-size: 20px }
+    .post-body blockquote { font-size: 18.5px; padding-left: 18px }
+    .post-tags { gap: 6px }
+    .subscribe { padding: 22px 20px }
+    .subscribe .sub-row { flex-direction: column; gap: 8px }
+    .subscribe input, .subscribe button { width: 100% }
+
+    /* hide the desktop-only chrome cleanly */
+    .hero-stat { margin-top: 10px }
+    .feat-frag { max-width: 100% }
+  }
+
+  /* TIGHT PHONE (≤420px) — extreme narrow */
+  @media (max-width: 420px) {
+    nav .nav-in { padding: 9px 14px; gap: 8px }
+    .nav-cta .btn-primary { padding: 8px 11px; font-size: 12.5px }
+    .nav-cta .btn-primary i { display: none } /* drop the sparkle icon for room */
+    .announce { font-size: 12px }
+    .ann-tag { display: none } /* drop the "early access" tag on smallest screens */
+  }
+
+  /* ===================== PRICING COMPARISON ===================== */
+  .pricing-cmp{display:grid;grid-template-columns:1fr 1fr;gap:18px;max-width:920px;margin:0 auto;align-items:stretch}
+  .pcard{position:relative;background:var(--paper);border:1px solid var(--line-2);border-radius:var(--r-xl);padding:30px 28px;display:flex;flex-direction:column;gap:18px}
+  .pcard-701{background:var(--night);border-color:transparent;box-shadow:var(--sh-lg),0 0 0 1px rgba(238,106,76,.18)}
+  .pcard-701::before{content:"";position:absolute;inset:0;border-radius:var(--r-xl);padding:1.5px;background:var(--sunrise);-webkit-mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);-webkit-mask-composite:xor;mask-composite:exclude;pointer-events:none;opacity:.85}
+  .pc-launch{position:absolute;top:-12px;left:28px;font-family:var(--mono);font-size:11px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:#fff;background:var(--sunrise);padding:6px 12px;border-radius:8px;box-shadow:var(--sh-sm);display:inline-flex;align-items:center;gap:6px;z-index:2}
+  .pc-launch .pc-dot{width:6px;height:6px;border-radius:50%;background:#fff;box-shadow:0 0 0 3px rgba(255,255,255,.3)}
+  .pc-head{display:flex;align-items:center;gap:14px}
+  .pc-icon{width:46px;height:46px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0;box-shadow:var(--sh-sm)}
+  .pc-icon-grad{background:var(--sunrise);color:#fff}
+  .pc-label{font-size:17px;font-weight:600;letter-spacing:-.01em;color:var(--ink);line-height:1.2}
+  .pc-sub{font-family:var(--mono);font-size:11.5px;font-weight:500;letter-spacing:.04em;text-transform:uppercase;color:var(--ink-3);margin-top:3px}
+  .pc-price{padding:6px 0 4px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);display:flex;align-items:baseline;gap:8px;flex-wrap:wrap}
+  .pcard-701 .pc-price{border-color:rgba(255,255,255,.08)}
+  .pc-amt{font-family:var(--mono);font-size:38px;font-weight:600;letter-spacing:-.02em;color:var(--ink);line-height:1.15}
+  .pc-amt-grad{background:var(--sunrise);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;padding-right:.03em}
+  .pc-per{font-family:var(--mono);font-size:13px;color:var(--ink-3)}
+  .pc-feat{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:10px;flex:1}
+  .pc-feat li{display:flex;align-items:flex-start;gap:10px;font-size:14.5px;line-height:1.45;color:var(--ink-2)}
+  .pc-feat li i{font-size:17px;margin-top:1px;flex-shrink:0}
+  .pc-feat li i.ti-x{color:var(--ink-4)}
+  .pc-feat li i.ti-check{color:#7CB97A}
+  .pc-feat-dark li{color:var(--night-txt)}
+  .pcard-701 .pc-feat-dark li i.ti-check{color:#E89B7E}
+  .pc-fine{font-size:12px;color:var(--night-txt);text-align:center;margin-top:-4px;font-family:var(--mono);letter-spacing:.02em;line-height:1.5}
+  @media (max-width:640px){
+    .pricing-cmp{grid-template-columns:1fr;gap:22px}
+    .pcard{padding:26px 22px;gap:16px}
+    .pc-amt{font-size:32px}
+    .pc-launch{left:22px}
+  }

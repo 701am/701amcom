@@ -45,18 +45,19 @@ const canonical = new URL(Astro.url.pathname, SITE.url).href;
     Netlify Forms detection stubs. Netlify's build bot parses these static forms
     so the named forms exist; the visible UI submits to them via fetch (AJAX),
     keeping the modal/thanks UX. Do not remove.
+    `display:none` ensures descendants don't escape and cause horizontal overflow.
   -->
-  <form name="early-access" netlify netlify-honeypot="bot-field" hidden>
+  <form name="early-access" netlify netlify-honeypot="bot-field" hidden style="display:none">
     <input type="email" name="email" />
     <input type="text" name="source" />
     <input type="text" name="bot-field" />
   </form>
-  <form name="newsletter" netlify netlify-honeypot="bot-field" hidden>
+  <form name="newsletter" netlify netlify-honeypot="bot-field" hidden style="display:none">
     <input type="email" name="email" />
     <input type="text" name="source" />
     <input type="text" name="bot-field" />
   </form>
-  <form name="contact" netlify netlify-honeypot="bot-field" hidden>
+  <form name="contact" netlify netlify-honeypot="bot-field" hidden style="display:none">
     <input type="text" name="name" />
     <input type="email" name="email" />
     <input type="text" name="org" />

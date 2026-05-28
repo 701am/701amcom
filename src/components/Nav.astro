@@ -25,7 +25,11 @@ const solutions = [
       <span class="tagline" set:html={SITE.tagline}></span>
     </a>
 
-    <button class="navtoggle" id="navtoggle" aria-label="Menu"><i class="ti ti-menu-2"></i></button>
+    <button class="navtoggle" id="navtoggle" aria-label="Menu">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+        <path d="M4 7h16"/><path d="M4 12h16"/><path d="M4 17h16"/>
+      </svg>
+    </button>
 
     <div class="navlinks" id="navlinks">
       <div class={`navdrop ${segActive ? 'is-active-section' : ''}`} id="solutions-drop">
@@ -49,7 +53,7 @@ const solutions = [
 
     <div class="nav-cta">
       <a class="ghost js-soon">Sign in</a>
-      <button class="btn btn-primary js-soon"><i class="ti ti-sparkles"></i>Request early access</button>
+      <button class="btn btn-primary js-soon"><i class="ti ti-sparkles"></i><span class="full">Request early access</span><span class="short" style="display:none">Get access</span></button>
     </div>
   </div>
 </nav>
