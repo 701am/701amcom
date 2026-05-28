@@ -37,7 +37,8 @@ const canonical = new URL(Astro.url.pathname, SITE.url).href;
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:image" content="https://701am.com/assets/logo-mark.svg" />
   <!-- Size-adjusted fallback fonts prevent CLS when web fonts swap -->
-  <style is:inline>@font-face{font-family:'Inter Fallback';src:local('Arial');size-adjust:107%;ascent-override:92%;descent-override:25%;line-gap-override:0%}@font-face{font-family:'Newsreader Fallback';src:local('Georgia');size-adjust:98%;ascent-override:88%;descent-override:23%;line-gap-override:0%}@font-face{font-family:'JetBrains Mono Fallback';src:local('Courier New');size-adjust:101%;ascent-override:90%;descent-override:22%;line-gap-override:0%}body{opacity:0;animation:fadeIn .35s ease .1s forwards}@keyframes fadeIn{to{opacity:1}}</style>
+  <style is:inline>@font-face{font-family:'Inter Fallback';src:local('Arial');size-adjust:107%;ascent-override:92%;descent-override:25%;line-gap-override:0%}@font-face{font-family:'Newsreader Fallback';src:local('Georgia');size-adjust:98%;ascent-override:88%;descent-override:23%;line-gap-override:0%}@font-face{font-family:'JetBrains Mono Fallback';src:local('Courier New');size-adjust:101%;ascent-override:90%;descent-override:22%;line-gap-override:0%}body{opacity:0}html.css-ready body{animation:fadeIn .28s ease .08s forwards}@keyframes fadeIn{to{opacity:1}}</style>
+  <noscript><style>body{opacity:1!important}</style></noscript>
   <!-- Fonts (async — non-render-blocking) -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -48,8 +49,9 @@ const canonical = new URL(Astro.url.pathname, SITE.url).href;
   <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/tabler-icons/3.31.0/tabler-icons.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
   <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tabler-icons/3.31.0/tabler-icons.min.css" /></noscript>
   <!-- Stylesheet (async — non-render-blocking) -->
-  <link rel="preload" href="/styles/global.css?v=673865a" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+  <link rel="preload" href="/styles/global.css?v=673865a" as="style" onload="this.onload=null;this.rel='stylesheet';document.documentElement.classList.add('css-ready')" />
   <noscript><link rel="stylesheet" href="/styles/global.css?v=673865a" /></noscript>
+  <script is:inline>setTimeout(function(){document.documentElement.classList.add('css-ready')},3000)</script>
 </head>
 <body>
   <GradDefs />
