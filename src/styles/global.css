@@ -80,6 +80,8 @@
   .btn-soft{background:var(--paper);color:var(--ink);border:1px solid var(--line-2);box-shadow:var(--sh-sm)}
   .btn-soft:hover{border-color:var(--line-3);background:var(--paper-2);transform:translateY(-1px)}
   .btn-lg{height:50px;padding:0 26px;font-size:15.5px;border-radius:12px}
+.btn-studio{height:56px;padding:0 32px;font-size:17px;border-radius:14px;box-shadow:0 4px 20px -4px rgba(221,90,56,.65)}
+.btn-studio i{font-size:19px}
 
   /* HERO (Runtime: big statement left-ish, product fragment beside) */
   .hero{position:relative;padding:74px 0 40px;overflow:hidden}
@@ -683,6 +685,13 @@
     /* hide the desktop-only chrome cleanly */
     .hero-stat { margin-top: 10px }
     .feat-frag { max-width: 100% }
+
+    /* Studio page — scale down prominent CTA on mobile */
+    .btn-studio { height: 50px; padding: 0 26px; font-size: 15.5px; border-radius: 12px }
+    .btn-studio i { font-size: 17px }
+
+    /* Founder Notes section on homepage — match wrap edge padding */
+    section.band .notes { padding-left: 4px; padding-right: 4px }
   }
 
   /* TIGHT PHONE (≤420px) — extreme narrow */
@@ -805,13 +814,14 @@
 
   /* ===================== INTEGRATIONS ===================== */
   .integ-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;max-width:920px;margin:0 auto}
-  .integ-tile{display:flex;align-items:flex-start;gap:11px;background:var(--paper);border:1px solid var(--line-2);border-radius:14px;padding:14px 15px;box-shadow:var(--sh-sm);transition:.14s}
+  .integ-tile{display:flex;align-items:center;gap:12px;background:var(--paper);border:1px solid var(--line-2);border-radius:14px;padding:14px 15px;box-shadow:var(--sh-sm);transition:.14s}
   .integ-tile:hover{border-color:var(--line-3);transform:translateY(-2px);box-shadow:var(--sh)}
   .integ-logo{width:38px;height:38px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:12px;font-weight:700;color:#fff;flex-shrink:0;box-shadow:var(--sh-sm);letter-spacing:-.02em}
-  .integ-meta{display:flex;flex-direction:column;min-width:0;flex:1}
+  .integ-body{display:flex;flex-direction:column;gap:6px;flex:1;min-width:0}
+  .integ-meta{display:flex;flex-direction:column;min-width:0}
   .integ-name{font-size:13.5px;font-weight:600;color:var(--ink);line-height:1.25}
-  .integ-kind{font-family:var(--mono);font-size:9.5px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;color:var(--ink-3);margin-top:3px;white-space:nowrap}
-  .integ-role{font-family:var(--mono);font-size:9px;font-weight:600;letter-spacing:.03em;text-transform:uppercase;color:var(--ink-3);background:var(--canvas-2);padding:3px 7px;border-radius:6px;white-space:nowrap;flex-shrink:0}
+  .integ-kind{font-family:var(--mono);font-size:9.5px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;color:var(--ink-3);margin-top:2px;white-space:nowrap}
+  .integ-role{font-family:var(--mono);font-size:9.5px;font-weight:600;letter-spacing:.03em;text-transform:uppercase;color:var(--ink-3);background:var(--canvas-2);padding:4px 8px;border-radius:6px;white-space:nowrap;align-self:flex-start}
   .integ-note{max-width:920px;margin:22px auto 0;padding:14px 18px;background:var(--paper-2);border:1px solid var(--line);border-radius:12px;display:flex;align-items:flex-start;gap:12px;font-size:13.5px;color:var(--ink-2);line-height:1.55}
   .integ-note>i{font-size:20px;color:var(--green-deep);flex-shrink:0;margin-top:1px}
   .integ-note b{color:var(--ink);font-weight:600}

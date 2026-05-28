@@ -52,11 +52,13 @@ const integrations = [
     {integrations.map((it) => (
       <div class="integ-tile">
         <span class="integ-logo" style={`background:${it.color}`}>{it.abbr}</span>
-        <span class="integ-meta">
-          <span class="integ-name">{it.name}</span>
-          <span class="integ-kind">{it.kind}</span>
+        <span class="integ-body">
+          <span class="integ-meta">
+            <span class="integ-name">{it.name}</span>
+            <span class="integ-kind">{it.kind}</span>
+          </span>
+          <span class="integ-role">{it.role}</span>
         </span>
-        <span class="integ-role">{it.role}</span>
       </div>
     ))}
   </div>
