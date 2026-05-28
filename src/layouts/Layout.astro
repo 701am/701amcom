@@ -30,7 +30,12 @@ const canonical = new URL(Astro.url.pathname, SITE.url).href;
   <meta property="og:description" content={description} />
   <meta property="og:url" content={canonical} />
   <meta property="og:site_name" content="701am" />
+  <meta property="og:image" content="https://701am.com/assets/logo-mark.svg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="701am — The earned-media engine for Higher Education" />
   <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="https://701am.com/assets/logo-mark.svg" />
   <!-- Size-adjusted fallback fonts prevent CLS when web fonts swap -->
   <style is:inline>@font-face{font-family:'Inter Fallback';src:local('Arial');size-adjust:107%;ascent-override:92%;descent-override:25%;line-gap-override:0%}@font-face{font-family:'Newsreader Fallback';src:local('Georgia');size-adjust:98%;ascent-override:88%;descent-override:23%;line-gap-override:0%}@font-face{font-family:'JetBrains Mono Fallback';src:local('Courier New');size-adjust:101%;ascent-override:90%;descent-override:22%;line-gap-override:0%}body{opacity:0;animation:fadeIn .35s ease .1s forwards}@keyframes fadeIn{to{opacity:1}}</style>
   <!-- Fonts (async — non-render-blocking) -->

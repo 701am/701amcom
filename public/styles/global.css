@@ -231,6 +231,12 @@
   .sec-head h2{font-family:var(--serif);font-weight:500;font-size:clamp(28px,4vw,40px);line-height:var(--lh-head);letter-spacing:-.022em;margin-bottom:14px}
   .sec-head h2 em{font-style:italic}.sec-head p{font-size:16.5px;color:var(--ink-2)}
 
+  /* credentials strip (social proof) */
+  .creds-strip{display:flex;justify-content:center;gap:32px;flex-wrap:wrap}
+  .cs-item{display:flex;align-items:center;gap:8px;font-size:13.5px;color:var(--ink-2);font-weight:500}
+  .cs-item i{font-size:16px;color:var(--coral)}
+  @media(max-width:640px){.creds-strip{flex-direction:column;align-items:center;gap:12px}.cs-item{font-size:13px}}
+
   /* closing */
   .closing{position:relative;text-align:center;padding:92px 0 100px;overflow:hidden}
   .closing .catmos{position:absolute;inset:0;z-index:0;pointer-events:none}
