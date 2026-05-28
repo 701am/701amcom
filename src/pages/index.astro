@@ -1,6 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import HeroShot from '../components/HeroShot.astro';
+import AppDemo from '../components/AppDemo.astro';
 import Integrations from '../components/Integrations.astro';
 import Pricing from '../components/Pricing.astro';
 import { getCollection } from 'astro:content';
@@ -38,15 +39,6 @@ const fmt = (d: Date) =>
     </div>
   </div>
 </header>
-
-<!-- CREDENTIALS (social proof) -->
-<section class="band wrap" style="padding:28px 0 8px">
-  <div class="creds-strip">
-    <div class="cs-item"><i class="ti ti-clock"></i><span>10+ years in education visibility</span></div>
-    <div class="cs-item"><i class="ti ti-building"></i><span>5 education comparison properties built</span></div>
-    <div class="cs-item"><i class="ti ti-users"></i><span>Millions of prospective students reached</span></div>
-  </div>
-</section>
 
 <!-- WORKS WITH -->
 <section class="works wrap">
@@ -131,6 +123,16 @@ const fmt = (d: Date) =>
       </div></div>
     </div></div>
   </div>
+</section>
+
+<!-- INTERACTIVE PRODUCT DEMO -->
+<section class="band wrap" id="demo">
+  <div class="sec-head">
+    <div class="sec-eyebrow">See it in action</div>
+    <h2>A workspace that <em class="grad">thinks</em> with you.</h2>
+    <p>Connect your tools, set a goal, and the swarm works the earned-media cycle — research, outreach, monitoring, reporting — continuously and compounding. This is what it looks like from inside.</p>
+  </div>
+  <AppDemo />
 </section>
 
 <!-- CAPABILITY GRID (Runtime "every layer") -->
