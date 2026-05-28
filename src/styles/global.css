@@ -257,15 +257,24 @@
   .studio-note strong{color:var(--ink);font-weight:600}
 
   /* footer */
-  footer{border-top:1px solid var(--line);padding:50px 0 42px;background:var(--paper-2)}
-  .foot-in{display:flex;justify-content:space-between;align-items:flex-start;gap:30px;flex-wrap:wrap}
-  .foot-brand{max-width:280px}.foot-brand .logo{margin-bottom:12px}
-  .foot-brand .tl{font-family:var(--serif);font-style:italic;font-size:15.5px;color:var(--ink-2)}
-  .foot-cols{display:flex;gap:54px;flex-wrap:wrap}
-  .foot-col h5{font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:var(--ink-3);font-weight:600;margin-bottom:14px}
-  .foot-col a{display:block;font-size:14px;color:var(--ink-2);margin-bottom:10px}.foot-col a:hover{color:var(--ink)}
-  .foot-bottom{margin-top:40px;padding-top:24px;border-top:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;font-size:13px;color:var(--ink-4)}
-  .foot-bottom .fmono{font-family:var(--mono);font-size:11.5px}
+  footer{border-top:1px solid var(--line);padding:64px 0 0;background:var(--paper-2)}
+  .foot-in{display:flex;justify-content:space-between;align-items:flex-start;gap:40px;flex-wrap:wrap}
+  .foot-brand{max-width:260px}
+  .foot-brand .logo{margin-bottom:14px}
+  .foot-brand .tl{font-size:14px;color:var(--ink-3);line-height:1.55;margin-bottom:20px}
+  .foot-brand .fsocials{display:flex;gap:12px}
+  .foot-brand .fsocials a{width:36px;height:36px;border-radius:8px;display:flex;align-items:center;justify-content:center;color:var(--ink-3);background:var(--canvas);border:1px solid var(--line-2);transition:.14s}
+  .foot-brand .fsocials a i{font-size:17px}
+  .foot-brand .fsocials a:hover{color:var(--coral);border-color:var(--coral-soft);background:var(--coral-soft);transform:translateY(-1px)}
+  .foot-cols{display:flex;gap:48px;flex-wrap:wrap}
+  .foot-col h5{font-size:11.5px;text-transform:uppercase;letter-spacing:.06em;color:var(--ink-3);font-weight:600;margin-bottom:16px}
+  .foot-col a{display:block;font-size:13.5px;color:var(--ink-2);margin-bottom:8px;transition:.12s}
+  .foot-col a:hover{color:var(--ink)}
+  .foot-bottom{margin-top:48px;padding:20px 0;border-top:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;font-size:12.5px;color:var(--ink-4)}
+  .foot-bottom .fmono{font-family:var(--mono);font-size:11px}
+  .foot-bottom .flegal{display:flex;gap:18px}
+  .foot-bottom .flegal a{color:var(--ink-3);transition:.12s}
+  .foot-bottom .flegal a:hover{color:var(--ink)}
 
   /* modal */
   .overlay{position:fixed;inset:0;z-index:200;background:rgba(21,22,46,.5);backdrop-filter:blur(4px);display:flex;align-items:center;justify-content:center;padding:24px;opacity:0;pointer-events:none;transition:opacity .2s}
@@ -633,14 +642,18 @@
     .closing p { font-size: 16.5px; padding: 0 4px }
     .closing .btn-lg { width: 100% }
 
-    /* FOOTER — stack columns single, smaller text */
-    footer { padding: 44px 0 28px }
-    .foot-in { grid-template-columns: 1fr; gap: 28px }
-    .foot-cols { grid-template-columns: 1fr 1fr; gap: 22px }
-    .foot-col h5 { font-size: 12px; margin-bottom: 10px }
+    /* FOOTER — stack columns, smaller text */
+    footer { padding: 48px 0 0 }
+    .foot-in { flex-direction: column; gap: 36px }
+    .foot-brand { max-width: 100%; text-align: center }
+    .foot-brand .logo { justify-content: center; margin-bottom: 10px }
+    .foot-brand .fsocials { justify-content: center }
+    .foot-cols { gap: 32px; width: 100% }
+    .foot-col { min-width: 120px }
+    .foot-col h5 { font-size: 12px; margin-bottom: 12px }
     .foot-col a { font-size: 14px }
-    .foot-bottom { flex-direction: column; gap: 8px; text-align: center; align-items: center; padding-top: 22px; font-size: 12px }
-    .foot-bottom > * { padding: 0 }
+    .foot-bottom { flex-direction: column; gap: 6px; text-align: center; padding-top: 18px; font-size: 12px }
+    .foot-bottom .flegal { justify-content: center }
 
     /* MODAL — tighter on small screens */
     .modal { width: calc(100vw - 32px); padding: 28px 24px; border-radius: 18px }
