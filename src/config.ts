@@ -15,5 +15,4 @@ export const SEGMENTS = [
 
 export const NAV = [
   ...SEGMENTS,
-  { slug: 'blog', label: 'Founder Notes' },
 ];

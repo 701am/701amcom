@@ -3,6 +3,15 @@ import Layout from '../layouts/Layout.astro';
 import HeroShot from '../components/HeroShot.astro';
 import Integrations from '../components/Integrations.astro';
 import Pricing from '../components/Pricing.astro';
+import { getCollection } from 'astro:content';
+
+const posts = (await getCollection('blog'))
+  .filter((p) => !p.data.draft)
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
+  .slice(0, 3);
+
+const fmt = (d: Date) =>
+  d.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
 ---
 <Layout
   title="The earned-media engine for Higher Education"
@@ -146,20 +155,46 @@ import Pricing from '../components/Pricing.astro';
     <p>Universities, edtech, and the agencies who serve them. Same compounding visibility — pointed at your goals.</p>
   </div>
   <div class="forind" style="grid-template-columns:repeat(3,1fr)">
-    <a class="ficard" href="universities.html">
+    <a class="ficard" href="/universities">
       <div class="fi" style="background:var(--gold-soft);color:var(--gold-deep)"><i class="ti ti-school"></i></div>
       <h3>Universities</h3><p>Be the program students find first. Rankings, outcomes data, and the coverage that drives enrollment.</p>
       <span class="more">For enrollment teams <i class="ti ti-arrow-right"></i></span>
     </a>
-    <a class="ficard" href="edtech.html">
+    <a class="ficard" href="/edtech">
       <div class="fi" style="background:var(--indigo-soft);color:var(--indigo-deep)"><i class="ti ti-device-laptop"></i></div>
       <h3>Edtech &amp; OPMs</h3><p>Be the platform institutions trust. Trade press, sector data studies, and category authority.</p>
       <span class="more">For edtech companies <i class="ti ti-arrow-right"></i></span>
     </a>
-    <a class="ficard" href="agencies.html">
+    <a class="ficard" href="/agencies">
       <div class="fi" style="background:var(--coral-soft);color:var(--coral-deep)"><i class="ti ti-briefcase"></i></div>
       <h3>Agencies</h3><p>Run earned media for every client without the headcount. Scoped, isolated, always on.</p>
       <span class="more">For agencies <i class="ti ti-arrow-right"></i></span>
+    </a>
+  </div>
+</section>
+
+<!-- DFY STUDIO -->
+<section class="band wrap">
+  <div class="sec-head">
+    <div class="sec-eyebrow">Done-for-you services</div>
+    <h2>Need it <em class="grad">run for you</em>?</h2>
+    <p>Let the 701am Studio team configure, manage, and deliver your earned-media campaigns — so you get the output without staffing it yourself.</p>
+  </div>
+  <div class="forind" style="grid-template-columns:repeat(3,1fr)">
+    <a class="ficard" href="/studio">
+      <div class="fi" style="background:var(--gold-soft);color:var(--gold-deep)"><i class="ti ti-school"></i></div>
+      <h3>For Universities</h3><p>Full-cycle earned media for enrollment — placements tied to funnel movement, managed start to finish.</p>
+      <span class="more">Inquire for pricing <i class="ti ti-arrow-right"></i></span>
+    </a>
+    <a class="ficard" href="/studio">
+      <div class="fi" style="background:var(--indigo-soft);color:var(--indigo-deep)"><i class="ti ti-device-laptop"></i></div>
+      <h3>For Edtech</h3><p>Category authority, data studies, and AI citations — built and delivered by the Studio team.</p>
+      <span class="more">Inquire for pricing <i class="ti ti-arrow-right"></i></span>
+    </a>
+    <a class="ficard" href="/studio">
+      <div class="fi" style="background:var(--coral-soft);color:var(--coral-deep)"><i class="ti ti-briefcase"></i></div>
+      <h3>For Agencies</h3><p>White-label earned media per client. You keep the relationship; Studio delivers the output.</p>
+      <span class="more">Inquire for pricing <i class="ti ti-arrow-right"></i></span>
     </a>
   </div>
 </section>
@@ -170,6 +205,29 @@ import Pricing from '../components/Pricing.astro';
 <!-- PRICING -->
 <Pricing context="home" />
 
+<!-- RECENT FOUNDER NOTES -->
+{posts.length > 0 && (
+<section class="band wrap">
+  <div class="sec-head">
+    <div class="sec-eyebrow">Founder Notes</div>
+    <h2>Field notes on earned media &amp; <em class="grad">AI visibility</em>.</h2>
+    <p>From the team building 701am — bits worth not forgetting.</p>
+  </div>
+  <div class="notes" style="max-width:720px;margin:0 auto;padding:0">
+    {posts.map((p) => (
+      <a class="note-row" href={`/blog/${p.id}`}>
+        <span class="date">{fmt(p.data.date)}</span>
+        <div class="nt">{p.data.title} <span class="arrow">→</span></div>
+        <div class="nd">{p.data.dek}</div>
+      </a>
+    ))}
+  </div>
+  <div style="text-align:center;margin-top:28px">
+    <a href="/blog" class="btn btn-soft btn-lg"><i class="ti ti-arrow-right"></i>All Founder Notes</a>
+  </div>
+</section>
+)}
+
 <!-- CLOSING -->
 <section class="closing">
   <div class="catmos"><div class="cg"></div></div>
@@ -179,9 +237,7 @@ import Pricing from '../components/Pricing.astro';
     <p>701am is opening to a first group of higher-ed teams. Put your name down.</p>
     <button class="btn btn-primary btn-lg js-soon"><i class="ti ti-sparkles"></i>Get early access</button>
   </div>
-</section>
-
-</div>
+  </section>
 </Layout>
 
 <script is:inline>
