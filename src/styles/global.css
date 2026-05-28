@@ -443,7 +443,14 @@
   .about-prose p.big{font-family:var(--serif);font-size:25px;line-height:1.42;letter-spacing:-.01em;color:var(--ink);margin:8px 0 26px}
   .about-prose strong{font-weight:600}
   .about-prose em{font-style:italic}
+  .about-prose a{color:var(--coral-deep);text-decoration:underline}
+  .about-prose a:hover{color:var(--coral)}
   .about-prose .pull{border-left:3px solid;border-image:var(--sunrise) 1;padding:6px 0 6px 22px;margin:30px 0;font-family:var(--serif);font-style:italic;font-size:23px;line-height:1.42;color:var(--ink-2)}
+  .about-prose h2{font-family:var(--serif);font-weight:500;font-size:28px;line-height:1.2;letter-spacing:-.02em;margin:44px 0 16px;text-wrap:balance}
+  .about-prose h3{font-family:var(--serif);font-weight:500;font-size:22px;line-height:1.25;margin:34px 0 12px}
+  .about-prose ul{list-style:none;padding:0;margin:0 0 22px}
+  .about-prose ul li{padding:6px 0 6px 24px;position:relative}
+  .about-prose ul li::before{content:"→";position:absolute;left:0;color:var(--coral);font-weight:600}
   /* credentials strip */
   .creds{background:var(--night);color:#fff;position:relative;overflow:hidden;margin-top:40px}
   .creds .atmos{position:absolute;inset:0;pointer-events:none}

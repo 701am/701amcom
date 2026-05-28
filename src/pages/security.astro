@@ -1,0 +1,77 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+<Layout title="SSO &amp; Data Security" description="701am SSO, encryption, and data security architecture for higher-education institutions.">
+<header class="about-hero">
+  <div class="hero-atmos"><div class="grid"></div><div class="glow g1"></div><div class="glow g2"></div><div class="glow g3"></div></div>
+  <div class="wrap">
+    <div class="eyebrow">Security</div>
+    <h1>SSO &amp; Data <em class="grad">Security</em></h1>
+    <p class="lede">701am is built to meet the security requirements of higher-education institutions. Enterprise-grade encryption, SSO, and access controls are standard on every plan.</p>
+  </div>
+</header>
+
+<article class="about-prose">
+<div class="seg">Encryption</div>
+<p>All data in transit is protected by <strong>TLS 1.3</strong> with forward-secrecy cipher suites. All data at rest is encrypted using <strong>AES-256</strong> managed by the cloud infrastructure provider. Encryption keys are rotated automatically every 90 days.</p>
+<p>Database volumes, backups, and object storage are all encrypted at rest. Application-level encryption is applied to sensitive configuration fields and API credentials.</p>
+
+<div class="seg">Single Sign-On (SSO)</div>
+<p>701am supports SAML 2.0 and OpenID Connect (OIDC) authentication, compatible with:</p>
+<ul>
+  <li>Okta</li>
+  <li>Azure Active Directory / Entra ID</li>
+  <li>Google Workspace</li>
+  <li>OneLogin</li>
+  <li>Shibboleth (InCommon Federation)</li>
+  <li>Any SAML 2.0 or OIDC-compliant identity provider</li>
+</ul>
+<p>SSO is available on all paid plans at no additional cost. Just-in-time (JIT) provisioning is supported. IdP-initiated and SP-initiated flows are both available.</p>
+
+<div class="seg">Access Controls</div>
+<p>Role-based access control (RBAC) is included with granular permission levels:</p>
+<ul>
+  <li><strong>Admin</strong> — full workspace configuration, billing, user management</li>
+  <li><strong>Editor</strong> — create and manage campaigns, view analytics</li>
+  <li><strong>Viewer</strong> — read-only access to dashboards and reports</li>
+  <li><strong>Integration</strong> — API-only access for automated workflows</li>
+</ul>
+<p>SCIM provisioning for user lifecycle management is available on annual plans.</p>
+
+<div class="seg">Audit Logging</div>
+<p>All access to and actions within the 701am platform are logged. Audit logs include: user identity, timestamp, action type, resource affected, IP address, and outcome (success/failure). Logs are retained for a minimum of 12 months and are available for export upon request.</p>
+<p>Logs are immutable and cannot be modified or deleted by workspace users.</p>
+
+<div class="seg">Infrastructure</div>
+<p>701am runs on <strong>AWS</strong> (Amazon Web Services) across US-East and US-West regions. Infrastructure includes:</p>
+<ul>
+  <li>Virtual Private Cloud (VPC) with network ACLs and security groups</li>
+  <li>Web application firewall (WAF) with OWASP Top-10 rules</li>
+  <li>Distributed denial-of-service (DDoS) protection via AWS Shield</li>
+  <li>Automated vulnerability scanning on a weekly cadence</li>
+  <li>Intrusion detection and automated incident response</li>
+</ul>
+
+<div class="seg">Penetration Testing</div>
+<p>We conduct annual third-party penetration tests against the platform. Results are reviewed by engineering and remediated on a risk-prioritized basis. Customers may request a summary of the most recent penetration test (subject to a mutual NDA).</p>
+
+<div class="seg">Incident Response</div>
+<p>701am maintains a documented incident response plan that meets NIST SP 800-61 standards. Breach notifications are made to affected customers within 72 hours of confirmation. Notification includes: nature of the incident, data affected, remediation steps, and expected resolution timeline.</p>
+
+<div class="seg">SOC 2</div>
+<p>701am is currently pursuing <strong>SOC 2 Type II</strong> certification (trust services criteria: Security, Availability, and Confidentiality). Read reports will be shared with customers under NDA upon completion.</p>
+
+<div class="seg">Questions?</div>
+<p>For security inquiries, contact <strong>security@701am.com</strong>. We maintain a security.txt file at the standard location and welcome responsible disclosure.</p>
+</article>
+
+<section class="closing">
+  <div class="catmos"><div class="cg"></div></div>
+  <div class="wrap">
+    <div class="pill-badge"><span class="tagm">Filed at sunrise</span></div>
+    <h2>Need a security <em class="grad">review</em>?</h2>
+    <p>Send our team your security questionnaire or schedule a call to review our architecture.</p>
+    <a href="/contact" class="btn btn-primary btn-lg"><i class="ti ti-sparkles"></i>Contact our security team</a>
+  </div>
+</section>
+</Layout>
