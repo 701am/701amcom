@@ -1,54 +1,133 @@
 ---
 import Layout from '../layouts/Layout.astro';
 ---
-<Layout title="Compliance — FERPA" description="701am compliance with FERPA and higher-education data protection standards.">
-<header class="about-hero">
-  <div class="hero-atmos"><div class="grid"></div><div class="glow g1"></div><div class="glow g2"></div><div class="glow g3"></div></div>
-  <div class="wrap">
-    <div class="eyebrow">Compliance</div>
-    <h1>FERPA &amp; Higher-Ed <em class="grad">Standards</em></h1>
-    <p class="lede">701am is designed for institutions that handle protected student information. We take FERPA compliance seriously — both as a legal obligation and as a trust requirement.</p>
-  </div>
-</header>
 
-<article class="about-prose">
-<div class="seg">Our FERPA posture</div>
-<p>701am processes student-level data only as a <strong>school official</strong> with a legitimate educational interest, as defined by FERPA (34 CFR § 99.31). Our platform is configured to read program and enrollment metadata — never grades, disciplinary records, or personally identifiable student contact information unless explicitly authorized by the institution in writing.</p>
-<p>We do not sell student data. We do not use student data for any purpose beyond operating the earned-media services for which it was disclosed. We do not share student data with unauthorized third parties.</p>
+<Layout title="Compliance — Trust Center" description="701am compliance, security certifications, and data protection standards for higher-education institutions.">
+  <header class="trust-hero">
+    <div class="hero-atmos"><div class="grid"></div><div class="glow g1"></div><div class="glow g2"></div><div class="glow g3"></div></div>
+    <div class="wrap">
+      <div class="eyebrow">Trust Center</div>
+      <h1>Compliance &amp; <em class="grad">Certifications</em></h1>
+      <p class="lede">701am is designed for the compliance requirements of higher education. We maintain active certifications and align with the frameworks institutions trust.</p>
+    </div>
+  </header>
 
-<div class="seg">Data minimized by design</div>
-<p>701am works with the minimum data necessary to deliver earned-media visibility services. When connected to your CRM or SIS, we read:</p>
-<ul>
-  <li>Program names and identifiers</li>
-  <li>Aggregate inquiry and application volumes</li>
-  <li>Program-level outcomes data (e.g., placement rates, starting salaries)</li>
-</ul>
-<p>We do not access individual student names, email addresses, social security numbers, grades, or disciplinary records. Our integrations are read-only by default and revocable at any time.</p>
+  <!-- BUSINESS INFORMATION -->
+  <section class="wrap trust-section">
+    <h2>Business information</h2>
+    <div class="trust-info">
+      <div class="ti-cell">
+        <div class="ti-lbl">Company</div>
+        <div class="ti-val">701am, Inc.</div>
+      </div>
+      <div class="ti-cell">
+        <div class="ti-lbl">Incorporated</div>
+        <div class="ti-val">Delaware, United States</div>
+      </div>
+      <div class="ti-cell">
+        <div class="ti-lbl">Service</div>
+        <div class="ti-val">Earned-media engine for higher education</div>
+      </div>
+      <div class="ti-cell">
+        <div class="ti-lbl">Data regions</div>
+        <div class="ti-val">AWS US-East &amp; US-West</div>
+      </div>
+      <div class="ti-cell full">
+        <div class="ti-lbl">Contact</div>
+        <div class="ti-val">legal@701am.com &middot; security@701am.com</div>
+      </div>
+    </div>
+  </section>
 
-<div class="seg">Institutional control</div>
-<p>Your institution retains full ownership and control of all data accessed through 701am. You may revoke integrations, delete workspaces, or request removal of your data at any time. Upon contract termination, all institutional data is permanently deleted within 90 days.</p>
+  <!-- COMPLIANCE FRAMEWORKS -->
+  <section class="wrap trust-section">
+    <h2>Frameworks</h2>
+    <p class="ts-lede">We align with the frameworks that matter to higher-education institutions. Each certification is independently audited or in active pursuit.</p>
+    <div class="trust-frameworks">
 
-<div class="seg">Data processing agreement</div>
-<p>We enter into a FERPA-compliant data processing agreement with each institutional customer. This agreement reflects the requirements of the 2024 FERPA regulations and defines: the scope of data accessed, the purposes of processing, the prohibition on further disclosure, and the data safeguarding measures in place.</p>
-<p>To request a copy of our DPA, contact <strong>legal@701am.com</strong>.</p>
+      <div class="trust-card">
+        <div class="tc-head">
+          <h3>SOC 2 Type II</h3>
+          <span class="tc-tag in-progress">In Progress</span>
+        </div>
+        <p>Trust services criteria: Security, Availability, and Confidentiality. Audit underway with a licensed CPA firm.</p>
+        <div class="tc-meta">Expected completion Q4 2026</div>
+      </div>
 
-<div class="seg">Data residency</div>
-<p>All institutional data is processed and stored in the United States, in AWS US-East and US-West regions. No student-level data is transferred outside the United States.</p>
+      <div class="trust-card">
+        <div class="tc-head">
+          <h3>FERPA</h3>
+          <span class="tc-tag compliant">Compliant</span>
+        </div>
+        <p>701am operates as a school official with a legitimate educational interest under 34 CFR § 99.31. Data minimized by design — no student PII accessed without explicit authorization.</p>
+        <div class="tc-meta">Review our <a href="/compliance">FERPA posture</a></div>
+      </div>
 
-<div class="seg">Annual review</div>
-<p>We review our FERPA compliance posture annually and upon any material change to our data practices. Our security infrastructure is audited as part of our SOC 2 readiness program.</p>
+      <div class="trust-card">
+        <div class="tc-head">
+          <h3>GDPR</h3>
+          <span class="tc-tag compliant">Compliant</span>
+        </div>
+        <p>Data processing agreement available. Data processed in US regions only. Data deletion and portability requests fulfilled within 30 days.</p>
+        <div class="tc-meta">DPA available on request</div>
+      </div>
 
-<div class="seg">Questions?</div>
-<p>FERPA compliance questions can be directed to <strong>legal@701am.com</strong>. Our compliance team can provide a FERPA checklist, our DPA template, or walk through data flows with your privacy office.</p>
-</article>
+      <div class="trust-card">
+        <div class="tc-head">
+          <h3>CCPA</h3>
+          <span class="tc-tag compliant">Compliant</span>
+        </div>
+        <p>We do not sell personal information. Categories of data collected are disclosed in our privacy notice. Opt-out rights honored for California residents.</p>
+        <div class="tc-meta">See our <a href="/privacy">Privacy Policy</a></div>
+      </div>
 
-<section class="closing">
-  <div class="catmos"><div class="cg"></div></div>
-  <div class="wrap">
-    <div class="pill-badge"><span class="tagm">Filed at sunrise</span></div>
-    <h2>Need a FERPA <em class="grad">review</em>?</h2>
-    <p>We'll walk through data flows with your privacy office or sign a DPA on your terms.</p>
-    <a href="/contact" class="btn btn-primary btn-lg"><i class="ti ti-sparkles"></i>Contact our compliance team</a>
-  </div>
-</section>
+    </div>
+  </section>
+
+  <!-- DOCUMENTATION -->
+  <section class="wrap trust-section">
+    <h2>Documentation</h2>
+    <p class="ts-lede">Download our compliance documentation or request access to audit reports.</p>
+    <div class="trust-docs">
+      <a href="/agreement" class="trust-doc">
+        <i class="ti ti-file-text"></i>
+        <div class="td-info">
+          <strong>Subscription Agreement</strong>
+          <span>PDF &middot; Terms of service</span>
+        </div>
+      </a>
+      <a href="/security" class="trust-doc">
+        <i class="ti ti-shield-lock"></i>
+        <div class="td-info">
+          <strong>Security Overview</strong>
+          <span>PDF &middot; Architecture &amp; controls</span>
+        </div>
+      </a>
+      <a href="/contact" class="trust-doc">
+        <i class="ti ti-file-spreadsheet"></i>
+        <div class="td-info">
+          <strong>SOC 2 Report</strong>
+          <span>Available under NDA</span>
+        </div>
+      </a>
+      <a href="/privacy" class="trust-doc">
+        <i class="ti ti-eye"></i>
+        <div class="td-info">
+          <strong>Privacy Policy</strong>
+          <span>PDF &middot; Data handling practices</span>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <!-- CLOSING -->
+  <section class="closing">
+    <div class="catmos"><div class="cg"></div></div>
+    <div class="wrap">
+      <div class="pill-badge"><span class="tagm">Filed at sunrise</span></div>
+      <h2>Need a compliance <em class="grad">review</em>?</h2>
+      <p>Send our team your security questionnaire or request a signed DPA.</p>
+      <a href="/contact" class="btn btn-primary btn-lg"><i class="ti ti-sparkles"></i>Contact our compliance team</a>
+    </div>
+  </section>
 </Layout>

@@ -276,6 +276,49 @@
   .foot-bottom .flegal a{color:var(--ink-3);transition:.12s}
   .foot-bottom .flegal a:hover{color:var(--ink)}
 
+  /* ===== COMPLIANCE / TRUST CENTER ===== */
+  .trust-hero{position:relative;overflow:hidden;padding:80px 0 60px}
+  .trust-hero .wrap{position:relative;z-index:1}
+  .trust-hero h1{font-family:var(--serif);font-size:42px;font-weight:500;letter-spacing:-.02em;line-height:1.2;margin:12px 0 16px}
+  .trust-hero .lede{font-size:17px;color:var(--ink-2);line-height:1.6;max-width:580px}
+  .trust-hero .hero-atmos{position:absolute;inset:0;pointer-events:none;overflow:hidden}
+  .trust-hero .hero-atmos .grid{position:absolute;inset:0;background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);background-size:48px 48px;opacity:.35}
+  .trust-hero .hero-atmos .glow{position:absolute;border-radius:50%;filter:blur(80px);pointer-events:none}
+  .trust-hero .hero-atmos .g1{width:520px;height:520px;background:var(--coral-soft);top:-180px;right:-120px;opacity:.5}
+  .trust-hero .hero-atmos .g2{width:340px;height:340px;background:var(--indigo-soft);bottom:-100px;left:-80px;opacity:.4}
+  .trust-hero .hero-atmos .g3{width:200px;height:200px;background:var(--amber-soft);top:30px;left:45%;opacity:.25}
+
+  .trust-section{margin-top:48px}
+  .trust-section h2{font-family:var(--serif);font-size:26px;font-weight:500;letter-spacing:-.01em;margin-bottom:20px}
+  .trust-section .ts-lede{font-size:14.5px;color:var(--ink-2);line-height:1.6;margin-bottom:28px;max-width:620px}
+
+  .trust-info{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);border:1px solid var(--line);border-radius:14px;overflow:hidden;max-width:620px}
+  .trust-info .ti-cell{background:var(--paper);padding:18px 22px}
+  .trust-info .ti-cell .ti-lbl{font-size:11px;text-transform:uppercase;letter-spacing:.05em;color:var(--ink-3);font-weight:600;margin-bottom:3px}
+  .trust-info .ti-cell .ti-val{font-size:14px;color:var(--ink)}
+  .trust-info .ti-cell.full{grid-column:1/-1}
+
+  .trust-frameworks{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+  .trust-card{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:24px;display:flex;flex-direction:column;transition:.14s}
+  .trust-card:hover{border-color:var(--line-2);box-shadow:var(--sh-sm)}
+  .trust-card .tc-head{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:14px}
+  .trust-card .tc-head h3{font-size:17px;font-weight:600}
+  .trust-card .tc-tag{font-family:var(--mono);font-size:10px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;padding:3px 9px;border-radius:6px;white-space:nowrap;flex-shrink:0;margin-top:2px}
+  .trust-card .tc-tag.audited{background:var(--green-soft);color:var(--green-deep)}
+  .trust-card .tc-tag.in-progress{background:var(--amber-soft);color:var(--amber-deep)}
+  .trust-card .tc-tag.compliant{background:var(--indigo-soft);color:var(--indigo-deep)}
+  .trust-card p{font-size:13.5px;color:var(--ink-2);line-height:1.55;margin-bottom:14px}
+  .trust-card .tc-meta{font-family:var(--mono);font-size:11px;color:var(--ink-3);margin-top:auto;padding-top:14px;border-top:1px solid var(--line)}
+  .trust-card .tc-meta a{color:var(--coral-deep);font-weight:600}
+
+  .trust-docs{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+  .trust-doc{display:flex;align-items:center;gap:12px;padding:14px 16px;background:var(--paper);border:1px solid var(--line);border-radius:10px;font-size:14px;color:var(--ink);transition:.12s}
+  .trust-doc i{font-size:18px;color:var(--coral);flex-shrink:0}
+  .trust-doc:hover{border-color:var(--line-2);box-shadow:var(--sh-sm)}
+  .trust-doc .td-info{display:flex;flex-direction:column}
+  .trust-doc .td-info strong{font-weight:600}
+  .trust-doc .td-info span{font-size:12px;color:var(--ink-3)}
+
   /* modal */
   .overlay{position:fixed;inset:0;z-index:200;background:rgba(21,22,46,.5);backdrop-filter:blur(4px);display:flex;align-items:center;justify-content:center;padding:24px;opacity:0;pointer-events:none;transition:opacity .2s}
   .overlay.show{opacity:1;pointer-events:auto}
@@ -655,6 +698,16 @@
     .foot-bottom { flex-direction: column; gap: 6px; text-align: center; padding-top: 18px; font-size: 12px }
     .foot-bottom .flegal { justify-content: center }
 
+    /* TRUST CENTER — stack columns, smaller text */
+    .trust-hero { padding: 60px 0 44px }
+    .trust-hero h1 { font-size: 34px }
+    .trust-hero .lede { font-size: 16px }
+    .trust-section { margin-top: 36px }
+    .trust-section h2 { font-size: 22px }
+    .trust-info { grid-template-columns: 1fr }
+    .trust-frameworks { grid-template-columns: 1fr }
+    .trust-docs { grid-template-columns: 1fr }
+
     /* MODAL — tighter on small screens */
     .modal { width: calc(100vw - 32px); padding: 28px 24px; border-radius: 18px }
     .modal h3 { font-size: 22px }
@@ -741,6 +794,12 @@
     nav .nav-in { padding: 9px 14px; gap: 8px }
     .nav-cta .btn-primary { padding: 8px 11px; font-size: 12.5px }
     .nav-cta .btn-primary i { display: none } /* drop the sparkle icon for room */
+
+    /* TRUST CENTER — tighter on smallest screens */
+    .trust-hero { padding: 44px 0 32px }
+    .trust-hero h1 { font-size: 28px }
+    .trust-info .ti-cell { padding: 14px 16px }
+    .trust-card { padding: 20px }
     .announce { font-size: 12px }
     .ann-tag { display: none } /* drop the "early access" tag on smallest screens */
   }
