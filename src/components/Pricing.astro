@@ -1,0 +1,82 @@
+---
+// Pricing section — Free (tracking-only) + Launch ($701). Reused across pages.
+interface Props { context?: 'home' | 'universities' | 'edtech' | 'agencies'; }
+const { context = 'home' } = Astro.props;
+
+const subs: Record<string, string> = {
+  home: "Higher-ed PR retainers run $10K\u2013$50K a month for less than we offer. Track 5 programs free, no card required. Run campaigns when you're ready to act on what tracking shows you.",
+  universities: "Track 5 programs free \u2014 no card, no procurement cycle. See where your programs stand in AI and search today, and move to campaigns when you're ready to act.",
+  edtech: "Start tracking your category visibility free. Move to Launch when you want to run the campaigns that build category authority.",
+  agencies: "Track 5 programs free to prove the model to a client. Launch unlocks campaigns and per-client workspaces \u2014 talk to us about multi-client agency pricing.",
+};
+const sub = subs[context] ?? subs.home;
+const showAgencyNote = context !== 'agencies';
+---
+
+<section class="band wrap" id="pricing">
+  <div class="sec-head">
+    <div class="sec-eyebrow">Pricing</div>
+    <h2>Start free. <em class="grad">Move when ready.</em></h2>
+    <p>{sub}</p>
+  </div>
+  <div class="pricing-cmp">
+
+    <div class="pcard pcard-free">
+      <div class="pc-free-tag"><span class="pc-dot"></span>Free forever</div>
+      <div class="pc-head">
+        <div class="pc-icon" style="background:var(--canvas-2);color:var(--ink-2)"><i class="ti ti-eye"></i></div>
+        <div>
+          <div class="pc-label">Free</div>
+          <div class="pc-sub">For tracking · no card required</div>
+        </div>
+      </div>
+      <div class="pc-price">
+        <span class="pc-amt">$0</span>
+        <span class="pc-per">forever · no expiration</span>
+      </div>
+      <ul class="pc-feat">
+        <li><i class="ti ti-check"></i>Track <b>5 programs</b> against AI &amp; search</li>
+        <li><i class="ti ti-check"></i>10 queries per program, daily captures</li>
+        <li><i class="ti ti-check"></i>ChatGPT, Perplexity, Gemini coverage</li>
+        <li><i class="ti ti-check"></i>Shortlist presence rate &amp; ordinal position</li>
+        <li><i class="ti ti-check"></i>Competitor matrix across query categories</li>
+        <li><i class="ti ti-x"></i>No campaigns, journalist outreach, or CRM sync</li>
+      </ul>
+      <button class="btn btn-soft btn-lg js-soon" style="width:100%;margin-top:8px"><i class="ti ti-sparkles"></i>Start free · track 5 programs</button>
+      <div class="pc-fine pc-fine-light">Institutional email required. Your data stays yours.</div>
+    </div>
+
+    <div class="pcard pcard-701">
+      <div class="pc-launch"><span class="pc-dot"></span>Launch pricing</div>
+      <div class="pc-head">
+        <div class="pc-icon pc-icon-grad"><i class="ti ti-sparkles"></i></div>
+        <div>
+          <div class="pc-label" style="color:#fff">Launch</div>
+          <div class="pc-sub" style="color:var(--night-txt)">Track + act, the full platform</div>
+        </div>
+      </div>
+      <div class="pc-price">
+        <span class="pc-amt pc-amt-grad">$701</span>
+        <span class="pc-per" style="color:var(--night-txt)">/ month, starting</span>
+      </div>
+      <ul class="pc-feat pc-feat-dark">
+        <li><i class="ti ti-check"></i>Everything in Free, plus:</li>
+        <li><i class="ti ti-check"></i>Unlimited programs &amp; queries, all providers</li>
+        <li><i class="ti ti-check"></i>Campaigns — data-story, rankings, news-response</li>
+        <li><i class="ti ti-check"></i>Journalist research, soul-checked pitches</li>
+        <li><i class="ti ti-check"></i>Slate &amp; CRM integration (funnel × visibility)</li>
+        <li><i class="ti ti-check"></i>Approval gates, send infrastructure, full reporting</li>
+      </ul>
+      <button class="btn btn-primary btn-lg js-soon" style="width:100%;margin-top:8px"><i class="ti ti-rocket"></i>Request early access</button>
+      <div class="pc-fine">Founding-cohort pricing for higher-ed teams. Price increases when we open broadly.</div>
+    </div>
+
+  </div>
+
+  {showAgencyNote && (
+    <div class="pc-agency-note">
+      <i class="ti ti-building-bank"></i>
+      <span><b>Running this for an agency or a multi-institution system?</b> The platform supports multi-client workspaces with isolation between accounts. <a href="/contact/" class="agency-link">Talk to us about agency pricing →</a></span>
+    </div>
+  )}
+</section>

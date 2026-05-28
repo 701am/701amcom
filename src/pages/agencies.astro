@@ -1,5 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import Integrations from '../components/Integrations.astro';
+import Pricing from '../components/Pricing.astro';
 ---
 <Layout title="701am for higher-ed agencies" description="701am for higher-ed agencies — the earned-media engine for higher education. Be the answer in AI, the result in Google, and the name in the press.">
 <!-- HERO -->
@@ -78,6 +80,12 @@ import Layout from '../layouts/Layout.astro';
   </div>
 </section>
 
+
+<!-- INTEGRATIONS -->
+<Integrations context="agencies" />
+
+<!-- PRICING -->
+<Pricing context="agencies" />
 
 <!-- CLOSING -->
 <section class="closing">

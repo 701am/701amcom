@@ -1,0 +1,104 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Pricing from '../components/Pricing.astro';
+
+const groups = [
+  {
+    label: 'Enrollment CRM',
+    blurb: 'Read inquiry and funnel data to tie visibility to enrollment. Read-only — never written back.',
+    items: [
+      { name: 'Slate',      abbr: 'SL', color: '#1C4DA1', desc: 'Technolutions Slate — the enrollment CRM most institutions run on.', role: 'Read funnel data' },
+      { name: 'Element451', abbr: 'E4', color: '#5B3DF5', desc: 'AI-native enrollment CRM and student engagement platform.',         role: 'Read funnel data' },
+      { name: 'Salesforce', abbr: 'SF', color: '#00A1E0', desc: 'Education Cloud and standard Salesforce orgs.',                    role: 'Read funnel data' },
+    ],
+  },
+  {
+    label: 'Student information systems',
+    blurb: 'Pull program and outcomes data to ground campaigns in real institutional facts.',
+    items: [
+      { name: 'Ellucian',        abbr: 'EL', color: '#0A7D6B', desc: 'Banner and Colleague — the higher-ed SIS / ERP standard.', role: 'Read program data' },
+      { name: 'Workday Student', abbr: 'WD', color: '#F38B00', desc: 'Modern cloud SIS for program and enrollment records.',      role: 'Read program data' },
+    ],
+  },
+  {
+    label: 'Email & outreach',
+    blurb: 'Send approved pitches from your own domain and monitor for replies — nothing sends without your approval.',
+    items: [
+      { name: 'Gmail',   abbr: 'GM', color: '#EA4335', desc: 'Send staged pitches from Google Workspace and track responses.', role: 'Send & monitor' },
+      { name: 'Outlook', abbr: 'OL', color: '#0A66C2', desc: 'Send from Microsoft 365 and monitor journalist replies.',        role: 'Send & monitor' },
+    ],
+  },
+  {
+    label: 'Notifications',
+    blurb: 'Route signals, approvals, and wins to where your team already works.',
+    items: [
+      { name: 'Slack',           abbr: 'SK', color: '#611F69', desc: 'Get signals and approval requests in the channels you choose.', role: 'Get notified' },
+      { name: 'Microsoft Teams', abbr: 'MT', color: '#5059C9', desc: 'Notifications and approvals routed to Teams channels.',        role: 'Get notified' },
+    ],
+  },
+];
+---
+<Layout
+  title="Integrations"
+  description="701am connects to the enrollment CRMs, student information systems, inboxes, and chat tools higher-ed teams already run — read-only by default, per workspace, revocable anytime."
+>
+  <header class="about-hero">
+    <div class="hero-atmos"><div class="grid"></div><div class="glow g1"></div><div class="glow g2"></div><div class="glow g3"></div></div>
+    <div class="wrap" style="position:relative;z-index:1">
+      <div class="eyebrow">Integrations</div>
+      <h1>Connects to the stack <em class="grad">you already run</em>.</h1>
+      <p class="lede">701am reads the signal it needs from your CRM and SIS, sends approved outreach from your own inbox, and routes notifications to Slack or Teams — without becoming another system you have to migrate to.</p>
+      <div class="ig-trust">
+        <span><i class="ti ti-shield-lock"></i>Read-only by default</span>
+        <span><i class="ti ti-lock"></i>Per-workspace &amp; revocable</span>
+        <span><i class="ti ti-database-off"></i>Never your system of record</span>
+      </div>
+    </div>
+  </header>
+
+  <section class="wrap ig-page">
+    {groups.map((g) => (
+      <div class="ig-group">
+        <div class="ig-group-head">
+          <h2>{g.label}</h2>
+          <p>{g.blurb}</p>
+        </div>
+        <div class="ig-cards">
+          {g.items.map((it) => (
+            <div class="ig-card">
+              <div class="ig-card-top">
+                <span class="ig-logo" style={`background:${it.color}`}>{it.abbr}</span>
+                <span class="ig-role">{it.role}</span>
+              </div>
+              <div class="ig-name">{it.name}</div>
+              <div class="ig-desc">{it.desc}</div>
+            </div>
+          ))}
+        </div>
+      </div>
+    ))}
+
+    <div class="ig-request">
+      <div class="ig-request-in">
+        <div>
+          <h3>Don't see your system?</h3>
+          <p>We add integrations as higher-ed teams ask for them. Tell us what you run and we'll prioritize it.</p>
+        </div>
+        <button class="btn btn-primary btn-lg js-soon"><i class="ti ti-plus"></i>Request an integration</button>
+      </div>
+    </div>
+  </section>
+
+  <Pricing context="home" />
+
+  <!-- CLOSING -->
+  <section class="closing">
+    <div class="catmos"><div class="cg"></div></div>
+    <div class="wrap">
+      <div class="pill-badge"><span class="tagm">Filed at sunrise</span></div>
+      <h2>Plug it in. <em class="grad">Watch it work.</em></h2>
+      <p>Start free on tracking alone — connect your stack when you move to Launch.</p>
+      <button class="btn btn-primary btn-lg js-soon"><i class="ti ti-sparkles"></i>Start free · track 5 programs</button>
+    </div>
+  </section>
+</Layout>

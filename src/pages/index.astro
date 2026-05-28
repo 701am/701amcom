@@ -1,5 +1,8 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import HeroShot from '../components/HeroShot.astro';
+import Integrations from '../components/Integrations.astro';
+import Pricing from '../components/Pricing.astro';
 ---
 <Layout
   title="The earned-media engine for Higher Education"
@@ -16,27 +19,13 @@ import Layout from '../layouts/Layout.astro';
         <h1 class="hero-h">Higher-ed visibility that <em class="grad">compounds</em>.</h1>
         <p class="hero-sub">A swarm of agents that makes your institution the answer when students ask AI, the result they find in Google, and the name they see in the press — turning every placement into a <b>visibility asset that compounds</b> through every enrollment cycle. For a fraction of a PR retainer.</p>
         <div class="hero-ctas">
-          <button class="btn btn-primary btn-lg js-soon"><i class="ti ti-sparkles"></i>Get early access</button>
-          <button class="btn btn-soft btn-lg js-soon"><i class="ti ti-player-play"></i>See it work</button>
+          <button class="btn btn-primary btn-lg js-soon"><i class="ti ti-sparkles"></i>Start free · track 5 programs</button>
+          <button class="btn btn-soft btn-lg js-soon"><i class="ti ti-player-play"></i>Get a demo</button>
         </div>
+        <div class="hero-ctas-meta">No credit card. Institutional email required. <a href="#pricing">See what's free →</a></div>
         </div>
-      <!-- HERO FRAGMENT: swarm running -->
-      <div class="frag"><div class="frag-glow"></div><div class="frag-wrap">
-        <div class="frag-h"><div class="ci"><i class="ti ti-sparkles"></i></div><div class="ft">The Desk</div><div class="live"><i class="ti ti-circle-filled"></i>Working</div></div>
-        <div class="frag-b">
-          <div class="cmd"><div><div class="cl">Goal, in plain English</div><div class="cv">"Make us the program AI recommends for online nursing degrees."</div></div></div>
-          <div class="swarm">
-            <span class="ad" style="left:30%;top:18%;animation-delay:0s"></span>
-            <span class="ad c" style="left:64%;top:12%;animation-delay:.5s"></span>
-            <span class="ad a" style="left:72%;top:54%;animation-delay:1s"></span>
-            <span class="ad" style="left:22%;top:60%;animation-delay:1.5s"></span>
-            <span class="ad c" style="left:46%;top:6%;animation-delay:.8s"></span>
-            <span class="ad a" style="left:56%;top:70%;animation-delay:1.3s"></span>
-            <div class="core">7</div>
-            <div class="lbl"><span class="sp"></span>a swarm of agents, working your goal</div>
-          </div>
-        </div>
-      </div></div>
+      <!-- HERO: real product shot -->
+      <HeroShot variant="full" />
     </div>
   </div>
 </header>
@@ -175,58 +164,11 @@ import Layout from '../layouts/Layout.astro';
   </div>
 </section>
 
-<!-- PRICING -->
-<section class="band wrap" id="pricing">
-  <div class="sec-head">
-    <div class="sec-eyebrow">The math</div>
-    <h2>Everything a PR agency does. <em class="grad">None of the retainer.</em></h2>
-    <p>Higher-ed PR retainers run $10K–$50K a month. 701am does more, continuously — and we're opening at the price that gave us our name.</p>
-  </div>
-  <div class="pricing-cmp">
-    <div class="pcard pcard-agency">
-      <div class="pc-head">
-        <div class="pc-icon" style="background:var(--canvas-2);color:var(--ink-3)"><i class="ti ti-building-bank"></i></div>
-        <div>
-          <div class="pc-label">A higher-ed PR agency</div>
-          <div class="pc-sub">The standard option</div>
-        </div>
-      </div>
-      <div class="pc-price">
-        <span class="pc-amt">$10K–$50K</span>
-        <span class="pc-per">/ month, retainer</span>
-      </div>
-      <ul class="pc-feat">
-        <li><i class="ti ti-x"></i>Weeks to a first placement</li>
-        <li><i class="ti ti-x"></i>Opaque hours-based reporting</li>
-        <li><i class="ti ti-x"></i>Media only — blind to AI &amp; search visibility</li>
-        <li><i class="ti ti-x"></i>Capacity capped by the team you hired</li>
-      </ul>
-    </div>
+<!-- INTEGRATIONS -->
+<Integrations context="home" />
 
-    <div class="pcard pcard-701">
-      <div class="pc-launch"><span class="pc-dot"></span>Launch pricing</div>
-      <div class="pc-head">
-        <div class="pc-icon pc-icon-grad"><i class="ti ti-sparkles"></i></div>
-        <div>
-          <div class="pc-label" style="color:#fff">701am</div>
-          <div class="pc-sub" style="color:var(--night-txt)">Starting at</div>
-        </div>
-      </div>
-      <div class="pc-price">
-        <span class="pc-amt pc-amt-grad">$701</span>
-        <span class="pc-per" style="color:var(--night-txt)">/ month</span>
-      </div>
-      <ul class="pc-feat pc-feat-dark">
-        <li><i class="ti ti-check"></i>Days to a first placement, not weeks</li>
-        <li><i class="ti ti-check"></i>Measurable across AI answers, search &amp; press</li>
-        <li><i class="ti ti-check"></i>A swarm that scales without hiring</li>
-        <li><i class="ti ti-check"></i>Continuous &mdash; not burst around a campaign</li>
-      </ul>
-      <button class="btn btn-primary btn-lg js-soon" style="width:100%;margin-top:8px"><i class="ti ti-sparkles"></i>Request early access</button>
-      <div class="pc-fine">Founding-cohort pricing for higher-ed teams. Price increases when we open broadly.</div>
-    </div>
-  </div>
-</section>
+<!-- PRICING -->
+<Pricing context="home" />
 
 <!-- CLOSING -->
 <section class="closing">

@@ -1,5 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import Integrations from '../components/Integrations.astro';
+import Pricing from '../components/Pricing.astro';
 ---
 <Layout title="Earned media for university enrollment" description="Earned media for university enrollment — the earned-media engine for higher education. Be the answer in AI, the result in Google, and the name in the press.">
 <!-- HERO -->
@@ -91,6 +93,12 @@ import Layout from '../layouts/Layout.astro';
     <div class="fw"><i class="ti ti-calendar-event"></i><span class="ft">We build around the <b>application calendar</b>, not a generic content cadence — visibility timed to when applicants actually decide.</span></div>
   </div>
 </section>
+
+<!-- INTEGRATIONS -->
+<Integrations context="universities" />
+
+<!-- PRICING -->
+<Pricing context="universities" />
 
 <!-- CLOSING -->
 <section class="closing">

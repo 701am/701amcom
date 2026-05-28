@@ -1,0 +1,70 @@
+---
+// Integrations section — used on homepage and each solutions page.
+// `context` lets each page tune the intro copy slightly.
+interface Props { context?: 'home' | 'universities' | 'edtech' | 'agencies'; }
+const { context = 'home' } = Astro.props;
+
+const intros: Record<string, { eyebrow: string; head: string; sub: string }> = {
+  home: {
+    eyebrow: 'Works with your stack',
+    head: 'Slots into the systems you already run.',
+    sub: 'Pull enrollment signal in, push the work out, and get notified where your team already works — no rip-and-replace.',
+  },
+  universities: {
+    eyebrow: 'Works with your stack',
+    head: 'Sits alongside your SIS and CRM.',
+    sub: 'Read inquiry and funnel data from Slate, Element451, Ellucian, or Workday Student to tie visibility to enrollment — and get notified in Slack or Teams.',
+  },
+  edtech: {
+    eyebrow: 'Works with your stack',
+    head: 'Fits the tools your GTM team lives in.',
+    sub: 'Connect email and your CRM, route signals into Slack or Teams, and keep your category-authority work where your team already collaborates.',
+  },
+  agencies: {
+    eyebrow: 'Works with your stack',
+    head: 'Connects per client, isolated by workspace.',
+    sub: 'Each client workspace connects its own CRM and inbox. Notifications land in your Slack or Teams so account leads see movement the moment it happens.',
+  },
+};
+const c = intros[context] ?? intros.home;
+
+// Integration tiles. `kind` drives the small role label.
+const integrations = [
+  { name: 'Slate',           abbr: 'SL', color: '#1C4DA1', kind: 'Enrollment CRM', role: 'Read funnel data' },
+  { name: 'Element451',      abbr: 'E4', color: '#5B3DF5', kind: 'Enrollment CRM', role: 'Read funnel data' },
+  { name: 'Ellucian',        abbr: 'EL', color: '#0A7D6B', kind: 'SIS / ERP',      role: 'Read program data' },
+  { name: 'Workday Student', abbr: 'WD', color: '#F38B00', kind: 'SIS',            role: 'Read program data' },
+  { name: 'Gmail',           abbr: 'GM', color: '#EA4335', kind: 'Email',          role: 'Send & monitor' },
+  { name: 'Outlook',         abbr: 'OL', color: '#0A66C2', kind: 'Email',          role: 'Send & monitor' },
+  { name: 'Slack',           abbr: 'SK', color: '#611F69', kind: 'Notifications',  role: 'Get notified' },
+  { name: 'Microsoft Teams', abbr: 'MT', color: '#5059C9', kind: 'Notifications',  role: 'Get notified' },
+];
+---
+
+<section class="band wrap integ-sec" id="integrations">
+  <div class="sec-head">
+    <div class="sec-eyebrow">{c.eyebrow}</div>
+    <h2 set:html={c.head.replace(/(your stack|SIS and CRM|GTM team lives in|per client)/, '<em class="grad">$1</em>')}></h2>
+    <p>{c.sub}</p>
+  </div>
+
+  <div class="integ-grid">
+    {integrations.map((it) => (
+      <div class="integ-tile">
+        <span class="integ-logo" style={`background:${it.color}`}>{it.abbr}</span>
+        <span class="integ-meta">
+          <span class="integ-name">{it.name}</span>
+          <span class="integ-kind">{it.kind}</span>
+        </span>
+        <span class="integ-role">{it.role}</span>
+      </div>
+    ))}
+  </div>
+
+  <div class="integ-note">
+    <i class="ti ti-shield-lock"></i>
+    <span><b>Read-only by default.</b> We pull the signal we need and nothing more — your CRM and SIS stay your systems of record. Connections are per workspace and revocable anytime.</span>
+  </div>
+
+  <div class="integ-all"><a href="/integrations">See all integrations <i class="ti ti-arrow-right"></i></a></div>
+</section>

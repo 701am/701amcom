@@ -1,0 +1,109 @@
+---
+// HeroShot — a faithful, static reproduction of the 701am app's program-overview
+// dashboard (harvested from the V2 mockup). Used as the hero product visual so
+// prospects see the real product, not an abstract animation.
+interface Props { variant?: 'full' | 'compact'; }
+const { variant = 'full' } = Astro.props;
+---
+<div class={`shot shot-${variant}`} aria-hidden="true">
+  <div class="shot-glow"></div>
+  <div class="shot-frame">
+    <!-- top chrome -->
+    <div class="shot-chrome">
+      <span class="dot r"></span><span class="dot y"></span><span class="dot g"></span>
+      <span class="shot-url">app.701am.com</span>
+    </div>
+
+    <div class="shot-app">
+      <!-- sidebar -->
+      <aside class="shot-side">
+        <div class="ss-ws">
+          <span class="ss-init">R</span>
+          <span class="ss-wn">Riverbend<span class="ss-plan">Launch</span></span>
+        </div>
+        <div class="ss-lbl">Tracking</div>
+        <div class="ss-item on"><i class="ti ti-chart-dots-3"></i>Programs<span class="ss-pill">5</span></div>
+        <div class="ss-item"><i class="ti ti-message-circle-question"></i>Queries</div>
+        <div class="ss-item"><i class="ti ti-radar"></i>Competitors</div>
+        <div class="ss-lbl">Execution</div>
+        <div class="ss-item"><i class="ti ti-inbox"></i>Campaigns<span class="ss-pill alt">3</span></div>
+        <div class="ss-item"><i class="ti ti-news"></i>Placements</div>
+      </aside>
+
+      <!-- main -->
+      <div class="shot-main">
+        <div class="sm-head">
+          <div>
+            <div class="sm-crumb">Programs / Riverbend / <b>Online MSW</b></div>
+            <div class="sm-title">Online <em>MSW</em></div>
+          </div>
+          <span class="sm-chip">Enriched by Slate</span>
+        </div>
+
+        <!-- desk strip -->
+        <div class="sm-desk">
+          <span class="sm-core">7</span>
+          <div class="sm-goal">"Make us the program AI recommends for online MSW."</div>
+          <span class="sm-status"><span class="sp"></span>Working</span>
+        </div>
+
+        <!-- metrics -->
+        <div class="sm-metrics">
+          <div class="sm-met">
+            <div class="sm-ml">Presence</div>
+            <div class="sm-mv">67<span>%</span></div>
+            <div class="sm-md up">↑ 8 pts</div>
+          </div>
+          <div class="sm-met">
+            <div class="sm-ml">Avg pos.</div>
+            <div class="sm-mv">3.4</div>
+            <div class="sm-md up">↑ 4.8</div>
+          </div>
+          <div class="sm-met">
+            <div class="sm-ml">Mentions</div>
+            <div class="sm-mv">142</div>
+            <div class="sm-md up">↑ 24</div>
+          </div>
+          <div class="sm-met slate">
+            <div class="sm-ml">Inquiries <span class="src">Slate</span></div>
+            <div class="sm-mv">1,247</div>
+            <div class="sm-md up">↑ 22%</div>
+          </div>
+        </div>
+
+        <!-- competitor matrix -->
+        <div class="sm-panel">
+          <div class="sm-ph"><i class="ti ti-grid-pattern"></i>Competitor matrix<span class="sm-tag">best_of</span></div>
+          <table class="sm-matrix">
+            <tr><th>Institution</th><th>Adults</th><th>Rural</th><th>LCSW</th><th>Overall</th></tr>
+            <tr><td><span class="ini">BU</span>Boston U</td><td><span class="pos top">1.4</span></td><td><span class="pos top">2.1</span></td><td><span class="pos top">2.0</span></td><td><span class="pos top">1.8</span></td></tr>
+            <tr><td><span class="ini">US</span>USC</td><td><span class="pos top">2.2</span></td><td><span class="pos mid">3.4</span></td><td><span class="pos top">2.1</span></td><td><span class="pos top">2.4</span></td></tr>
+            <tr class="you"><td><span class="ini g">RU</span>Riverbend<span class="ytag">You</span></td><td><span class="pos mid">3.6</span></td><td><span class="pos top">2.1</span></td><td><span class="pos mid">4.0</span></td><td><span class="pos mid">3.4</span></td></tr>
+            <tr><td><span class="ini">SI</span>Simmons</td><td><span class="pos mid">4.2</span></td><td><span class="pos low">5.8</span></td><td><span class="pos mid">2.9</span></td><td><span class="pos mid">4.1</span></td></tr>
+          </table>
+        </div>
+      </div>
+
+      <!-- chat rail -->
+      <aside class="shot-rail">
+        <div class="sr-head"><span class="sr-ic"><i class="ti ti-sparkles"></i></span><span class="sr-nm">The Desk</span><span class="sr-st"><span class="sp"></span>Working</span></div>
+        <div class="sr-msgs">
+          <div class="sr-user">What changed in our position this week?</div>
+          <div class="sr-agent">
+            <div class="sr-ah"><span class="sr-av"><i class="ti ti-sparkles"></i></span>The Desk</div>
+            <div class="sr-tx">Avg position rose from <b>4.8 → 3.4</b>, driven by <b>best_of</b> queries for "working adults." Lift from a new IPEDS cut + an <i>EdSurge</i> placement.</div>
+            <div class="sr-art">
+              <div class="sr-arth">best_of position · 90d<span>↑ 1.4</span></div>
+              <svg viewBox="0 0 220 44" preserveAspectRatio="none" class="sr-spark">
+                <polyline points="0,36 24,34 48,30 72,28 96,23 120,20 144,16 168,13 192,9 220,6" fill="none" stroke="#DD5A38" stroke-width="2" stroke-linecap="round"/>
+                <polyline points="0,36 24,34 48,30 72,28 96,23 120,20 144,16 168,13 192,9 220,6 220,44 0,44" fill="rgba(221,90,56,.08)" stroke="none"/>
+              </svg>
+            </div>
+          </div>
+          <div class="sr-tool"><i class="ti ti-circle-check"></i>Queried Slate · 1,247 inquiries</div>
+        </div>
+        <div class="sr-composer"><span>Ask the Desk…</span><span class="sr-send"><i class="ti ti-arrow-up"></i></span></div>
+      </aside>
+    </div>
+  </div>
+</div>
