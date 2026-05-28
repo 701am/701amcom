@@ -18,7 +18,7 @@ The hard part is that this happens where you can't see it. There's no referral s
 
 > The institutions winning enrollment in 2026 aren't the ones with the biggest ad budgets. They're the ones the models already trust.
 
-<div class="cta-card"><div class="cta-bg"><div class="cg cg1"></div><div class="cg cg2"></div></div><div class="cta-body"><span class="cta-label"><i class="ti ti-sparkles"></i> 701am Platform</span><h3>See where your programs appear in AI answers — free.</h3><p>Track 5 programs against ChatGPT, Perplexity, and Gemini. Know if your program makes the shortlist before students ask.</p><a href="/#pricing" class="cta-link">Start tracking <i class="ti ti-arrow-right"></i></a></div></div>
+<div class="cta-card"><div class="cta-body"><span class="cta-label"><i class="ti ti-sparkles"></i> 701am Platform</span><h3>See where your programs appear in AI answers — free.</h3><p>Track 5 programs against ChatGPT, Perplexity, and Gemini. Know if your program makes the shortlist before students ask.</p><a href="/#pricing" class="cta-btn">Start tracking <i class="ti ti-arrow-right"></i></a></div></div>
 
 ## What the models actually trust
 

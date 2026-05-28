@@ -26,7 +26,7 @@ But traditional search still matters for the later-stage queries — *"apply to 
 
 The move: build the coverage depth that feeds both AI Overviews and traditional rankings.
 
-<div class="cta-card"><div class="cta-bg"><div class="cg cg1"></div><div class="cg cg2"></div></div><div class="cta-body"><span class="cta-label"><i class="ti ti-layers-intersect"></i> 701am Platform</span><h3>Work all three channels from one place.</h3><p>701am coordinates AI visibility, search presence, and press placement so every channel feeds the others — continuously.</p><a href="/#pricing" class="cta-link">See the platform <i class="ti ti-arrow-right"></i></a></div></div>
+<div class="cta-card"><div class="cta-body"><span class="cta-label"><i class="ti ti-layers-intersect"></i> 701am Platform</span><h3>Work all three channels from one place.</h3><p>701am coordinates AI visibility, search presence, and press placement so every channel feeds the others — continuously.</p><a href="/#pricing" class="cta-btn">See the platform <i class="ti ti-arrow-right"></i></a></div></div>
 
 ## Channel 3: The press
 

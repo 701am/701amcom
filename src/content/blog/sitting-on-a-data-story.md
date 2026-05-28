@@ -26,7 +26,7 @@ Most institutional data can be cut into one of three reporter-ready shapes:
 2. **The index** — a repeatable metric with your name on it ("the [University] Adult Learner Index") that the press can cite for years.
 3. **The geographic cut** — the same finding broken out by region, which unlocks local and regional coverage that national outlets can't offer.
 
-<div class="cta-card"><div class="cta-bg"><div class="cg cg1"></div><div class="cg cg2"></div></div><div class="cta-body"><span class="cta-label"><i class="ti ti-chart-bar"></i> 701am Platform</span><h3>Your outcomes data should be earning coverage.</h3><p>701am finds the reporter-ready angles in your institutional data, writes the pitch, and works the list — so your numbers become headlines.</p><a href="/#pricing" class="cta-link">Turn data into stories <i class="ti ti-arrow-right"></i></a></div></div>
+<div class="cta-card"><div class="cta-body"><span class="cta-label"><i class="ti ti-chart-bar"></i> 701am Platform</span><h3>Your outcomes data should be earning coverage.</h3><p>701am finds the reporter-ready angles in your institutional data, writes the pitch, and works the list — so your numbers become headlines.</p><a href="/#pricing" class="cta-btn">Turn data into stories <i class="ti ti-arrow-right"></i></a></div></div>
 
 ## Why this is the cheapest channel you have
 
