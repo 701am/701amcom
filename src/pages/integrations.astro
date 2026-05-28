@@ -40,21 +40,54 @@ const groups = [
 ---
 <Layout
   title="Integrations"
-  description="701am connects to the enrollment CRMs, student information systems, inboxes, and chat tools higher-ed teams already run — read-only by default, per workspace, revocable anytime."
+  description="701am connects to your CRM, SIS, inbox, and chat tools when you're ready — but integrations are optional. Connect when you want to show stakeholder impact, establish ROI baselines, and monitor enrollment movements. Data is never shared or co-mingled."
 >
   <header class="about-hero">
     <div class="hero-atmos"><div class="grid"></div><div class="glow g1"></div><div class="glow g2"></div><div class="glow g3"></div></div>
     <div class="wrap" style="position:relative;z-index:1">
       <div class="eyebrow">Integrations</div>
       <h1>Connects to the stack <em class="grad">you already run</em>.</h1>
-      <p class="lede">701am reads the signal it needs from your CRM and SIS, sends approved outreach from your own inbox, and routes notifications to Slack or Teams — without becoming another system you have to migrate to.</p>
+      <p class="lede">701am reads the signal it needs from your CRM and SIS, sends approved outreach from your own inbox, and routes notifications to Slack or Teams — but <strong>integrations are entirely optional</strong>. Start on tracking alone and connect your stack when you want to demonstrate impact.</p>
       <div class="ig-trust">
         <span><i class="ti ti-shield-lock"></i>Read-only by default</span>
         <span><i class="ti ti-lock"></i>Per-workspace &amp; revocable</span>
         <span><i class="ti ti-database-off"></i>Never your system of record</span>
+        <span><i class="ti ti-ban"></i>No data shared or co-mingled</span>
       </div>
     </div>
   </header>
+
+  <!-- WHY INTEGRATE (optional, value-driven) -->
+  <section class="wrap ig-page">
+    <div class="ig-why">
+      <div class="ig-why-head">
+        <div class="eb">Optional. Purpose-built. Private.</div>
+        <h2>Integrate when you need to <em class="grad">connect visibility to results</em>.</h2>
+      </div>
+      <div class="ig-why-grid">
+        <div class="ig-why-card">
+          <i class="ti ti-bell-ringing"></i>
+          <h3>Notify your team</h3>
+          <p>Route visibility signals, pitch approvals, and coverage wins to Slack or Teams — so the right people see the news the moment it lands.</p>
+        </div>
+        <div class="ig-why-card">
+          <i class="ti ti-radar"></i>
+          <h3>Monitor changes</h3>
+          <p>Watch how position, presence, and sentiment shift across AI, search, and press — day by day, tied to the campaigns that drove the movement.</p>
+        </div>
+        <div class="ig-why-card">
+          <i class="ti ti-presentation"></i>
+          <h3>Show stakeholder impact</h3>
+          <p>Connect CRM funnel data to visibility movements so you can show enrollment leadership exactly how earned media drives inquiries, applications, and yield.</p>
+        </div>
+        <div class="ig-why-card">
+          <i class="ti ti-chart-bar"></i>
+          <h3>Establish ROI baselines</h3>
+          <p>Pull program outcomes and enrollment data to ground every campaign in real institutional facts — giving decision makers the benchmarks they need to measure what matters.</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <section class="wrap ig-page">
     {groups.map((g) => (
@@ -96,8 +129,8 @@ const groups = [
     <div class="catmos"><div class="cg"></div></div>
     <div class="wrap">
       <div class="pill-badge"><span class="tagm">Filed at sunrise</span></div>
-      <h2>Plug it in. <em class="grad">Watch it work.</em></h2>
-      <p>Start free on tracking alone — connect your stack when you move to Launch.</p>
+      <h2>Plug it in — or don't. <em class="grad">The tracking works either way.</em></h2>
+      <p>Start free on tracking alone, no CRM or SIS required. Connect your stack when you need to surface impact to stakeholders and establish ROI baselines.</p>
       <button class="btn btn-primary btn-lg js-soon"><i class="ti ti-sparkles"></i>Start free · track 5 programs</button>
     </div>
   </section>

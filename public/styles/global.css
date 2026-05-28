@@ -947,6 +947,16 @@
   .ig-trust{display:flex;flex-wrap:wrap;gap:18px;margin-top:22px}
   .ig-trust span{display:inline-flex;align-items:center;gap:7px;font-family:var(--mono);font-size:12px;font-weight:600;color:var(--ink-2);letter-spacing:.01em}
   .ig-trust i{font-size:15px;color:var(--green-deep)}
+  .ig-why{margin-bottom:52px}
+  .ig-why-head{margin-bottom:32px}
+  .ig-why-head .eb{font-family:var(--mono);font-size:11px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-3);margin-bottom:10px}
+  .ig-why-head h2{font-family:var(--serif);font-size:30px;font-weight:500;letter-spacing:-.015em;line-height:1.2;max-width:580px}
+  .ig-why-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+  .ig-why-card{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:26px;transition:.14s}
+  .ig-why-card:hover{border-color:var(--line-2);box-shadow:var(--sh-sm)}
+  .ig-why-card>i{font-size:24px;color:var(--coral);margin-bottom:14px;display:block}
+  .ig-why-card h3{font-size:17px;font-weight:600;margin-bottom:8px}
+  .ig-why-card p{font-size:14px;color:var(--ink-2);line-height:1.55}
   .ig-page{padding:54px 0 20px;max-width:1000px}
   .ig-group{margin-bottom:46px}
   .ig-group-head{margin-bottom:18px}
@@ -967,6 +977,8 @@
   @media (max-width:760px){
     .ig-cards{grid-template-columns:repeat(2,1fr)}
     .ig-page{padding:40px 0 16px}
+    .ig-why-grid{grid-template-columns:1fr}
+    .ig-why-card{padding:22px}
   }
   @media (max-width:480px){
     .ig-cards{grid-template-columns:1fr}
