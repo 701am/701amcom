@@ -16,6 +16,11 @@
   [headers.values]
     Cache-Control = "public, max-age=31536000, immutable"
 
+[[headers]]
+  for = "/styles/*"
+  [headers.values]
+    Cache-Control = "public, max-age=86400"
+
 # Decap CMS admin lives at /admin/
 [[redirects]]
   from = "/admin"

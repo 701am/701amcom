@@ -1,5 +1,4 @@
 ---
-import '../styles/global.css';
 import Nav from '../components/Nav.astro';
 import Footer from '../components/Footer.astro';
 import Modal from '../components/Modal.astro';
@@ -32,15 +31,20 @@ const canonical = new URL(Astro.url.pathname, SITE.url).href;
   <meta property="og:url" content={canonical} />
   <meta property="og:site_name" content="701am" />
   <meta name="twitter:card" content="summary_large_image" />
+  <!-- Size-adjusted fallback fonts prevent CLS when web fonts swap -->
+  <style is:inline>@font-face{font-family:'Inter Fallback';src:local('Arial');size-adjust:107%;ascent-override:92%;descent-override:25%;line-gap-override:0%}@font-face{font-family:'Newsreader Fallback';src:local('Georgia');size-adjust:98%;ascent-override:88%;descent-override:23%;line-gap-override:0%}@font-face{font-family:'JetBrains Mono Fallback';src:local('Courier New');size-adjust:101%;ascent-override:90%;descent-override:22%;line-gap-override:0%}</style>
   <!-- Fonts (async — non-render-blocking) -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin />
-  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&family=Inter:wght@400;450;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'" />
-  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&family=Inter:wght@400;450;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" /></noscript>
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" /></noscript>
   <!-- Icons (async — non-render-blocking) -->
   <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/tabler-icons/3.31.0/tabler-icons.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
   <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tabler-icons/3.31.0/tabler-icons.min.css" /></noscript>
+  <!-- Stylesheet (async — non-render-blocking) -->
+  <link rel="preload" href="/styles/global.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript><link rel="stylesheet" href="/styles/global.css" /></noscript>
 </head>
 <body>
   <GradDefs />
