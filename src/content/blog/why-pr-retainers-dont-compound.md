@@ -18,6 +18,8 @@ A typical higher-ed PR retainer ($8K–$15K/mo) covers a fraction of a full-time
 
 You're paying for motion, not momentum.
 
+<div class="cta-card"><div class="cta-bg"><div class="cg cg1"></div><div class="cg cg2"></div></div><div class="cta-body"><span class="cta-label"><i class="ti ti-bolt"></i> 701am Platform</span><h3>Turn earned media into an asset that compounds.</h3><p>701am automates the pitch-to-placement pipeline so every piece of coverage feeds the next — and your AI visibility grows with it.</p><a href="/#pricing" class="cta-btn">See how it works <i class="ti ti-arrow-right"></i></a></div></div>
+
 ## What compounding actually looks like
 
 A compoundable earned-media engine works differently. Every placement does three things at once:

@@ -12,6 +12,11 @@ const { Content } = await render(post);
 const fmt = (d: Date) =>
   d.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
 const subject = encodeURIComponent(`Re: ${post.data.title}`);
+
+const allPosts = (await getCollection('blog')).filter((p) => !p.data.draft && p.id !== post.id);
+const relatedPosts = allPosts
+  .filter((p) => p.data.collection === post.data.collection)
+  .slice(0, 3);
 ---
 <Layout title={post.data.title} description={post.data.dek} ogType="article">
   <div class="back-link">
@@ -49,6 +54,24 @@ const subject = encodeURIComponent(`Re: ${post.data.title}`);
         <a href={`mailto:hello@701am.com?subject=${subject}`}>email</a>.
       </span>
     </div>
+
+    {relatedPosts.length > 0 && (
+      <div class="related-posts">
+        <h4>More from this collection</h4>
+        <div class="related-row">
+          {relatedPosts.map((rp) => (
+            <a href={`/blog/${rp.id}`} class="related-card">
+              <div class="rt">{rp.data.title}</div>
+              <div class="rd">{rp.data.dek}</div>
+              <div class="rmeta">
+                {rp.data.tags.slice(0, 2).map((t) => <span class="rtag">{t}</span>)}
+                <span class="rdate">{fmt(rp.data.date)}</span>
+              </div>
+            </a>
+          ))}
+        </div>
+      </div>
+    )}
 
     <div class="subscribe" id="sub-box">
       <h4>Get the next note at sunrise.</h4>
