@@ -12,250 +12,395 @@ const fmt = (d: Date) =>
 ---
 <Layout
   title="Digital PR Agency for Higher Education"
-  description="701am is a digital PR agency for higher education. Earned media campaigns that get your institution in Inside Higher Ed and the press — up to 50 placements per engagement."
+  description="701am is a digital PR agency for higher education. Earned media campaigns that get your institution in the press — up to 50 placements per engagement."
 >
 <!-- HERO -->
-<header class="hero" id="top">
-  <div class="hero-atmos"><div class="grid"></div><div class="glow g1"></div><div class="glow g2"></div><div class="glow g3"></div></div>
-  <div class="wrap">
+<header class="hero" id="top" style="position:relative;overflow:hidden;padding:100px 0 60px">
+  <!-- Decorative rotating shapes -->
+  <div class="hero-atmos"><div class="grid"></div>
+    <div class="hero-deco hero-deco-1">
+      <svg width="280" height="280" viewBox="0 0 280 280" fill="none">
+        <circle cx="140" cy="140" r="135" stroke="url(#sunGrad)" stroke-width="2" stroke-dasharray="8 12"/>
+        <circle cx="140" cy="140" r="100" stroke="url(#sunGrad)" stroke-width="1.5" stroke-dasharray="4 8"/>
+        <circle cx="140" cy="140" r="60" fill="url(#sunGrad)" opacity="0.08"/>
+      </svg>
+    </div>
+    <div class="hero-deco hero-deco-2">
+      <svg width="160" height="160" viewBox="0 0 160 160" fill="none" style="transform:rotate(25deg)">
+        <rect x="10" y="10" width="140" height="140" rx="20" stroke="url(#sunGrad)" stroke-width="2" stroke-dasharray="6 10"/>
+        <rect x="35" y="35" width="90" height="90" rx="12" fill="url(#sunGrad)" opacity="0.06"/>
+      </svg>
+    </div>
+  </div>
+  <div class="wrap" style="position:relative;z-index:1">
     <div class="hero-grid">
       <div class="hero-txt">
         <div class="pill-badge"><span class="tagm">Digital PR for Higher Education</span></div>
-        <h1 class="hero-h">The PR agency that <em class="grad">higher education trusts</em>.</h1>
-        <p class="hero-sub">We earn coverage in Inside Higher Ed, regional press, and the publications your applicants read — through data-driven campaigns that build credibility season after season. <b>Scoped engagements. No retainers.</b></p>
-        <div class="hero-ctas">
-          <a href="#contact" class="btn btn-primary btn-lg"><i class="ti ti-calendar"></i>Book a discovery call</a>
+        <h1 class="hero-h" style="font-size:clamp(48px,7vw,80px);line-height:.95;letter-spacing:-.035em">
+          BOLD.<br><em class="grad">BUILt</em><br>TO LAST.
+        </h1>
+        <p class="hero-sub" style="font-size:19px;max-width:44ch;margin-top:24px">
+          The enrollment cliff is real. AI is rewriting how students find schools. The institutions getting coverage now will be the ones prospective students trust in 2027. We make sure that's you.
+        </p>
+        <div class="hero-ctas" style="margin-top:36px">
+          <a href="#contact" class="btn btn-primary btn-lg btn-studio"><i class="ti ti-calendar"></i>Book a discovery call</a>
           <a href="#pricing" class="btn btn-soft btn-lg"><i class="ti ti-arrow-right"></i>See pricing</a>
+        </div>
+        <div class="hero-ctas-meta" style="margin-top:16px;font-size:13px">Scoped engagements &nbsp;·&nbsp; $6,500 per campaign &nbsp;·&nbsp; No retainers</div>
+      </div>
+      <!-- Right side: decorative stat cards -->
+      <div class="hero-stats">
+        <div class="stat-card">
+          <div class="stat-num grad">50+</div>
+          <div class="stat-lbl">Publications covered</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-num grad">20+</div>
+          <div class="stat-lbl">Years in higher ed</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-num grad">$6,500</div>
+          <div class="stat-lbl">Per engagement</div>
+        </div>
+        <div class="stat-card stat-card-accent">
+          <div class="stat-num grad">50</div>
+          <div class="stat-lbl">Placements guaranteed</div>
         </div>
       </div>
     </div>
   </div>
 </header>
 
-<!-- CREDIBILITY STRIP -->
-<section class="band wrap" style="padding-top:0;padding-bottom:0">
-  <div style="display:flex;justify-content:center;flex-wrap:wrap;gap:40px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:28px 0;margin-top:-20px">
-    <div style="text-align:center">
-      <div style="font-family:var(--serif);font-size:32px;font-weight:500;letter-spacing:-.02em;color:var(--ink)">20+</div>
-      <div style="font-family:var(--mono);font-size:11px;color:var(--ink-3);text-transform:uppercase;letter-spacing:.04em">Years in higher ed visibility</div>
-    </div>
-    <div style="width:1px;background:var(--line)"></div>
-    <div style="text-align:center">
-      <div style="font-family:var(--serif);font-size:32px;font-weight:500;letter-spacing:-.02em;color:var(--ink)">50+</div>
-      <div style="font-family:var(--mono);font-size:11px;color:var(--ink-3);text-transform:uppercase;letter-spacing:.04em">Publications covered</div>
-    </div>
-    <div style="width:1px;background:var(--line)"></div>
-    <div style="text-align:center">
-      <div style="font-family:var(--serif);font-size:32px;font-weight:500;letter-spacing:-.02em;color:var(--ink)">$6,500</div>
-      <div style="font-family:var(--mono);font-size:11px;color:var(--ink-3);text-transform:uppercase;letter-spacing:.04em">Per engagement</div>
-    </div>
-    <div style="width:1px;background:var(--line)"></div>
-    <div style="text-align:center">
-      <div style="font-family:var(--serif);font-size:32px;font-weight:500;letter-spacing:-.02em;color:var(--ink)">50</div>
-      <div style="font-family:var(--mono);font-size:11px;color:var(--ink-3);text-transform:uppercase;letter-spacing:.04em">Placements per engagement</div>
+<!-- LOGO MARQUEE -->
+<section class="marquee-section">
+  <div class="marquee-label">Trusted by higher ed institutions</div>
+  <div class="marquee-track">
+    <div class="marquee-content">
+      <span>Universities</span><span class="dot"></span>
+      <span>Colleges</span><span class="dot"></span>
+      <span>Edtech Companies</span><span class="dot"></span>
+      <span>Education Agencies</span><span class="dot"></span>
+      <span>Graduate Programs</span><span class="dot"></span>
+      <span>Online Learning Platforms</span><span class="dot"></span>
+      <span>Professional Certification</span><span class="dot"></span>
+      <span>Universities</span><span class="dot"></span>
+      <span>Colleges</span><span class="dot"></span>
+      <span>Edtech Companies</span><span class="dot"></span>
+      <span>Education Agencies</span><span class="dot"></span>
+      <span>Graduate Programs</span><span class="dot"></span>
+      <span>Online Learning Platforms</span><span class="dot"></span>
+      <span>Professional Certification</span><span class="dot"></span>
     </div>
   </div>
 </section>
 
-<!-- THE PROBLEM -->
-<section class="band wrap" id="problem">
-  <div class="problem" style="max-width:720px;margin:0 auto">
-    <div class="problem-eyebrow">The earned media problem</div>
-    <h2 class="problem-h">Most institutions have the data. <br>None of it gets <em class="grad">covered</em>.</h2>
-    <p class="problem-p">Your enrollment team knows the story — online grads who out-earn campus peers, programs with completion rates that beat the regional average, outcomes that should be headlines. But turning institutional data into press coverage requires bandwidth your team doesn't have. And traditional PR agencies charge $10K–$30K/month to produce a fraction of what we deliver in a single scoped engagement.</p>
-  </div>
-</section>
-
-<!-- WHAT WE DO -->
-<section class="band wrap" id="services">
-  <div class="sec-head">
-    <div class="sec-eyebrow">How we help</div>
-    <h2>Full-cycle earned media for <em class="grad">higher education</em>.</h2>
-    <p>From data audit to journalist outreach — every campaign scoped, staffed, and managed to deliver real placements in the outlets your applicants read.</p>
-  </div>
-  <div class="feat">
-    <div class="feat-in">
-      <div class="feat-txt">
-        <div class="feat-eyebrow">Data-story campaigns</div>
-        <h2>We find the story <em class="grad">in your data</em>.</h2>
-        <p>Enrollment outcomes. Salary lift. Completion rates by region. Most institutions have the data for a story that gets covered — they just don't have the team to find the angle, write the pitch, and work the reporter list. We do all three.</p>
-      </div>
-      <div class="frag"><div class="frag-glow"></div><div class="frag-wrap">
-        <div class="frag-h"><div class="ci"><i class="ti ti-chart-bar"></i></div><div class="ft">Example campaign</div></div>
-        <div class="frag-b">
-          <div class="cmd"><div class="cl">Institution</div><div class="cv">Online RN-to-BSN program, Midwest</div></div>
-          <div class="cmd"><div class="cl">Data angle</div><div class="cv">Graduates out-earned regional avg by 19%</div></div>
-          <div class="cmd"><div class="cl">Hook</div><div class="cv">Counter-intuitive: online grads, higher salaries</div></div>
-          <div class="cmd"><div class="cl">Placements</div><div class="cv" style="color:var(--green-deep)"><i class="ti ti-circle-check"></i> Inside Higher Ed + 4 regional outlets</div></div>
-        </div>
-      </div></div>
+<!-- PROBLEMS WE SOLVE -->
+<section class="problems-section" id="approach">
+  <div class="wrap">
+    <div class="problems-header">
+      <h2 class="problems-title">The stakes are <em class="grad">higher</em> than ever</h2>
+      <p class="problems-sub">The enrollment cliff is here. AI is rewriting search. Institutions that earn coverage now will be the ones students trust when the demographic trough hits.</p>
     </div>
-  </div>
-  <div class="feat rev">
-    <div class="feat-in">
-      <div class="feat-txt">
-        <div class="feat-eyebrow">Earned media that compounds</div>
-        <h2>Every placement feeds <em class="grad">the next campaign</em>.</h2>
-        <p>The mistake is treating earned media as a one-time event. We build coverage that compounds — a placement in Inside Higher Ed feeds search authority. A data study earns AI citations. Coverage from this cycle becomes the credibility foundation for the next.</p>
+    <div class="problems-grid">
+      <div class="problem-card">
+        <div class="problem-icon"><i class="ti ti-users-off"></i></div>
+        <h3>The enrollment cliff is here</h3>
+        <p>High school graduating classes peaked in 2011. By 2027, there will be 200,000 fewer college-age students than today. The institutions already visible to families will absorb the decline. The rest will fight for scraps.</p>
       </div>
-      <div class="feat-txt">
-        <div class="feat-eyebrow">AI citation strategy</div>
-        <h2>Get named in <em class="grad">ChatGPT's answer</em>.</h2>
-        <p>When prospective students ask an AI which program is best, your institution needs to be in the answer. We earn the signals — coverage, data, rankings — that AI models learn from and cite.</p>
+      <div class="problem-card">
+        <div class="problem-icon"><i class="ti ti-bot"></i></div>
+        <h3>AI doesn't know who you are</h3>
+        <p>When prospective students ask AI which school is best for them, your institution isn't in the answer. We earn the coverage, data points, and authority signals that AI models cite.</p>
+      </div>
+      <div class="problem-card">
+        <div class="problem-icon"><i class="ti ti-news-off"></i></div>
+        <h3>Your stories never get pitched</h3>
+        <p>You know the angle — online grads out-earning campus peers, programs beating completion benchmarks. But there's never bandwidth to turn institutional data into pitches. We do it for you.</p>
+      </div>
+      <div class="problem-card">
+        <div class="problem-icon"><i class="ti ti-reset-off"></i></div>
+        <h3>Coverage resets every cycle</h3>
+        <p>Most earned media is campaign-based — a burst, then silence. We build coverage that compounds: every placement feeds search authority and AI citations that outlast the campaign.</p>
       </div>
     </div>
   </div>
 </section>
 
 <!-- HOW IT WORKS -->
-<section class="layer-sec">
-  <div class="atmos"><div class="dg dg1"></div><div class="dg dg2"></div></div>
-  <div class="inner">
-    <div class="wrap">
-      <div class="layer-head">
-        <div class="eb">Simple process</div>
-        <h2>From story to <em class="grad">placement</em> in 8–12 weeks.</h2>
-        <p>Every engagement follows the same repeatable process — adapted to your institution, your programs, and your market.</p>
+<section class="how-section">
+  <div class="wrap">
+    <div class="how-header">
+      <h2 class="how-title">How we <em class="grad">work</em></h2>
+      <p class="how-sub">Every engagement follows the same four-step process — from story to placement in 8–12 weeks.</p>
+    </div>
+    <div class="how-steps">
+      <div class="how-step">
+        <div class="step-num">01</div>
+        <div class="step-content">
+          <h3>Audit</h3>
+          <p>We review your institutional data, identify the stories you're not telling, and assess your current coverage position across press and AI.</p>
+        </div>
       </div>
-      <div class="layers">
-        <div class="layer"><div class="num">01</div><h3><i class="ti ti-search"></i>Audit</h3><p>We review your institutional data, identify the stories you're not telling, and assess your current coverage position.</p></div>
-        <div class="layer"><div class="num">02</div><h3><i class="ti ti-pencil"></i>Develop</h3><p>We frame the data, write the pitches, and build the reporter list for your strongest angles.</p></div>
-        <div class="layer"><div class="num">03</div><h3><i class="ti ti-send"></i>Place</h3><p>Human outreach to journalists who cover your space. No mass emails. We work the relationships.</p></div>
-        <div class="layer"><div class="num">04</div><h3><i class="ti ti-report-analytics"></i>Report</h3><p>Every placement tracked, correlated to search and AI visibility, and reported with the numbers that matter to enrollment leadership.</p></div>
+      <div class="how-step">
+        <div class="step-num">02</div>
+        <div class="step-content">
+          <h3>Develop</h3>
+          <p>We frame the data, write the pitches, and build the reporter list for your strongest angles.</p>
+        </div>
+      </div>
+      <div class="how-step">
+        <div class="step-num">03</div>
+        <div class="step-content">
+          <h3>Place</h3>
+          <p>Human outreach to journalists who cover your space. No mass emails. We work the relationships.</p>
+        </div>
+      </div>
+      <div class="how-step">
+        <div class="step-num">04</div>
+        <div class="step-content">
+          <h3>Report</h3>
+          <p>Every placement tracked, correlated to search and AI visibility, reported with numbers that matter to enrollment leadership.</p>
+        </div>
       </div>
     </div>
-  </div>
-</section>
-
-<!-- WHO WE SERVE -->
-<section class="band wrap">
-  <div class="sec-head">
-    <div class="sec-eyebrow">Who we work with</div>
-    <h2>Higher ed is <em class="grad">all we do</em>.</h2>
-    <p>We don't serve every industry. We've spent 20 years in education visibility — and it shows in how we think about your programs.</p>
-  </div>
-  <div class="forind" style="grid-template-columns:repeat(3,1fr)">
-    <a class="ficard" href="/contact">
-      <div class="fi" style="background:var(--gold-soft);color:var(--gold-deep)"><i class="ti ti-school"></i></div>
-      <h3>Universities & Colleges</h3>
-      <p>Full-cycle earned media for enrollment — placements in Inside Higher Ed, regional press, and the outlets your applicants read.</p>
-      <span class="more">Get covered <i class="ti ti-arrow-right"></i></span>
-    </a>
-    <a class="ficard" href="/contact">
-      <div class="fi" style="background:var(--indigo-soft);color:var(--indigo-deep)"><i class="ti ti-device-laptop"></i></div>
-      <h3>Edtech & OPMs</h3>
-      <p>Category authority through trade press, data studies, and thought leadership. Be the default choice because the coverage says so.</p>
-      <span class="more">Get covered <i class="ti ti-arrow-right"></i></span>
-    </a>
-    <a class="ficard" href="/contact">
-      <div class="fi" style="background:var(--coral-soft);color:var(--coral-deep)"><i class="ti ti-briefcase"></i></div>
-      <h3>Agencies</h3>
-      <p>White-label earned media for your higher-ed clients. You keep the relationship; we deliver the placements.</p>
-      <span class="more">Get covered <i class="ti ti-arrow-right"></i></span>
-    </a>
   </div>
 </section>
 
 <!-- PRICING -->
-<section class="band wrap" id="pricing">
-  <div class="sec-head">
-    <div class="sec-eyebrow">Pricing</div>
-    <h2>No retainers. <em class="grad">Scoped engagements.</em></h2>
-    <p>Every engagement delivers a specific number of placements. Start with a low-commitment session — or book a discovery call to scope your campaign.</p>
-  </div>
-  <div class="pricing-cmp" style="max-width:760px;margin:0 auto">
-    <div class="pcard">
-      <div class="pc-head">
-        <div class="pc-icon" style="background:var(--amber-soft);color:var(--amber-deep)"><i class="ti ti-calendar"></i></div>
-        <div>
-          <div class="pc-label">Earned Media Session</div>
-          <div class="pc-sub">90-minute strategy session</div>
-        </div>
-      </div>
-      <div class="pc-price">
-        <span class="pc-amt">$500</span>
-        <span class="pc-per">one-time</span>
-      </div>
-      <ul class="pc-feat">
-        <li><i class="ti ti-check"></i>90-minute strategy session with our team</li>
-        <li><i class="ti ti-check"></i>Data audit — find stories you're not telling</li>
-        <li><i class="ti ti-check"></i>Reporter list for your top 3 angles</li>
-        <li><i class="ti ti-check"></i>Credibility gap analysis</li>
-        <li><i class="ti ti-check"></i>No obligation to continue</li>
-      </ul>
-      <a href="/contact" class="btn btn-soft btn-lg" style="width:100%;margin-top:8px"><i class="ti ti-calendar"></i>Book your session</a>
+<section class="pricing-section" id="pricing">
+  <div class="wrap">
+    <div class="pricing-header">
+      <h2 class="pricing-title">Simple <em class="grad">pricing</em></h2>
+      <p class="pricing-sub">No retainers. No long-term contracts. Scoped campaigns built for an era where every enrollment matters more than the last.</p>
     </div>
-    <div class="pcard pcard-701">
-      <div class="pc-launch"><span class="pc-dot"></span>Most common engagement</div>
-      <div class="pc-head">
-        <div class="pc-icon pc-icon-grad"><i class="ti ti-rocket"></i></div>
-        <div>
-          <div class="pc-label" style="color:#fff">Earned Media Engagement</div>
-          <div class="pc-sub" style="color:var(--night-txt)">Up to 50 placements</div>
-        </div>
+    <div class="pricing-grid">
+      <div class="pricing-card">
+        <div class="pc-tag">Earned Media Session</div>
+        <div class="pc-price-lg">$500</div>
+        <div class="pc-per">one-time</div>
+        <p class="pc-desc">90 minutes with our team. Data audit, story identification, reporter list. No obligation.</p>
+        <ul class="pc-features">
+          <li><i class="ti ti-check"></i>90-minute strategy session</li>
+          <li><i class="ti ti-check"></i>Data audit — find stories</li>
+          <li><i class="ti ti-check"></i>Reporter list for top 3 angles</li>
+          <li><i class="ti ti-check"></i>Credibility gap analysis</li>
+          <li><i class="ti ti-check"></i>No obligation to continue</li>
+        </ul>
+        <a href="#contact" class="btn btn-soft btn-lg" style="width:100%"><i class="ti ti-calendar"></i>Book your session</a>
       </div>
-      <div class="pc-price">
-        <span class="pc-amt pc-amt-grad">$6,500</span>
-        <span class="pc-per" style="color:var(--night-txt)">per engagement</span>
+      <div class="pricing-card pricing-card-featured">
+        <div class="pc-tag-featured">Earned Media Engagement</div>
+        <div class="pc-price-lg pc-price-grad">$6,500</div>
+        <div class="pc-per">per engagement</div>
+        <p class="pc-desc">Full campaign — research, narrative, outreach. Up to 50 placements in target outlets.</p>
+        <ul class="pc-features pc-features-light">
+          <li><i class="ti ti-check"></i>Full campaign — all services included</li>
+          <li><i class="ti ti-check"></i>Up to 50 placements</li>
+          <li><i class="ti ti-check"></i>AI citation tracking</li>
+          <li><i class="ti ti-check"></i>Monthly reporting</li>
+          <li><i class="ti ti-check"></i>No long-term contract</li>
+        </ul>
+        <a href="#contact" class="btn btn-primary btn-lg" style="width:100%"><i class="ti ti-calendar"></i>Book discovery call</a>
+        <div class="pc-note">Most engagements complete in 8–12 weeks</div>
       </div>
-      <ul class="pc-feat pc-feat-dark">
-        <li><i class="ti ti-check"></i>Full campaign — research, narrative, outreach</li>
-        <li><i class="ti ti-check"></i>Up to 50 placements in target outlets</li>
-        <li><i class="ti ti-check"></i>AI citation tracking</li>
-        <li><i class="ti ti-check"></i>Monthly reporting & strategy review</li>
-        <li><i class="ti ti-check"></i>No long-term contract</li>
-      </ul>
-      <a href="/contact" class="btn btn-primary btn-lg" style="width:100%;margin-top:8px"><i class="ti ti-calendar"></i>Book a discovery call</a>
-      <div class="pc-fine">Most engagements complete in 8–12 weeks.</div>
     </div>
   </div>
 </section>
 
-<!-- CONTACT SECTION -->
-<section class="band wrap" id="contact">
-  <div class="sec-head">
-    <div class="sec-eyebrow">Get started</div>
-    <h2>Ready to get <em class="grad">covered</em>?</h2>
-    <p>Book a discovery call or send us a message. We'll respond within one business day.</p>
-  </div>
-  <div style="max-width:600px;margin:0 auto">
-    <div style="background:var(--paper);border:1px solid var(--line-2);border-radius:16px;box-shadow:var(--sh-lg);overflow:hidden">
-      <div style="padding:20px 24px;border-bottom:1px solid var(--line);font-family:var(--mono);font-size:12px;font-weight:600;color:var(--ink-3)">Book a discovery call — 30 minutes</div>
-      <iframe src="https://cal.com/davidkrug/discovery?embed" width="100%" height="480" frameborder="0" style="border:none;display:block"></iframe>
+<!-- CONTACT -->
+<section class="contact-section" id="contact">
+  <div class="wrap">
+    <div class="contact-grid">
+      <div class="contact-left">
+        <h2 class="contact-title">Ready to get <em class="grad">covered</em>?</h2>
+        <p class="contact-sub">With the enrollment cliff looming and AI rewriting discovery, the institutions building authority now will have the advantage for the next decade. Let's talk about where you stand.</p>
+        <div class="contact-details">
+          <div class="contact-detail">
+            <i class="ti ti-mail"></i>
+            <span>hello@701am.com</span>
+          </div>
+          <div class="contact-detail">
+            <i class="ti ti-clock"></i>
+            <span>Response within 1 business day</span>
+          </div>
+        </div>
+        <div class="contact-note">
+          <i class="ti ti-info-circle"></i>
+          <span>We work with a limited number of institutions per quarter. If we're not the right fit, we'll tell you.</span>
+        </div>
+      </div>
+      <div class="contact-right">
+        <div class="contact-cal">
+          <div class="contact-cal-header">Book a discovery call</div>
+          <iframe src="https://cal.com/davidkrug/discovery?embed" width="100%" height="500" frameborder="0" style="border:none;display:block;border-radius:0 0 12px 12px"></iframe>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- FOUNDER NOTES PREVIEW -->
+<!-- FOUNDER NOTES -->
 {posts.length > 0 && (
-<section class="band wrap">
-  <div class="sec-head">
-    <div class="sec-eyebrow">Founder Notes</div>
-    <h2>Field notes on earned media & <em class="grad">higher ed</em>.</h2>
-  </div>
-  <div class="notes" style="max-width:720px;margin:0 auto">
-    {posts.map((p) => (
-      <a class="note-row" href={`/blog/${p.id}`}>
-        <span class="date">{fmt(p.data.date)}</span>
-        <div class="nt">{p.data.title} <span class="arrow">→</span></div>
-        <div class="nd">{p.data.dek}</div>
-      </a>
-    ))}
-  </div>
-  <div style="text-align:center;margin-top:28px">
-    <a href="/blog" class="btn btn-soft btn-lg"><i class="ti ti-arrow-right"></i>All Founder Notes</a>
+<section class="notes-section">
+  <div class="wrap">
+    <div class="notes-header">
+      <h2>Founder <em class="grad">Notes</em></h2>
+      <p>Field notes on earned media, higher ed visibility, and what we're learning.</p>
+    </div>
+    <div class="notes-list">
+      {posts.map((p) => (
+        <a class="note-item" href={`/blog/${p.id}`}>
+          <span class="note-date">{fmt(p.data.date)}</span>
+          <span class="note-title">{p.data.title} →</span>
+        </a>
+      ))}
+    </div>
+    <div style="text-align:center;margin-top:32px">
+      <a href="/blog" class="btn btn-soft">All notes <i class="ti ti-arrow-right"></i></a>
+    </div>
   </div>
 </section>
 )}
 
 <!-- CLOSING -->
-<section class="closing">
+<section class="closing" style="padding:80px 0">
   <div class="catmos"><div class="cg"></div></div>
   <div class="wrap">
     <div class="pill-badge"><span class="tagm">Higher ed is all we do</span></div>
-    <h2>Let's get your institution <em class="grad">covered</em>.</h2>
-    <p>No long-term contracts. No retainer required. Just earned media that works.</p>
-    <a href="#contact" class="btn btn-primary btn-lg"><i class="ti ti-calendar"></i>Book a discovery call</a>
+    <h2>Let's get you <em class="grad">covered</em>.</h2>
+    <p>No long-term contracts. No retainers. Just earned media that works.</p>
+    <a href="#contact" class="btn btn-primary btn-lg btn-studio"><i class="ti ti-calendar"></i>Book a discovery call</a>
   </div>
 </section>
 </Layout>
+
+<style>
+/* HERO */
+.hero { min-height: auto; padding-bottom: 60px; }
+.hero-atmos { position: absolute; inset: 0; z-index: 0; pointer-events: none; overflow: hidden; }
+.hero-atmos .grid { position: absolute; inset: 0; background-image: linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px); background-size: 48px 48px; mask: radial-gradient(circle at 40% 30%,#000 0%,transparent 65%); opacity: .4 }
+.hero-atmos .glow { position: absolute; border-radius: 50%; filter: blur(90px) }
+.hero-atmos .g1 { width: 520px; height: 520px; right: -100px; top: -200px; background: radial-gradient(circle,rgba(239,162,60,.2),transparent 70%) }
+.hero-atmos .g2 { width: 400px; height: 400px; left: -80px; bottom: -100px; background: radial-gradient(circle,rgba(206,82,134,.2),transparent 70%) }
+.hero-deco { position: absolute; pointer-events: none; }
+.hero-deco-1 { right: 5%; top: 10%; opacity: .5 }
+.hero-deco-2 { left: 2%; bottom: 15%; opacity: .35 }
+.hero-grid { display: grid; grid-template-columns: 1.1fr .9fr; gap: 60px; align-items: center }
+.hero-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.stat-card { background: var(--paper); border: 1px solid var(--line-2); border-radius: 16px; padding: 24px; box-shadow: var(--sh); }
+.stat-card-accent { background: var(--night); border-color: var(--night-line) }
+.stat-num { font-family: var(--serif); font-size: 36px; font-weight: 500; letter-spacing: -.02em; line-height: 1; margin-bottom: 6px }
+.stat-lbl { font-family: var(--mono); font-size: 11px; text-transform: uppercase; letter-spacing: .05em; color: var(--ink-3); }
+
+/* MARQUEE */
+.marquee-section { background: var(--night); color: #fff; padding: 32px 0; overflow: hidden; }
+.marquee-label { font-family: var(--mono); font-size: 11px; text-transform: uppercase; letter-spacing: .08em; color: var(--night-txt); text-align: center; margin-bottom: 20px }
+.marquee-track { position: relative; overflow: hidden; }
+.marquee-track::before, .marquee-track::after { content: ""; position: absolute; top: 0; bottom: 0; width: 120px; z-index: 2; pointer-events: none; }
+.marquee-track::before { left: 0; background: linear-gradient(90deg,var(--night),transparent) }
+.marquee-track::after { right: 0; background: linear-gradient(270deg,var(--night),transparent) }
+.marquee-content { display: flex; gap: 0; animation: marquee 40s linear infinite; white-space: nowrap; }
+.marquee-content span { font-family: var(--mono); font-size: 13px; font-weight: 500; letter-spacing: .03em; color: var(--night-txt-2); padding: 0 32px; flex-shrink: 0; display: flex; align-items: center; }
+.marquee-content .dot { width: 4px; height: 4px; border-radius: 50%; background: var(--coral); flex-shrink: 0; }
+@keyframes marquee { 0% { transform: translateX(0) } 100% { transform: translateX(-50%) } }
+
+/* PROBLEMS */
+.problems-section { padding: 80px 0; background: var(--canvas) }
+.problems-header { text-align: center; max-width: 640px; margin: 0 auto 52px }
+.problems-title { font-family: var(--serif); font-size: clamp(36px,5vw,52px); font-weight: 500; letter-spacing: -.025em; line-height: 1.05; margin-bottom: 16px }
+.problems-sub { font-size: 17px; color: var(--ink-2); line-height: 1.6 }
+.problems-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 20px; max-width: 960px; margin: 0 auto }
+.problem-card { background: var(--paper); border: 1px solid var(--line-2); border-radius: 20px; padding: 28px 30px; transition: .15s }
+.problem-card:hover { border-color: var(--line-3); box-shadow: var(--sh-lg); transform: translateY(-3px) }
+.problem-icon { width: 48px; height: 48px; border-radius: 12px; background: var(--coral-soft); color: var(--coral); display: flex; align-items: center; justify-content: center; font-size: 22px; margin-bottom: 16px }
+.problem-icon i { font-size: 22px }
+.problem-card h3 { font-size: 17px; font-weight: 600; margin-bottom: 10px; color: var(--ink) }
+.problem-card p { font-size: 14.5px; color: var(--ink-2); line-height: 1.6 }
+
+/* HOW */
+.how-section { padding: 80px 0; background: var(--night); color: #fff; position: relative; overflow: hidden }
+.how-section .atmos { position: absolute; inset: 0; pointer-events: none }
+.how-section .dg { position: absolute; border-radius: 50%; filter: blur(100px) }
+.how-section .dg1 { width: 500px; height: 500px; right: -100px; top: -150px; background: radial-gradient(circle,rgba(239,162,60,.25),transparent 70%) }
+.how-section .dg2 { width: 400px; height: 400px; left: -100px; bottom: -100px; background: radial-gradient(circle,rgba(206,82,134,.25),transparent 70%) }
+.how-header { text-align: center; max-width: 560px; margin: 0 auto 52px; position: relative; z-index: 1 }
+.how-title { font-family: var(--serif); font-size: clamp(36px,5vw,52px); font-weight: 500; letter-spacing: -.025em; line-height: 1.05; color: #fff; margin-bottom: 16px }
+.how-sub { font-size: 17px; color: var(--night-txt); line-height: 1.6 }
+.how-steps { display: grid; grid-template-columns: repeat(4,1fr); gap: 24px; max-width: 1040px; margin: 0 auto; position: relative; z-index: 1 }
+.how-step { position: relative; padding: 24px; background: rgba(30,32,66,.5); border: 1px solid var(--night-line); border-radius: 16px; backdrop-filter: blur(8px) }
+.step-num { font-family: var(--mono); font-size: 11px; font-weight: 700; letter-spacing: .08em; color: var(--amber); margin-bottom: 16px }
+.step-content h3 { font-size: 17px; font-weight: 600; color: #fff; margin-bottom: 10px }
+.step-content p { font-size: 13.5px; color: var(--night-txt-2); line-height: 1.6 }
+
+/* PRICING */
+.pricing-section { padding: 80px 0; background: var(--canvas) }
+.pricing-header { text-align: center; max-width: 560px; margin: 0 auto 52px }
+.pricing-title { font-family: var(--serif); font-size: clamp(36px,5vw,52px); font-weight: 500; letter-spacing: -.025em; line-height: 1.05; margin-bottom: 16px }
+.pricing-sub { font-size: 17px; color: var(--ink-2); line-height: 1.6 }
+.pricing-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; max-width: 800px; margin: 0 auto }
+.pricing-card { background: var(--paper); border: 1px solid var(--line-2); border-radius: 20px; padding: 32px; box-shadow: var(--sh) }
+.pricing-card-featured { background: var(--night); border-color: var(--night-line); box-shadow: var(--sh-lg) }
+.pc-tag { font-family: var(--mono); font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .06em; color: var(--ink-3); margin-bottom: 16px }
+.pc-tag-featured { font-family: var(--mono); font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .06em; color: var(--amber); margin-bottom: 16px }
+.pc-price-lg { font-family: var(--serif); font-size: 48px; font-weight: 500; letter-spacing: -.03em; line-height: 1; color: var(--ink); margin-bottom: 4px }
+.pc-price-grad { background: var(--sunrise); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent }
+.pc-per { font-family: var(--mono); font-size: 12px; color: var(--ink-3); margin-bottom: 20px }
+.pc-desc { font-size: 14px; color: var(--ink-2); line-height: 1.6; margin-bottom: 24px }
+.pc-features { list-style: none; padding: 0; margin: 0 0 28px; display: flex; flex-direction: column; gap: 10px }
+.pc-features li { font-size: 14px; color: var(--ink); display: flex; align-items: flex-start; gap: 10px }
+.pc-features li i { color: var(--green); font-size: 17px; flex-shrink: 0; margin-top: 1px }
+.pc-features-light li { color: var(--night-txt-2) }
+.pc-features-light li i { color: var(--amber) }
+.pc-note { font-family: var(--mono); font-size: 11px; color: var(--night-txt); text-align: center; margin-top: 16px }
+
+/* CONTACT */
+.contact-section { padding: 80px 0; background: var(--paper-2) }
+.contact-grid { display: grid; grid-template-columns: 1fr 1.2fr; gap: 60px; align-items: start }
+.contact-title { font-family: var(--serif); font-size: clamp(32px,4vw,48px); font-weight: 500; letter-spacing: -.025em; line-height: 1.1; margin-bottom: 16px }
+.contact-sub { font-size: 17px; color: var(--ink-2); line-height: 1.6; margin-bottom: 32px }
+.contact-details { display: flex; flex-direction: column; gap: 12px; margin-bottom: 24px }
+.contact-detail { display: flex; align-items: center; gap: 12px; font-size: 15px; color: var(--ink) }
+.contact-detail i { font-size: 18px; color: var(--coral) }
+.contact-note { display: flex; gap: 10px; align-items: flex-start; padding: 14px 16px; background: var(--amber-soft); border-radius: 10px; font-size: 13px; color: var(--amber-deep); line-height: 1.5 }
+.contact-note i { font-size: 17px; flex-shrink: 0; margin-top: 1px }
+.contact-cal { background: var(--paper); border: 1px solid var(--line-2); border-radius: 16px; overflow: hidden; box-shadow: var(--sh-lg) }
+.contact-cal-header { padding: 16px 20px; border-bottom: 1px solid var(--line); font-family: var(--mono); font-size: 12px; font-weight: 600; color: var(--ink-3) }
+
+/* NOTES */
+.notes-section { padding: 80px 0; background: var(--canvas) }
+.notes-header { max-width: 560px; margin: 0 auto 40px; text-align: center }
+.notes-header h2 { font-family: var(--serif); font-size: clamp(30px,4vw,44px); font-weight: 500; letter-spacing: -.025em; margin-bottom: 12px }
+.notes-header p { font-size: 16px; color: var(--ink-2) }
+.notes-list { max-width: 640px; margin: 0 auto; display: flex; flex-direction: column; }
+.note-item { display: flex; flex-direction: column; gap: 4px; padding: 20px 0; border-bottom: 1px solid var(--line); transition: .12s }
+.note-item:first-child { border-top: 1px solid var(--line) }
+.note-item:hover { padding-left: 8px }
+.note-date { font-family: var(--mono); font-size: 11px; color: var(--ink-4); text-transform: uppercase; letter-spacing: .03em }
+.note-title { font-family: var(--serif); font-size: 20px; font-weight: 500; color: var(--ink); transition: color .12s }
+.note-item:hover .note-title { color: var(--coral-deep) }
+
+/* CLOSING */
+.closing { padding: 80px 0 }
+.closing .catmos { position: absolute; inset: 0; z-index: 0; pointer-events: none }
+.closing .cg { position: absolute; left: 50%; top: 0; transform: translateX(-50%); width: 700px; height: 400px; background: radial-gradient(ellipse at center,rgba(239,162,60,.15),rgba(206,82,134,.1),transparent 70%); filter: blur(50px) }
+.closing > .wrap { position: relative; z-index: 1; text-align: center }
+.closing h2 { font-family: var(--serif); font-size: clamp(36px,5vw,56px); font-weight: 500; letter-spacing: -.025em; line-height: 1.05; color: var(--ink); margin-bottom: 16px }
+.closing p { font-size: 18px; color: var(--ink-2); max-width: 400px; margin: 0 auto 30px }
+
+/* RESPONSIVE */
+@media (max-width: 920px) {
+  .hero-grid { grid-template-columns: 1fr; gap: 40px }
+  .hero-stats { grid-template-columns: repeat(4,1fr) }
+  .problems-grid { grid-template-columns: 1fr }
+  .how-steps { grid-template-columns: 1fr 1fr; gap: 16px }
+  .pricing-grid { grid-template-columns: 1fr }
+  .contact-grid { grid-template-columns: 1fr; gap: 40px }
+}
+@media (max-width: 560px) {
+  .hero-stats { grid-template-columns: 1fr 1fr; gap: 12px }
+  .stat-card { padding: 18px }
+  .stat-num { font-size: 28px }
+  .how-steps { grid-template-columns: 1fr }
+  .problems-section, .how-section, .pricing-section, .contact-section, .notes-section, .closing { padding: 56px 0 }
+}
+</style>
