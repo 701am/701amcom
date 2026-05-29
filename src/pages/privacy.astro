@@ -2,21 +2,18 @@
 import Layout from '../layouts/Layout.astro';
 ---
 <Layout title="Privacy Policy" description="701am Privacy Policy — how we collect, use, and protect your data.">
-<header class="about-hero">
-  <div class="hero-atmos"><div class="grid"></div><div class="glow g1"></div><div class="glow g2"></div><div class="glow g3"></div></div>
-  <div class="wrap">
-    <div class="eyebrow">Policies</div>
-    <h1>Privacy Policy</h1>
-    <p class="lede">Last updated May 28, 2026. 701am, Inc. ("701am," "we," "us") respects your privacy and is committed to protecting the personal information you share with us.</p>
-  </div>
-</header>
+<div class="ph">
+  <p class="ey">Policies</p>
+  <h1>Privacy <span class="g">Policy</span></h1>
+  <p>Last updated May 28, 2026. 701am, Inc. ("701am," "we," "us") respects your privacy and is committed to protecting the personal information you share with us.</p>
+</div>
 
-<article class="about-prose">
-<div class="seg">Information We Collect</div>
-<p>We collect information you provide directly: name, email address, institution name, and job title when you sign up for early access, request a demo, subscribe to our newsletter, or contact us. If you connect a CRM or SIS (e.g., Slate, Element451, Ellucian), we read program metadata and enrollment signal data you authorize — we never write to your systems.</p>
+<article class="legal">
+<h2>Information We Collect</h2>
+<p>We collect information you provide directly: name, email address, institution name, and job title when you sign up for early access, request a demo, subscribe to our newsletter, or contact us.</p>
 <p>We automatically collect certain technical information when you visit our site: IP address, browser type, operating system, referring URLs, and pages viewed. We use this to improve our service and diagnose issues.</p>
 
-<div class="seg">How We Use Your Information</div>
+<h2>How We Use Your Information</h2>
 <p>We use your information to:</p>
 <ul>
   <li>Provide, maintain, and improve the 701am platform</li>
@@ -27,35 +24,25 @@ import Layout from '../layouts/Layout.astro';
 </ul>
 <p>We do not sell your personal information. We do not share it with third parties for their own marketing purposes.</p>
 
-<div class="seg">Data Retention</div>
+<h2>Data Retention</h2>
 <p>We retain your account information for as long as your account is active or as needed to provide service. After account deletion, we retain minimal records required by law or for legitimate business purposes (e.g., audit trails, invoicing) for up to 90 days, then permanently delete or anonymize them.</p>
 
-<div class="seg">Third-Party Services</div>
+<h2>Third-Party Services</h2>
 <p>We use third-party subprocessors to operate the platform: cloud infrastructure (AWS), email delivery (Postmark), and data storage. Each subprocessor is bound by data processing agreements consistent with this policy. A current list of subprocessors is available upon request.</p>
 
-<div class="seg">Cookies</div>
+<h2>Cookies</h2>
 <p>We use essential cookies for authentication and security. We do not use tracking cookies, advertising cookies, or third-party analytics cookies. You can disable cookies in your browser settings, though some features may not function properly without them.</p>
 
-<div class="seg">Security</div>
-<p>We implement industry-standard technical and organizational measures to protect your data, including encryption in transit (TLS 1.3) and at rest (AES-256), access controls, and regular security audits. See our <a href="/security">SSO &amp; Data Security page</a> for details.</p>
+<h2>Security</h2>
+<p>We implement industry-standard technical and organizational measures to protect your data, including encryption in transit (TLS 1.3) and at rest (AES-256), access controls, and regular security audits.</p>
 
-<div class="seg">Data Subject Rights</div>
+<h2>Data Subject Rights</h2>
 <p>Depending on your jurisdiction, you may have the right to access, correct, delete, or port your personal data. To exercise these rights, contact us at <strong>privacy@701am.com</strong>. We will respond within 30 days.</p>
 
-<div class="seg">Changes to This Policy</div>
+<h2>Changes to This Policy</h2>
 <p>We may update this Privacy Policy from time to time. Material changes will be notified via email or through the platform. Continued use after changes take effect constitutes acceptance of the updated policy.</p>
 
-<div class="seg">Contact</div>
+<h2>Contact</h2>
 <p>For questions about this policy, contact:<br><strong>701am, Inc.</strong><br>privacy@701am.com</p>
 </article>
-
-<section class="closing">
-  <div class="catmos"><div class="cg"></div></div>
-  <div class="wrap">
-    <div class="pill-badge"><span class="tagm">Filed at sunrise</span></div>
-    <h2>Questions about <em class="grad">privacy</em>?</h2>
-    <p>Reach out — we're happy to walk through our data practices.</p>
-    <a href="/contact" class="btn btn-primary btn-lg"><i class="ti ti-sparkles"></i>Contact us</a>
-  </div>
-</section>
 </Layout>

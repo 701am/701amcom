@@ -1,6 +1,5 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Pricing from '../components/Pricing.astro';
 
 const groups = [
   {
@@ -38,100 +37,75 @@ const groups = [
   },
 ];
 ---
-<Layout
-  title="Integrations"
-  description="701am connects to your CRM, SIS, and outreach tools to support narrative attraction campaigns. Read-only integrations are optional — start without them."
->
-  <header class="about-hero">
-    <div class="hero-atmos"><div class="grid"></div><div class="glow g1"></div><div class="glow g2"></div><div class="glow g3"></div></div>
-    <div class="wrap" style="position:relative;z-index:1">
-      <div class="eyebrow">Integrations</div>
-      <h1>Connects to the tools <em class="grad">you already use</em>.</h1>
-      <p class="lede">Connect your CRM, SIS, and outreach tools when you want to demonstrate narrative attraction impact across press, AI, and social media. <strong>Integrations are optional</strong> — start with a discovery call and we'll recommend what to connect based on your goals.</p>
-      <div class="ig-trust">
-        <span><i class="ti ti-shield-lock"></i>Read-only by default</span>
-        <span><i class="ti ti-lock"></i>Per-workspace &amp; revocable</span>
-        <span><i class="ti ti-database-off"></i>Never your system of record</span>
-        <span><i class="ti ti-ban"></i>No data shared or co-mingled</span>
+<Layout title="Integrations — Narrative Attraction Agency for Higher Education" description="701am connects to your CRM, SIS, and outreach tools to support narrative attraction campaigns. Read-only integrations are optional — start without them.">
+<div class="ph">
+  <p class="ey">Integrations</p>
+  <h1>Connects to the tools <span class="g">you already use</span>.</h1>
+  <p>Connect your CRM, SIS, and outreach tools when you want to demonstrate narrative attraction impact across press, AI, and social media. <strong>Integrations are optional</strong> — start with a discovery call and we'll recommend what to connect based on your goals.</p>
+</div>
+
+<section class="sec sec-c">
+  <div class="w" style="max-width:900px">
+    <div class="sh">
+      <p class="ey" style="font-family:var(--mono);font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--co);margin-bottom:12px">Optional. Purpose-built. Private.</p>
+      <h2>Integrate when you need to <span class="g">connect narrative to enrollment</span>.</h2>
+    </div>
+    <div class="g2" style="max-width:700px">
+      <div class="cd">
+        <div class="ic" style="width:42px;height:42px;border-radius:10px;background:rgba(221,90,56,.1);color:var(--co);display:flex;align-items:center;justify-content:center;margin-bottom:14px;font-size:20px">🔔</div>
+        <h3>Notify your team</h3>
+        <p>Route visibility signals, pitch approvals, and coverage wins to Slack or Teams.</p>
+      </div>
+      <div class="cd">
+        <div class="ic" style="width:42px;height:42px;border-radius:10px;background:rgba(221,90,56,.1);color:var(--co);display:flex;align-items:center;justify-content:center;margin-bottom:14px;font-size:20px">📡</div>
+        <h3>Monitor changes</h3>
+        <p>Watch how position, presence, and sentiment shift across AI, search, and press.</p>
+      </div>
+      <div class="cd">
+        <div class="ic" style="width:42px;height:42px;border-radius:10px;background:rgba(221,90,56,.1);color:var(--co);display:flex;align-items:center;justify-content:center;margin-bottom:14px;font-size:20px">📊</div>
+        <h3>Show stakeholder impact</h3>
+        <p>Connect CRM funnel data to visibility movements for enrollment leadership.</p>
+      </div>
+      <div class="cd">
+        <div class="ic" style="width:42px;height:42px;border-radius:10px;background:rgba(221,90,56,.1);color:var(--co);display:flex;align-items:center;justify-content:center;margin-bottom:14px;font-size:20px">📈</div>
+        <h3>Establish ROI baselines</h3>
+        <p>Ground every campaign in real institutional facts and enrollment benchmarks.</p>
       </div>
     </div>
-  </header>
+  </div>
+</section>
 
-  <!-- WHY INTEGRATE (optional, value-driven) -->
-  <section class="wrap ig-page">
-    <div class="ig-why">
-      <div class="ig-why-head">
-        <div class="eb">Optional. Purpose-built. Private.</div>
-        <h2>Integrate when you need to <em class="grad">connect narrative to enrollment</em>.</h2>
-      </div>
-      <div class="ig-why-grid">
-        <div class="ig-why-card">
-          <i class="ti ti-bell-ringing"></i>
-          <h3>Notify your team</h3>
-          <p>Route visibility signals, pitch approvals, and coverage wins to Slack or Teams — so the right people see the news the moment it lands.</p>
-        </div>
-        <div class="ig-why-card">
-          <i class="ti ti-radar"></i>
-          <h3>Monitor changes</h3>
-          <p>Watch how position, presence, and sentiment shift across AI, search, and press — day by day, tied to the campaigns that drove the movement.</p>
-        </div>
-        <div class="ig-why-card">
-          <i class="ti ti-presentation"></i>
-          <h3>Show stakeholder impact</h3>
-          <p>Connect CRM funnel data to visibility movements so you can show enrollment leadership exactly how earned media drives inquiries, applications, and yield.</p>
-        </div>
-        <div class="ig-why-card">
-          <i class="ti ti-chart-bar"></i>
-          <h3>Establish ROI baselines</h3>
-          <p>Pull program outcomes and enrollment data to ground every campaign in real institutional facts — giving decision makers the benchmarks they need to measure what matters.</p>
-        </div>
-      </div>
+<section class="sec sec-d">
+  <div class="w" style="max-width:900px">
+    <div class="sh" style="max-width:100%">
+      <h2 style="color:#fff">Integrations</h2>
     </div>
-  </section>
-
-  <section class="wrap ig-page">
     {groups.map((g) => (
-      <div class="ig-group">
-        <div class="ig-group-head">
-          <h2>{g.label}</h2>
-          <p>{g.blurb}</p>
-        </div>
-        <div class="ig-cards">
+      <div style="margin-bottom:48px">
+        <h3 style="font-family:var(--serif);font-size:22px;font-weight:500;color:#fff;margin-bottom:4px">{g.label}</h3>
+        <p style="color:var(--txdm);margin-bottom:18px;font-size:15px">{g.blurb}</p>
+        <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:16px">
           {g.items.map((it) => (
-            <div class="ig-card">
-              <div class="ig-card-top">
-                <span class="ig-logo" style={`background:${it.color}`}>{it.abbr}</span>
-                <span class="ig-role">{it.role}</span>
+            <div style="background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:14px;padding:20px">
+              <div style="display:flex;align-items:center;gap:12px;margin-bottom:10px">
+                <span style="width:34px;height:34px;border-radius:8px;background:{it.color};color:#fff;display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:11px;font-weight:700;flex-shrink:0">{it.abbr}</span>
+                <span style="font-family:var(--mono);font-size:10px;color:#A89A8E;text-transform:uppercase;letter-spacing:.05em">{it.role}</span>
               </div>
-              <div class="ig-name">{it.name}</div>
-              <div class="ig-desc">{it.desc}</div>
+              <div style="font-weight:600;color:#fff;margin-bottom:6px">{it.name}</div>
+              <div style="font-size:13.5px;color:var(--txdm);line-height:1.55">{it.desc}</div>
             </div>
           ))}
         </div>
       </div>
     ))}
+  </div>
+</section>
 
-    <div class="ig-request">
-      <div class="ig-request-in">
-        <div>
-          <h3>Don't see your system?</h3>
-          <p>We add integrations as higher-ed teams ask for them. Tell us what you run and we'll prioritize it.</p>
-        </div>
-        <a href="/contact" class="btn btn-primary btn-lg"><i class="ti ti-calendar"></i>Book a discovery call</a>
-      </div>
-    </div>
-  </section>
-
-  <Pricing context="home" />
-
-  <!-- CLOSING -->
-  <section class="closing">
-    <div class="catmos"><div class="cg"></div></div>
-    <div class="wrap">
-      <div class="pill-badge"><span class="tagm">Narrative Attraction for Higher Ed</span></div>
-      <h2>Start with a <em class="grad">discovery call</em>.</h2>
-      <p>Tell us about your institution and we'll recommend what integrations make sense for your goals.</p>
-      <a href="/contact" class="btn btn-primary btn-lg"><i class="ti ti-calendar"></i>Book a discovery call</a>
-    </div>
-  </section>
+<section class="sec sec-c" style="text-align:center">
+  <div class="w" style="max-width:600px">
+    <h2 style="font-family:var(--serif);font-size:clamp(28px,4vw,42px);font-weight:500;letter-spacing:-.025em;margin-bottom:14px">Don't see your system?</h2>
+    <p style="color:var(--txm);margin-bottom:28px">We add integrations as higher-ed teams ask for them. Tell us what you run and we'll prioritize it.</p>
+    <a href="/contact" class="btn btn-p">Book a discovery call</a>
+  </div>
+</section>
 </Layout>
