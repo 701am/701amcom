@@ -1,13 +1,13 @@
 ---
-// Pricing — $500 Earned Media Session + $6,500 Engagement
+// Pricing — $500 Narrative Attraction Session + $6,500 Engagement
 interface Props { context?: 'home' | 'universities' | 'edtech' | 'agencies'; }
 const { context = 'home' } = Astro.props;
 
 const subs: Record<string, string> = {
-  home: "Every engagement is scoped to deliver a specific number of placements. Start with a $500 session to find your story — or book a discovery call to scope your campaign.",
-  universities: "Earned media campaigns for universities and colleges. Every placement tied to the publications your applicants read.",
-  edtech: "Category authority through trade press and thought leadership for edtech companies and OPMs.",
-  agencies: "White-label earned media for your higher-ed clients. You keep the relationship; we deliver the placements.",
+  home: "Every engagement is scoped to deliver specific results. Start with a $500 Narrative Attraction Session — or book a discovery call to scope your campaign.",
+  universities: "Narrative attraction for universities and colleges. Earned media, AI visibility, and social campaigns tied to enrollment goals.",
+  edtech: "Category authority through earned media, AI visibility, and thought leadership for edtech companies and OPMs.",
+  agencies: "White-label narrative attraction for your higher-ed clients. You keep the relationship; we deliver the results.",
 };
 const sub = subs[context] ?? subs.home;
 ---
@@ -23,7 +23,7 @@ const sub = subs[context] ?? subs.home;
       <div class="pc-head">
         <div class="pc-icon" style="background:var(--amber-soft);color:var(--amber-deep)"><i class="ti ti-calendar"></i></div>
         <div>
-          <div class="pc-label">Earned Media Session</div>
+          <div class="pc-label">Narrative Attraction Session</div>
           <div class="pc-sub">90-minute strategy session</div>
         </div>
       </div>
@@ -45,8 +45,8 @@ const sub = subs[context] ?? subs.home;
       <div class="pc-head">
         <div class="pc-icon pc-icon-grad"><i class="ti ti-rocket"></i></div>
         <div>
-          <div class="pc-label" style="color:#fff">Earned Media Engagement</div>
-          <div class="pc-sub" style="color:var(--night-txt)">Up to 50 placements</div>
+          <div class="pc-label" style="color:#fff">Narrative Attraction Engagement</div>
+          <div class="pc-sub" style="color:var(--night-txt)">Up to 50 placements · Multi-channel</div>
         </div>
       </div>
       <div class="pc-price">

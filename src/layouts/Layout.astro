@@ -11,7 +11,7 @@ interface Props {
   ogType?: string;
 }
 const { title, description = SITE.description, ogType = 'website' } = Astro.props;
-const fullTitle = title ? `701am — ${title}` : '701am — The earned-media engine for Higher Education';
+const fullTitle = title ? `701am — ${title}` : '701am — Narrative Attraction Agency for Higher Education';
 const canonical = new URL(Astro.url.pathname, SITE.url).href;
 ---
 <!doctype html>
@@ -33,7 +33,7 @@ const canonical = new URL(Astro.url.pathname, SITE.url).href;
   <meta property="og:image" content="https://701am.com/assets/logo-mark.svg" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
-  <meta property="og:image:alt" content="701am — The earned-media engine for Higher Education" />
+  <meta property="og:image:alt" content="701am — Narrative Attraction Agency for Higher Education" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:image" content="https://701am.com/assets/logo-mark.svg" />
   <!-- Size-adjusted fallback fonts prevent CLS when web fonts swap -->
