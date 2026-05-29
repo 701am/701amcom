@@ -1,82 +1,67 @@
 ---
-// Pricing section — Free (tracking-only) + Launch ($701). Reused across pages.
+// Pricing — $500 Earned Media Session + $6,500 Engagement
 interface Props { context?: 'home' | 'universities' | 'edtech' | 'agencies'; }
 const { context = 'home' } = Astro.props;
 
 const subs: Record<string, string> = {
-  home: "Higher-ed PR retainers run $10K\u2013$50K a month for less than we offer. Track 5 programs free, no card required. Run campaigns when you're ready to act on what tracking shows you.",
-  universities: "Track 5 programs free \u2014 no card, no procurement cycle. See where your programs stand in AI and search today, and move to campaigns when you're ready to act.",
-  edtech: "Start tracking your category visibility free. Move to Launch when you want to run the campaigns that build category authority.",
-  agencies: "Track 5 programs free to prove the model to a client. Launch unlocks campaigns and per-client workspaces \u2014 talk to us about multi-client agency pricing.",
+  home: "Every engagement is scoped to deliver a specific number of placements. Start with a $500 session to find your story — or book a discovery call to scope your campaign.",
+  universities: "Earned media campaigns for universities and colleges. Every placement tied to the publications your applicants read.",
+  edtech: "Category authority through trade press and thought leadership for edtech companies and OPMs.",
+  agencies: "White-label earned media for your higher-ed clients. You keep the relationship; we deliver the placements.",
 };
 const sub = subs[context] ?? subs.home;
-const showAgencyNote = context !== 'agencies';
 ---
 
 <section class="band wrap" id="pricing">
   <div class="sec-head">
     <div class="sec-eyebrow">Pricing</div>
-    <h2>Start free. <em class="grad">Move when ready.</em></h2>
+    <h2>Simple pricing. <em class="grad">No retainers.</em></h2>
     <p>{sub}</p>
   </div>
-  <div class="pricing-cmp">
-
-    <div class="pcard pcard-free">
-      <div class="pc-free-tag"><span class="pc-dot"></span>Free forever</div>
+  <div class="pricing-cmp" style="max-width:760px;margin:0 auto">
+    <div class="pcard">
       <div class="pc-head">
-        <div class="pc-icon" style="background:var(--canvas-2);color:var(--ink-2)"><i class="ti ti-eye"></i></div>
+        <div class="pc-icon" style="background:var(--amber-soft);color:var(--amber-deep)"><i class="ti ti-calendar"></i></div>
         <div>
-          <div class="pc-label">Free</div>
-          <div class="pc-sub">For tracking · no card required</div>
+          <div class="pc-label">Earned Media Session</div>
+          <div class="pc-sub">90-minute strategy session</div>
         </div>
       </div>
       <div class="pc-price">
-        <span class="pc-amt">$0</span>
-        <span class="pc-per">forever · no expiration</span>
+        <span class="pc-amt">$500</span>
+        <span class="pc-per">one-time</span>
       </div>
       <ul class="pc-feat">
-        <li><i class="ti ti-check"></i>Track <b>5 programs</b> against AI &amp; search</li>
-        <li><i class="ti ti-check"></i>10 queries per program, daily captures</li>
-        <li><i class="ti ti-check"></i>ChatGPT, Perplexity, Gemini coverage</li>
-        <li><i class="ti ti-check"></i>Shortlist presence rate &amp; ordinal position</li>
-        <li><i class="ti ti-check"></i>Competitor matrix across query categories</li>
-        <li><i class="ti ti-x"></i>No campaigns, journalist outreach, or CRM sync</li>
+        <li><i class="ti ti-check"></i>90-minute strategy session with our team</li>
+        <li><i class="ti ti-check"></i>Data audit — find the stories you're not telling</li>
+        <li><i class="ti ti-check"></i>Reporter list for your top 3 angles</li>
+        <li><i class="ti ti-check"></i>Credibility gap analysis</li>
+        <li><i class="ti ti-check"></i>No obligation to continue</li>
       </ul>
-      <button class="btn btn-soft btn-lg js-soon" style="width:100%;margin-top:8px"><i class="ti ti-sparkles"></i>Start free · track 5 programs</button>
-      <div class="pc-fine pc-fine-light">Institutional email required. Your data stays yours.</div>
+      <a href="/contact" class="btn btn-soft btn-lg" style="width:100%;margin-top:8px"><i class="ti ti-calendar"></i>Book your session</a>
     </div>
-
     <div class="pcard pcard-701">
-      <div class="pc-launch"><span class="pc-dot"></span>Launch pricing</div>
+      <div class="pc-launch"><span class="pc-dot"></span>Most common engagement</div>
       <div class="pc-head">
-        <div class="pc-icon pc-icon-grad"><i class="ti ti-sparkles"></i></div>
+        <div class="pc-icon pc-icon-grad"><i class="ti ti-rocket"></i></div>
         <div>
-          <div class="pc-label" style="color:#fff">Launch</div>
-          <div class="pc-sub" style="color:var(--night-txt)">Track + act, the full platform</div>
+          <div class="pc-label" style="color:#fff">Earned Media Engagement</div>
+          <div class="pc-sub" style="color:var(--night-txt)">Up to 50 placements</div>
         </div>
       </div>
       <div class="pc-price">
-        <span class="pc-amt pc-amt-grad">$701</span>
-        <span class="pc-per" style="color:var(--night-txt)">/ month, starting</span>
+        <span class="pc-amt pc-amt-grad">$6,500</span>
+        <span class="pc-per" style="color:var(--night-txt)">per engagement</span>
       </div>
       <ul class="pc-feat pc-feat-dark">
-        <li><i class="ti ti-check"></i>Everything in Free, plus:</li>
-        <li><i class="ti ti-check"></i>Unlimited programs &amp; queries, all providers</li>
-        <li><i class="ti ti-check"></i>Campaigns — data-story, rankings, news-response</li>
-        <li><i class="ti ti-check"></i>Journalist research, soul-checked pitches</li>
-        <li><i class="ti ti-check"></i>Slate &amp; CRM integration (funnel × visibility)</li>
-        <li><i class="ti ti-check"></i>Approval gates, send infrastructure, full reporting</li>
+        <li><i class="ti ti-check"></i>Full campaign — research, narrative, pitches</li>
+        <li><i class="ti ti-check"></i>Up to 50 placements in target outlets</li>
+        <li><i class="ti ti-check"></i>AI citation tracking & optimization</li>
+        <li><i class="ti ti-check"></i>Monthly reporting & strategy review</li>
+        <li><i class="ti ti-check"></i>No long-term contract</li>
       </ul>
-      <button class="btn btn-primary btn-lg js-soon" style="width:100%;margin-top:8px"><i class="ti ti-rocket"></i>Request early access</button>
-      <div class="pc-fine">Founding-cohort pricing for higher-ed teams. Price increases when we open broadly.</div>
+      <a href="/contact" class="btn btn-primary btn-lg" style="width:100%;margin-top:8px"><i class="ti ti-calendar"></i>Book a discovery call</a>
+      <div class="pc-fine">Most engagements complete in 8–12 weeks.</div>
     </div>
-
   </div>
-
-  {showAgencyNote && (
-    <div class="pc-agency-note">
-      <i class="ti ti-building-bank"></i>
-      <span><b>Running this for an agency or a multi-institution system?</b> The platform supports multi-client workspaces with isolation between accounts. <a href="/contact/" class="agency-link">Talk to us about agency pricing →</a></span>
-    </div>
-  )}
 </section>

@@ -2,19 +2,11 @@
 import Mark from './Mark.astro';
 import { SITE } from '../config';
 const { pathname } = Astro.url;
-const seg = (s: string) => pathname === `/${s}` || pathname === `/${s}/`;
-const segActive = seg('universities') || seg('edtech') || seg('agencies');
-
-const solutions = [
-  { slug: 'universities', icon: 'ti-school',          bg: 'var(--gold-soft)',   fg: 'var(--gold-deep)',   title: 'Universities', desc: 'Win enrollment in AI, search & press' },
-  { slug: 'edtech',       icon: 'ti-device-laptop',   bg: 'var(--indigo-soft)', fg: 'var(--indigo-deep)', title: 'Edtech & OPMs', desc: 'Be the platform institutions trust' },
-  { slug: 'agencies',     icon: 'ti-briefcase',       bg: 'var(--coral-soft)',  fg: 'var(--coral-deep)',  title: 'Agencies', desc: 'Run earned media without the headcount' },
-];
 ---
 <div class="announce">
-  <span class="ann-tag">Now open</span>
-  <span>701am is accepting a first group of higher-ed teams.</span>
-  <a class="js-soon">Request early access <i class="ti ti-arrow-right"></i></a>
+  <span class="ann-tag">$500 intro</span>
+  <span>Earned Media Session — 90 minutes, no obligation.</span>
+  <a href="/contact">Book a discovery call <i class="ti ti-calendar"></i></a>
 </div>
 
 <nav id="nav">
@@ -32,49 +24,21 @@ const solutions = [
     </button>
 
     <div class="navlinks" id="navlinks">
-      <div class={`navdrop ${segActive ? 'is-active-section' : ''}`} id="solutions-drop">
-        <button class="dt" id="solutions-dt">Solutions <i class="ti ti-chevron-down"></i></button>
-        <div class="menu">
-          {solutions.map((s) => (
-            <a class="mi" href={`/${s.slug}`}>
-              <span class="ic" style={`background:${s.bg};color:${s.fg}`}><i class={`ti ${s.icon}`}></i></span>
-              <span>
-                <span class="mt">{s.title}</span>
-                <span class="md">{s.desc}</span>
-              </span>
-            </a>
-          ))}
-        </div>
-      </div>
-      <a href="/#how">How it works</a>
-      <a href="/integrations" class={pathname.startsWith('/integrations') ? 'active' : ''}>Integrations</a>
-      <a href="/#pricing">Pricing</a>
+      <a href="/#services" class={pathname === '/' ? 'active' : ''}>Services</a>
+      <a href="/studio" class={pathname.startsWith('/studio') ? 'active' : ''}>Studio</a>
+      <a href="/about" class={pathname.startsWith('/about') ? 'active' : ''}>About</a>
+      <a href="/#pricing" class={pathname === '/' ? 'active' : ''}>Pricing</a>
     </div>
 
     <div class="nav-cta">
-      <a class="ghost js-soon">Sign in</a>
-      <button class="btn btn-primary js-soon"><i class="ti ti-sparkles"></i><span class="full">Request early access</span><span class="short" style="display:none">Get access</span></button>
+      <a href="/contact" class="btn btn-primary"><i class="ti ti-calendar"></i><span class="full">Book a discovery call</span><span class="short" style="display:none">Book call</span></a>
     </div>
   </div>
 </nav>
 
 <script>
-  // Solutions dropdown (desktop hover + click; mobile click)
-  const drop = document.getElementById('solutions-drop');
-  const dt = document.getElementById('solutions-dt');
   const navEl = document.getElementById('nav');
   const toggle = document.getElementById('navtoggle');
-
-  dt?.addEventListener('click', (e) => { e.stopPropagation(); drop?.classList.toggle('open'); });
-  // desktop: open on hover
-  if (matchMedia('(min-width:921px)').matches) {
-    drop?.addEventListener('mouseenter', () => drop.classList.add('open'));
-    drop?.addEventListener('mouseleave', () => drop.classList.remove('open'));
-  }
-  document.addEventListener('click', (e) => {
-    if (drop && !drop.contains(e.target as Node)) drop.classList.remove('open');
-  });
-
   // mobile hamburger
   toggle?.addEventListener('click', (e) => { e.stopPropagation(); navEl?.classList.toggle('menu-open'); });
   // close mobile menu when a real link is tapped

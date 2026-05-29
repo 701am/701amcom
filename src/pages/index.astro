@@ -1,9 +1,5 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import HeroShot from '../components/HeroShot.astro';
-import AppDemo from '../components/AppDemo.astro';
-import Integrations from '../components/Integrations.astro';
-import Pricing from '../components/Pricing.astro';
 import { getCollection } from 'astro:content';
 
 const posts = (await getCollection('blog'))
@@ -15,214 +11,155 @@ const fmt = (d: Date) =>
   d.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
 ---
 <Layout
-  title="The earned-media engine for Higher Education"
-  description="701am runs a swarm of agents that makes your institution the answer in AI, the result in Google, and the name in the press — built for universities, edtech, and the agencies that serve them."
+  title="Digital PR Agency for Higher Education"
+  description="701am is a digital PR agency for higher education. Earned media campaigns that get your institution in the press — up to 50 placements per engagement."
 >
-<!-- gradient defs -->
 <!-- HERO -->
 <header class="hero" id="top">
   <div class="hero-atmos"><div class="grid"></div><div class="glow g1"></div><div class="glow g2"></div><div class="glow g3"></div></div>
   <div class="wrap">
     <div class="hero-grid">
       <div class="hero-txt">
-        <div class="pill-badge"><span class="tagm">The earned-media engine for Higher Ed</span></div>
-        <h1 class="hero-h">Your institution in AI, search, and the press — <em class="grad">automatically</em>.</h1>
-        <p class="hero-sub">A swarm of agents that makes your institution the answer when students ask AI, the result they find in Google, and the name they see in the press — turning every placement into a <b>visibility asset that compounds</b> through every enrollment cycle. For a fraction of a PR retainer.</p>
+        <div class="pill-badge"><span class="tagm">Digital PR for Higher Education</span></div>
+        <h1 class="hero-h">Your institution in the press — <em class="grad">consistently</em>.</h1>
+        <p class="hero-sub">Earned media campaigns that get your university, college, or education brand covered — in Inside Higher Ed, regional outlets, and the publications your applicants already read. <b>Up to 50 placements per engagement.</b></p>
         <div class="hero-ctas">
-          <button class="btn btn-primary btn-lg js-soon"><i class="ti ti-sparkles"></i>Request early access</button>
-          <button class="btn btn-soft btn-lg js-soon"><i class="ti ti-player-play"></i>Get a demo</button>
+          <a href="/contact" class="btn btn-primary btn-lg"><i class="ti ti-calendar"></i>Book a discovery call</a>
+          <a href="/studio" class="btn btn-soft btn-lg"><i class="ti ti-arrow-right"></i>See our services</a>
         </div>
-        <div class="hero-ctas-meta">No credit card. Institutional email required. <a href="#pricing">See what's free →</a></div>
+        <div class="hero-ctas-meta">$500 intro session &nbsp;·&nbsp; $6,500 per engagement &nbsp;·&nbsp; No long-term contracts</div>
+      </div>
+      <div>
+        <div class="cal-wrap">
+          <div class="calendly-inline-widget" data-url="https://cal.com/davidkrug/discovery?overlayCalendar=true" style="min-width:320px;height:700px;"></div>
         </div>
-      <!-- HERO: real product shot -->
-      <HeroShot variant="full" />
+      </div>
     </div>
   </div>
 </header>
 
-<!-- WORKS WITH -->
-<section class="works wrap">
-  <div class="wl">Working everywhere students and decision-makers now look</div>
-  <div class="works-row">
-    <div class="it"><i class="ti ti-message-chatbot"></i>ChatGPT</div>
-    <div class="it"><i class="ti ti-search"></i>Perplexity</div>
-    <div class="it"><i class="ti ti-sparkles"></i>Claude</div>
-    <div class="it"><i class="ti ti-stars"></i>Gemini</div>
-    <div class="it"><i class="ti ti-brand-google"></i>Google</div>
-    <div class="it"><i class="ti ti-news"></i>The press</div>
-  </div>
-</section>
-
-<!-- NAMED PROBLEM -->
-<section class="band wrap">
-  <div class="problem">
-    <div class="problem-eyebrow">The discovery problem</div>
-    <h2 class="problem-h">Every enrollment cycle still starts from <em class="grad">zero</em>.<br><span class="problem-until">Until 701am.</span></h2>
-    <p class="problem-p">Your visibility is scattered — a ranking here, a mention there, a campaign that resets when the cycle ends. Meanwhile applicants have stopped Googling and started asking AI which program is best, months before they ever inquire. The institutions that show up in those answers are winning enrollment quietly. 701am makes every placement, ranking, and citation compound into the next.</p>
-  </div>
-</section>
-
-<!-- FEATURE ROW 1: AI visibility — channels fragment -->
-<section class="feat wrap" id="how">
-  <div class="feat-in">
-    <div class="feat-txt">
-      <div class="feat-eyebrow">Be the answer</div>
-      <h2>Show up when students ask <em class="grad">the AI</em>.</h2>
-      <p>Your next applicant asks ChatGPT, Perplexity, or Claude which program is best long before they reach your site. 701am earns the rankings, outcomes data, and coverage those models learn from — so your institution is the name that comes back.</p>
-      <div class="fmini"><span class="m">ChatGPT</span><span class="m">Perplexity</span><span class="m">Claude</span><span class="m">Gemini</span><span class="m">AI Overviews</span></div>
-    </div>
-    <div class="frag" id="fragChannels"><div class="frag-glow"></div><div class="frag-wrap">
-      <div class="frag-h"><div class="ci"><i class="ti ti-broadcast"></i></div><div class="ft">Visibility — all channels</div><div class="live"><i class="ti ti-circle-filled"></i>Live</div></div>
-      <div class="frag-b"><div class="chans">
-        <div class="chrow"><div class="chi" style="background:var(--indigo-soft);color:var(--indigo-deep)"><i class="ti ti-message-chatbot"></i></div><div class="chn">ChatGPT</div><div class="chr cite"><i class="ti ti-quote"></i>Cited</div></div>
-        <div class="chrow"><div class="chi" style="background:var(--indigo-soft);color:var(--indigo-deep)"><i class="ti ti-search"></i></div><div class="chn">Perplexity</div><div class="chr cite"><i class="ti ti-quote"></i>Sourced</div></div>
-        <div class="chrow"><div class="chi" style="background:var(--green-soft);color:var(--green-deep)"><i class="ti ti-brand-google"></i></div><div class="chn">Google</div><div class="chr up"><i class="ti ti-trending-up"></i>+18</div></div>
-        <div class="chrow"><div class="chi" style="background:var(--coral-soft);color:var(--coral-deep)"><i class="ti ti-news"></i></div><div class="chn">Earned media</div><div class="chr place"><i class="ti ti-circle-check"></i>12 placed</div></div>
-      </div></div>
-    </div></div>
-  </div>
-</section>
-
-<!-- FEATURE ROW 2: autopilot — slack fragment (reversed) -->
-<section class="feat wrap" id="autopilot">
-  <div class="feat-in">
-    <div class="feat-txt">
-      <div class="feat-eyebrow">Set it once</div>
-      <h2>It runs at <em class="grad">sunrise</em>, every day.</h2>
-      <p>Connect your tools, set a cadence, and the swarm works in the background — finding opportunities, earning coverage, watching the news cycle, and reporting back. Tag it, schedule it, or let it run proactively.</p>
-      <div class="fmini"><span class="m">Schedules</span><span class="m">Slack</span><span class="m">Email</span><span class="m">CRM</span><span class="m">Always-on</span></div>
-    </div>
-    <div class="frag"><div class="frag-glow"></div><div class="frag-wrap">
-      <div class="frag-h"><div class="ci"><i class="ti ti-brand-slack"></i></div><div class="ft">#press-room</div><div class="live"><i class="ti ti-circle-filled"></i>Auto</div></div>
-      <div class="frag-b"><div class="slack">
-        <div class="sk-msg"><div class="sk-av usr">DK</div><div class="sk-b"><div class="sk-nm">David</div><div class="sk-tx">@701am any angles on the new grad-outcomes data for our nursing program?</div></div></div>
-        <div class="sk-msg"><div class="sk-av bot">7</div><div class="sk-b"><div class="sk-nm">701am <span class="tag">AGENT</span></div><div class="sk-tx">Found one. Your online nursing grads out-earned the regional average by <b>14%</b> — strongest in rural placements. Drafted 9 pitches to higher-ed and regional reporters.</div>
-          <div class="sk-card"><i class="ti ti-circle-check"></i>9 pitches staged · awaiting your approval</div>
-        </div></div>
-      </div></div>
-    </div></div>
-  </div>
-</section>
-
-<!-- FEATURE ROW 3: measurable — dashboard fragment -->
-<section class="feat wrap">
-  <div class="feat-in">
-    <div class="feat-txt">
-      <div class="feat-eyebrow">You watch it climb</div>
-      <h2>Visibility you can finally <em class="grad">measure</em>.</h2>
-      <p>No vague "impressions." Live visibility into exactly where you're showing up — across AI, search, and the press — with every number traced back to a real placement, citation, or ranking. No vanity metrics.</p>
-      <div class="fmini"><span class="m">AI citations</span><span class="m">Rankings</span><span class="m">Placements</span><span class="m">Reach</span></div>
-    </div>
-    <div class="frag"><div class="frag-glow"></div><div class="frag-wrap">
-      <div class="frag-h"><div class="ci"><i class="ti ti-chart-arcs"></i></div><div class="ft">Dashboard · last 30 days</div><div class="live"><i class="ti ti-circle-filled"></i>Live</div></div>
-      <div class="frag-b"><div class="dboard">
-        <div class="dcell"><div class="dl"><i class="ti ti-robot"></i>AI citations</div><div class="dv">47</div><div class="dd"><i class="ti ti-trending-up"></i>+31</div></div>
-        <div class="dcell"><div class="dl"><i class="ti ti-brand-google"></i>Avg. rank</div><div class="dv">#6</div><div class="dd"><i class="ti ti-trending-up"></i>+18</div></div>
-        <div class="dcell"><div class="dl"><i class="ti ti-news"></i>Placements</div><div class="dv">12</div><div class="dd"><i class="ti ti-trending-up"></i>+9</div></div>
-        <div class="dcell"><div class="dl"><i class="ti ti-broadcast"></i>Reach</div><div class="dv">4.2M</div><div class="dd"><i class="ti ti-trending-up"></i>+22%</div></div>
-      </div></div>
-    </div></div>
-  </div>
-</section>
-
-<!-- INTERACTIVE PRODUCT DEMO -->
-<section class="band wrap" id="demo">
+<!-- WHAT WE DO -->
+<section class="band wrap" id="services">
   <div class="sec-head">
-    <div class="sec-eyebrow">See it in action</div>
-    <h2>A workspace that <em class="grad">thinks</em> with you.</h2>
-    <p>Connect your tools, set a goal, and the swarm works the earned-media cycle — research, outreach, monitoring, reporting — continuously and compounding. This is what it looks like from inside.</p>
+    <div class="sec-eyebrow">What we do</div>
+    <h2>Full-funnel earned media for <em class="grad">higher education</em>.</h2>
+    <p>From data-story research to journalist outreach to AI citation tracking — every campaign is scoped to get your institution covered in the outlets that matter to your applicants.</p>
   </div>
-  <AppDemo />
+  <div class="feat">
+    <div class="feat-in">
+      <div class="feat-txt">
+        <div class="feat-eyebrow">Data-driven pitches</div>
+        <h2>We find the story <em class="grad">before you pitch it</em>.</h2>
+        <p>Most institutions have the data for a great story — enrollment patterns, salary outcomes, completion rates, regional comparisons. The question is whether anyone ever turns it into a pitch. We do. We find the angle, write the story, and work the reporter list so your data actually earns coverage.</p>
+      </div>
+      <div class="frag"><div class="frag-glow"></div><div class="frag-wrap">
+        <div class="frag-h"><div class="ci"><i class="ti ti-chart-bar"></i></div><div class="ft">Data story brief</div></div>
+        <div class="frag-b">
+          <div class="cmd"><div class="cl">Angle</div><div class="cv">Online grads out-earned campus peers by 14% — strongest in rural markets</div></div>
+          <div class="cmd"><div class="cl">Hook</div><div class="cv">Counter-intuitive: online grads earn more than their on-campus counterparts</div></div>
+          <div class="cmd"><div class="cl">Outlets</div><div class="cv">Inside Higher Ed, EdSurge, 3 regional business journals</div></div>
+          <div class="cmd"><div class="cl">Status</div><div class="cv" style="color:var(--green-deep)"><i class="ti ti-circle-check"></i> Pitches sent</div></div>
+        </div>
+      </div></div>
+    </div>
+  </div>
+  <div class="feat rev">
+    <div class="feat-in">
+      <div class="feat-txt">
+        <div class="feat-eyebrow">Earned media that compounds</div>
+        <h2>Every placement feeds <em class="grad">the next one</em>.</h2>
+        <p>The mistake most institutions make is treating earned media as a campaign — a burst of effort that resets when the next cycle starts. We build an earned-media engine: every placement builds search authority, earns AI citations, and creates the relationships that make the next placement easier.</p>
+      </div>
+      <div class="feat-txt">
+        <div class="feat-eyebrow">AI visibility</div>
+        <h2>Get cited by <em class="grad">ChatGPT and Perplexity</em>.</h2>
+        <p>AI assistants surface recommendations based on the same signals that have always mattered — rankings, outcomes data, and press coverage. We earn the signals that make you the answer when prospective students ask an AI which program is best.</p>
+      </div>
+    </div>
+  </div>
 </section>
 
-<!-- CAPABILITY GRID (Runtime "every layer") -->
+<!-- WHO WE SERVE -->
 <section class="layer-sec">
   <div class="atmos"><div class="dg dg1"></div><div class="dg dg2"></div></div>
   <div class="inner">
     <div class="wrap">
       <div class="layer-head">
-        <div class="eb">One engine</div>
-        <h2>Everything earned media needs. Built in.</h2>
-        <p>Research, outreach, monitoring, measurement — the work an agency charges a retainer for, running continuously and compounding.</p>
+        <div class="eb">Who we serve</div>
+        <h2>Earned media for every corner of <em class="grad">higher ed</em>.</h2>
+        <p>Universities, colleges, edtech companies, and the agencies that serve them.</p>
       </div>
       <div class="layers">
-        <div class="layer"><div class="num">01</div><h3><i class="ti ti-search"></i>Research</h3><p>Finds the angle, the data, and the right reporters before a word is written.</p></div>
-        <div class="layer"><div class="num">02</div><h3><i class="ti ti-mail-forward"></i>Outreach</h3><p>Writes and sends pitches that sound human — and stages everything for your approval.</p></div>
-        <div class="layer"><div class="num">03</div><h3><i class="ti ti-radar"></i>Monitoring</h3><p>Watches the news cycle and your coverage, and jumps on the moment it breaks.</p></div>
-        <div class="layer"><div class="num">04</div><h3><i class="ti ti-robot"></i>AI visibility</h3><p>Earns the signals that make you the answer in ChatGPT, Perplexity, and Claude.</p></div>
-        <div class="layer"><div class="num">05</div><h3><i class="ti ti-chart-bar"></i>Measurement</h3><p>Tracks citations, rankings, and placements — every number traced to a source.</p></div>
-        <div class="layer"><div class="num">06</div><h3><i class="ti ti-shield-check"></i>Quality gate</h3><p>Nothing goes out that the brand can't stand behind. You stay in control.</p></div>
+        <div class="layer"><div class="num">01</div><h3><i class="ti ti-school"></i> Universities & Colleges</h3><p>Full-cycle earned media campaigns — from outcomes data studies to journalist outreach to regional press. Every placement tied to enrollment goals.</p></div>
+        <div class="layer"><div class="num">02</div><h3><i class="ti ti-device-laptop"></i> Edtech & OPMs</h3><p>Category authority through trade press, data studies, and thought leadership. Be the platform institutions trust because the coverage says so.</p></div>
+        <div class="layer"><div class="num">03</div><h3><i class="ti ti-briefcase"></i> Agencies</h3><p>White-label earned media for your higher-ed clients. You keep the relationship; we deliver the placements. Per-client, isolated, always on.</p></div>
       </div>
-      <div class="layer-foot">Hire an agency for all of this — or skip the retainer.</div>
     </div>
   </div>
 </section>
 
-<!-- FOR EVERY INDUSTRY (Runtime "for every team") -->
-<section class="band wrap">
+<!-- PRICING PREVIEW -->
+<section class="band wrap" id="pricing">
   <div class="sec-head">
-    <div class="sec-eyebrow">Who we serve</div>
-    <h2>One engine, tuned to <em class="grad">your corner of higher ed</em>.</h2>
-    <p>Universities, edtech, and the agencies who serve them. Same compounding visibility — pointed at your goals.</p>
+    <div class="sec-eyebrow">Simple pricing</div>
+    <h2>No retainers. <em class="grad">Scoped engagements.</em></h2>
+    <p>Every engagement is scoped to deliver a specific number of placements — typically up to 50. Start with a $500 Earned Media Session to find your story.</p>
   </div>
-  <div class="forind" style="grid-template-columns:repeat(3,1fr)">
-    <a class="ficard" href="/universities">
-      <div class="fi" style="background:var(--gold-soft);color:var(--gold-deep)"><i class="ti ti-school"></i></div>
-      <h3>Universities</h3><p>Be the program students find first. Rankings, outcomes data, and the coverage that drives enrollment.</p>
-      <span class="more">For enrollment teams <i class="ti ti-arrow-right"></i></span>
-    </a>
-    <a class="ficard" href="/edtech">
-      <div class="fi" style="background:var(--indigo-soft);color:var(--indigo-deep)"><i class="ti ti-device-laptop"></i></div>
-      <h3>Edtech &amp; OPMs</h3><p>Be the platform institutions trust. Trade press, sector data studies, and category authority.</p>
-      <span class="more">For edtech companies <i class="ti ti-arrow-right"></i></span>
-    </a>
-    <a class="ficard" href="/agencies">
-      <div class="fi" style="background:var(--coral-soft);color:var(--coral-deep)"><i class="ti ti-briefcase"></i></div>
-      <h3>Agencies</h3><p>Run earned media for every client without the headcount. Scoped, isolated, always on.</p>
-      <span class="more">For agencies <i class="ti ti-arrow-right"></i></span>
-    </a>
+  <div class="pricing-cmp" style="max-width:720px;margin:0 auto">
+    <div class="pcard">
+      <div class="pc-head">
+        <div class="pc-icon" style="background:var(--amber-soft);color:var(--amber-deep)"><i class="ti ti-sparkles"></i></div>
+        <div>
+          <div class="pc-label">Earned Media Session</div>
+          <div class="pc-sub">The intro — 90 minutes</div>
+        </div>
+      </div>
+      <div class="pc-price">
+        <span class="pc-amt">$500</span>
+        <span class="pc-per">one-time</span>
+      </div>
+      <ul class="pc-feat">
+        <li><i class="ti ti-check"></i>90-minute strategy session with our team</li>
+        <li><i class="ti ti-check"></i>Data audit — find the stories you're not telling</li>
+        <li><i class="ti ti-check"></i>Reporter list for your top 3 story angles</li>
+        <li><i class="ti ti-check"></i>Credibility gap analysis</li>
+        <li><i class="ti ti-check"></i>No obligation to continue</li>
+      </ul>
+      <a href="/contact" class="btn btn-soft btn-lg" style="width:100%;margin-top:8px"><i class="ti ti-calendar"></i>Book your session</a>
+    </div>
+    <div class="pcard pcard-701">
+      <div class="pc-launch"><span class="pc-dot"></span>Our most common engagement</div>
+      <div class="pc-head">
+        <div class="pc-icon pc-icon-grad"><i class="ti ti-rocket"></i></div>
+        <div>
+          <div class="pc-label" style="color:#fff">Earned Media Engagement</div>
+          <div class="pc-sub" style="color:var(--night-txt)">Up to 50 placements</div>
+        </div>
+      </div>
+      <div class="pc-price">
+        <span class="pc-amt pc-amt-grad">$6,500</span>
+        <span class="pc-per" style="color:var(--night-txt)">per engagement</span>
+      </div>
+      <ul class="pc-feat pc-feat-dark">
+        <li><i class="ti ti-check"></i>Full campaign — data research, narrative, pitches</li>
+        <li><i class="ti ti-check"></i>Up to 50 placements in target outlets</li>
+        <li><i class="ti ti-check"></i>AI citation tracking & optimization</li>
+        <li><i class="ti ti-check"></i">Monthly reporting & strategy review</li>
+        <li><i class="ti ti-check"></i>No long-term contract required</li>
+      </ul>
+      <a href="/contact" class="btn btn-primary btn-lg" style="width:100%;margin-top:8px"><i class="ti ti-calendar"></i>Book a discovery call</a>
+      <div class="pc-fine">Most engagements complete in 8–12 weeks. Extensions available.</div>
+    </div>
   </div>
 </section>
-
-<!-- DFY STUDIO -->
-<section class="band wrap">
-  <div class="sec-head">
-    <div class="sec-eyebrow">Done-for-you services</div>
-    <h2>Need it <em class="grad">run for you</em>?</h2>
-    <p>Let the 701am Studio team configure, manage, and deliver your earned-media campaigns — so you get the output without staffing it yourself.</p>
-  </div>
-  <div class="forind" style="grid-template-columns:repeat(3,1fr)">
-    <a class="ficard" href="/studio">
-      <div class="fi" style="background:var(--gold-soft);color:var(--gold-deep)"><i class="ti ti-school"></i></div>
-      <h3>For Universities</h3><p>Full-cycle earned media for enrollment — placements tied to funnel movement, managed start to finish.</p>
-      <span class="more">Inquire for pricing <i class="ti ti-arrow-right"></i></span>
-    </a>
-    <a class="ficard" href="/studio">
-      <div class="fi" style="background:var(--indigo-soft);color:var(--indigo-deep)"><i class="ti ti-device-laptop"></i></div>
-      <h3>For Edtech</h3><p>Category authority, data studies, and AI citations — built and delivered by the Studio team.</p>
-      <span class="more">Inquire for pricing <i class="ti ti-arrow-right"></i></span>
-    </a>
-    <a class="ficard" href="/studio">
-      <div class="fi" style="background:var(--coral-soft);color:var(--coral-deep)"><i class="ti ti-briefcase"></i></div>
-      <h3>For Agencies</h3><p>White-label earned media per client. You keep the relationship; Studio delivers the output.</p>
-      <span class="more">Inquire for pricing <i class="ti ti-arrow-right"></i></span>
-    </a>
-  </div>
-</section>
-
-<!-- INTEGRATIONS -->
-<Integrations context="home" />
-
-<!-- PRICING -->
-<Pricing context="home" />
 
 <!-- RECENT FOUNDER NOTES -->
 {posts.length > 0 && (
 <section class="band wrap">
   <div class="sec-head">
     <div class="sec-eyebrow">Founder Notes</div>
-    <h2>Field notes on earned media &amp; <em class="grad">AI visibility</em>.</h2>
-    <p>From the team building 701am — bits worth not forgetting.</p>
+    <h2>Field notes on earned media & <em class="grad">higher ed visibility</em>.</h2>
+    <p>From the team building 701am — what we're learning about earned media, AI, and enrollment.</p>
   </div>
   <div class="notes" style="max-width:720px;margin:0 auto">
     {posts.map((p) => (
@@ -244,16 +181,21 @@ const fmt = (d: Date) =>
   <div class="catmos"><div class="cg"></div></div>
   <div class="wrap">
     <div class="pill-badge"><span class="tagm">Filed at sunrise</span></div>
-    <h2>Be impossible to <em class="grad">miss</em>.</h2>
-    <p>701am is opening to a first group of higher-ed teams. Put your name down.</p>
-    <button class="btn btn-primary btn-lg js-soon"><i class="ti ti-sparkles"></i>Request early access</button>
+    <h2>Get your institution <em class="grad">covered</em>.</h2>
+    <p>Start with a $500 Earned Media Session — or book a discovery call to scope your campaign.</p>
+    <a href="/contact" class="btn btn-primary btn-lg"><i class="ti ti-calendar"></i>Book a discovery call</a>
   </div>
-  </section>
+</section>
 </Layout>
 
-<script is:inline>
-function wait(ms){return new Promise(r=>setTimeout(r,ms));}
-  async function lightRows(){const rows=[...document.querySelectorAll('#fragChannels .chrow')];for(const r of rows){r.classList.add('lit');await wait(360);}}
-  const io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){lightRows();io.disconnect();}});},{threshold:.4});
-  const fc=document.getElementById('fragChannels');if(fc)io.observe(fc);
-</script>
+<style>
+.cal-wrap {
+  background: var(--paper);
+  border: 1px solid var(--line-2);
+  border-radius: var(--r-xl);
+  box-shadow: var(--sh-xl);
+  overflow: hidden;
+}
+</style>
+
+<script src="https://assets.cal.com/embed.js" async></script>

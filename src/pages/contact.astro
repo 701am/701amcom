@@ -2,84 +2,85 @@
 import Layout from '../layouts/Layout.astro';
 ---
 <Layout
-  title="Contact"
-  description="Tell us about your institution, company, or agency — and which corner of higher ed you're in. We'll take it from there."
+  title="Contact — Digital PR for Higher Education"
+  description="Book a discovery call with 701am. Digital PR agency for higher education — earned media campaigns, up to 50 placements per engagement."
 >
   <header class="contact-hero">
     <div class="hero-atmos"><div class="grid"></div><div class="glow g1"></div><div class="glow g2"></div><div class="glow g3"></div></div>
     <div class="wrap" style="position:relative;z-index:1">
       <div class="eyebrow">Get in touch</div>
-      <h1>Let's talk about getting you <em class="grad">found</em>.</h1>
-      <p class="lede">Tell us which corner of higher ed you're in and what you're trying to do. We read every message.</p>
+      <h1>Let's get your institution <em class="grad">covered</em>.</h1>
+      <p class="lede">Book a discovery call to scope your earned media campaign. Or send us a message and we'll follow up.</p>
     </div>
   </header>
 
   <div class="contact-wrap">
     <div class="contact-form" id="contact-card">
-      <form class="cf-form" id="contact-form" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field">
-        <input type="hidden" name="form-name" value="contact" />
-        <p hidden><label>Don't fill this out: <input name="bot-field" /></label></p>
-
-        <div class="cf-field">
-          <label>I'm with a…</label>
-          <div class="cf-seg">
-            <label><input type="radio" name="segment" value="university" checked /><span class="opt">University</span></label>
-            <label><input type="radio" name="segment" value="edtech" /><span class="opt">Edtech / OPM</span></label>
-            <label><input type="radio" name="segment" value="agency" /><span class="opt">Agency</span></label>
-          </div>
-        </div>
-
-        <div class="cf-field">
-          <label for="cf-name">Name</label>
-          <input type="text" id="cf-name" name="name" placeholder="Your name" required />
-        </div>
-        <div class="cf-field">
-          <label for="cf-email">Work email</label>
-          <input type="email" id="cf-email" name="email" placeholder="you@institution.edu" required />
-        </div>
-        <div class="cf-field">
-          <label for="cf-org">Institution / company</label>
-          <input type="text" id="cf-org" name="org" placeholder="Where you work" />
-        </div>
-        <div class="cf-field">
-          <label for="cf-msg">What are you trying to do?</label>
-          <textarea id="cf-msg" name="message" placeholder="A sentence or two about your goals — enrollment, category visibility, scaling client work…"></textarea>
-        </div>
-        <button type="submit" class="cf-submit" id="cf-submit">Send it</button>
-      </form>
-
-      <div class="contact-thanks">
-        <div class="ok"><i class="ti ti-check"></i></div>
-        <h3>Got it — thank you.</h3>
-        <p>We'll be in touch shortly. Filed at sunrise.</p>
-      </div>
+      <div class="calendly-inline-widget" data-url="https://cal.com/davidkrug/discovery?overlayCalendar=true" style="min-width:320px;height:630px;border-radius:14px;overflow:hidden"></div>
     </div>
 
     <aside class="contact-side">
       <div class="cs-block">
+        <h4>Earned Media Session</h4>
+        <p>Not ready for a discovery call? Start with a $500 Earned Media Session — 90 minutes, data audit, reporter list, no obligation.</p>
+        <a class="cs-link" href="/studio">See pricing <i class="ti ti-arrow-right"></i></a>
+      </div>
+      <div class="cs-block">
         <h4>Prefer email?</h4>
-        <p>Write us directly — we read everything that comes in.</p>
+        <p>Write us directly — we read everything.</p>
         <a class="cs-mail" href="mailto:hello@701am.com">hello@701am.com</a>
       </div>
       <div class="cs-block">
-        <h4>Already know your corner?</h4>
-        <p>Jump straight to how 701am works for your world:</p>
-        <p><a class="cs-link" href="/universities">Universities <i class="ti ti-arrow-right"></i></a></p>
-        <p><a class="cs-link" href="/edtech">Edtech &amp; OPMs <i class="ti ti-arrow-right"></i></a></p>
-        <p><a class="cs-link" href="/agencies">Agencies <i class="ti ti-arrow-right"></i></a></p>
-      </div>
-      <div class="cs-block">
-        <h4>Early access</h4>
-        <p>701am is opening to a first group of higher-ed teams.</p>
-        <a class="cs-link js-soon">Request an invite <i class="ti ti-arrow-right"></i></a>
+        <h4>What we work on</h4>
+        <p>Earned media campaigns for higher education — universities, colleges, edtech companies, and the agencies that serve them.</p>
+        <p><a class="cs-link" href="/studio">See our services <i class="ti ti-arrow-right"></i></a></p>
       </div>
     </aside>
   </div>
 
+  <section class="band wrap">
+    <div class="contact-wrap" style="grid-template-columns:1fr;max-width:680px">
+      <div class="contact-form">
+        <h4 style="font-family:var(--serif);font-size:22px;font-weight:500;margin-bottom:16px">Or send us a message</h4>
+        <form class="cf-form" id="contact-form" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+          <input type="hidden" name="form-name" value="contact" />
+          <p hidden><label>Don't fill this out: <input name="bot-field" /></label></p>
+
+          <div class="cf-field">
+            <label>I'm with a…</label>
+            <div class="cf-seg">
+              <label><input type="radio" name="segment" value="university" checked /><span class="opt">University / College</span></label>
+              <label><input type="radio" name="segment" value="edtech" /><span class="opt">Edtech / OPM</span></label>
+              <label><input type="radio" name="segment" value="agency" /><span class="opt">Agency</span></label>
+            </div>
+          </div>
+
+          <div class="cf-field">
+            <label for="cf-name">Name</label>
+            <input type="text" id="cf-name" name="name" placeholder="Your name" required />
+          </div>
+          <div class="cf-field">
+            <label for="cf-email">Work email</label>
+            <input type="email" id="cf-email" name="email" placeholder="you@institution.edu" required />
+          </div>
+          <div class="cf-field">
+            <label for="cf-org">Institution / company</label>
+            <input type="text" id="cf-org" name="org" placeholder="Where you work" />
+          </div>
+          <div class="cf-field">
+            <label for="cf-msg">What are you trying to do?</label>
+            <textarea id="cf-msg" name="message" placeholder="Tell us about your goals — enrollment visibility, earned media, press coverage…"></textarea>
+          </div>
+          <button type="submit" class="cf-submit" id="cf-submit">Send it</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <script src="https://assets.cal.com/embed.js" async></script>
   <script is:inline>
     (function () {
       var form = document.getElementById('contact-form');
-      var card = document.getElementById('contact-card');
       if (!form) return;
       function enc(d){return Object.keys(d).map(function(k){return encodeURIComponent(k)+'='+encodeURIComponent(d[k])}).join('&')}
       form.addEventListener('submit', function (e) {
@@ -105,7 +106,7 @@ import Layout from '../layouts/Layout.astro';
           headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
           body: enc(data)
         }).then(function () {
-          card.classList.add('sent');
+          form.innerHTML = '<div style="padding:30px 0"><div style="font-size:18px;font-weight:600;margin-bottom:8px">Got it — thank you.</div><p>We\'ll be in touch shortly. Filed at sunrise.</p></div>';
         }).catch(function () {
           btn.disabled = false; btn.textContent = 'Send it';
           alert("Something went wrong — please email hello@701am.com directly.");

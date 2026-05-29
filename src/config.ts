@@ -1,10 +1,10 @@
 export const SITE = {
   name: '701am',
-  tagline: 'for Higher\u00A0Ed',
+  tagline: 'Digital PR for\u00A0Higher\u00A0Ed',
   domain: '701am.com',
   url: 'https://701am.com',
   description:
-    '701am runs a swarm of agents that makes your institution the answer in AI, the result in Google, and the name in the press — built for universities, edtech, and the agencies that serve them.',
+    '701am is a digital PR agency for higher education. Earned media campaigns that get your institution covered — up to 50 placements per engagement.',
 };
 
 export const SEGMENTS = [
@@ -14,5 +14,5 @@ export const SEGMENTS = [
 ];
 
 export const NAV = [
-  ...SEGMENTS,
+  { slug: 'studio', label: 'Studio' },
 ];
