@@ -48,10 +48,7 @@ const canonical = new URL(Astro.url.pathname, SITE.url).href;
   <!-- Icons (async — non-render-blocking) -->
   <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/tabler-icons/3.31.0/tabler-icons.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
   <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tabler-icons/3.31.0/tabler-icons.min.css" /></noscript>
-  <!-- Stylesheet (async — non-render-blocking) -->
-  <link rel="preload" href="/styles/global.css?v=a30376e" as="style" onload="this.onload=null;this.rel='stylesheet';document.documentElement.classList.add('css-ready')" />
-  <noscript><link rel="stylesheet" href="/styles/global.css?v=a30376e" /></noscript>
-  <script is:inline>setTimeout(function(){document.documentElement.classList.add('css-ready')},3000)</script>
+  <script is:inline>document.documentElement.classList.add('css-ready')</script>
 </head>
 <body>
   <GradDefs />

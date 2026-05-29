@@ -1,37 +1,23 @@
 ---
 import Mark from './Mark.astro';
-import { SITE } from '../config';
 const { pathname } = Astro.url;
 ---
-<div class="announce">
-  <span class="ann-tag">$500 intro</span>
-  <span>Narrative Attraction Session — 90 minutes, no obligation.</span>
-  <a href="/contact">Book a discovery call <i class="ti ti-calendar"></i></a>
-</div>
-
-<nav id="nav">
-  <div class="nav-in">
-    <a class="logo" href="/">
+<nav class="nav">
+  <div class="nav-inner">
+    <a class="nav-logo" href="/">
       <Mark />
-      <span class="wm">701<span class="am">am</span></span>
-      <span class="tagline" set:html={SITE.tagline}></span>
+      <span class="nav-name">701<span class="nav-am">am</span></span>
+      <span class="nav-tag">Narrative Attraction for Higher&nbsp;Ed</span>
     </a>
-
-    <button class="navtoggle" id="navtoggle" aria-label="Menu">
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
-        <path d="M4 7h16"/><path d="M4 12h16"/><path d="M4 17h16"/>
-      </svg>
+    <button class="nav-toggle" id="navtoggle" aria-label="Menu">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16"/><path d="M4 12h16"/><path d="M4 17h16"/></svg>
     </button>
-
-    <div class="navlinks" id="navlinks">
-      <a href="/#services" class={pathname === '/' ? 'active' : ''}>Services</a>
-      <a href="/studio" class={pathname.startsWith('/studio') ? 'active' : ''}>Studio</a>
-      <a href="/about" class={pathname.startsWith('/about') ? 'active' : ''}>About</a>
-      <a href="/#pricing" class={pathname === '/' ? 'active' : ''}>Pricing</a>
-    </div>
-
-    <div class="nav-cta">
-      <a href="/contact" class="btn btn-primary"><i class="ti ti-calendar"></i><span class="full">Book a discovery call</span><span class="short" style="display:none">Book call</span></a>
+    <div class="nav-links" id="navlinks">
+      <a href="/#services">Services</a>
+      <a href="/studio">Studio</a>
+      <a href="/about">About</a>
+      <a href="/#pricing">Pricing</a>
+      <a href="/#contact" class="nav-cta">Book a call</a>
     </div>
   </div>
 </nav>
@@ -39,10 +25,35 @@ const { pathname } = Astro.url;
 <script>
   const navEl = document.getElementById('nav');
   const toggle = document.getElementById('navtoggle');
-  // mobile hamburger
-  toggle?.addEventListener('click', (e) => { e.stopPropagation(); navEl?.classList.toggle('menu-open'); });
-  // close mobile menu when a real link is tapped
+  if (toggle) {
+    toggle.addEventListener('click', (e) => {
+      e.stopPropagation();
+      navEl?.classList.toggle('menu-open');
+    });
+  }
   document.querySelectorAll('#navlinks a[href]').forEach((a) =>
     a.addEventListener('click', () => navEl?.classList.remove('menu-open'))
   );
 </script>
+
+<style>
+.nav{background:#2A1510;border-bottom:1px solid #4A2820;position:sticky;top:0;z-index:100}
+.nav-inner{max-width:1120px;margin:0 auto;padding:0 28px;display:flex;align-items:center;height:64px;gap:24px}
+.nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none;flex-shrink:0}
+.nav-name{font-family:'Newsreader',Georgia,serif;font-size:22px;font-weight:500;letter-spacing:-.02em;color:#EDE4DC}
+.nav-am{color:#DD5A38}
+.nav-tag{font-family:'JetBrains Mono',monospace;font-size:10px;color:#B8A89C;padding-left:10px;margin-left:6px;border-left:1px solid #4A2820;letter-spacing:.02em;white-space:nowrap}
+.nav-toggle{display:none;background:none;border:none;color:#EDE4DC;cursor:pointer;padding:4px;margin-left:auto}
+.nav-links{display:flex;align-items:center;gap:4px;margin-left:auto}
+.nav-links a{font-size:14px;font-weight:500;color:#B8A89C;padding:8px 14px;border-radius:8px;text-decoration:none;transition:.12s}
+.nav-links a:hover{color:#EDE4DC;background:rgba(255,255,255,.05)}
+.nav-links .nav-cta{background:#DD5A38;color:#fff;padding:8px 18px;border-radius:100px;font-weight:600}
+.nav-links .nav-cta:hover{background:#C84B2B;color:#fff}
+@media(max-width:768px){
+  .nav-toggle{display:block}
+  .nav-tag{display:none}
+  .nav-links{display:none;position:absolute;top:64px;left:0;right:0;background:#2A1510;border-bottom:1px solid #4A2820;flex-direction:column;padding:12px 20px;gap:2px}
+  .menu-open .nav-links{display:flex}
+  .menu-open .nav-links a{width:100%;padding:12px 14px}
+}
+</style>

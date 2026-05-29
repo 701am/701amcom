@@ -10,206 +10,230 @@ const posts = (await getCollection('blog'))
 const fmt = (d: Date) =>
   d.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
 ---
-<Layout title="Narrative Attraction Agency for Higher Education" description="701am is a narrative attraction agency for higher education. We put brands in the media and increase enrollment while fending off the enrollment cliff.">
+<Layout title="701am · Narrative Attraction Agency for Higher Ed" description="We put higher ed brand stories in the media, in AI searches, and on the feeds your future students actually scroll.">
+<div class="page">
+
 <!-- HERO -->
-<div class="wrap">
-  <div class="hero-inner">
-    <div class="hero-tag">Narrative Attraction Agency for Higher Education</div>
-    <h1 class="hero-h">The enrollment cliff is real.<br>Your story is your <span class="hero-grad">shield</span>.</h1>
-    <p class="hero-p">We put higher ed brand stories in the media, in AI search results, and in the feeds your future students actually scroll — so you fill seats instead of fighting for scraps.</p>
-    <div class="hero-acts">
-      <a href="#contact" class="btn btn-primary btn-lg btn-studio"><i class="ti ti-calendar"></i>Book a discovery call</a>
-      <a href="/studio" class="btn btn-ghost">See how it works <i class="ti ti-arrow-right"></i></a>
-    </div>
-    <div class="hero-meta">$6,500 per engagement · Up to 50 placements · No retainers</div>
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-deco">
+    <svg class="hero-shape shape-1" width="280" height="280" viewBox="0 0 280 280"><circle cx="140" cy="140" r="120" stroke="#DD5A38" stroke-width="1" stroke-dasharray="8 16" fill="none" opacity=".2"/><circle cx="140" cy="140" r="80" fill="#DD5A38" opacity=".04"/></svg>
+    <svg class="hero-shape shape-2" width="200" height="200" viewBox="0 0 200 200"><rect x="20" y="20" width="160" height="160" rx="24" stroke="#EFA23C" stroke-width="1.2" stroke-dasharray="6 14" fill="none" opacity=".2"/></svg>
+    <svg class="hero-shape shape-3" width="120" height="120" viewBox="0 0 120 120"><path d="M60 6L65 44L102 60L65 76L60 114L55 76L18 60L55 44Z" fill="#EFA23C" opacity=".06"/></svg>
   </div>
-</div>
-<div class="hero-shapes">
-  <svg class="hs-1" width="220" height="220" viewBox="0 0 220 220" fill="none"><circle cx="110" cy="110" r="100" stroke="url(#sunGrad)" stroke-width="1" stroke-dasharray="4 8" opacity=".5"/><circle cx="110" cy="110" r="60" fill="url(#sunGrad)" opacity=".08"/></svg>
-  <svg class="hs-2" width="140" height="140" viewBox="0 0 140 140" fill="none"><rect x="10" y="10" width="120" height="120" rx="16" stroke="url(#sunGrad)" stroke-width="1.5" stroke-dasharray="5 9" opacity=".4" transform="rotate(20)"/></svg>
-  <svg class="hs-3" width="80" height="80" viewBox="0 0 80 80" fill="none"><path d="M40 8L44 34L70 40L44 46L40 72L36 46L10 40L36 34Z" fill="url(#sunGrad)" opacity=".06"/></svg>
-</div>
+  <div class="hero-side">
+    <div class="hero-side-line"></div>
+    <span class="hero-side-text">P R E S S · A I · S O C I A L</span>
+    <div class="hero-side-line"></div>
+  </div>
+  <div class="hero-inner">
+    <h1 class="hero-headline">The enrollment<br>cliff is <span class="sunrise-gradient">real</span>.</h1>
+    <h2 class="hero-subhead">Your story is your shield.</h2>
+    <p class="hero-p">We put higher ed brand stories in the media, in AI search results, and in the feeds your future students actually scroll&mdash;so you fill seats instead of fighting for scraps.</p>
+    <div class="hero-ctas">
+      <a href="#pricing" class="btn-primary">Book a discovery call</a>
+      <a href="/studio" class="btn-secondary">See how it works →</a>
+    </div>
+    <p class="hero-note">$6,500 per engagement · Up to 50 placements · No retainers</p>
+  </div>
+</section>
 
 <!-- CLIENT MARQUEE -->
 <section class="marquee">
-  <p class="marquee-label">Trusted by</p>
-  <div class="marquee-track">
-    <div class="marquee-inner">
-      <a href="https://collegechoice.net" target="_blank">CollegeChoice.net</a><span class="mdot"></span>
-      <a href="https://thebestschools.org" target="_blank">TheBestSchools.org</a><span class="mdot"></span>
-      <a href="https://affordableschools.net" target="_blank">AffordableSchools.net</a><span class="mdot"></span>
-      <a href="https://onlineschoolscenter.com" target="_blank">OnlineSchoolsCenter.com</a><span class="mdot"></span>
-      <a href="https://collegevaluesonline.com" target="_blank">CollegeValuesOnline.com</a><span class="mdot"></span>
-      <a href="https://collegeconsensus.com" target="_blank">CollegeConsensus.com</a><span class="mdot"></span>
-      <a href="https://collegechoice.net" target="_blank">CollegeChoice.net</a><span class="mdot"></span>
-      <a href="https://thebestschools.org" target="_blank">TheBestSchools.org</a><span class="mdot"></span>
-      <a href="https://affordableschools.net" target="_blank">AffordableSchools.net</a><span class="mdot"></span>
-      <a href="https://onlineschoolscenter.com" target="_blank">OnlineSchoolsCenter.com</a><span class="mdot"></span>
-      <a href="https://collegevaluesonline.com" target="_blank">CollegeValuesOnline.com</a><span class="mdot"></span>
-      <a href="https://collegeconsensus.com" target="_blank">CollegeConsensus.com</a><span class="mdot"></span>
+  <div class="marquee-label">Trusted by</div>
+  <div class="marquee-track-wrap">
+    <div class="marquee-track">
+      <a href="https://collegechoice.net" target="_blank">CollegeChoice.net</a>
+      <span class="marquee-dot"></span>
+      <a href="https://thebestschools.org" target="_blank">TheBestSchools.org</a>
+      <span class="marquee-dot"></span>
+      <a href="https://affordableschools.net" target="_blank">AffordableSchools.net</a>
+      <span class="marquee-dot"></span>
+      <a href="https://onlineschoolscenter.com" target="_blank">OnlineSchoolsCenter.com</a>
+      <span class="marquee-dot"></span>
+      <a href="https://collegevaluesonline.com" target="_blank">CollegeValuesOnline.com</a>
+      <span class="marquee-dot"></span>
+      <a href="https://collegeconsensus.com" target="_blank">CollegeConsensus.com</a>
+      <span class="marquee-dot"></span>
+      <a href="https://collegechoice.net" target="_blank">CollegeChoice.net</a>
+      <span class="marquee-dot"></span>
+      <a href="https://thebestschools.org" target="_blank">TheBestSchools.org</a>
+      <span class="marquee-dot"></span>
+      <a href="https://affordableschools.net" target="_blank">AffordableSchools.net</a>
+      <span class="marquee-dot"></span>
+      <a href="https://onlineschoolscenter.com" target="_blank">OnlineSchoolsCenter.com</a>
+      <span class="marquee-dot"></span>
+      <a href="https://collegevaluesonline.com" target="_blank">CollegeValuesOnline.com</a>
+      <span class="marquee-dot"></span>
+      <a href="https://collegeconsensus.com" target="_blank">CollegeConsensus.com</a>
+      <span class="marquee-dot"></span>
     </div>
   </div>
 </section>
 
 <!-- PROBLEMS -->
-<section class="sec cream" id="approach">
+<section class="section light" id="approach">
   <div class="wrap">
-    <div class="s-head">
-      <h2>The stakes are <span class="g">higher</span> than ever</h2>
-      <p>Higher ed is facing three converging threats. We help you turn all three into advantages.</p>
+    <div class="section-head">
+      <h2>Higher ed is facing a <span class="sunrise-gradient">convergence</span></h2>
+      <p>Three threats are reshaping the landscape. We help you meet each one head-on.</p>
     </div>
-    <div class="c3">
-      <div class="cc">
-        <div class="ci"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 20L9 12L13 17L21 4"/><path d="M21 10V4H15"/></svg></div>
-        <h3>The enrollment cliff is here</h3>
-        <p>High school graduating classes peaked in 2011. By 2027 there will be 200,000 fewer college-age students. The institutions with the strongest brand narratives will absorb the decline.</p>
-      </div>
-      <div class="cc">
-        <div class="ci"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2C6.5 2 2 6.5 2 12C2 17.5 6.5 22 12 22C17.5 22 20 17.5 20 12C20 6.5 17.5 2 12 2Z"/><path d="M12 16C14.2 16 16 14.2 16 12C16 9.8 14.2 8 12 8C9.8 8 8 9.8 8 12C8 14.2 9.8 16 12 16Z"/></svg></div>
-        <h3>AI doesn't recommend you</h3>
-        <p>When prospective students ask ChatGPT, Perplexity, or Google AI which school is best, your institution isn't in the answer. We train the AI to recommend you instead.</p>
-      </div>
-      <div class="cc">
-        <div class="ci"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="2" width="20" height="20" rx="4"/><path d="M8 12H16"/><path d="M12 8V16"/></svg></div>
-        <h3>Students moved without you</h3>
-        <p>They're on TikTok, Instagram, YouTube, and Reddit. Traditional PR alone doesn't reach them. We create content that shows up where your applicants actually spend their time.</p>
-      </div>
+    <div class="grid-3">
+      <article class="card">
+        <div class="card-icon">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M2 16L7 9L11 13L18 4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M18 9V4H13" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        </div>
+        <h3>The enrollment cliff</h3>
+        <p>High school graduating classes peaked in 2011. By 2027 there will be 200,000 fewer college-age students. The institutions with the strongest narratives will absorb the decline.</p>
+      </article>
+      <article class="card">
+        <div class="card-icon">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="8" stroke="currentColor" stroke-width="2"/><circle cx="10" cy="10" r="3" stroke="currentColor" stroke-width="2"/></svg>
+        </div>
+        <h3>AI doesn't see you</h3>
+        <p>When a junior asks ChatGPT &ldquo;which college should I go to?&rdquo; your name isn&rsquo;t in the answer. We earn the citations and authority that train AI to recommend your school.</p>
+      </article>
+      <article class="card">
+        <div class="card-icon">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><rect x="2" y="2" width="16" height="16" rx="4" stroke="currentColor" stroke-width="2"/><path d="M6 10H14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M10 6V14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        </div>
+        <h3>Students moved on</h3>
+        <p>They&rsquo;re on TikTok, Instagram, YouTube, and Reddit. Traditional PR alone doesn&rsquo;t reach them. We create content that shows up where your applicants actually spend their time.</p>
+      </article>
     </div>
   </div>
 </section>
 
-<!-- THE AGENCY WE ALWAYS WANTED -->
-<section class="sec dark">
-  <div class="deco-bg"></div>
+<!-- AGENCY -->
+<section class="section dark">
+  <div class="dark-glow"></div>
   <div class="wrap">
     <div class="agency">
-      <div class="agency-txt">
-        <div class="agency-tag">The agency we always wanted</div>
-        <h2>We know what it's like to hire an agency that overpromises and underdelivers. We built this one to <span class="g">fix that</span>.</h2>
-        <p>We're intentionally boutique. We never take on more than 10 institutions at a time. We all have time to obsess over your success — and we do.</p>
-        <div class="agency-stats">
-          <div class="as">
-            <span class="as-n"><span class="g">20+</span></span>
-            <span class="as-l">Years in higher ed</span>
-          </div>
-          <div class="as">
-            <span class="as-n"><span class="g">50+</span></span>
-            <span class="as-l">Publications covered</span>
-          </div>
-          <div class="as">
-            <span class="as-n"><span class="g">50</span></span>
-            <span class="as-l">Placements per engagement</span>
-          </div>
+      <span class="agency-label">The agency we always wanted</span>
+      <h2>We know what it&rsquo;s like to hire an agency that overpromises and underdelivers. We built this one to <span class="sunrise-gradient">fix that</span>.</h2>
+      <p>We&rsquo;re intentionally boutique. We never take on more than 10 institutions at a time. We all have time to obsess over your success&mdash;and we do.</p>
+      <div class="agency-stats">
+        <div class="agency-stat">
+          <span class="stat-num sunrise-gradient">20+</span>
+          <span class="stat-label">Years in higher ed</span>
+        </div>
+        <div class="agency-stat">
+          <span class="stat-num sunrise-gradient">50+</span>
+          <span class="stat-label">Publications covered</span>
+        </div>
+        <div class="agency-stat">
+          <span class="stat-num sunrise-gradient">50</span>
+          <span class="stat-label">Placements per engagement</span>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- WHAT WE DO -->
-<section class="sec cream" id="services">
+<!-- SERVICES -->
+<section class="section light" id="services">
   <div class="wrap">
-    <div class="s-head">
-      <h2>What we <span class="g">do</span></h2>
-      <p>We call it Narrative Attraction — earning your institution visibility across every channel that influences enrollment decisions.</p>
+    <div class="section-head">
+      <h2>What we <span class="sunrise-gradient">do</span></h2>
+      <p>Narrative Attraction &mdash; earning your institution visibility across every channel that influences enrollment.</p>
     </div>
-    <div class="svcs">
-      <div class="svc">
-        <div class="svc-n">01</div>
+    <div class="grid-3">
+      <article class="card">
+        <span class="card-step">01</span>
         <h3>Earned Media</h3>
-        <p>We pitch and place your story in Inside Higher Ed, regional outlets, and national education press — reaching the faculty, families, and journalists who shape institutional reputation.</p>
-      </div>
-      <div class="svc">
-        <div class="svc-n">02</div>
+        <p>We pitch your story to journalists covering higher ed and place it in outlets that families, faculty, and donors actually read. Relationships, not spray-and-pray.</p>
+      </article>
+      <article class="card">
+        <span class="card-step">02</span>
         <h3>AI Search Visibility</h3>
-        <p>We earn the coverage, citations, and authority signals that train ChatGPT and other AI models to recommend your institution when prospective students ask which school to choose.</p>
-      </div>
-      <div class="svc">
-        <div class="svc-n">03</div>
-        <h3>Social & New Media</h3>
-        <p>We create platform-native content for TikTok, Instagram, YouTube, and Reddit — meeting prospective students on the platforms where they actually discover, research, and choose.</p>
-      </div>
+        <p>We earn the citations, coverage, and authority signals that train ChatGPT, Perplexity, and Google AI to recommend your institution when it matters most.</p>
+      </article>
+      <article class="card">
+        <span class="card-step">03</span>
+        <h3>Social &amp; New Media</h3>
+        <p>Platform-native content for TikTok, Instagram, YouTube, and Reddit&mdash;meeting prospective students where they actually discover, research, and decide.</p>
+      </article>
     </div>
   </div>
 </section>
 
 <!-- PROCESS -->
-<section class="sec dark">
-  <div class="deco-bg"></div>
+<section class="section dark">
+  <div class="dark-glow"></div>
   <div class="wrap">
-    <div class="s-head">
-      <h2>How we <span class="g">work</span></h2>
-      <p>From strategy to placement in 8–12 weeks. Every engagement follows the same proven process.</p>
+    <div class="section-head">
+      <h2>How we <span class="sunrise-gradient">work</span></h2>
+      <p>From strategy to placement in 8&ndash;12 weeks. Every engagement follows the same proven process.</p>
     </div>
     <div class="steps">
-      <div class="st">
-        <div class="st-n">01</div>
+      <div class="step">
+        <span class="step-num">01</span>
         <h3>Audit</h3>
-        <p>We review your data, identify the stories you're not telling, and assess your visibility across press, AI, and social channels.</p>
+        <p>We review your data, identify the stories you&rsquo;re not telling, and assess your visibility across press, AI, and social channels.</p>
       </div>
-      <div class="st">
-        <div class="st-n">02</div>
+      <div class="step">
+        <span class="step-num">02</span>
         <h3>Develop</h3>
         <p>We frame the narrative, write the pitches, build the reporter list, and create platform-specific content for each channel.</p>
       </div>
-      <div class="st">
-        <div class="st-n">03</div>
+      <div class="step">
+        <span class="step-num">03</span>
         <h3>Place</h3>
         <p>Human outreach to journalists, AI training data seeding, and social amplification. We work relationships, not databases.</p>
       </div>
-      <div class="st">
-        <div class="st-n">04</div>
+      <div class="step">
+        <span class="step-num">04</span>
         <h3>Report</h3>
-        <p>Every placement tracked and correlated to enrollment metrics, search visibility, and AI citation share.</p>
+        <p>Every placement tracked and correlated to enrollment metrics, search visibility, and AI citation share. You&rsquo;ll know exactly what&rsquo;s working.</p>
       </div>
     </div>
   </div>
 </section>
 
 <!-- PRICING -->
-<section class="sec cream" id="pricing">
+<section class="section light" id="pricing">
   <div class="wrap">
-    <div class="s-head">
-      <h2>Simple <span class="g">pricing</span></h2>
+    <div class="section-head">
+      <h2>Simple <span class="sunrise-gradient">pricing</span></h2>
       <p>No retainers. No long-term contracts. Every engagement scoped to deliver specific results.</p>
     </div>
-    <div class="p-grid">
-      <div class="p-card">
-        <div class="p-tag">Narrative Attraction Session</div>
-        <div class="p-price">$500</div>
-        <div class="p-per">one-time</div>
-        <p class="p-desc">90 minutes with our team. Strategy session, data audit, story identification, channel plan. No obligation to continue.</p>
-        <ul class="p-f">
-          <li><i class="ti ti-check"></i>90-minute strategy session</li>
-          <li><i class="ti ti-check"></i>Data audit — find the stories</li>
-          <li><i class="ti ti-check"></i>Channel plan — press, AI, social</li>
-          <li><i class="ti ti-check"></i>No obligation to continue</li>
+    <div class="pricing">
+      <div class="pricing-card">
+        <span class="pricing-label">Narrative Attraction Session</span>
+        <div class="pricing-price">$500</div>
+        <div class="pricing-period">one-time</div>
+        <p class="pricing-desc">90 minutes with our team. Strategy session, data audit, story identification, channel plan.</p>
+        <ul class="pricing-features">
+          <li><span class="check">&#10003;</span>90-minute strategy session</li>
+          <li><span class="check">&#10003;</span>Data audit &mdash; find the stories</li>
+          <li><span class="check">&#10003;</span>Channel plan &mdash; press, AI, social</li>
+          <li><span class="check">&#10003;</span>No obligation to continue</li>
         </ul>
-        <a href="#contact" class="btn btn-soft btn-lg" style="width:100%"><i class="ti ti-calendar"></i>Book your session</a>
+        <a href="#contact" class="btn-secondary" style="width:100%">Book your session</a>
       </div>
-      <div class="p-card featured">
-        <div class="p-tag" style="color:var(--amber)">Narrative Attraction Engagement</div>
-        <div class="p-price g">$6,500</div>
-        <div class="p-per" style="color:var(--night-txt)">per engagement</div>
-        <p class="p-desc" style="color:var(--night-txt-2)">Full campaign — research, narrative development, multi-channel outreach, and reporting. Up to 50 placements.</p>
-        <ul class="p-f" style="color:var(--night-txt-2)">
-          <li><i class="ti ti-check" style="color:var(--amber)"></i>Full campaign — all services included</li>
-          <li><i class="ti ti-check" style="color:var(--amber)"></i>Up to 50 placements</li>
-          <li><i class="ti ti-check" style="color:var(--amber)"></i>AI citation tracking</li>
-          <li><i class="ti ti-check" style="color:var(--amber)"></i>Monthly reporting + strategy review</li>
-          <li><i class="ti ti-check" style="color:var(--amber)"></i>No long-term contract</li>
+      <div class="pricing-card featured">
+        <span class="pricing-label" style="color:#EE6A4C">Narrative Attraction Engagement</span>
+        <div class="pricing-price"><span class="sunrise-gradient">$6,500</span></div>
+        <div class="pricing-period">per engagement</div>
+        <p class="pricing-desc">Full campaign &mdash; research, narrative development, multi-channel outreach, and reporting. Up to 50 placements.</p>
+        <ul class="pricing-features">
+          <li><span class="check" style="color:#EE6A4C">&#10003;</span>All services included</li>
+          <li><span class="check" style="color:#EE6A4C">&#10003;</span>Up to 50 placements</li>
+          <li><span class="check" style="color:#EE6A4C">&#10003;</span>AI citation tracking</li>
+          <li><span class="check" style="color:#EE6A4C">&#10003;</span>Monthly reporting + review</li>
+          <li><span class="check" style="color:#EE6A4C">&#10003;</span>No long-term contract</li>
         </ul>
-        <a href="#contact" class="btn btn-primary btn-lg" style="width:100%"><i class="ti ti-calendar"></i>Book discovery call</a>
-        <div class="p-note">Most engagements complete in 8–12 weeks</div>
+        <a href="#contact" class="btn-primary" style="width:100%">Book discovery call</a>
+        <span class="pricing-note">Most engagements finish in 8&ndash;12 weeks</span>
       </div>
     </div>
   </div>
 </section>
 
-<!-- CLIENT GRID -->
-<section class="sec cream" style="padding-top:0">
+<!-- CLIENTS -->
+<section class="section light" style="padding-top:0">
   <div class="wrap">
-    <div class="clients">
+    <div class="client-grid">
       <a href="https://collegechoice.net" target="_blank">CollegeChoice.net</a>
       <a href="https://thebestschools.org" target="_blank">TheBestSchools.org</a>
       <a href="https://affordableschools.net" target="_blank">AffordableSchools.net</a>
@@ -220,165 +244,194 @@ const fmt = (d: Date) =>
   </div>
 </section>
 
-<!-- FOUNDER NOTES -->
-{posts.length > 0 && (<section class="sec cream" style="padding-top:0" id="notes">
+<!-- BLOG NOTES -->
+{posts.length > 0 && (<section class="section light" style="padding-top:0" id="notes">
   <div class="wrap">
-    <div class="s-head">
-      <h2>Founder <span class="g">Notes</span></h2>
-      <p>Field notes on narrative attraction, earned media, higher ed visibility, and what we're learning.</p>
+    <div class="section-head">
+      <h2>Founder <span class="sunrise-gradient">Notes</span></h2>
+      <p>Field notes on narrative attraction, earned media, and higher ed visibility.</p>
     </div>
     <div class="notes-list">
       {posts.map((p) => (<a class="note-item" href={`/blog/${p.id}`}><span class="note-date">{fmt(p.data.date)}</span><span class="note-title">{p.data.title} →</span></a>))}
     </div>
-    <div class="notes-cta"><a href="/blog" class="btn btn-soft">All notes <i class="ti ti-arrow-right"></i></a></div>
+    <div class="notes-cta"><a href="/blog" class="btn-secondary">All notes →</a></div>
   </div>
 </section>)}
 
 <!-- CLOSING -->
-<section class="sec closing" id="contact">
+<section class="closing" id="contact">
   <div class="wrap">
     <div class="closing-inner">
-      <div class="closing-tag">Narrative Attraction Agency for Higher Education</div>
-      <h2>Ready to own your <span class="g">story</span>?</h2>
-      <p>The enrollment cliff won't wait. Let's talk about where your institution stands and how we can build a narrative that protects your future.</p>
-      <a href="#contact" class="btn btn-primary btn-lg btn-studio"><i class="ti ti-calendar"></i>Book a discovery call</a>
+      <span class="closing-badge">Narrative Attraction Agency for Higher Education</span>
+      <h2>Ready to own your <span class="sunrise-gradient">story</span>?</h2>
+      <p>The enrollment cliff won&rsquo;t wait. Neither should you. Let&rsquo;s talk about where your institution stands and where we can take it.</p>
+      <a href="#contact" class="btn-primary">Book a discovery call</a>
     </div>
   </div>
 </section>
+
+</div>
 </Layout>
 
 <style>
-/* ===== BASE ===== */
-:root{--cream:#FBFAF7;--night:#15162E;--ink:#1A1826;--ink2:#55536B;--line:#ECEAF0;--serif:'Newsreader',Georgia,serif;--mono:'JetBrains Mono',ui-monospace,monospace;}
+/* ===== RESET ===== */
+:root {
+  --cream: #F5EDE4;
+  --dark: #2A1510;
+  --dark-card: #361D16;
+  --dark-border: #4A2820;
+  --text: #1E1412;
+  --text-muted: #8B7E74;
+  --text-on-dark: #EDE4DC;
+  --text-dark-muted: #B8A89C;
+  --coral: #DD5A38;
+  --amber: #EFA23C;
+  --border-light: #E0D4C8;
+  --wrap: 1120px;
+  --font-serif: 'Newsreader', Georgia, serif;
+  --font-mono: 'JetBrains Mono', monospace;
+}
+.sunrise-gradient { background: linear-gradient(100deg,#EFA23C 0%,#EE6A4C 38%,#CE5286 68%,#5A57C8 110%); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--cream);color:var(--text);font-family:system-ui,-apple-system,sans-serif;line-height:1.6}
+img{max-width:100%}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 28px;position:relative;z-index:2}
 
 /* ===== HERO ===== */
-.wrap{max-width:1120px;margin:0 auto;padding:0 28px}
-body{position:relative}
-.hero-inner{position:relative;z-index:2;padding:100px 0 80px;max-width:820px;margin:0 auto;text-align:center}
-.hero-tag{display:inline-block;font-family:var(--mono);font-size:10.5px;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--coral);border:1px solid var(--line-2);border-radius:30px;padding:6px 16px;margin-bottom:28px;background:rgba(255,255,255,.7)}
-.hero-h{font-family:var(--serif);font-size:clamp(48px,7vw,80px);font-weight:500;letter-spacing:-.035em;line-height:.93;margin-bottom:24px;color:var(--ink)}
-.hero-grad{background:var(--sunrise);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
-.hero-p{font-size:19px;color:var(--ink-2);line-height:1.65;max-width:620px;margin:0 auto 32px}
-.hero-acts{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-bottom:20px}
-.btn-ghost{display:inline-flex;align-items:center;gap:8px;height:50px;padding:0 24px;font-size:15.5px;font-weight:600;color:var(--ink-2);border-radius:12px;transition:.13s}
-.btn-ghost:hover{color:var(--coral-deep)}
-.hero-meta{font-family:var(--mono);font-size:12px;color:var(--ink-3);letter-spacing:.02em}
-.hero-shapes{position:absolute;inset:0;pointer-events:none;z-index:1;overflow:hidden}
-.hero-shapes svg{position:absolute}
-.hs-1{right:5%;top:5%;opacity:.6}
-.hs-2{left:3%;bottom:10%;opacity:.45}
-.hs-3{right:38%;bottom:8%;opacity:.3}
+.hero{position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;overflow:hidden;background:var(--cream)}
+.hero-bg{position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse 70% 40% at 60% 20%,rgba(221,90,56,.06),transparent),radial-gradient(ellipse 50% 50% at 30% 80%,rgba(239,162,60,.05),transparent)}
+.hero-deco{position:absolute;inset:0;pointer-events:none;overflow:hidden}
+.hero-shape{position:absolute}
+.shape-1{right:4%;top:6%}
+.shape-2{left:2%;bottom:18%}
+.shape-3{right:45%;bottom:8%}
+
+.hero-side{position:absolute;left:24px;top:50%;transform:translateY(-50%);display:flex;flex-direction:column;align-items:center;gap:16px;z-index:3;pointer-events:none}
+.hero-side-line{width:1px;height:60px;background:var(--border-light)}
+.hero-side-text{font-family:var(--font-mono);font-size:10px;letter-spacing:.3em;color:var(--text-muted);writing-mode:vertical-rl;text-orientation:mixed}
+@media(max-width:900px){.hero-side{display:none}}
+
+.hero-inner{position:relative;z-index:2;text-align:center;max-width:780px;padding:100px 20px 80px}
+.hero-headline{font-family:var(--font-serif);font-size:clamp(52px,8vw,96px);font-weight:500;letter-spacing:-.04em;line-height:.88;margin-bottom:12px;color:var(--text)}
+.hero-subhead{font-family:var(--font-serif);font-size:clamp(28px,4vw,48px);font-weight:400;letter-spacing:-.02em;line-height:1;color:var(--text-muted);margin-bottom:28px}
+.hero-p{font-size:clamp(16px,1.5vw,19px);color:var(--text-muted);line-height:1.7;max-width:600px;margin:0 auto 36px}
+.hero-ctas{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-bottom:16px}
+.hero-note{font-family:var(--font-mono);font-size:11px;color:var(--text-muted);letter-spacing:.02em}
+
+.btn-primary{display:inline-flex;align-items:center;justify-content:center;height:54px;padding:0 32px;border-radius:100px;font-size:16px;font-weight:600;background:var(--coral);color:#fff;transition:.12s;text-decoration:none}
+.btn-primary:hover{background:#C84B2B;transform:translateY(-2px)}
+.btn-secondary{display:inline-flex;align-items:center;justify-content:center;height:54px;padding:0 32px;border-radius:100px;font-size:16px;font-weight:600;color:var(--text);border:1.5px solid var(--border-light);background:rgba(255,255,255,.6);backdrop-filter:blur(4px);transition:.12s;text-decoration:none}
+.btn-secondary:hover{border-color:var(--coral);color:var(--coral);transform:translateY(-2px)}
 
 /* ===== MARQUEE ===== */
-.marquee{background:var(--night);padding:28px 0;overflow:hidden}
-.marquee-label{font-family:var(--mono);font-size:10px;text-transform:uppercase;letter-spacing:.1em;color:var(--night-txt);text-align:center;margin-bottom:16px}
-.marquee-track{position:relative;overflow:hidden}
-.marquee-track::before,.marquee-track::after{content:"";position:absolute;inset:0;width:100px;z-index:2;pointer-events:none}
-.marquee-track::before{left:0;background:linear-gradient(90deg,var(--night),transparent)}
-.marquee-track::after{right:0;background:linear-gradient(270deg,var(--night),transparent)}
-.marquee-inner{display:flex;align-items:center;gap:0;animation:mq 40s linear infinite;white-space:nowrap}
-.marquee-inner a{color:var(--night-txt-2);font-size:13px;font-weight:500;padding:0 28px;flex-shrink:0;text-decoration:none;transition:color .12s}
-.marquee-inner a:hover{color:#fff}
-.mdot{width:3px;height:3px;border-radius:50%;background:var(--coral);flex-shrink:0}
-@keyframes mq{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+.marquee{background:var(--dark);padding:32px 0 28px;overflow:hidden}
+.marquee-label{font-family:var(--font-mono);font-size:10px;letter-spacing:.15em;text-align:center;color:var(--text-dark-muted);margin-bottom:18px;text-transform:uppercase}
+.marquee-track-wrap{position:relative;overflow:hidden}
+.marquee-track-wrap::before,.marquee-track-wrap::after{content:"";position:absolute;inset:0;width:100px;z-index:2;pointer-events:none}
+.marquee-track-wrap::before{left:0;background:linear-gradient(90deg,var(--dark),transparent)}
+.marquee-track-wrap::after{right:0;background:linear-gradient(270deg,var(--dark),transparent)}
+.marquee-track{display:flex;align-items:center;gap:0;animation:marquee 50s linear infinite;white-space:nowrap;width:max-content}
+.marquee-track a{color:var(--text-dark-muted);font-size:13px;font-weight:500;padding:0 28px;flex-shrink:0;transition:color .15s}
+.marquee-track a:hover{color:#fff}
+.marquee-dot{width:4px;height:4px;border-radius:50%;background:var(--coral);flex-shrink:0}
+@keyframes marquee{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
 
 /* ===== SECTIONS ===== */
-.sec{padding:80px 0;position:relative}
-.sec.cream{background:var(--cream)}
-.sec.dark{background:var(--night);color:#fff;position:relative;overflow:hidden}
-.sec.dark .s-head h2{color:#fff}
-.sec.dark .s-head p{color:var(--night-txt)}
-.deco-bg{position:absolute;inset:0;pointer-events:none}
-.deco-bg::before{content:"";position:absolute;left:30%;top:-200px;width:500px;height:500px;background:radial-gradient(circle,rgba(239,162,60,.18),rgba(206,82,134,.1),transparent 70%);border-radius:50%;filter:blur(80px)}
-.s-head{text-align:center;max-width:600px;margin:0 auto 48px}
-.s-head h2{font-family:var(--serif);font-size:clamp(34px,4.8vw,52px);font-weight:500;letter-spacing:-.025em;line-height:1.05;margin-bottom:14px}
-.s-head p{font-size:17px;color:var(--ink-2);line-height:1.6}
-.g{background:var(--sunrise);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.section{padding:90px 0;position:relative}
+.section.light{background:var(--cream)}
+.section.dark{background:var(--dark);color:var(--text-on-dark);overflow:hidden}
+.dark-glow{position:absolute;inset:0;pointer-events:none}
+.dark-glow::before{content:"";position:absolute;left:20%;top:-200px;width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(221,90,56,.08),rgba(239,162,60,.05),transparent 70%);filter:blur(100px)}
 
-/* ===== PROBLEMS 3-COL ===== */
-.c3{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;max-width:1040px;margin:0 auto}
-.cc{background:var(--paper);border:1px solid var(--line-2);border-radius:18px;padding:28px 26px;transition:.15s}
-.cc:hover{border-color:var(--line-3);box-shadow:0 12px 36px -10px rgba(26,24,38,.12);transform:translateY(-3px)}
-.ci{width:44px;height:44px;border-radius:11px;background:var(--coral-soft);color:var(--coral);display:flex;align-items:center;justify-content:center;margin-bottom:14px}
-.cc h3{font-size:17px;font-weight:600;margin-bottom:10px}
-.cc p{font-size:14px;color:var(--ink-2);line-height:1.6}
+.section-head{text-align:center;max-width:620px;margin:0 auto 52px}
+.section-head h2{font-family:var(--font-serif);font-size:clamp(34px,4.5vw,52px);font-weight:500;letter-spacing:-.025em;line-height:1.08;margin-bottom:14px;color:var(--text)}
+.section.dark .section-head h2{color:#fff}
+.section-head p{font-size:17px;color:var(--text-muted);line-height:1.65}
+.section.dark .section-head p{color:var(--text-dark-muted)}
+
+/* ===== CARDS ===== */
+.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;max-width:1040px;margin:0 auto}
+.card{background:rgba(255,255,255,.7);backdrop-filter:blur(8px);border:1px solid var(--border-light);border-radius:20px;padding:30px 28px;transition:.15s}
+.card:hover{border-color:#D0C4B8;transform:translateY(-4px);background:rgba(255,255,255,.85)}
+.card-icon{width:44px;height:44px;border-radius:12px;background:rgba(221,90,56,.1);color:var(--coral);display:flex;align-items:center;justify-content:center;margin-bottom:18px}
+.card-step{font-family:var(--font-mono);font-size:11px;font-weight:700;letter-spacing:.06em;color:var(--coral);display:block;margin-bottom:14px}
+.card h3{font-size:18px;font-weight:600;margin-bottom:12px;color:var(--text)}
+.card p{font-size:14.5px;color:var(--text-muted);line-height:1.65}
 
 /* ===== AGENCY ===== */
-.agency{padding:40px 0;max-width:800px;margin:0 auto;text-align:center;position:relative;z-index:1}
-.agency-tag{font-family:var(--mono);font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--amber);margin-bottom:20px}
-.agency h2{font-family:var(--serif);font-size:clamp(30px,4vw,44px);font-weight:500;letter-spacing:-.025em;line-height:1.1;margin-bottom:18px}
-.agency h2 .g{background:var(--sunrise);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
-.agency p{font-size:18px;color:var(--night-txt);line-height:1.7;max-width:580px;margin:0 auto 40px}
-.agency-stats{display:flex;justify-content:center;gap:40px;flex-wrap:wrap}
-.as{text-align:center}
-.as-n{display:block;font-family:var(--serif);font-size:42px;font-weight:500;line-height:1}
-.as-l{display:block;font-family:var(--mono);font-size:11px;text-transform:uppercase;letter-spacing:.05em;color:var(--night-txt);margin-top:6px}
-
-/* ===== SERVICES ===== */
-.svcs{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;max-width:1040px;margin:0 auto}
-.svc{background:var(--paper);border:1px solid var(--line-2);border-radius:18px;padding:30px 28px;transition:.15s}
-.svc:hover{border-color:var(--line-3);box-shadow:0 12px 36px -10px rgba(26,24,38,.12);transform:translateY(-3px)}
-.svc-n{font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:.06em;color:var(--coral);margin-bottom:14px}
-.svc h3{font-size:17px;font-weight:600;margin-bottom:10px}
-.svc p{font-size:14px;color:var(--ink-2);line-height:1.6}
+.agency{text-align:center;max-width:720px;margin:0 auto;padding:20px 0}
+.agency-label{font-family:var(--font-mono);font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--amber);display:block;margin-bottom:20px}
+.agency h2{font-family:var(--font-serif);font-size:clamp(30px,4vw,44px);font-weight:500;letter-spacing:-.025em;line-height:1.12;margin-bottom:20px;color:#fff}
+.agency > p{font-size:18px;color:var(--text-dark-muted);line-height:1.7;max-width:540px;margin:0 auto 44px}
+.agency-stats{display:flex;justify-content:center;gap:44px;flex-wrap:wrap}
+.agency-stat{text-align:center}
+.stat-num{font-family:var(--font-serif);font-size:46px;font-weight:500;line-height:1;display:block}
+.stat-label{font-family:var(--font-mono);font-size:11px;letter-spacing:.06em;color:var(--text-dark-muted);display:block;margin-top:6px;text-transform:uppercase}
 
 /* ===== STEPS ===== */
-.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;max-width:1040px;margin:0 auto;position:relative;z-index:1}
-.st{background:rgba(30,32,66,.5);border:1px solid var(--night-line);border-radius:16px;padding:26px 24px;backdrop-filter:blur(6px);transition:.15s}
-.st:hover{border-color:rgba(239,162,60,.3);background:rgba(30,32,66,.7);transform:translateY(-2px)}
-.st-n{font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:.06em;color:var(--amber);margin-bottom:14px}
-.st h3{font-size:16px;font-weight:600;color:#fff;margin-bottom:8px}
-.st p{font-size:13.5px;color:var(--night-txt-2);line-height:1.6}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;max-width:1040px;margin:0 auto}
+.step{background:var(--dark-card);border:1px solid var(--dark-border);border-radius:18px;padding:28px 24px;transition:.15s}
+.step:hover{border-color:rgba(221,90,56,.3);transform:translateY(-3px)}
+.step-num{font-family:var(--font-mono);font-size:11px;font-weight:700;letter-spacing:.06em;color:var(--amber);display:block;margin-bottom:14px}
+.step h3{font-size:17px;font-weight:600;color:#fff;margin-bottom:10px}
+.step p{font-size:14px;color:var(--text-dark-muted);line-height:1.6}
 
 /* ===== PRICING ===== */
-.p-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;max-width:800px;margin:0 auto}
-.p-card{background:var(--paper);border:1px solid var(--line-2);border-radius:20px;padding:32px}
-.p-card.featured{background:var(--night);border-color:var(--night-line);box-shadow:0 20px 60px -20px rgba(35,30,70,.4)}
-.p-tag{font-family:var(--mono);font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--ink-3);margin-bottom:16px}
-.p-price{font-family:var(--serif);font-size:48px;font-weight:500;letter-spacing:-.03em;line-height:1;color:var(--ink);margin-bottom:4px}
-.p-card.featured .p-price{background:var(--sunrise);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
-.p-per{font-family:var(--mono);font-size:12px;color:var(--ink-3);margin-bottom:20px}
-.p-desc{font-size:14px;color:var(--ink-2);line-height:1.6;margin-bottom:24px}
-.p-f{list-style:none;padding:0;margin:0 0 28px;display:flex;flex-direction:column;gap:10px}
-.p-f li{font-size:14px;color:var(--ink);display:flex;align-items:flex-start;gap:10px}
-.p-f li i{color:var(--green);font-size:17px;flex-shrink:0;margin-top:1px}
-.p-note{font-family:var(--mono);font-size:11px;color:var(--night-txt);text-align:center;margin-top:16px}
+.pricing{display:grid;grid-template-columns:1fr 1fr;gap:28px;max-width:800px;margin:0 auto}
+.pricing-card{background:rgba(255,255,255,.7);backdrop-filter:blur(8px);border:1px solid var(--border-light);border-radius:24px;padding:36px 32px;transition:.15s}
+.pricing-card.featured{background:var(--dark);border-color:var(--dark-border);color:#fff;position:relative}
+.pricing-label{font-family:var(--font-mono);font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--text-muted);display:block;margin-bottom:18px}
+.pricing-card.featured .pricing-label{color:var(--text-dark-muted)}
+.pricing-price{font-family:var(--font-serif);font-size:52px;font-weight:500;letter-spacing:-.03em;line-height:1;color:var(--text);margin-bottom:4px}
+.pricing-card.featured .pricing-price{color:#fff}
+.pricing-period{font-family:var(--font-mono);font-size:12px;color:var(--text-muted);margin-bottom:22px}
+.pricing-card.featured .pricing-period{color:var(--text-dark-muted)}
+.pricing-desc{font-size:14.5px;color:var(--text-muted);line-height:1.65;margin-bottom:28px}
+.pricing-card.featured .pricing-desc{color:var(--text-dark-muted)}
+.pricing-features{list-style:none;padding:0;margin:0 0 30px;display:flex;flex-direction:column;gap:12px}
+.pricing-features li{font-size:15px;color:var(--text);display:flex;align-items:flex-start;gap:10px}
+.pricing-card.featured .pricing-features li{color:var(--text-on-dark)}
+.check{color:#2F9468;font-weight:700;font-size:16px;flex-shrink:0;margin-top:1px}
+.pricing-note{font-family:var(--font-mono);font-size:11px;color:var(--text-dark-muted);text-align:center;display:block;margin-top:16px}
 
 /* ===== CLIENTS ===== */
-.clients{display:flex;flex-wrap:wrap;justify-content:center;gap:12px;max-width:780px;margin:0 auto}
-.clients a{background:var(--paper);border:1px solid var(--line-2);border-radius:12px;padding:12px 20px;font-size:14px;font-weight:500;color:var(--ink);text-decoration:none;transition:.12s}
-.clients a:hover{border-color:var(--line-3);box-shadow:0 4px 12px -6px rgba(26,24,38,.12)}
+.client-grid{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;max-width:800px;margin:0 auto}
+.client-grid a{background:rgba(255,255,255,.7);backdrop-filter:blur(8px);border:1px solid var(--border-light);border-radius:12px;padding:12px 20px;font-size:14px;font-weight:500;color:var(--text);transition:.12s}
+.client-grid a:hover{border-color:var(--coral);color:var(--coral);transform:translateY(-2px)}
 
 /* ===== NOTES ===== */
 .notes-list{max-width:640px;margin:0 auto;display:flex;flex-direction:column}
-.note-item{display:flex;flex-direction:column;gap:4px;padding:20px 0;border-bottom:1px solid var(--line);transition:.12s;text-decoration:none}
-.note-item:first-child{border-top:1px solid var(--line)}
+.note-item{display:flex;flex-direction:column;gap:4px;padding:22px 0;border-bottom:1px solid var(--border-light);transition:.12s}
+.note-item:first-child{border-top:1px solid var(--border-light)}
 .note-item:hover{padding-left:8px}
-.note-date{font-family:var(--mono);font-size:11px;color:var(--ink-4);text-transform:uppercase;letter-spacing:.03em}
-.note-title{font-family:var(--serif);font-size:20px;font-weight:500;color:var(--ink);transition:color .12s}
-.note-item:hover .note-title{color:var(--coral-deep)}
+.note-date{font-family:var(--font-mono);font-size:11px;color:#A89A8E;text-transform:uppercase;letter-spacing:.03em}
+.note-title{font-family:var(--font-serif);font-size:21px;font-weight:500;color:var(--text);transition:color .12s}
+.note-item:hover .note-title{color:var(--coral)}
 .notes-cta{text-align:center;margin-top:32px}
 
 /* ===== CLOSING ===== */
-.closing{text-align:center;padding:100px 0}
-.closing-inner{max-width:600px;margin:0 auto}
-.closing-tag{display:inline-block;font-family:var(--mono);font-size:10.5px;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--coral);border:1px solid var(--line-2);border-radius:30px;padding:6px 16px;margin-bottom:24px;background:rgba(255,255,255,.7)}
-.closing h2{font-family:var(--serif);font-size:clamp(36px,5vw,56px);font-weight:500;letter-spacing:-.03em;line-height:1.05;margin-bottom:18px}
-.closing p{font-size:18px;color:var(--ink-2);line-height:1.65;max-width:500px;margin:0 auto 32px}
+.closing{text-align:center;padding:100px 0;background:var(--cream)}
+.closing-inner{max-width:620px;margin:0 auto}
+.closing-badge{display:inline-block;font-family:var(--font-mono);font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.1em;color:var(--coral);border:1px solid var(--border-light);border-radius:100px;padding:7px 18px;margin-bottom:28px;background:rgba(255,255,255,.7)}
+.closing h2{font-family:var(--font-serif);font-size:clamp(36px,5vw,56px);font-weight:500;letter-spacing:-.03em;line-height:1.06;margin-bottom:20px;color:var(--text)}
+.closing p{font-size:18px;color:var(--text-muted);line-height:1.65;max-width:520px;margin:0 auto 36px}
 
 /* ===== RESPONSIVE ===== */
-@media(max-width:920px){
-  .hero-inner{padding:70px 0 50px}
-  .c3,.svcs{grid-template-columns:1fr;max-width:520px}
+@media(max-width:1000px){
+  .grid-3{grid-template-columns:1fr;max-width:520px}
   .steps{grid-template-columns:1fr 1fr}
-  .p-grid{grid-template-columns:1fr;max-width:480px}
-  .agency-stats{gap:24px}
-  .as-n{font-size:34px}
+  .pricing{grid-template-columns:1fr;max-width:480px}
 }
-@media(max-width:560px){
-  .hero-inner{padding:50px 0 30px}
-  .sec{padding:56px 0}
+@media(max-width:650px){
   .steps{grid-template-columns:1fr}
-  .clients a{padding:10px 16px;font-size:13px}
+  .section{padding:60px 0}
+  .hero-inner{padding:80px 20px 60px}
+  .agency-stats{gap:28px}
+  .stat-num{font-size:36px}
+  .closing{padding:70px 0}
+  .card{padding:24px 20px}
+  .pricing-card{padding:28px 24px}
 }
 </style>
