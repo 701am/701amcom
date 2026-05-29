@@ -11,189 +11,213 @@ const fmt = (d: Date) =>
   d.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
 ---
 <Layout
-  title="Digital PR Agency for Higher Education"
-  description="701am is a digital PR agency for higher education. Earned media campaigns that get your institution in the press — up to 50 placements per engagement."
+  title="Narrative Attraction Agency for Higher Education"
+  description="701am is a narrative attraction agency for higher education. We put brand stories in the media and increase enrollment while fending off the enrollment cliff."
 >
 <!-- HERO -->
-<header class="hero" id="top" style="position:relative;overflow:hidden;padding:100px 0 60px">
-  <!-- Decorative rotating shapes -->
-  <div class="hero-atmos"><div class="grid"></div>
-    <div class="hero-deco hero-deco-1">
-      <svg width="280" height="280" viewBox="0 0 280 280" fill="none">
-        <circle cx="140" cy="140" r="135" stroke="url(#sunGrad)" stroke-width="2" stroke-dasharray="8 12"/>
-        <circle cx="140" cy="140" r="100" stroke="url(#sunGrad)" stroke-width="1.5" stroke-dasharray="4 8"/>
-        <circle cx="140" cy="140" r="60" fill="url(#sunGrad)" opacity="0.08"/>
-      </svg>
-    </div>
-    <div class="hero-deco hero-deco-2">
-      <svg width="160" height="160" viewBox="0 0 160 160" fill="none" style="transform:rotate(25deg)">
-        <rect x="10" y="10" width="140" height="140" rx="20" stroke="url(#sunGrad)" stroke-width="2" stroke-dasharray="6 10"/>
-        <rect x="35" y="35" width="90" height="90" rx="12" fill="url(#sunGrad)" opacity="0.06"/>
-      </svg>
-    </div>
+<header class="hero">
+  <div class="hero-atmos">
+    <div class="grid"></div>
+    <div class="deco deco-1"><svg width="200" height="200" viewBox="0 0 200 200" fill="none"><circle cx="100" cy="100" r="90" stroke="url(#sunGrad)" stroke-width="1.5" stroke-dasharray="6 10"/><circle cx="100" cy="100" r="60" stroke="url(#sunGrad)" stroke-width="1" stroke-dasharray="3 7"/><circle cx="100" cy="100" r="30" fill="url(#sunGrad)" opacity=".06"/></svg></div>
+    <div class="deco deco-2"><svg width="140" height="140" viewBox="0 0 140 140" fill="none" style="transform:rotate(30deg)"><rect x="10" y="10" width="120" height="120" rx="16" stroke="url(#sunGrad)" stroke-width="1.5" stroke-dasharray="5 9"/><rect x="30" y="30" width="80" height="80" rx="10" fill="url(#sunGrad)" opacity=".05"/></svg></div>
+    <div class="deco deco-3"><svg width="100" height="100" viewBox="0 0 100 100" fill="none"><path d="M50 10L55 40L85 50L55 60L50 90L45 60L15 50L45 40Z" fill="url(#sunGrad)" opacity=".08"/></svg></div>
   </div>
-  <div class="wrap" style="position:relative;z-index:1">
-    <div class="hero-grid">
+  <div class="wrap">
+    <div class="hero-flex">
       <div class="hero-txt">
-        <div class="pill-badge"><span class="tagm">Digital PR for Higher Education</span></div>
-        <h1 class="hero-h" style="font-size:clamp(48px,7vw,80px);line-height:.95;letter-spacing:-.035em">
-          BOLD.<br><em class="grad">BUILt</em><br>TO LAST.
-        </h1>
-        <p class="hero-sub" style="font-size:19px;max-width:44ch;margin-top:24px">
-          The enrollment cliff is real. AI is rewriting how students find schools. The institutions getting coverage now will be the ones prospective students trust in 2027. We make sure that's you.
-        </p>
-        <div class="hero-ctas" style="margin-top:36px">
-          <a href="#contact" class="btn btn-primary btn-lg btn-studio"><i class="ti ti-calendar"></i>Book a discovery call</a>
-          <a href="#pricing" class="btn btn-soft btn-lg"><i class="ti ti-arrow-right"></i>See pricing</a>
+        <div class="badge">Narrative Attraction Agency for Higher Education</div>
+        <h1 class="hero-title">The enrollment cliff is real.<br>Your story is your <em class="grad">shield</em>.</h1>
+        <p class="hero-sub">We put higher ed brand stories in the media, in AI search results, and in the feeds your future students actually scroll — so you fill seats instead of fighting for scraps.</p>
+        <div class="hero-actions">
+          <a href="#pricing" class="btn btn-primary btn-lg btn-studio"><i class="ti ti-calendar"></i>Book a discovery call</a>
+          <a href="#how" class="btn btn-soft btn-lg"><i class="ti ti-arrow-right"></i>How it works</a>
         </div>
-        <div class="hero-ctas-meta" style="margin-top:16px;font-size:13px">Scoped engagements &nbsp;·&nbsp; $6,500 per campaign &nbsp;·&nbsp; No retainers</div>
+        <p class="hero-meta">$6,500 per engagement · Up to 50 placements · No retainers</p>
       </div>
-      <!-- Right side: decorative stat cards -->
-      <div class="hero-stats">
-        <div class="stat-card">
-          <div class="stat-num grad">50+</div>
-          <div class="stat-lbl">Publications covered</div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-num grad">20+</div>
-          <div class="stat-lbl">Years in higher ed</div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-num grad">$6,500</div>
-          <div class="stat-lbl">Per engagement</div>
-        </div>
-        <div class="stat-card stat-card-accent">
-          <div class="stat-num grad">50</div>
-          <div class="stat-lbl">Placements guaranteed</div>
-        </div>
+      <div class="hero-right">
+        <div class="stat-card"><span class="num">50+</span><span class="lbl">Publications</span></div>
+        <div class="stat-card"><span class="num">20+</span><span class="lbl">Years in higher ed</span></div>
+        <div class="stat-card"><span class="num">$6,500</span><span class="lbl">Per engagement</span></div>
+        <div class="stat-card dark"><span class="num">50</span><span class="lbl">Placements guaranteed</span></div>
       </div>
     </div>
   </div>
 </header>
 
-<!-- LOGO MARQUEE -->
-<section class="marquee-section">
-  <div class="marquee-label">Trusted by higher ed institutions</div>
+<!-- CLIENT MARQUEE -->
+<section class="marquee-wrap">
+  <p class="marquee-label">Trusted by leading higher ed platforms</p>
   <div class="marquee-track">
-    <div class="marquee-content">
-      <span>Universities</span><span class="dot"></span>
-      <span>Colleges</span><span class="dot"></span>
-      <span>Edtech Companies</span><span class="dot"></span>
-      <span>Education Agencies</span><span class="dot"></span>
-      <span>Graduate Programs</span><span class="dot"></span>
-      <span>Online Learning Platforms</span><span class="dot"></span>
-      <span>Professional Certification</span><span class="dot"></span>
-      <span>Universities</span><span class="dot"></span>
-      <span>Colleges</span><span class="dot"></span>
-      <span>Edtech Companies</span><span class="dot"></span>
-      <span>Education Agencies</span><span class="dot"></span>
-      <span>Graduate Programs</span><span class="dot"></span>
-      <span>Online Learning Platforms</span><span class="dot"></span>
-      <span>Professional Certification</span><span class="dot"></span>
+    <div class="marquee-inner">
+      <a href="https://collegechoice.net" target="_blank">CollegeChoice.net</a><span class="dot"></span>
+      <a href="https://thebestschools.org" target="_blank">TheBestSchools.org</a><span class="dot"></span>
+      <a href="https://affordableschools.net" target="_blank">AffordableSchools.net</a><span class="dot"></span>
+      <a href="https://onlineschoolscenter.com" target="_blank">OnlineSchoolsCenter.com</a><span class="dot"></span>
+      <a href="https://collegevaluesonline.com" target="_blank">CollegeValuesOnline.com</a><span class="dot"></span>
+      <a href="https://collegeconsensus.com" target="_blank">CollegeConsensus.com</a><span class="dot"></span>
+      <a href="https://collegechoice.net" target="_blank">CollegeChoice.net</a><span class="dot"></span>
+      <a href="https://thebestschools.org" target="_blank">TheBestSchools.org</a><span class="dot"></span>
+      <a href="https://affordableschools.net" target="_blank">AffordableSchools.net</a><span class="dot"></span>
+      <a href="https://onlineschoolscenter.com" target="_blank">OnlineSchoolsCenter.com</a><span class="dot"></span>
+      <a href="https://collegevaluesonline.com" target="_blank">CollegeValuesOnline.com</a><span class="dot"></span>
+      <a href="https://collegeconsensus.com" target="_blank">CollegeConsensus.com</a><span class="dot"></span>
     </div>
   </div>
 </section>
 
-<!-- PROBLEMS WE SOLVE -->
-<section class="problems-section" id="approach">
+<!-- PROBLEMS -->
+<section class="section light" id="approach">
   <div class="wrap">
-    <div class="problems-header">
-      <h2 class="problems-title">The stakes are <em class="grad">higher</em> than ever</h2>
-      <p class="problems-sub">The enrollment cliff is here. AI is rewriting search. Institutions that earn coverage now will be the ones students trust when the demographic trough hits.</p>
+    <div class="sec-head">
+      <h2>The stakes are <em class="grad">higher</em> than ever</h2>
+      <p>Higher ed is facing three converging threats. We help you turn all three into advantages.</p>
     </div>
-    <div class="problems-grid">
-      <div class="problem-card">
-        <div class="problem-icon"><i class="ti ti-users-off"></i></div>
+    <div class="grid-3">
+      <div class="card">
+        <div class="card-icon"><i class="ti ti-graph-down-arrow"></i></div>
         <h3>The enrollment cliff is here</h3>
-        <p>High school graduating classes peaked in 2011. By 2027, there will be 200,000 fewer college-age students than today. The institutions already visible to families will absorb the decline. The rest will fight for scraps.</p>
+        <p>High school graduating classes peaked in 2011. By 2027 there will be 200,000 fewer college-age students. The institutions with the strongest brand narratives will absorb the decline. Everyone else fights for what's left.</p>
       </div>
-      <div class="problem-card">
-        <div class="problem-icon"><i class="ti ti-bot"></i></div>
-        <h3>AI doesn't know who you are</h3>
-        <p>When prospective students ask AI which school is best for them, your institution isn't in the answer. We earn the coverage, data points, and authority signals that AI models cite.</p>
+      <div class="card">
+        <div class="card-icon"><i class="ti ti-robot"></i></div>
+        <h3>AI doesn't recommend you</h3>
+        <p>When prospective students ask ChatGPT, Perplexity, or Google AI which school is best, your institution isn't in the answer. We earn the media coverage that trains AI models to cite you instead of your competitors.</p>
       </div>
-      <div class="problem-card">
-        <div class="problem-icon"><i class="ti ti-news-off"></i></div>
-        <h3>Your stories never get pitched</h3>
-        <p>You know the angle — online grads out-earning campus peers, programs beating completion benchmarks. But there's never bandwidth to turn institutional data into pitches. We do it for you.</p>
+      <div class="card">
+        <div class="card-icon"><i class="ti ti-device-mobile"></i></div>
+        <h3>Students aren't reading press releases</h3>
+        <p>They're on TikTok, Instagram, YouTube, and Reddit. Traditional PR alone doesn't reach them. We create content and earn placements that show up where your applicants actually spend their time.</p>
       </div>
-      <div class="problem-card">
-        <div class="problem-icon"><i class="ti ti-reset-off"></i></div>
-        <h3>Coverage resets every cycle</h3>
-        <p>Most earned media is campaign-based — a burst, then silence. We build coverage that compounds: every placement feeds search authority and AI citations that outlast the campaign.</p>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT WE DO -->
+<section class="section dark" id="services">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>What we <em class="grad">do</em></h2>
+      <p>We call it Narrative Attraction — earning your institution visibility across every channel that influences enrollment decisions.</p>
+    </div>
+    <div class="grid-3 svc-grid">
+      <div class="svc-card">
+        <div class="svc-num">01</div>
+        <div class="svc-icon"><i class="ti ti-newspaper"></i></div>
+        <h3>Earned Media</h3>
+        <p>We pitch and place your story in Inside Higher Ed, The Chronicle, regional outlets, and national education press — reaching the faculty, families, and journalists who shape institutional reputation.</p>
+        <div class="svc-tags">
+          <span>Press placements</span><span>Thought leadership</span><span>Data stories</span>
+        </div>
+      </div>
+      <div class="svc-card">
+        <div class="svc-num">02</div>
+        <div class="svc-icon"><i class="ti ti-bolt"></i></div>
+        <h3>AI Search Visibility</h3>
+        <p>We earn the coverage, citations, and authority signals that train ChatGPT, Perplexity, and other AI models to recommend your institution when prospective students ask which school to choose.</p>
+        <div class="svc-tags">
+          <span>AI citations</span><span>LLM training signals</span><span>Generative engine optimization</span>
+        </div>
+      </div>
+      <div class="svc-card">
+        <div class="svc-num">03</div>
+        <div class="svc-icon"><i class="ti ti-video"></i></div>
+        <h3>Social & New Media</h3>
+        <p>We create and amplify content for TikTok, Instagram, YouTube, and Reddit — meeting prospective students on the platforms where they actually discover, research, and choose their institutions.</p>
+        <div class="svc-tags">
+          <span>Social storytelling</span><span>Creator partnerships</span><span>Platform-native content</span>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
 <!-- HOW IT WORKS -->
-<section class="how-section">
+<section class="section light" id="how">
   <div class="wrap">
-    <div class="how-header">
-      <h2 class="how-title">How we <em class="grad">work</em></h2>
-      <p class="how-sub">Every engagement follows the same four-step process — from story to placement in 8–12 weeks.</p>
+    <div class="sec-head">
+      <h2>How we <em class="grad">work</em></h2>
+      <p>From strategy to placement in 8–12 weeks. Every engagement follows the same proven process.</p>
     </div>
-    <div class="how-steps">
-      <div class="how-step">
+    <div class="steps">
+      <div class="step">
         <div class="step-num">01</div>
-        <div class="step-content">
+        <div class="step-body">
           <h3>Audit</h3>
-          <p>We review your institutional data, identify the stories you're not telling, and assess your current coverage position across press and AI.</p>
+          <p>We review your institutional data, identify the stories hiding in plain sight, and assess your current visibility across press, AI, and social channels.</p>
         </div>
       </div>
-      <div class="how-step">
+      <div class="step">
         <div class="step-num">02</div>
-        <div class="step-content">
+        <div class="step-body">
           <h3>Develop</h3>
-          <p>We frame the data, write the pitches, and build the reporter list for your strongest angles.</p>
+          <p>We frame the narrative, write the pitches, build the reporter list, and create platform-specific content for each channel in your strategy.</p>
         </div>
       </div>
-      <div class="how-step">
+      <div class="step">
         <div class="step-num">03</div>
-        <div class="step-content">
+        <div class="step-body">
           <h3>Place</h3>
-          <p>Human outreach to journalists who cover your space. No mass emails. We work the relationships.</p>
+          <p>Human outreach to journalists, AI training data seeding, and social amplification. No mass emails. We work relationships, not databases.</p>
         </div>
       </div>
-      <div class="how-step">
+      <div class="step">
         <div class="step-num">04</div>
-        <div class="step-content">
+        <div class="step-body">
           <h3>Report</h3>
-          <p>Every placement tracked, correlated to search and AI visibility, reported with numbers that matter to enrollment leadership.</p>
+          <p>Every placement tracked and correlated to enrollment metrics, search visibility, and AI citation share. You'll know exactly what moved the needle.</p>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- PRICING -->
-<section class="pricing-section" id="pricing">
+<!-- TRUSTED BY -->
+<section class="section cream">
   <div class="wrap">
-    <div class="pricing-header">
-      <h2 class="pricing-title">Simple <em class="grad">pricing</em></h2>
-      <p class="pricing-sub">No retainers. No long-term contracts. Scoped campaigns built for an era where every enrollment matters more than the last.</p>
+    <div class="sec-head">
+      <h2>Trusted by leading <em class="grad">higher ed platforms</em></h2>
+      <p>We've earned coverage and built brand narratives for the institutions that help students make decisions.</p>
+    </div>
+    <div class="client-grid">
+      <div class="client-item"><a href="https://collegechoice.net" target="_blank">CollegeChoice.net</a></div>
+      <div class="client-item"><a href="https://thebestschools.org" target="_blank">TheBestSchools.org</a></div>
+      <div class="client-item"><a href="https://affordableschools.net" target="_blank">AffordableSchools.net</a></div>
+      <div class="client-item"><a href="https://onlineschoolscenter.com" target="_blank">OnlineSchoolsCenter.com</a></div>
+      <div class="client-item"><a href="https://collegevaluesonline.com" target="_blank">CollegeValuesOnline.com</a></div>
+      <div class="client-item"><a href="https://collegeconsensus.com" target="_blank">CollegeConsensus.com</a></div>
+      <div class="client-item" style="background:transparent;border:1px dashed var(--line-3);color:var(--ink-3);font-size:14px;font-weight:500;">and many more</div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="section light" id="pricing">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>Simple <em class="grad">pricing</em></h2>
+      <p>No retainers. No long-term contracts. Every engagement scoped to deliver a specific number of placements.</p>
     </div>
     <div class="pricing-grid">
       <div class="pricing-card">
         <div class="pc-tag">Earned Media Session</div>
-        <div class="pc-price-lg">$500</div>
-        <div class="pc-per">one-time</div>
-        <p class="pc-desc">90 minutes with our team. Data audit, story identification, reporter list. No obligation.</p>
+        <div class="pc-price">$500</div>
+        <p class="pc-per">one-time</p>
+        <p class="pc-desc">90 minutes with our team. Strategy session, data audit, story identification, reporter list. No obligation to continue.</p>
         <ul class="pc-features">
           <li><i class="ti ti-check"></i>90-minute strategy session</li>
-          <li><i class="ti ti-check"></i>Data audit — find stories</li>
+          <li><i class="ti ti-check"></i>Data audit — find the stories</li>
           <li><i class="ti ti-check"></i>Reporter list for top 3 angles</li>
           <li><i class="ti ti-check"></i>Credibility gap analysis</li>
           <li><i class="ti ti-check"></i>No obligation to continue</li>
         </ul>
         <a href="#contact" class="btn btn-soft btn-lg" style="width:100%"><i class="ti ti-calendar"></i>Book your session</a>
       </div>
-      <div class="pricing-card pricing-card-featured">
-        <div class="pc-tag-featured">Earned Media Engagement</div>
-        <div class="pc-price-lg pc-price-grad">$6,500</div>
-        <div class="pc-per">per engagement</div>
-        <p class="pc-desc">Full campaign — research, narrative, outreach. Up to 50 placements in target outlets.</p>
-        <ul class="pc-features pc-features-light">
+      <div class="pricing-card featured">
+        <div class="pc-tag">Earned Media Engagement</div>
+        <div class="pc-price grad">$6,500</div>
+        <p class="pc-per">per engagement</p>
+        <p class="pc-desc">Full campaign — research, narrative development, outreach, and reporting. Up to 50 placements in target outlets.</p>
+        <ul class="pc-features">
           <li><i class="ti ti-check"></i>Full campaign — all services included</li>
           <li><i class="ti ti-check"></i>Up to 50 placements</li>
           <li><i class="ti ti-check"></i>AI citation tracking</li>
@@ -201,39 +225,7 @@ const fmt = (d: Date) =>
           <li><i class="ti ti-check"></i>No long-term contract</li>
         </ul>
         <a href="#contact" class="btn btn-primary btn-lg" style="width:100%"><i class="ti ti-calendar"></i>Book discovery call</a>
-        <div class="pc-note">Most engagements complete in 8–12 weeks</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- CONTACT -->
-<section class="contact-section" id="contact">
-  <div class="wrap">
-    <div class="contact-grid">
-      <div class="contact-left">
-        <h2 class="contact-title">Ready to get <em class="grad">covered</em>?</h2>
-        <p class="contact-sub">With the enrollment cliff looming and AI rewriting discovery, the institutions building authority now will have the advantage for the next decade. Let's talk about where you stand.</p>
-        <div class="contact-details">
-          <div class="contact-detail">
-            <i class="ti ti-mail"></i>
-            <span>hello@701am.com</span>
-          </div>
-          <div class="contact-detail">
-            <i class="ti ti-clock"></i>
-            <span>Response within 1 business day</span>
-          </div>
-        </div>
-        <div class="contact-note">
-          <i class="ti ti-info-circle"></i>
-          <span>We work with a limited number of institutions per quarter. If we're not the right fit, we'll tell you.</span>
-        </div>
-      </div>
-      <div class="contact-right">
-        <div class="contact-cal">
-          <div class="contact-cal-header">Book a discovery call</div>
-          <iframe src="https://cal.com/davidkrug/discovery?embed" width="100%" height="500" frameborder="0" style="border:none;display:block;border-radius:0 0 12px 12px"></iframe>
-        </div>
+        <p class="pc-note">Most engagements complete in 8–12 weeks</p>
       </div>
     </div>
   </div>
@@ -241,9 +233,9 @@ const fmt = (d: Date) =>
 
 <!-- FOUNDER NOTES -->
 {posts.length > 0 && (
-<section class="notes-section">
+<section class="section cream" id="notes">
   <div class="wrap">
-    <div class="notes-header">
+    <div class="sec-head">
       <h2>Founder <em class="grad">Notes</em></h2>
       <p>Field notes on earned media, higher ed visibility, and what we're learning.</p>
     </div>
@@ -255,7 +247,7 @@ const fmt = (d: Date) =>
         </a>
       ))}
     </div>
-    <div style="text-align:center;margin-top:32px">
+    <div class="notes-cta">
       <a href="/blog" class="btn btn-soft">All notes <i class="ti ti-arrow-right"></i></a>
     </div>
   </div>
@@ -263,144 +255,150 @@ const fmt = (d: Date) =>
 )}
 
 <!-- CLOSING -->
-<section class="closing" style="padding:80px 0">
-  <div class="catmos"><div class="cg"></div></div>
+<section class="section closing" id="contact">
   <div class="wrap">
-    <div class="pill-badge"><span class="tagm">Higher ed is all we do</span></div>
-    <h2>Let's get you <em class="grad">covered</em>.</h2>
-    <p>No long-term contracts. No retainers. Just earned media that works.</p>
+    <div class="badge">Narrative Attraction Agency for Higher Education</div>
+    <h2>Ready to own your <em class="grad">story</em>?</h2>
+    <p>The enrollment cliff won't wait. Let's talk about where your institution stands and how we can build a narrative that protects your future.</p>
     <a href="#contact" class="btn btn-primary btn-lg btn-studio"><i class="ti ti-calendar"></i>Book a discovery call</a>
   </div>
 </section>
 </Layout>
 
 <style>
-/* HERO */
-.hero { min-height: auto; padding-bottom: 60px; }
-.hero-atmos { position: absolute; inset: 0; z-index: 0; pointer-events: none; overflow: hidden; }
-.hero-atmos .grid { position: absolute; inset: 0; background-image: linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px); background-size: 48px 48px; mask: radial-gradient(circle at 40% 30%,#000 0%,transparent 65%); opacity: .4 }
-.hero-atmos .glow { position: absolute; border-radius: 50%; filter: blur(90px) }
-.hero-atmos .g1 { width: 520px; height: 520px; right: -100px; top: -200px; background: radial-gradient(circle,rgba(239,162,60,.2),transparent 70%) }
-.hero-atmos .g2 { width: 400px; height: 400px; left: -80px; bottom: -100px; background: radial-gradient(circle,rgba(206,82,134,.2),transparent 70%) }
-.hero-deco { position: absolute; pointer-events: none; }
-.hero-deco-1 { right: 5%; top: 10%; opacity: .5 }
-.hero-deco-2 { left: 2%; bottom: 15%; opacity: .35 }
-.hero-grid { display: grid; grid-template-columns: 1.1fr .9fr; gap: 60px; align-items: center }
-.hero-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-.stat-card { background: var(--paper); border: 1px solid var(--line-2); border-radius: 16px; padding: 24px; box-shadow: var(--sh); }
-.stat-card-accent { background: var(--night); border-color: var(--night-line) }
-.stat-num { font-family: var(--serif); font-size: 36px; font-weight: 500; letter-spacing: -.02em; line-height: 1; margin-bottom: 6px }
-.stat-lbl { font-family: var(--mono); font-size: 11px; text-transform: uppercase; letter-spacing: .05em; color: var(--ink-3); }
+/* ===== HERO ===== */
+.hero { position:relative; padding:90px 0 70px; overflow:hidden; background: var(--canvas); }
+.hero-atmos { position:absolute; inset:0; pointer-events:none; overflow:hidden; }
+.hero-atmos .grid { position:absolute; inset:0; background-image: linear-gradient(var(--line) 1px,transparent 1px), linear-gradient(90deg,var(--line) 1px,transparent 1px); background-size:46px 46px; mask:radial-gradient(circle at 40% 30%,#000 0%,transparent 62%); opacity:.4; }
+.deco { position:absolute; pointer-events:none; }
+.deco-1 { right:3%; top:8%; opacity:.4; }
+.deco-2 { left:2%; bottom:10%; opacity:.3; }
+.deco-3 { right:40%; bottom:5%; opacity:.2; }
+.hero-flex { display:grid; grid-template-columns:1.1fr .9fr; gap:50px; align-items:center; }
+.hero-txt .badge { display:inline-block; font-family:var(--mono); font-size:11px; font-weight:600; text-transform:uppercase; letter-spacing:.06em; color:var(--coral); border:1px solid var(--line-2); border-radius:30px; padding:6px 16px; margin-bottom:22px; background:rgba(255,255,255,.7); }
+.hero-title { font-family:var(--serif); font-size:clamp(42px,6vw,68px); font-weight:500; letter-spacing:-.03em; line-height:.95; margin-bottom:22px; }
+.hero-sub { font-size:18px; color:var(--ink-2); max-width:46ch; margin-bottom:28px; line-height:1.6; }
+.hero-actions { display:flex; gap:12px; flex-wrap:wrap; margin-bottom:18px; }
+.hero-meta { font-size:13px; color:var(--ink-3); font-family:var(--mono); letter-spacing:.02em; }
+.hero-right { display:grid; grid-template-columns:1fr 1fr; gap:14px; }
+.stat-card { background:var(--paper); border:1px solid var(--line-2); border-radius:14px; padding:22px; }
+.stat-card.dark { background:var(--night); border-color:var(--night-line); }
+.stat-card .num { display:block; font-family:var(--serif); font-size:30px; font-weight:500; letter-spacing:-.02em; color:var(--ink); line-height:1; margin-bottom:5px; background:var(--sunrise); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; }
+.stat-card.dark .num { background:var(--sunrise); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; }
+.stat-card .lbl { display:block; font-family:var(--mono); font-size:10.5px; text-transform:uppercase; letter-spacing:.05em; color:var(--ink-3); }
+.stat-card.dark .lbl { color:var(--night-txt); }
 
-/* MARQUEE */
-.marquee-section { background: var(--night); color: #fff; padding: 32px 0; overflow: hidden; }
-.marquee-label { font-family: var(--mono); font-size: 11px; text-transform: uppercase; letter-spacing: .08em; color: var(--night-txt); text-align: center; margin-bottom: 20px }
-.marquee-track { position: relative; overflow: hidden; }
-.marquee-track::before, .marquee-track::after { content: ""; position: absolute; top: 0; bottom: 0; width: 120px; z-index: 2; pointer-events: none; }
-.marquee-track::before { left: 0; background: linear-gradient(90deg,var(--night),transparent) }
-.marquee-track::after { right: 0; background: linear-gradient(270deg,var(--night),transparent) }
-.marquee-content { display: flex; gap: 0; animation: marquee 40s linear infinite; white-space: nowrap; }
-.marquee-content span { font-family: var(--mono); font-size: 13px; font-weight: 500; letter-spacing: .03em; color: var(--night-txt-2); padding: 0 32px; flex-shrink: 0; display: flex; align-items: center; }
-.marquee-content .dot { width: 4px; height: 4px; border-radius: 50%; background: var(--coral); flex-shrink: 0; }
-@keyframes marquee { 0% { transform: translateX(0) } 100% { transform: translateX(-50%) } }
+/* ===== MARQUEE ===== */
+.marquee-wrap { background:var(--night); padding:30px 0; overflow:hidden; }
+.marquee-label { font-family:var(--mono); font-size:10.5px; text-transform:uppercase; letter-spacing:.08em; color:var(--night-txt); text-align:center; margin-bottom:18px; }
+.marquee-track { position:relative; overflow:hidden; }
+.marquee-track::before,.marquee-track::after { content:""; position:absolute; inset:0; width:100px; z-index:2; pointer-events:none; }
+.marquee-track::before { left:0; background:linear-gradient(90deg,var(--night),transparent); }
+.marquee-track::after { right:0; background:linear-gradient(270deg,var(--night),transparent); }
+.marquee-inner { display:flex; align-items:center; gap:0; animation:marquee 40s linear infinite; white-space:nowrap; }
+.marquee-inner a { color:var(--night-txt-2); font-size:13px; font-weight:500; letter-spacing:.02em; padding:0 28px; flex-shrink:0; text-decoration:none; transition:color .12s; }
+.marquee-inner a:hover { color:#fff; }
+.marquee-inner .dot { width:3px; height:3px; border-radius:50%; background:var(--coral); flex-shrink:0; }
+@keyframes marquee { 0%{transform:translateX(0)} 100%{transform:translateX(-50%)} }
 
-/* PROBLEMS */
-.problems-section { padding: 80px 0; background: var(--canvas) }
-.problems-header { text-align: center; max-width: 640px; margin: 0 auto 52px }
-.problems-title { font-family: var(--serif); font-size: clamp(36px,5vw,52px); font-weight: 500; letter-spacing: -.025em; line-height: 1.05; margin-bottom: 16px }
-.problems-sub { font-size: 17px; color: var(--ink-2); line-height: 1.6 }
-.problems-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 20px; max-width: 960px; margin: 0 auto }
-.problem-card { background: var(--paper); border: 1px solid var(--line-2); border-radius: 20px; padding: 28px 30px; transition: .15s }
-.problem-card:hover { border-color: var(--line-3); box-shadow: var(--sh-lg); transform: translateY(-3px) }
-.problem-icon { width: 48px; height: 48px; border-radius: 12px; background: var(--coral-soft); color: var(--coral); display: flex; align-items: center; justify-content: center; font-size: 22px; margin-bottom: 16px }
-.problem-icon i { font-size: 22px }
-.problem-card h3 { font-size: 17px; font-weight: 600; margin-bottom: 10px; color: var(--ink) }
-.problem-card p { font-size: 14.5px; color: var(--ink-2); line-height: 1.6 }
+/* ===== SECTIONS ===== */
+.section { padding:80px 0; position:relative; }
+.section.light { background:var(--canvas); }
+.section.dark { background:var(--night); color:#fff; position:relative; overflow:hidden; }
+.section.dark .sec-head h2 { color:#fff; }
+.section.dark .sec-head p { color:var(--night-txt); }
+.section.dark::before { content:""; position:absolute; inset:0; background:radial-gradient(ellipse at 30% 30%,rgba(239,162,60,.18),rgba(206,82,134,.12),transparent 70%); pointer-events:none; }
+.section.cream { background:var(--paper-2); }
+.sec-head { text-align:center; max-width:620px; margin:0 auto 48px; position:relative; z-index:1; }
+.sec-head h2 { font-family:var(--serif); font-size:clamp(34px,4.5vw,48px); font-weight:500; letter-spacing:-.025em; line-height:1.05; margin-bottom:14px; }
+.sec-head p { font-size:17px; color:var(--ink-2); line-height:1.6; }
 
-/* HOW */
-.how-section { padding: 80px 0; background: var(--night); color: #fff; position: relative; overflow: hidden }
-.how-section .atmos { position: absolute; inset: 0; pointer-events: none }
-.how-section .dg { position: absolute; border-radius: 50%; filter: blur(100px) }
-.how-section .dg1 { width: 500px; height: 500px; right: -100px; top: -150px; background: radial-gradient(circle,rgba(239,162,60,.25),transparent 70%) }
-.how-section .dg2 { width: 400px; height: 400px; left: -100px; bottom: -100px; background: radial-gradient(circle,rgba(206,82,134,.25),transparent 70%) }
-.how-header { text-align: center; max-width: 560px; margin: 0 auto 52px; position: relative; z-index: 1 }
-.how-title { font-family: var(--serif); font-size: clamp(36px,5vw,52px); font-weight: 500; letter-spacing: -.025em; line-height: 1.05; color: #fff; margin-bottom: 16px }
-.how-sub { font-size: 17px; color: var(--night-txt); line-height: 1.6 }
-.how-steps { display: grid; grid-template-columns: repeat(4,1fr); gap: 24px; max-width: 1040px; margin: 0 auto; position: relative; z-index: 1 }
-.how-step { position: relative; padding: 24px; background: rgba(30,32,66,.5); border: 1px solid var(--night-line); border-radius: 16px; backdrop-filter: blur(8px) }
-.step-num { font-family: var(--mono); font-size: 11px; font-weight: 700; letter-spacing: .08em; color: var(--amber); margin-bottom: 16px }
-.step-content h3 { font-size: 17px; font-weight: 600; color: #fff; margin-bottom: 10px }
-.step-content p { font-size: 13.5px; color: var(--night-txt-2); line-height: 1.6 }
+/* ===== GRID 3 ===== */
+.grid-3 { display:grid; grid-template-columns:repeat(3,1fr); gap:22px; max-width:1040px; margin:0 auto; position:relative; z-index:1; }
+.card { background:var(--paper); border:1px solid var(--line-2); border-radius:18px; padding:28px 26px; transition:.15s; }
+.card:hover { border-color:var(--line-3); box-shadow:var(--sh-lg); transform:translateY(-3px); }
+.card-icon { width:44px; height:44px; border-radius:11px; background:var(--coral-soft); color:var(--coral); display:flex; align-items:center; justify-content:center; font-size:20px; margin-bottom:14px; }
+.card h3 { font-size:17px; font-weight:600; margin-bottom:10px; }
+.card p { font-size:14px; color:var(--ink-2); line-height:1.6; }
 
-/* PRICING */
-.pricing-section { padding: 80px 0; background: var(--canvas) }
-.pricing-header { text-align: center; max-width: 560px; margin: 0 auto 52px }
-.pricing-title { font-family: var(--serif); font-size: clamp(36px,5vw,52px); font-weight: 500; letter-spacing: -.025em; line-height: 1.05; margin-bottom: 16px }
-.pricing-sub { font-size: 17px; color: var(--ink-2); line-height: 1.6 }
-.pricing-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; max-width: 800px; margin: 0 auto }
-.pricing-card { background: var(--paper); border: 1px solid var(--line-2); border-radius: 20px; padding: 32px; box-shadow: var(--sh) }
-.pricing-card-featured { background: var(--night); border-color: var(--night-line); box-shadow: var(--sh-lg) }
-.pc-tag { font-family: var(--mono); font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .06em; color: var(--ink-3); margin-bottom: 16px }
-.pc-tag-featured { font-family: var(--mono); font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .06em; color: var(--amber); margin-bottom: 16px }
-.pc-price-lg { font-family: var(--serif); font-size: 48px; font-weight: 500; letter-spacing: -.03em; line-height: 1; color: var(--ink); margin-bottom: 4px }
-.pc-price-grad { background: var(--sunrise); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent }
-.pc-per { font-family: var(--mono); font-size: 12px; color: var(--ink-3); margin-bottom: 20px }
-.pc-desc { font-size: 14px; color: var(--ink-2); line-height: 1.6; margin-bottom: 24px }
-.pc-features { list-style: none; padding: 0; margin: 0 0 28px; display: flex; flex-direction: column; gap: 10px }
-.pc-features li { font-size: 14px; color: var(--ink); display: flex; align-items: flex-start; gap: 10px }
-.pc-features li i { color: var(--green); font-size: 17px; flex-shrink: 0; margin-top: 1px }
-.pc-features-light li { color: var(--night-txt-2) }
-.pc-features-light li i { color: var(--amber) }
-.pc-note { font-family: var(--mono); font-size: 11px; color: var(--night-txt); text-align: center; margin-top: 16px }
+/* ===== SERVICES ===== */
+.svc-grid { gap:20px; }
+.svc-card { background:rgba(30,32,66,.5); border:1px solid var(--night-line); border-radius:18px; padding:30px 28px; position:relative; backdrop-filter:blur(6px); transition:.15s; }
+.svc-card:hover { border-color:rgba(239,162,60,.4); background:rgba(30,32,66,.7); transform:translateY(-2px); }
+.svc-num { font-family:var(--mono); font-size:11px; font-weight:700; letter-spacing:.05em; color:var(--amber); margin-bottom:14px; }
+.svc-icon { width:44px; height:44px; border-radius:11px; background:rgba(239,162,60,.15); color:var(--amber); display:flex; align-items:center; justify-content:center; font-size:20px; margin-bottom:14px; }
+.svc-card h3 { font-size:18px; font-weight:600; color:#fff; margin-bottom:10px; }
+.svc-card p { font-size:13.5px; color:var(--night-txt-2); line-height:1.6; margin-bottom:18px; }
+.svc-tags { display:flex; flex-wrap:wrap; gap:6px; }
+.svc-tags span { font-family:var(--mono); font-size:10px; color:var(--night-txt); background:rgba(255,255,255,.04); border:1px solid rgba(255,255,255,.06); border-radius:6px; padding:3px 8px; }
 
-/* CONTACT */
-.contact-section { padding: 80px 0; background: var(--paper-2) }
-.contact-grid { display: grid; grid-template-columns: 1fr 1.2fr; gap: 60px; align-items: start }
-.contact-title { font-family: var(--serif); font-size: clamp(32px,4vw,48px); font-weight: 500; letter-spacing: -.025em; line-height: 1.1; margin-bottom: 16px }
-.contact-sub { font-size: 17px; color: var(--ink-2); line-height: 1.6; margin-bottom: 32px }
-.contact-details { display: flex; flex-direction: column; gap: 12px; margin-bottom: 24px }
-.contact-detail { display: flex; align-items: center; gap: 12px; font-size: 15px; color: var(--ink) }
-.contact-detail i { font-size: 18px; color: var(--coral) }
-.contact-note { display: flex; gap: 10px; align-items: flex-start; padding: 14px 16px; background: var(--amber-soft); border-radius: 10px; font-size: 13px; color: var(--amber-deep); line-height: 1.5 }
-.contact-note i { font-size: 17px; flex-shrink: 0; margin-top: 1px }
-.contact-cal { background: var(--paper); border: 1px solid var(--line-2); border-radius: 16px; overflow: hidden; box-shadow: var(--sh-lg) }
-.contact-cal-header { padding: 16px 20px; border-bottom: 1px solid var(--line); font-family: var(--mono); font-size: 12px; font-weight: 600; color: var(--ink-3) }
+/* ===== STEPS ===== */
+.steps { display:grid; grid-template-columns:repeat(4,1fr); gap:20px; max-width:1040px; margin:0 auto; }
+.step { background:var(--paper); border:1px solid var(--line-2); border-radius:16px; padding:26px; }
+.step-num { font-family:var(--mono); font-size:11px; font-weight:700; letter-spacing:.06em; color:var(--coral); margin-bottom:14px; }
+.step-body h3 { font-size:16px; font-weight:600; margin-bottom:8px; }
+.step-body p { font-size:13.5px; color:var(--ink-2); line-height:1.6; }
 
-/* NOTES */
-.notes-section { padding: 80px 0; background: var(--canvas) }
-.notes-header { max-width: 560px; margin: 0 auto 40px; text-align: center }
-.notes-header h2 { font-family: var(--serif); font-size: clamp(30px,4vw,44px); font-weight: 500; letter-spacing: -.025em; margin-bottom: 12px }
-.notes-header p { font-size: 16px; color: var(--ink-2) }
-.notes-list { max-width: 640px; margin: 0 auto; display: flex; flex-direction: column; }
-.note-item { display: flex; flex-direction: column; gap: 4px; padding: 20px 0; border-bottom: 1px solid var(--line); transition: .12s }
-.note-item:first-child { border-top: 1px solid var(--line) }
-.note-item:hover { padding-left: 8px }
-.note-date { font-family: var(--mono); font-size: 11px; color: var(--ink-4); text-transform: uppercase; letter-spacing: .03em }
-.note-title { font-family: var(--serif); font-size: 20px; font-weight: 500; color: var(--ink); transition: color .12s }
-.note-item:hover .note-title { color: var(--coral-deep) }
+/* ===== CLIENTS ===== */
+.client-grid { display:flex; flex-wrap:wrap; justify-content:center; gap:16px; max-width:800px; margin:0 auto; }
+.client-item { background:var(--paper); border:1px solid var(--line-2); border-radius:12px; padding:14px 22px; transition:.12s; }
+.client-item:hover { border-color:var(--line-3); box-shadow:var(--sh-sm); }
+.client-item a { font-size:15px; font-weight:500; color:var(--ink); text-decoration:none; }
 
-/* CLOSING */
-.closing { padding: 80px 0 }
-.closing .catmos { position: absolute; inset: 0; z-index: 0; pointer-events: none }
-.closing .cg { position: absolute; left: 50%; top: 0; transform: translateX(-50%); width: 700px; height: 400px; background: radial-gradient(ellipse at center,rgba(239,162,60,.15),rgba(206,82,134,.1),transparent 70%); filter: blur(50px) }
-.closing > .wrap { position: relative; z-index: 1; text-align: center }
-.closing h2 { font-family: var(--serif); font-size: clamp(36px,5vw,56px); font-weight: 500; letter-spacing: -.025em; line-height: 1.05; color: var(--ink); margin-bottom: 16px }
-.closing p { font-size: 18px; color: var(--ink-2); max-width: 400px; margin: 0 auto 30px }
+/* ===== PRICING ===== */
+.pricing-grid { display:grid; grid-template-columns:1fr 1fr; gap:24px; max-width:800px; margin:0 auto; }
+.pricing-card { background:var(--paper); border:1px solid var(--line-2); border-radius:20px; padding:32px; box-shadow:var(--sh); }
+.pricing-card.featured { background:var(--night); border-color:var(--night-line); box-shadow:var(--sh-lg); }
+.pc-tag { font-family:var(--mono); font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:.06em; color:var(--ink-3); margin-bottom:16px; }
+.featured .pc-tag { color:var(--amber); }
+.pc-price { font-family:var(--serif); font-size:48px; font-weight:500; letter-spacing:-.03em; line-height:1; color:var(--ink); margin-bottom:4px; }
+.featured .pc-price { background:var(--sunrise); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; }
+.pc-per { font-family:var(--mono); font-size:12px; color:var(--ink-3); margin-bottom:20px; }
+.featured .pc-per { color:var(--night-txt); }
+.pc-desc { font-size:14px; color:var(--ink-2); line-height:1.6; margin-bottom:24px; }
+.featured .pc-desc { color:var(--night-txt-2); }
+.pc-features { list-style:none; padding:0; margin:0 0 28px; display:flex; flex-direction:column; gap:10px; }
+.pc-features li { font-size:14px; color:var(--ink); display:flex; align-items:flex-start; gap:10px; }
+.pc-features li i { color:var(--green); font-size:17px; flex-shrink:0; margin-top:1px; }
+.featured .pc-features li { color:var(--night-txt-2); }
+.featured .pc-features li i { color:var(--amber); }
+.pc-note { font-family:var(--mono); font-size:11px; color:var(--night-txt); text-align:center; margin-top:16px; }
 
-/* RESPONSIVE */
-@media (max-width: 920px) {
-  .hero-grid { grid-template-columns: 1fr; gap: 40px }
-  .hero-stats { grid-template-columns: repeat(4,1fr) }
-  .problems-grid { grid-template-columns: 1fr }
-  .how-steps { grid-template-columns: 1fr 1fr; gap: 16px }
-  .pricing-grid { grid-template-columns: 1fr }
-  .contact-grid { grid-template-columns: 1fr; gap: 40px }
+/* ===== NOTES ===== */
+.notes-list { max-width:640px; margin:0 auto; display:flex; flex-direction:column; }
+.note-item { display:flex; flex-direction:column; gap:4px; padding:20px 0; border-bottom:1px solid var(--line); transition:.12s; text-decoration:none; }
+.note-item:first-child { border-top:1px solid var(--line); }
+.note-item:hover { padding-left:8px; }
+.note-date { font-family:var(--mono); font-size:11px; color:var(--ink-4); text-transform:uppercase; letter-spacing:.03em; }
+.note-title { font-family:var(--serif); font-size:20px; font-weight:500; color:var(--ink); transition:color .12s; }
+.note-item:hover .note-title { color:var(--coral-deep); }
+.notes-cta { text-align:center; margin-top:32px; }
+
+/* ===== CLOSING ===== */
+.closing { text-align:center; padding:80px 0; }
+.closing .badge { display:inline-block; font-family:var(--mono); font-size:11px; font-weight:600; text-transform:uppercase; letter-spacing:.06em; color:var(--coral); border:1px solid var(--line-2); border-radius:30px; padding:6px 16px; margin-bottom:20px; background:rgba(255,255,255,.7); }
+.closing h2 { font-family:var(--serif); font-size:clamp(36px,5vw,52px); font-weight:500; letter-spacing:-.025em; line-height:1.05; margin-bottom:16px; }
+.closing p { font-size:18px; color:var(--ink-2); max-width:520px; margin:0 auto 30px; }
+
+/* ===== RESPONSIVE ===== */
+@media (max-width:920px) {
+  .hero-flex { grid-template-columns:1fr; gap:36px; }
+  .hero-right { grid-template-columns:repeat(4,1fr); }
+  .grid-3 { grid-template-columns:1fr; max-width:520px; }
+  .svc-grid { grid-template-columns:1fr; max-width:520px; }
+  .steps { grid-template-columns:1fr 1fr; }
+  .pricing-grid { grid-template-columns:1fr; max-width:480px; }
 }
-@media (max-width: 560px) {
-  .hero-stats { grid-template-columns: 1fr 1fr; gap: 12px }
-  .stat-card { padding: 18px }
-  .stat-num { font-size: 28px }
-  .how-steps { grid-template-columns: 1fr }
-  .problems-section, .how-section, .pricing-section, .contact-section, .notes-section, .closing { padding: 56px 0 }
+@media (max-width:560px) {
+  .hero { padding:60px 0 40px; }
+  .hero-right { grid-template-columns:1fr 1fr; gap:10px; }
+  .stat-card { padding:16px; }
+  .stat-card .num { font-size:24px; }
+  .steps { grid-template-columns:1fr; }
+  .section { padding:56px 0; }
+  .client-grid { gap:10px; }
+  .client-item { padding:10px 16px; }
+  .client-item a { font-size:13px; }
+  .dec-1,.dec-2,.dec-3 { opacity:.2; }
 }
 </style>
