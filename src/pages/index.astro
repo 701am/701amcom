@@ -31,8 +31,8 @@ const fmt = (d: Date) =>
       </div>
       <div>
         <div style="background:var(--paper);border:1px solid var(--line-2);border-radius:14px;overflow:hidden;box-shadow:var(--sh-lg)">
-          <div style="padding:20px 20px 8px;border-bottom:1px solid var(--line);font-family:var(--mono);font-size:11.5px;font-weight:600;color:var(--ink-3)">Book a discovery call</div>
-          <div style="height:560px;padding:0" id="cal-inline-embed"></div>
+          <div style="padding:16px 20px 12px;border-bottom:1px solid var(--line);font-family:var(--mono);font-size:11.5px;font-weight:600;color:var(--ink-3)">Book a discovery call</div>
+          <iframe src="https://cal.com/davidkrug/discovery?embed" width="100%" height="560" frameborder="0" style="border:none;display:block"></iframe>
         </div>
       </div>
     </div>
@@ -192,11 +192,3 @@ const fmt = (d: Date) =>
 <style>
 .cal-wrap{background:var(--paper);border:1px solid var(--line-2);border-radius:14px;overflow:hidden;box-shadow:var(--sh-lg)}
 
-<script type="text/javascript">
-  (function(C,A,L){_cmc=function(){C.m.push(arguments)};C.m=C.m||[];C.style=C.style||{};C.ui=C.ui||{};C.loadingQueue=C.loadingQueue||[];C.lightTheme=C.lightTheme||{};C.darkTheme=C.darkTheme||{};L.forEach(function(t){C[t]=function(){_cmc(t,arguments)}});if(!C.loaded){C.loaded=true;var e=A.createElement("script");e.src="https://app.cal.com/embed/embed.js";var t=A.getElementsByTagName("script")[0];t.parentNode.insertBefore(e,t)}}(window,document,["init","ui","on","off","onAny","offAny","manageModal"]));
-  Cal("init","discovery",{origin:"https://cal.com"});
-  Cal("ui","discovery",{"styles":{"branding":{"brandColor":"#000000"}},"hideEventTypeDetails":false,"layout":"month_view"});
-</script>
-<script type="text/javascript">
-  Cal("inline",{elementOrSelector:"#cal-inline-embed",calLink:"davidkrug/discovery",config:{"layout":"month_view"}});
-</script>
