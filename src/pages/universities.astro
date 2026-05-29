@@ -13,7 +13,7 @@ import Layout from '../layouts/Layout.astro';
 
   <div class="contact-wrap">
     <div class="contact-form" id="contact-card">
-      <div class="calendly-inline-widget" data-url="https://cal.com/davidkrug/discovery?overlayCalendar=true" style="min-width:320px;height:630px;border-radius:14px;overflow:hidden"></div>
+      <div style="height:560px;padding:0" id="cal-inline-embed"></div>
     </div>
 
     <aside class="contact-side">
@@ -36,4 +36,11 @@ import Layout from '../layouts/Layout.astro';
   </div>
 </Layout>
 
-<script src="https://assets.cal.com/embed.js" async></script>
+<script type="text/javascript">
+  (function(C,A,L){_cmc=function(){C.m.push(arguments)};C.m=C.m||[];C.style=C.style||{};C.ui=C.ui||{};C.loadingQueue=C.loadingQueue||[];C.lightTheme=C.lightTheme||{};C.darkTheme=C.darkTheme||{};L.forEach(function(t){C[t]=function(){_cmc(t,arguments)}});if(!C.loaded){C.loaded=true;var e=A.createElement("script");e.src="https://app.cal.com/embed/embed.js";var t=A.getElementsByTagName("script")[0];t.parentNode.insertBefore(e,t)}}(window,document,["init","ui","on","off","onAny","offAny","manageModal"]));
+  Cal("init","discovery",{origin:"https://cal.com"});
+  Cal("ui","discovery",{"styles":{"branding":{"brandColor":"#000000"}},"hideEventTypeDetails":false,"layout":"month_view"});
+</script>
+<script type="text/javascript">
+  Cal("inline",{elementOrSelector:"#cal-inline-embed",calLink:"davidkrug/discovery",config:{"layout":"month_view"}});
+</script>
